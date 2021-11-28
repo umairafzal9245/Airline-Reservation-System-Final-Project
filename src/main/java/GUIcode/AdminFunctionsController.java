@@ -15,6 +15,7 @@ public class AdminFunctionsController {
     static Scene loginscene;
     static Scene admindetailscene;
     static Scene adminregisterscene;
+    static Scene viewallcustomersscene;
     @FXML
     private Button ExitMainMenu;
 
@@ -34,13 +35,21 @@ public class AdminFunctionsController {
     private Button ViewAdminDetails;
 
     @FXML
-    void ExitMainMenu(ActionEvent event) {
+    private Button viewcustomers;
+
+    @FXML
+    private Button viewreservations;
+
+    @FXML
+    void ExitMainMenu(ActionEvent event)
+    {
         HelloApplication.window.setScene(HelloApplication.MainMenu);
         HelloApplication.window.show();
     }
 
     @FXML
-    void LoginAdminAccount(ActionEvent event) throws IOException {
+    void LoginAdminAccount(ActionEvent event) throws IOException
+    {
         if(MainController.flightReservationSystem.admin.isLogin())
         {
             Alert message = new Alert(Alert.AlertType.INFORMATION);
@@ -48,7 +57,8 @@ public class AdminFunctionsController {
             message.setContentText("You are already logged in");
             message.showAndWait();
         }
-        else {
+        else
+        {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
             loginscene = new Scene(fxmlLoader.load(), 500, 500);
             HelloApplication.window.setScene(loginscene);
@@ -57,7 +67,8 @@ public class AdminFunctionsController {
     }
 
     @FXML
-    void LogoutAdminAccount(ActionEvent event) {
+    void LogoutAdminAccount(ActionEvent event)
+    {
         if (MainController.flightReservationSystem.admin.isLogin())
         {
             MainController.flightReservationSystem.admin.logout();
@@ -76,18 +87,22 @@ public class AdminFunctionsController {
     }
 
     @FXML
-    void ManageFlightSchedules(ActionEvent event) {
+    void ManageFlightSchedules(ActionEvent event)
+    {
 
     }
 
     @FXML
-    void ModifyDetails(ActionEvent event) throws IOException {
+    void ModifyDetails(ActionEvent event) throws IOException
+    {
 
-        if(MainController.flightReservationSystem.admin.isLogin()){
+        if(MainController.flightReservationSystem.admin.isLogin())
+        {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RegisterAdmin.fxml"));
         adminregisterscene = new Scene(fxmlLoader.load(), 500, 500);
         HelloApplication.window.setScene(adminregisterscene);
-        HelloApplication.window.show();}
+        HelloApplication.window.show();
+        }
         else
         {
             Alert message = new Alert(Alert.AlertType.INFORMATION);
@@ -98,11 +113,38 @@ public class AdminFunctionsController {
     }
 
     @FXML
-    void ViewAdminDetails(ActionEvent event) throws IOException {
+    void ViewAdminDetails(ActionEvent event) throws IOException
+    {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAdminDetails.fxml"));
         admindetailscene = new Scene(fxmlLoader.load(), 500, 500);
         HelloApplication.window.setScene(admindetailscene);
         HelloApplication.window.show();
     }
+
+    @FXML
+    void ViewAllCustomers(ActionEvent event) throws IOException
+    {
+        if(MainController.flightReservationSystem.admin.isLogin())
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAllCustomersTable.fxml"));
+            viewallcustomersscene = new Scene(fxmlLoader.load(), 500, 500);
+            HelloApplication.window.setScene(viewallcustomersscene);
+            HelloApplication.window.show();
+        }
+        else
+        {
+            Alert message = new Alert(Alert.AlertType.INFORMATION);
+            message.setTitle("Login");
+            message.setContentText("Please login to view details");
+            message.showAndWait();
+        }
+    }
+
+    @FXML
+    void ViewAllReservations(ActionEvent event)
+    {
+
+    }
+
 
 }

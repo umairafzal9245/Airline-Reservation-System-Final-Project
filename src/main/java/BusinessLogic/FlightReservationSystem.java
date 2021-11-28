@@ -7,10 +7,10 @@ import java.util.Scanner;
 
 public class FlightReservationSystem
 {
-    public static Admin admin;
-    public static CustomerAccounts customers;
-    public static FlightCalender totalflights;
-    public static ReservationsList reservations;
+    public Admin admin;
+    public CustomerAccounts customers;
+    public FlightCalender totalflights;
+    public ReservationsList reservations;
 
     public FlightReservationSystem()
     {
@@ -47,8 +47,8 @@ public class FlightReservationSystem
             System.out.println(e.getMessage());
         }
     }
-    private static void Accountsmenu() throws NoCustomerPresentException, PinUnverifiedException, CustomerAlreadyPresentException, CustomerNameNotFoundException {
-        /*Delete and modify customer details*/
+    /*private static void Accountsmenu() throws NoCustomerPresentException, PinUnverifiedException, CustomerAlreadyPresentException, CustomerNameNotFoundException {
+        /*Delete and modify customer details
         System.out.println("1. Login an account");
         System.out.println("2. Register an account");
         System.out.println("3. Display Customers accounts");
@@ -396,5 +396,5 @@ public class FlightReservationSystem
                 System.out.println(e.getMessage());
             }
         }
-    }
+    }*/
 }

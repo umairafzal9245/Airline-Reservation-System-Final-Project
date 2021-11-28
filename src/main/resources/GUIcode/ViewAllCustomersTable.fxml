@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="500.0" maxWidth="700.0" minHeight="500.0" minWidth="700.0" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.ViewAllCustomersTable">
+   <children>
+      <TableView fx:id="Table" layoutX="4.0" layoutY="98.0" prefHeight="500.0" prefWidth="688.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="98.0">
+        <columns>
+          <TableColumn fx:id="name" prefWidth="140.0" text="Name" />
+          <TableColumn fx:id="gender" minWidth="0.0" prefWidth="53.0" text="Gender" />
+            <TableColumn fx:id="age" prefWidth="43.0" text="Age" />
+            <TableColumn fx:id="address" prefWidth="219.0" text="Address" />
+            <TableColumn fx:id="passport" prefWidth="162.0" text="Passport Number" />
+            <TableColumn fx:id="loginpin" prefWidth="82.0" text="Login Pin" />
+        </columns>
+      </TableView>
+      <Button fx:id="Back" layoutX="48.0" layoutY="47.0" mnemonicParsing="false" onAction="#BackToMenu" text="Back" />
+   </children>
+</AnchorPane>
