@@ -7,12 +7,12 @@ import java.util.Scanner;
 
 public class FlightReservationSystem
 {
-    private static Admin admin;
-    private static CustomerAccounts customers;
-    private static FlightCalender totalflights;
-    private static ReservationsList reservations;
+    public static Admin admin;
+    public static CustomerAccounts customers;
+    public static FlightCalender totalflights;
+    public static ReservationsList reservations;
 
-    FlightReservationSystem()
+    public FlightReservationSystem()
     {
         admin = new Admin();
         customers = new CustomerAccounts();

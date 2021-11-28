@@ -1,13 +1,5 @@
 package BusinessLogic;
 
-class PinUnverifiedException extends Exception
-{
-    public PinUnverifiedException(String message)
-    {
-        super(message);
-    }
-}
-
 class NoCustomerPresentException extends Exception
 {
     public NoCustomerPresentException(String message)
