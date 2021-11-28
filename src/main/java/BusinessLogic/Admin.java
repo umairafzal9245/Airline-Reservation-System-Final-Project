@@ -3,6 +3,15 @@ package BusinessLogic;
 public class Admin
 {
     private String name;
+
+    public int getLoginpin() {
+        return loginpin;
+    }
+
+    public void setLoginpin(int loginpin) {
+        this.loginpin = loginpin;
+    }
+
     private int loginpin;
     private boolean logincheck;
 

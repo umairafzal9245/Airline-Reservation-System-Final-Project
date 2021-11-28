@@ -13,6 +13,7 @@ import java.io.IOException;
 public class AdminFunctionsController {
 
     static Scene loginscene;
+    static Scene admindetailscene;
     @FXML
     private Button ExitMainMenu;
 
@@ -56,7 +57,21 @@ public class AdminFunctionsController {
 
     @FXML
     void LogoutAdminAccount(ActionEvent event) {
-
+        if (MainController.flightReservationSystem.admin.isLogin())
+        {
+            MainController.flightReservationSystem.admin.logout();
+            Alert message = new Alert(Alert.AlertType.INFORMATION);
+            message.setTitle("Login");
+            message.setContentText("Account Successfully logged out");
+            message.showAndWait();
+        }
+        else
+        {
+            Alert message = new Alert(Alert.AlertType.INFORMATION);
+            message.setTitle("Login");
+            message.setContentText("No account logged In");
+            message.showAndWait();
+        }
     }
 
     @FXML
@@ -70,8 +85,11 @@ public class AdminFunctionsController {
     }
 
     @FXML
-    void ViewAdminDetails(ActionEvent event) {
-
+    void ViewAdminDetails(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAdminDetails.fxml"));
+        admindetailscene = new Scene(fxmlLoader.load(), 500, 500);
+        HelloApplication.window.setScene(admindetailscene);
+        HelloApplication.window.show();
     }
 
 }
