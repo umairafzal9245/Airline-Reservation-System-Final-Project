@@ -14,6 +14,7 @@ public class AdminFunctionsController {
 
     static Scene loginscene;
     static Scene admindetailscene;
+    static Scene adminregisterscene;
     @FXML
     private Button ExitMainMenu;
 
@@ -80,8 +81,20 @@ public class AdminFunctionsController {
     }
 
     @FXML
-    void RegisterAdminAccount(ActionEvent event) {
+    void ModifyDetails(ActionEvent event) throws IOException {
 
+        if(MainController.flightReservationSystem.admin.isLogin()){
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RegisterAdmin.fxml"));
+        adminregisterscene = new Scene(fxmlLoader.load(), 500, 500);
+        HelloApplication.window.setScene(adminregisterscene);
+        HelloApplication.window.show();}
+        else
+        {
+            Alert message = new Alert(Alert.AlertType.INFORMATION);
+            message.setTitle("Login");
+            message.setContentText("Please login to change details");
+            message.showAndWait();
+        }
     }
 
     @FXML

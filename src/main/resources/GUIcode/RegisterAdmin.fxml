@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.RegisterAdmin">
+   <children>
+      <TextField fx:id="username" layoutX="176.0" layoutY="162.0" promptText="Enter username" />
+      <Label layoutX="112.0" layoutY="166.0" text="Username" />
+      <Label layoutX="112.0" layoutY="242.0" text="Pin" />
+      <Button fx:id="backbutton" layoutX="100.0" layoutY="361.0" mnemonicParsing="false" onAction="#BacktoMainMenu" text="Back" />
+      <Button fx:id="submitbutton" layoutX="224.0" layoutY="305.0" mnemonicParsing="false" onAction="#Changedetails" text="Submit" />
+      <PasswordField fx:id="password" layoutX="177.0" layoutY="238.0" promptText="Enter password" />
+   </children>
+</AnchorPane>
