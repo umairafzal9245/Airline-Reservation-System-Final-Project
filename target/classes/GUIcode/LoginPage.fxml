@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.LoginPage">
+   <children>
+      <Button fx:id="backfromadminlogin" layoutX="87.0" layoutY="312.0" mnemonicParsing="false" onAction="#ShowAdminFunctionsList" text="Back" />
+      <Button fx:id="loginbutton" layoutX="261.0" layoutY="244.0" mnemonicParsing="false" onAction="#LoginAdmin" prefHeight="35.0" prefWidth="100.0" text="Login In" />
+      <PasswordField fx:id="passwordfield" layoutX="226.0" layoutY="176.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter password" />
+      <TextField fx:id="usernamefield" editable="false" layoutX="226.0" layoutY="103.0" prefHeight="35.0" prefWidth="170.0" promptText="admin" text="admin" />
+      <Label layoutX="147.0" layoutY="111.0" prefHeight="20.0" prefWidth="74.0" text="Username">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="147.0" layoutY="184.0" prefHeight="20.0" prefWidth="74.0" text="Password">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
