@@ -1,5 +1,7 @@
 package BusinessLogic;
 
+import javafx.beans.value.ObservableValue;
+
 public class Payments
 {
 
@@ -48,7 +50,7 @@ public class Payments
         return expirydate;
     }
 
-    public int getCvv() {
+    public Integer getCvv() {
         return cvv;
     }
 }

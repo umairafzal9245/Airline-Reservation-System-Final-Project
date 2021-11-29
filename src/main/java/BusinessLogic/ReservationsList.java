@@ -7,6 +7,14 @@ import java.util.ArrayList;
 
 public class ReservationsList
 {
+    public ArrayList<Reservation> getTotalreservations() {
+        return totalreservations;
+    }
+
+    public void setTotalreservations(ArrayList<Reservation> totalreservations) {
+        this.totalreservations = totalreservations;
+    }
+
     private ArrayList<Reservation> totalreservations;
     private DataBaseHandler Database;
 

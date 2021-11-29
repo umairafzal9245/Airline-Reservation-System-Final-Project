@@ -16,6 +16,7 @@ public class AdminFunctionsController {
     static Scene admindetailscene;
     static Scene adminregisterscene;
     static Scene viewallcustomersscene;
+    static Scene viewallresevationsscene;
     @FXML
     private Button ExitMainMenu;
 
@@ -141,9 +142,21 @@ public class AdminFunctionsController {
     }
 
     @FXML
-    void ViewAllReservations(ActionEvent event)
-    {
-
+    void ViewAllReservations(ActionEvent event) throws IOException {
+        if(MainController.flightReservationSystem.admin.isLogin())
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAllReservations.fxml"));
+            viewallresevationsscene = new Scene(fxmlLoader.load(), 500, 500);
+            HelloApplication.window.setScene(viewallresevationsscene);
+            HelloApplication.window.show();
+        }
+        else
+        {
+            Alert message = new Alert(Alert.AlertType.INFORMATION);
+            message.setTitle("Login");
+            message.setContentText("Please login to view details");
+            message.showAndWait();
+        }
     }
 
 
