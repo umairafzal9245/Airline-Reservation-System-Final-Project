@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.LoginPage">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.LoginPage">
    <children>
       <Button fx:id="Back" layoutX="61.0" layoutY="401.0" mnemonicParsing="false" onAction="#ShowAdminFunctionsList" text="Back" />
       <Button fx:id="loginbutton" layoutX="235.0" layoutY="332.0" mnemonicParsing="false" onAction="#LoginAdmin" prefHeight="35.0" prefWidth="100.0" text="Login In" />

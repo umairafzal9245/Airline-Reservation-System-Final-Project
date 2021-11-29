@@ -1,6 +1,8 @@
-package GUIcode;
+package GUIcode.AdminGUI;
 
 import BusinessLogic.Customer;
+import GUIcode.HelloApplication;
+import GUIcode.MainController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

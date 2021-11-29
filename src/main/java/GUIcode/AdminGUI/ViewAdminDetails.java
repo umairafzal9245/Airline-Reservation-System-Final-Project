@@ -1,5 +1,7 @@
-package GUIcode;
+package GUIcode.AdminGUI;
 
+import GUIcode.HelloApplication;
+import GUIcode.MainController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

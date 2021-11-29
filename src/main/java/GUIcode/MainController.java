@@ -15,8 +15,8 @@ import java.util.Optional;
 
 public class MainController {
 
-    static Scene Adminsfunctionscene;
-    static FlightReservationSystem flightReservationSystem = new FlightReservationSystem();
+    public static Scene Adminsfunctionscene;
+    public static FlightReservationSystem flightReservationSystem = new FlightReservationSystem();
     @FXML
     private Button MainAdminButton;
 

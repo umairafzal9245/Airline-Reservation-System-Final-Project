@@ -8,8 +8,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
-    static Stage window;
-    static Scene MainMenu;
+    public static Stage window;
+    public static Scene MainMenu;
     @Override
     public void start(Stage stage) throws IOException {
         window = stage;

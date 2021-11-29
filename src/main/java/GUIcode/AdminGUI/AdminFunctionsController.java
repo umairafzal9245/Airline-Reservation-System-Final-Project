@@ -1,5 +1,7 @@
-package GUIcode;
+package GUIcode.AdminGUI;
 
+import GUIcode.HelloApplication;
+import GUIcode.MainController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -116,10 +118,20 @@ public class AdminFunctionsController {
     @FXML
     void ViewAdminDetails(ActionEvent event) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAdminDetails.fxml"));
-        admindetailscene = new Scene(fxmlLoader.load(), 500, 500);
-        HelloApplication.window.setScene(admindetailscene);
-        HelloApplication.window.show();
+        if(MainController.flightReservationSystem.admin.isLogin())
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAdminDetails.fxml"));
+            admindetailscene = new Scene(fxmlLoader.load(), 500, 500);
+            HelloApplication.window.setScene(admindetailscene);
+            HelloApplication.window.show();
+        }
+        else
+        {
+            Alert message = new Alert(Alert.AlertType.INFORMATION);
+            message.setTitle("Login");
+            message.setContentText("Please login to view details");
+            message.showAndWait();
+        }
     }
 
     @FXML
