@@ -8,17 +8,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class AdminFunctionsController {
 
-    static Scene loginscene;
     static Scene admindetailscene;
     static Scene adminregisterscene;
     static Scene viewallcustomersscene;
     static Scene viewallresevationsscene;
+    static Scene manageflightsscene;
     @FXML
     private Button ExitMainMenu;
 
@@ -46,25 +48,14 @@ public class AdminFunctionsController {
     @FXML
     void ExitMainMenu(ActionEvent event)
     {
-        HelloApplication.window.setScene(HelloApplication.MainMenu);
-        HelloApplication.window.show();
-    }
-
-    @FXML
-    void LoginAdminAccount(ActionEvent event) throws IOException
-    {
-        if(MainController.flightReservationSystem.admin.isLogin())
+        Alert newalert = new Alert(Alert.AlertType.CONFIRMATION);
+        newalert.setTitle("Confirmation");
+        newalert.setContentText("Your account will be logout");
+        Optional<ButtonType> input = newalert.showAndWait();
+        if(input.get() == ButtonType.OK)
         {
-            Alert message = new Alert(Alert.AlertType.INFORMATION);
-            message.setTitle("Login");
-            message.setContentText("You are already logged in");
-            message.showAndWait();
-        }
-        else
-        {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
-            loginscene = new Scene(fxmlLoader.load(), 500, 500);
-            HelloApplication.window.setScene(loginscene);
+            MainController.flightReservationSystem.admin.logout();
+            HelloApplication.window.setScene(HelloApplication.MainMenu);
             HelloApplication.window.show();
         }
     }
@@ -72,103 +63,57 @@ public class AdminFunctionsController {
     @FXML
     void LogoutAdminAccount(ActionEvent event)
     {
-        if (MainController.flightReservationSystem.admin.isLogin())
-        {
             MainController.flightReservationSystem.admin.logout();
             Alert message = new Alert(Alert.AlertType.INFORMATION);
             message.setTitle("Login");
             message.setContentText("Account Successfully logged out");
             message.showAndWait();
-        }
-        else
-        {
-            Alert message = new Alert(Alert.AlertType.INFORMATION);
-            message.setTitle("Login");
-            message.setContentText("No account logged In");
-            message.showAndWait();
-        }
+            HelloApplication.window.setScene(HelloApplication.MainMenu);
+            HelloApplication.window.show();
     }
 
     @FXML
-    void ManageFlightSchedules(ActionEvent event)
-    {
-
+    void ManageFlightSchedules(ActionEvent event) throws IOException {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ManageFlights.fxml"));
+            manageflightsscene = new Scene(fxmlLoader.load(), 500, 500);
+            HelloApplication.window.setScene(manageflightsscene);
+            HelloApplication.window.show();
     }
 
     @FXML
     void ModifyDetails(ActionEvent event) throws IOException
     {
-
-        if(MainController.flightReservationSystem.admin.isLogin())
-        {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RegisterAdmin.fxml"));
         adminregisterscene = new Scene(fxmlLoader.load(), 500, 500);
         HelloApplication.window.setScene(adminregisterscene);
         HelloApplication.window.show();
-        }
-        else
-        {
-            Alert message = new Alert(Alert.AlertType.INFORMATION);
-            message.setTitle("Login");
-            message.setContentText("Please login to change details");
-            message.showAndWait();
-        }
     }
 
     @FXML
     void ViewAdminDetails(ActionEvent event) throws IOException
     {
-        if(MainController.flightReservationSystem.admin.isLogin())
-        {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAdminDetails.fxml"));
             admindetailscene = new Scene(fxmlLoader.load(), 500, 500);
             HelloApplication.window.setScene(admindetailscene);
             HelloApplication.window.show();
-        }
-        else
-        {
-            Alert message = new Alert(Alert.AlertType.INFORMATION);
-            message.setTitle("Login");
-            message.setContentText("Please login to view details");
-            message.showAndWait();
-        }
     }
 
     @FXML
     void ViewAllCustomers(ActionEvent event) throws IOException
     {
-        if(MainController.flightReservationSystem.admin.isLogin())
-        {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAllCustomersTable.fxml"));
             viewallcustomersscene = new Scene(fxmlLoader.load(), 500, 500);
             HelloApplication.window.setScene(viewallcustomersscene);
             HelloApplication.window.show();
-        }
-        else
-        {
-            Alert message = new Alert(Alert.AlertType.INFORMATION);
-            message.setTitle("Login");
-            message.setContentText("Please login to view details");
-            message.showAndWait();
-        }
     }
 
     @FXML
     void ViewAllReservations(ActionEvent event) throws IOException {
-        if(MainController.flightReservationSystem.admin.isLogin())
-        {
+
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAllReservations.fxml"));
             viewallresevationsscene = new Scene(fxmlLoader.load(), 500, 500);
             HelloApplication.window.setScene(viewallresevationsscene);
             HelloApplication.window.show();
-        }
-        else
-        {
-            Alert message = new Alert(Alert.AlertType.INFORMATION);
-            message.setTitle("Login");
-            message.setContentText("Please login to view details");
-            message.showAndWait();
-        }
     }
 
 

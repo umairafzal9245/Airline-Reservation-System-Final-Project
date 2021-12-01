@@ -32,13 +32,13 @@ public class RegisterAdmin {
             Optional<ButtonType> input = newalert.showAndWait();
             if(input.get() == ButtonType.OK)
             {
-                HelloApplication.window.setScene(MainController.Adminsfunctionscene);
+                HelloApplication.window.setScene(LoginPage.Adminsfunctionscene);
                 HelloApplication.window.show();
             }
         }
         else
         {
-            HelloApplication.window.setScene(MainController.Adminsfunctionscene);
+            HelloApplication.window.setScene(LoginPage.Adminsfunctionscene);
             HelloApplication.window.show();
         }
     }
@@ -75,7 +75,7 @@ public class RegisterAdmin {
                 message.setTitle("Details Changed");
                 message.setContentText("Details Successfully changed");
                 message.showAndWait();
-                HelloApplication.window.setScene(MainController.Adminsfunctionscene);
+                HelloApplication.window.setScene(LoginPage.Adminsfunctionscene);
                 HelloApplication.window.show();
             }
         }

@@ -1,5 +1,6 @@
 package GUIcode;
 
+import BusinessLogic.FlightReservationSystem;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,6 +11,7 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     public static Stage window;
     public static Scene MainMenu;
+
     @Override
     public void start(Stage stage) throws IOException {
         window = stage;

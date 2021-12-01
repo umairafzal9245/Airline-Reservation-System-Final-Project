@@ -15,7 +15,7 @@ import java.util.Optional;
 
 public class MainController {
 
-    public static Scene Adminsfunctionscene;
+    public static Scene loginscene;
     public static FlightReservationSystem flightReservationSystem = new FlightReservationSystem();
     @FXML
     private Button MainAdminButton;
@@ -31,9 +31,13 @@ public class MainController {
 
     @FXML
     void InvokeAdminFunctions(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminFunctionsList.fxml"));
-        Adminsfunctionscene = new Scene(fxmlLoader.load(), 500, 500);
-        HelloApplication.window.setScene(Adminsfunctionscene);
+        if(MainController.flightReservationSystem.admin.isLogin() == false)
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
+            loginscene = new Scene(fxmlLoader.load(), 500, 500);
+            HelloApplication.window.setScene(loginscene);
+            HelloApplication.window.show();
+        }
     }
 
     @FXML

@@ -63,7 +63,7 @@ public class ViewAllReservations implements Initializable {
 
     @FXML
     void BackToMenu(ActionEvent event) {
-        HelloApplication.window.setScene(MainController.Adminsfunctionscene);
+        HelloApplication.window.setScene(LoginPage.Adminsfunctionscene);
         HelloApplication.window.show();
     }
 

@@ -11,7 +11,6 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.LoginPage">
    <children>
-      <Button fx:id="Back" layoutX="61.0" layoutY="401.0" mnemonicParsing="false" onAction="#ShowAdminFunctionsList" text="Back" />
       <Button fx:id="loginbutton" layoutX="235.0" layoutY="332.0" mnemonicParsing="false" onAction="#LoginAdmin" prefHeight="35.0" prefWidth="100.0" text="Login In" />
       <PasswordField fx:id="passwordfield" layoutX="201.0" layoutY="268.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter password" />
       <TextField fx:id="usernamefield" editable="false" layoutX="201.0" layoutY="196.0" prefHeight="35.0" prefWidth="170.0" promptText="admin" text="admin" />
@@ -30,5 +29,6 @@
             <Image url="@avatar.png" />
          </image>
       </ImageView>
+      <Button layoutX="65.0" layoutY="402.0" mnemonicParsing="false" onAction="#BacktoMainMenu" text="Back" />
    </children>
 </AnchorPane>
