@@ -2,7 +2,7 @@ package BusinessLogic;
 
 public class TwoWayFlight extends Flight
 {
-    public String getDeparture_Date() {
+    public String getDeparture_date() {
         return Departure_Date;
     }
 
@@ -10,7 +10,7 @@ public class TwoWayFlight extends Flight
         Departure_Date = departure_Date;
     }
 
-    public String getDeparture_Time() {
+    public String getDeparture_time() {
         return Departure_Time;
     }
 

@@ -9,6 +9,10 @@ import java.util.Scanner;
 
 public class FlightCalender
 {
+    public void setFlightsschedule(ArrayList<Flight> flightsschedule) {
+        this.flightsschedule = flightsschedule;
+    }
+
     private ArrayList<Flight> flightsschedule;
     private DataBaseHandler Database;
 

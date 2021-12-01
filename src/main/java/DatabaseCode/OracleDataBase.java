@@ -87,8 +87,8 @@ public class OracleDataBase extends DataBaseHandler
                 statement.setString(2,((TwoWayFlight) object).getOrigin());
                 statement.setString(3,((TwoWayFlight) object).getDestination());
                 statement.setInt(4,((TwoWayFlight) object).getCapacity());
-                statement.setString(5,((TwoWayFlight) object).getDeparture_Date());
-                statement.setString(6,((TwoWayFlight) object).getDeparture_Time());
+                statement.setString(5,((TwoWayFlight) object).getDeparture_date());
+                statement.setString(6,((TwoWayFlight) object).getDeparture_time());
                 statement.setString(7,((TwoWayFlight) object).getArrivalDate());
                 statement.setString(8,((TwoWayFlight) object).getArrivalTime());
                 statement.setInt(9,((TwoWayFlight) object).getFares());

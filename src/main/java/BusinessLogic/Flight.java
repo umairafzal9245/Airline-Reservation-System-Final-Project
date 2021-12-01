@@ -144,4 +144,20 @@ public class Flight
     {
         return "";
     }
+
+    public String getDeparture_date() {
+        return null;
+    }
+    public String getDeparture_time()
+    {
+        return null;
+    }
+    public String getArrivalDate()
+    {
+        return null;
+    }
+    public String getArrivalTime()
+    {
+        return null;
+    }
 }
