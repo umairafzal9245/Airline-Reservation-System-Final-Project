@@ -2,12 +2,14 @@ package GUIcode.AdminGUI;
 
 import BusinessLogic.FlightIDIncorrectException;
 import BusinessLogic.Seats;
+import GUIcode.HelloApplication;
 import GUIcode.MainController;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -39,6 +41,12 @@ public class SeatsList implements Initializable {
 
     ObservableList<Seats> seatslist = FXCollections.observableArrayList();
 
+    @FXML
+    void Exit(ActionEvent event) {
+        HelloApplication.window.setScene(ManageFlights.ShowAllFlightscene);
+        HelloApplication.window.show();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -50,14 +58,13 @@ public class SeatsList implements Initializable {
         }
         for (int i=0;i<getseats.size();i++)
         {
-            //System.out.println(getseats.get(i).getCustomername());
             seatslist.add(getseats.get(i));
         }
 
         flightid.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Seats, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Seats, String> seatsStringCellDataFeatures) {
-                return new SimpleStringProperty(ShowAllFlights.data);
+                return new SimpleStringProperty(seatsStringCellDataFeatures.getValue().getFlightid());
             }
         });
        seatnumber.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Seats, Integer>, ObservableValue<Integer>>() {

@@ -2,7 +2,6 @@ package GUIcode.AdminGUI;
 
 import BusinessLogic.Flight;
 import BusinessLogic.OneWayFlight;
-import BusinessLogic.Seats;
 import BusinessLogic.TwoWayFlight;
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
@@ -20,14 +19,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ShowAllFlights implements Initializable {
@@ -93,6 +90,7 @@ public class ShowAllFlights implements Initializable {
     private TableColumn<Flight, Integer> twowaypassenger;
 
     public static String data;
+    public static Stage seatsdialogue;
 
     ObservableList<Flight> oneWayFlights = FXCollections.observableArrayList();
     ObservableList<Flight> twoWayFlights = FXCollections.observableArrayList();
@@ -230,15 +228,11 @@ public class ShowAllFlights implements Initializable {
                     {
                         btn.setOnAction((ActionEvent event) -> {
                             data = getTableView().getItems().get(getIndex()).getId();
-                            System.out.println(data);
-
-                            Stage myDialog = new Stage();
-                            myDialog.initModality(Modality.WINDOW_MODAL);
                             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SeatsList.fxml"));
                             try {
                                 Scene myDialogScene = new Scene(fxmlLoader.load(), 500, 500);
-                                myDialog.setScene(myDialogScene);
-                                myDialog.show();
+                                HelloApplication.window.setScene(myDialogScene);
+                                HelloApplication.window.show();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -274,15 +268,11 @@ public class ShowAllFlights implements Initializable {
                         btn.setOnAction((ActionEvent event) -> {
 
                             data = getTableView().getItems().get(getIndex()).getId();
-                            System.out.println(data);
-
-                            Stage myDialog = new Stage();
-                            myDialog.initModality(Modality.WINDOW_MODAL);
                             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SeatsList.fxml"));
                             try {
                                 Scene myDialogScene = new Scene(fxmlLoader.load(), 500, 500);
-                                myDialog.setScene(myDialogScene);
-                                myDialog.show();
+                                HelloApplication.window.setScene(myDialogScene);
+                                HelloApplication.window.show();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }

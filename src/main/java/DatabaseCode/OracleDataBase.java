@@ -128,6 +128,7 @@ public class OracleDataBase extends DataBaseHandler
             while(rs.next())
             {
                 Flight object = new OneWayFlight(rs.getString("ID"),rs.getString("ORIGIN"),rs.getString("DESTINATION"),rs.getInt("PASSENGER"), rs.getString("DEPARTUREDATE"),rs.getString("DEPARTURETIME"),rs.getInt("FARES"), rs.getString("CLASS"));
+                //object.setseatsId(object.getId());
                 flightlist.add(object);
             }
             Statement stmt2 = con.createStatement();

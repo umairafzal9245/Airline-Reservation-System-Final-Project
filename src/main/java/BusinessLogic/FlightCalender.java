@@ -44,12 +44,11 @@ public class FlightCalender
         }
         return seatnumbers;
     }
-    public void ReadFlightsFromDatabase() throws NoCustomerPresentException
-    {
+    public void ReadFlightsFromDatabase() throws NoFlightsFoundException {
         ArrayList<Flight> data = Database.GetFlight();
         if(data.isEmpty())
         {
-            throw new NoCustomerPresentException("No Flights Record Present in Database");
+            throw new NoFlightsFoundException("No Flights Record Present in Database");
         }
         for (int i=0;i<data.size();i++)
         {

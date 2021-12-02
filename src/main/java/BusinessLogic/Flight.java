@@ -78,6 +78,7 @@ public class Flight
         for (int i=0;i<capacity;i++)
         {
             Seats object = new Seats(i+1);
+            object.setFlightid(id);
             seats.add(object);
         }
     }
