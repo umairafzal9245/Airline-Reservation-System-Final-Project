@@ -95,7 +95,13 @@ public class FlightCalender
         }
         return index;
     }
+    public ArrayList<Seats> GetFlightSeats(String Flightid) throws FlightIDIncorrectException {
+        int index = searchflight(Flightid);
+        if(index == -1)
+            throw new FlightIDIncorrectException("Flight with this id not found");
 
+        return flightsschedule.get(index).getSeats();
+    }
     public boolean bookaflight(String id,int Numberofpassengers,String customername,ArrayList<Integer> seatnumbers) throws NoFlightsFoundException, LessSeatsAvailableException, SeatNumberIncorrectException, AlreadyBookedSeatException
     {
         boolean flag = false;

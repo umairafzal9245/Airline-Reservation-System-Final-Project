@@ -40,14 +40,6 @@ class FlightsDuplicateFoundException extends Exception
     }
 }
 
-class FlightIDIncorrectException extends Exception
-{
-    public FlightIDIncorrectException(String message)
-    {
-        super(message);
-    }
-}
-
 class LessSeatsAvailableException extends Exception
 {
     public LessSeatsAvailableException(String message)

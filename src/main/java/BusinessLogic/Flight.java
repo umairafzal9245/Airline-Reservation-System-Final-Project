@@ -45,7 +45,13 @@ public class Flight
     private ArrayList<Seats> seats;
 
 
-
+    public void setseatsId(String id)
+    {
+        for (int i=0;i<seats.size();i++)
+        {
+            seats.get(i).setFlightid(id);
+        }
+    }
     public Flight()
     {
         origin = "";
