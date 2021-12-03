@@ -11,9 +11,15 @@ import java.io.IOException;
 public class ManageFlights {
 
     public static Scene ShowAllFlightscene;
-    @FXML
-    void AddNewFlight(ActionEvent event) {
+    public static Scene DeleteAllFlightscene;
+    public static Scene AddNewFlightscene;
 
+    @FXML
+    void AddNewFlight(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AddNewFlight.fxml"));
+        AddNewFlightscene = new Scene(fxmlLoader.load(), 500, 500);
+        HelloApplication.window.setScene(AddNewFlightscene);
+        HelloApplication.window.show();
     }
 
     @FXML
@@ -23,8 +29,11 @@ public class ManageFlights {
     }
 
     @FXML
-    void DeleteFlight(ActionEvent event) {
-
+    void DeleteFlight(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("DeleteFlight.fxml"));
+        DeleteAllFlightscene = new Scene(fxmlLoader.load(), 500, 500);
+        HelloApplication.window.setScene(DeleteAllFlightscene);
+        HelloApplication.window.show();
     }
 
     @FXML
