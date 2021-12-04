@@ -20,7 +20,7 @@ public class Customer
         loginpin = 0;
         logincheck = false;
     }
-    public Customer(String name,String gender,int age,String address,String passport_number,int loginpin)
+    public Customer(String name,String gender,int age,String address,String passport_number,int loginpin,boolean login)
     {
         this.name = name;
         this.gender = gender;
@@ -28,7 +28,7 @@ public class Customer
         this.address = address;
         this.passport_number = passport_number;
         this.loginpin = loginpin;
-        logincheck = false;
+        logincheck = login;
     }
     public void checkpin(int loginpin) throws PinUnverifiedException {
         if(this.loginpin == loginpin)

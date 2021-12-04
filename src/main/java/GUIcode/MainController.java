@@ -16,6 +16,7 @@ import java.util.Optional;
 public class MainController {
 
     public static Scene loginscene;
+    public static Scene customerloginscene;
     public static FlightReservationSystem flightReservationSystem = new FlightReservationSystem();
     @FXML
     private Button MainAdminButton;
@@ -41,8 +42,11 @@ public class MainController {
     }
 
     @FXML
-    void InvokeCustomerFunctions(ActionEvent event) {
-        System.out.println("Customer clicked");
+    void InvokeCustomerFunctions(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerLogin.fxml"));
+        customerloginscene = new Scene(fxmlLoader.load(), 500, 500);
+        HelloApplication.window.setScene(customerloginscene);
+        HelloApplication.window.show();
     }
 
     @FXML

@@ -184,7 +184,7 @@ public class FlightCalender
             flightsschedule.get(i).display(i+1);
 
     }
-    public boolean searchFlights(String origin,String destination,String type) throws NoFlightsFoundException
+    public ArrayList<Flight> searchFlights(String origin,String destination,String type) throws NoFlightsFoundException
     {
         ArrayList<Flight> duplicatelist = new ArrayList<Flight>();
         if(flightsschedule.isEmpty())
@@ -200,76 +200,13 @@ public class FlightCalender
             {
                 found = true;
                 duplicatelist.add(flightsschedule.get(i));
-                flightsschedule.get(i).display(m + 1);
                 m++;
             }
         }
         if(found == false)
         {
-            System.out.println("\nNo flights available\n");
+            throw new NoFlightsFoundException("No flights Present");
         }
-        else
-        {
-            System.out.println("\n1. Sort by fares");
-            System.out.println("2. Sort by seats");
-            System.out.println("3. GO back");
-            System.out.print("Select an option: ");
-            Scanner input = new Scanner(System.in);
-            int option = input.nextInt();
-            if(option == 1)
-            {
-                int n = duplicatelist.size();
-                for (int i = 0; i < n-1; i++) {
-                    for (int j = 0; j < n - i - 1; j++) {
-                        if (duplicatelist.get(j).getFares() > duplicatelist.get(j + 1).getFares())
-                        {
-                            Flight temp = new Flight();
-                            if(duplicatelist.get(j) instanceof OneWayFlight)
-                            {
-                                temp = new OneWayFlight(((OneWayFlight) duplicatelist.get(j)));
-                            }
-                            else if(duplicatelist.get(j) instanceof TwoWayFlight)
-                            {
-                                temp = new TwoWayFlight(((TwoWayFlight) duplicatelist.get(j)));
-                            }
-                            duplicatelist.get(j).Replace(duplicatelist.get(j + 1));
-                            duplicatelist.get(j + 1).Replace(temp);
-                        }
-                    }
-                }
-
-                for (int i=0;i<duplicatelist.size();i++)
-                {
-                    duplicatelist.get(i).display(i+1);
-                }
-            }
-            else if(option == 2)
-            {
-                int n = duplicatelist.size();
-                for (int i = 0; i < n-1; i++) {
-                    for (int j = 0; j < n - i - 1; j++) {
-                        if (duplicatelist.get(j).getCapacity() > duplicatelist.get(j + 1).getCapacity())
-                        {
-                            Flight temp = new Flight();
-                            if(duplicatelist.get(j) instanceof OneWayFlight)
-                            {
-                                temp = new OneWayFlight(((OneWayFlight) duplicatelist.get(j)));
-                            }
-                            else if(duplicatelist.get(j) instanceof TwoWayFlight)
-                            {
-                                temp = new TwoWayFlight(((TwoWayFlight) duplicatelist.get(j)));
-                            }
-                            duplicatelist.get(j).Replace(duplicatelist.get(j + 1));
-                            duplicatelist.get(j + 1).Replace(temp);
-                        }
-                    }
-                }
-                for (int i=0;i<duplicatelist.size();i++)
-                {
-                    duplicatelist.get(i).display(i+1);
-                }
-            }
-        }
-        return found;
+        return duplicatelist;
     }
 }

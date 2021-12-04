@@ -35,9 +35,9 @@ public class CustomerAccounts
         }
         System.out.println("Successfully Retreived Customers From Database");
     }
-    public boolean RegisteranAccount(String name, String gender, int age, String address, String passport_number, int loginpin) throws CustomerAlreadyPresentException
+    public boolean RegisteranAccount(String name, String gender, int age, String address, String passport_number, int loginpin,Boolean login) throws CustomerAlreadyPresentException
     {
-        Customer object = new Customer(name,gender,age,address,passport_number,loginpin);
+        Customer object = new Customer(name,gender,age,address,passport_number,loginpin,login);
         if(searchCustomer(name) != -1)
         {
             throw new CustomerAlreadyPresentException("\nCustomer already registered\n");
@@ -46,6 +46,10 @@ public class CustomerAccounts
         Database.AddCustomer(name, gender, age, address, passport_number, loginpin);
         System.out.println("\n\tCustomer Registered Succefully!!!");
         return true;
+    }
+    public void DeleteCustomer() throws CustomerNameNotFoundException {
+        String name = getCustomerslist().get(searchcustomerloggedin()).getName();
+        DeleteAccount(name);
     }
     public void DeleteAccount(String name) throws CustomerNameNotFoundException
     {
@@ -93,6 +97,14 @@ public class CustomerAccounts
                 index = i;
         }
         return index;
+    }
+    public Customer getLoggedInCustomer()
+    {
+        for (int i = 0; i < Customerslist.size(); i++) {
+            if (Customerslist.get(i).logincheck)
+                return Customerslist.get(i);
+        }
+        return null;
     }
     public boolean checkloginofcustomer()
     {

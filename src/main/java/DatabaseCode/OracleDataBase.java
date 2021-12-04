@@ -42,7 +42,7 @@ public class OracleDataBase extends DataBaseHandler
             while(rs.next())
             {
                 Customer object = new Customer(rs.getString("NAME"),rs.getString("GENDER"),rs.getInt("AGE"),
-                        rs.getString("ADDRESS"),rs.getString("PASSPORTNUMBER"),rs.getInt("LOGINPIN"));
+                        rs.getString("ADDRESS"),rs.getString("PASSPORTNUMBER"),rs.getInt("LOGINPIN"),false);
                 Customerslist.add(object);
             }
         }catch (Exception e)

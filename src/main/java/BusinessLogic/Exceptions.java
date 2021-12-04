@@ -16,14 +16,6 @@ class CustomerAlreadyPresentException extends Exception
     }
 }
 
-class CustomerNameNotFoundException extends Exception
-{
-    public CustomerNameNotFoundException(String message)
-    {
-        super(message);
-    }
-}
-
 class NoFlightsFoundException extends Exception
 {
     public NoFlightsFoundException(String message)

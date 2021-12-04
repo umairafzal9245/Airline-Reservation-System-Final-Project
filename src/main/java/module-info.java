@@ -17,4 +17,6 @@ module GUIDependencies {
     opens BusinessLogic to javafx.base;
     exports GUIcode.AdminGUI;
     opens GUIcode.AdminGUI to javafx.fxml;
+    exports GUIcode.CustomerGUI;
+    opens GUIcode.CustomerGUI to javafx.fxml;
 }
