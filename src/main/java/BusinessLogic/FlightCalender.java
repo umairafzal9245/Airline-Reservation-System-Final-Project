@@ -72,6 +72,17 @@ public class FlightCalender
         }
         System.out.println("Successfully Retreived Seats From Database");
     }
+    public void ChooseandAddFlight(String id,String origin,String Destination,int Capacity,int fare,String classe,String type,String depdate,String deptime,String arrivaldate,String arrivaltime) throws FlightsDuplicateFoundException {
+        Flight newFlight = new Flight();
+
+        if(type.equalsIgnoreCase("oneway"))
+            newFlight = new OneWayFlight(id,origin,Destination,Capacity,depdate,deptime,fare,classe);
+
+        else if(type.equalsIgnoreCase("roundtrip")) {
+            newFlight = new TwoWayFlight(id,origin,Destination,Capacity,depdate,deptime,arrivaldate,arrivaltime,fare,classe);
+        }
+        AddFlight(newFlight);
+    }
     public void AddFlight(Flight object) throws FlightsDuplicateFoundException
     {
         if(searchflight(object.getId()) != -1)
