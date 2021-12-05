@@ -16,6 +16,8 @@ public class CustomerFunctions {
 
     public static Scene displayaccountscene;
     public static Scene searchflightscene;
+    public static Scene cancelreservationscene;
+    public static Scene bookflight;
 
     @FXML
     void PrintTicket(ActionEvent event) {
@@ -23,8 +25,11 @@ public class CustomerFunctions {
     }
 
     @FXML
-    void BookaFlight(ActionEvent event) {
-
+    void BookaFlight(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("BookFlight.fxml"));
+        bookflight = new Scene(fxmlLoader.load(), 500, 500);
+        HelloApplication.window.setScene(bookflight);
+        HelloApplication.window.show();
     }
 
     @FXML
@@ -33,8 +38,11 @@ public class CustomerFunctions {
     }
 
     @FXML
-    void CancelReservation(ActionEvent event) {
-
+    void CancelReservation(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CancelReservation.fxml"));
+        cancelreservationscene = new Scene(fxmlLoader.load(), 500, 500);
+        HelloApplication.window.setScene(cancelreservationscene);
+        HelloApplication.window.show();
     }
 
     @FXML
@@ -47,30 +55,38 @@ public class CustomerFunctions {
 
     @FXML
     void DeleteAccount(ActionEvent event) {
-        boolean flag = false;
-        try {
-            MainController.flightReservationSystem.customers.DeleteCustomer();
-            flag = true;
-        }
-        catch (Exception e)
-        {
-            Alert message = new Alert(Alert.AlertType.ERROR);
-            message.setTitle("Error");
-            message.setContentText(e.getMessage());
-            message.showAndWait();
-        }
-        if(flag) {
-            Alert message = new Alert(Alert.AlertType.INFORMATION);
-            message.setTitle("Deleted ");
-            message.setContentText("You has been deleted");
-            message.showAndWait();
-            HelloApplication.window.setScene(HelloApplication.MainMenu);
-            HelloApplication.window.show();
+
+        Alert newalert = new Alert(Alert.AlertType.CONFIRMATION);
+        newalert.setTitle("Confirmation");
+        newalert.setContentText("Your account will be deleted");
+        Optional<ButtonType> input = newalert.showAndWait();
+        if(input.get() == ButtonType.OK) {
+            boolean flag = false;
+            try {
+                MainController.flightReservationSystem.customers.DeleteCustomer();
+                flag = true;
+            }
+            catch (Exception e)
+            {
+                Alert message = new Alert(Alert.AlertType.ERROR);
+                message.setTitle("Error");
+                message.setContentText(e.getMessage());
+                message.showAndWait();
+            }
+            if(flag) {
+                Alert message = new Alert(Alert.AlertType.INFORMATION);
+                message.setTitle("Deleted ");
+                message.setContentText("You has been deleted");
+                message.showAndWait();
+                HelloApplication.window.setScene(HelloApplication.MainMenu);
+                HelloApplication.window.show();
+            }
         }
     }
 
     @FXML
-    void DisplayAccountDetails(ActionEvent event) throws IOException {
+    void DisplayAccountDetails(ActionEvent event) throws IOException
+    {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Displayaccount.fxml"));
         displayaccountscene = new Scene(fxmlLoader.load(), 500, 500);
         HelloApplication.window.setScene(displayaccountscene);

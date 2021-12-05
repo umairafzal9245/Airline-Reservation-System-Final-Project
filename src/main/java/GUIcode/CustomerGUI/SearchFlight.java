@@ -1,6 +1,7 @@
 package GUIcode.CustomerGUI;
 
 import BusinessLogic.Flight;
+import GUIcode.HelloApplication;
 import GUIcode.MainController;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -77,7 +78,12 @@ public class SearchFlight implements Initializable {
             Table.getColumns().get(7).setVisible(true);
         }
     }
-
+    @FXML
+    void Back(ActionEvent event)
+    {
+        HelloApplication.window.setScene(CustomerLoginScene.Customerfunctionsscene);
+        HelloApplication.window.show();
+    }
     @FXML
     void SearchFlight(ActionEvent event) {
         boolean found = false;

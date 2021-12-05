@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.CustomerGUI.BookSeats">
+    <children>
+        <TableView fx:id="seatstable" layoutX="16.0" layoutY="116.0" prefHeight="333.0" prefWidth="470.0">
+            <columns>
+                <TableColumn fx:id="flightid" prefWidth="59.0" text="Flightid" />
+                <TableColumn fx:id="seatnumber" prefWidth="98.0" text="Seat Number" />
+                <TableColumn fx:id="customername" prefWidth="127.0" text="Customer Name" />
+                <TableColumn fx:id="bookingstatus" prefWidth="106.0" text="Booking Status" />
+            </columns>
+        </TableView>
+        <Button layoutX="39.0" layoutY="461.0" mnemonicParsing="false" onAction="#Exit" text="Back" />
+      <Button layoutX="415.0" layoutY="461.0" mnemonicParsing="false" onAction="#Bookflight" text="Book" />
+      <TextField fx:id="cardname" layoutX="114.0" layoutY="32.0" prefHeight="25.0" prefWidth="136.0" />
+      <TextField fx:id="cardnumber" layoutX="337.0" layoutY="32.0" />
+      <TextField fx:id="cvv" layoutX="337.0" layoutY="71.0" prefHeight="25.0" prefWidth="108.0" />
+      <Text layoutX="12.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CardHolder Name" />
+      <Text layoutX="254.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Number" />
+      <Text layoutX="303.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVV" />
+      <Text layoutX="16.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expiry Date" />
+      <ChoiceBox fx:id="expirymonth" layoutX="114.0" layoutY="71.0" prefHeight="25.0" prefWidth="60.0" />
+      <ChoiceBox fx:id="expiryyear" layoutX="182.0" layoutY="71.0" prefHeight="25.0" prefWidth="72.0" />
+    </children>
+</AnchorPane>
