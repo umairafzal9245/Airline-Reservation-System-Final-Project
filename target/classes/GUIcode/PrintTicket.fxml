@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.CustomerGUI.PrintTicket">
+   <children>
+      <Label layoutX="56.0" layoutY="65.0" text="Booking Reference" />
+      <Label layoutX="56.0" layoutY="100.0" text="Flight ID" />
+      <Label layoutX="56.0" layoutY="139.0" text="Customer Name" />
+      <Label layoutX="56.0" layoutY="182.0" text="Number of Passengers" />
+      <Label layoutX="57.0" layoutY="223.0" text="Total Fare" />
+      <Label layoutX="57.0" layoutY="259.0" text="Class" />
+      <Label layoutX="57.0" layoutY="292.0" text="Type" />
+      <TextField fx:id="bookingref" editable="false" layoutX="202.0" layoutY="70.0" />
+      <TextField fx:id="flightid" editable="false" layoutX="202.0" layoutY="109.0" />
+      <TextField fx:id="customername" editable="false" layoutX="202.0" layoutY="144.0" />
+      <TextField fx:id="numberofpassenger" editable="false" layoutX="202.0" layoutY="178.0" />
+      <TextField fx:id="fare" editable="false" layoutX="202.0" layoutY="219.0" />
+      <TextField fx:id="classe" editable="false" layoutX="202.0" layoutY="264.0" />
+      <TextField fx:id="typee" editable="false" layoutX="202.0" layoutY="297.0" />
+      <Label layoutX="56.0" layoutY="334.0" text="Departure Date" />
+      <Label layoutX="57.0" layoutY="369.0" text="Departure Time" />
+      <Label fx:id="arrivdate" layoutX="57.0" layoutY="402.0" text="Arrival Date" />
+      <Label fx:id="arrivtime" layoutX="57.0" layoutY="433.0" text="Arrival Time" />
+      <TextField fx:id="deptdate" editable="false" layoutX="202.0" layoutY="339.0" />
+      <TextField fx:id="depttime" editable="false" layoutX="202.0" layoutY="374.0" />
+      <TextField fx:id="arrivaldate" editable="false" layoutX="202.0" layoutY="407.0" />
+      <TextField fx:id="arrivaltime" editable="false" layoutX="202.0" layoutY="438.0" />
+      <Button layoutX="402.0" layoutY="70.0" mnemonicParsing="false" onAction="#Back" text="Back" />
+   </children>
+</AnchorPane>
