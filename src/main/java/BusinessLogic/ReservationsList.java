@@ -45,6 +45,23 @@ public class ReservationsList
         }
         return index;
     }
+    public Reservation getReservation(int bookingref)
+    {
+        int index = searchreservation(bookingref);
+        return totalreservations.get(index);
+    }
+    public ArrayList<Reservation> GetTickets(String Name)
+    {
+        ArrayList<Reservation> reservations = new ArrayList<Reservation>();
+        for (int i=0;i<totalreservations.size();i++)
+        {
+            if(totalreservations.get(i).getCustomername().equalsIgnoreCase(Name))
+            {
+                reservations.add(totalreservations.get(i));
+            }
+        }
+        return reservations;
+    }
     public void addreservation(Reservation object)
     {
         totalreservations.add(object);

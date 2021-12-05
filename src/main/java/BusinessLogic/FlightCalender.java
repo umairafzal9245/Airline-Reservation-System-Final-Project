@@ -26,6 +26,11 @@ public class FlightCalender
         flightsschedule = new ArrayList<Flight>();
         Database = new OracleDataBase();
     }
+    public Flight getFlight(String flightid)
+    {
+        int index = searchflight(flightid);
+        return flightsschedule.get(index);
+    }
     public ArrayList<Integer> getSeats(String flightId,String name)
     {
         ArrayList<Integer> seatnumbers = new ArrayList<Integer>();

@@ -18,10 +18,14 @@ public class CustomerFunctions {
     public static Scene searchflightscene;
     public static Scene cancelreservationscene;
     public static Scene bookflight;
+    public static Scene showreservations;
 
     @FXML
-    void PrintTicket(ActionEvent event) {
-
+    void PrintTicket(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ShowReservations.fxml"));
+        showreservations = new Scene(fxmlLoader.load(), 500, 500);
+        HelloApplication.window.setScene(showreservations);
+        HelloApplication.window.show();
     }
 
     @FXML

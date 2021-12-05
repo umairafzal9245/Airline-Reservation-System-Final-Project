@@ -14,7 +14,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 
@@ -23,7 +26,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class CancelReservation implements Initializable {
+public class ShowReservations implements Initializable {
 
     @FXML
     private TableView<Reservation> Table;
@@ -64,40 +67,23 @@ public class CancelReservation implements Initializable {
 
     private void addbutton()
     {
-        TableColumn<Reservation,Void> colbtn = new TableColumn("Action");
+        TableColumn<Reservation,Void> colbtn = new TableColumn("View Ticket");
         Callback<TableColumn<Reservation,Void>, TableCell<Reservation,Void>> cellfactory = new Callback<TableColumn<Reservation, Void>, TableCell<Reservation, Void>>() {
             @Override
             public TableCell<Reservation, Void> call(TableColumn<Reservation, Void> flightVoidTableColumn) {
                 final TableCell<Reservation,Void> cell = new TableCell<Reservation,Void>()
                 {
-                    private final Button btn = new Button("Cancel");
+                    private final Button btn = new Button("Show");
                     {
                         btn.setOnAction((ActionEvent event) -> {
-                            Integer ref = getTableView().getItems().get(getIndex()).getBookingreference();
-                            String Name = getTableView().getItems().get(getIndex()).getCustomername();
-                            String id = getTableView().getItems().get(getIndex()).getFlightid();
-                            boolean flag = false;
-                            try
-                            {
-                                MainController.flightReservationSystem.reservations.deletereservation(ref,Name);
-                                MainController.flightReservationSystem.totalflights.cancelseats(id,Name);
-                                flag = true;
-                            }
-                            catch (Exception e)
-                            {
-                                Alert message = new Alert(Alert.AlertType.ERROR);
-                                message.setTitle("Invalid");
-                                message.setContentText(e.getMessage());
-                                message.showAndWait();
-                            }
-                            if(flag)
-                            {
-                                setReservation();
-                                setroutine();
-                                Alert message = new Alert(Alert.AlertType.INFORMATION);
-                                message.setTitle("Reservation Deleted");
-                                message.setContentText("Reservation Deleted Succesfully");
-                                message.showAndWait();
+                            ref = getTableView().getItems().get(getIndex()).getBookingreference();
+                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PrintTicket.fxml"));
+                            try {
+                                Scene myDialogScene = new Scene(fxmlLoader.load(), 500, 500);
+                                HelloApplication.window.setScene(myDialogScene);
+                                HelloApplication.window.show();
+                            } catch (IOException e) {
+                                e.printStackTrace();
                             }
                         });
                     }
@@ -119,18 +105,20 @@ public class CancelReservation implements Initializable {
         Table.getColumns().add(colbtn);
     }
 
-    public void setReservation()
+    @FXML
+    void BackToMenu(ActionEvent event) {
+        HelloApplication.window.setScene(CustomerLoginScene.Customerfunctionsscene);
+        HelloApplication.window.show();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        reservationlist = FXCollections.observableArrayList();
         ArrayList<Reservation> reservationarray = MainController.flightReservationSystem.GetReservations();
         for (int i=0;i<reservationarray.size();i++)
         {
             reservationlist.add(reservationarray.get(i));
         }
-    }
-
-    public void setroutine()
-    {
         bookingreference.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("bookingreference"));
         flightid.setCellValueFactory(new PropertyValueFactory<Reservation,String>("flightid"));
         customername.setCellValueFactory(new PropertyValueFactory<Reservation,String>("customername"));
@@ -181,19 +169,7 @@ public class CancelReservation implements Initializable {
                 return new SimpleStringProperty(reservationStringCellDataFeatures.getValue().getTicket().getType());
             }
         });
-        Table.setItems(reservationlist);
-    }
-    @FXML
-    void BackToMenu(ActionEvent event) {
-        HelloApplication.window.setScene(CustomerLoginScene.Customerfunctionsscene);
-        HelloApplication.window.show();
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
-    {
-        setReservation();
         addbutton();
-        setroutine();
+        Table.setItems(reservationlist);
     }
 }

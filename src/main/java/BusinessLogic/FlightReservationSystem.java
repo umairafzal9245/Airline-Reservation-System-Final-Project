@@ -50,9 +50,10 @@ public class FlightReservationSystem
         String Flightid = reservations.deletereservation(reference,name);
         totalflights.cancelseats(Flightid, name);
     }
-    public void GetTicket() throws NoTicketFoundException {
+    public ArrayList<Reservation> GetReservations()
+    {
         String name = customers.getCustomerslist().get(customers.searchcustomerloggedin()).getName();
-        reservations.displayticket(name,totalflights);
+        return reservations.GetTickets(name);
     }
     public Integer BookFlight(String id, Integer numberofpassengers, ArrayList<Integer> seatnumbers,String holdername,String cardnum,String expiry,Integer cvv) throws SeatNumberIncorrectException, NoFlightsFoundException, LessSeatsAvailableException, AlreadyBookedSeatException
     {
