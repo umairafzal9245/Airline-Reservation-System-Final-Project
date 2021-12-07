@@ -4,172 +4,89 @@ import BusinessLogic.*;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.*;
+import org.hibernate.cfg.Configuration;
 
 public class OracleDataBase extends DataBaseHandler
 {
-    @Override
-    public void AddCustomer(String name,String gender,int age,String address,String passport_number,int loginpin)
+    Configuration con;
+    SessionFactory sf;
+    Session session;
+    Transaction trans;
+    private void createconnection()
     {
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tiger12345");
-            String sql = "INSERT INTO CUSTOMERS (NAME,GENDER,AGE,ADDRESS,PASSPORTNUMBER,LOGINPIN) VALUES (?,?,?,?,?,?)";
-            PreparedStatement statement = con.prepareStatement(sql);
-            statement.setString(1,name);
-            statement.setString(2,gender);
-            statement.setInt(3,age);
-            statement.setString(4,address);
-            statement.setString(5,passport_number);
-            statement.setInt(6,loginpin);
-            if(statement.executeUpdate()>0)
-            {
-                System.out.println("Record Added to Customer Database Successfully");
-            }
-        }catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
+        con = new Configuration();
+        con.configure();
+        sf = con.buildSessionFactory();
+        session = sf.openSession();
+        trans = session.beginTransaction();
+    }
+    @Override
+    public void AddCustomer(String name, String gender, int age, String address, Integer passport_number, int loginpin)
+    {
+        createconnection();
+        Customer object = new Customer(name,gender,age,address,passport_number,loginpin,true);
+        session.save(object);
+        trans.commit();
     }
     @Override
     public ArrayList<Customer> GetCustomer()
     {
         ArrayList<Customer> Customerslist = new ArrayList<Customer>();
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tiger12345");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("Select * FROM customers");
-            while(rs.next())
-            {
-                Customer object = new Customer(rs.getString("NAME"),rs.getString("GENDER"),rs.getInt("AGE"),
-                        rs.getString("ADDRESS"),rs.getString("PASSPORTNUMBER"),rs.getInt("LOGINPIN"),false);
-                Customerslist.add(object);
-            }
-        }catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
+        createconnection();
+        Customerslist = (ArrayList<Customer>) session.createQuery("FROM Customer").list();
         return Customerslist;
     }
 
     @Override
-    public void RemoveCustomer(String name)
+    public void RemoveCustomer(Customer object)
     {
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tiger12345");
-            String sql = "DELETE FROM customers WHERE NAME = ?";
-            PreparedStatement statement = con.prepareStatement(sql);
-            statement.setString(1,name);
-            if(statement.executeUpdate()>0)
-            {
-                System.out.println("Deleted Customer From Database");
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
+        createconnection();
+        session.delete(object);
+        trans.commit();
     }
 
     @Override
-    public <T> void AddFlight(T object)
+    public void AddFlight(Flight object)
     {
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tiger12345");
-            PreparedStatement statement = null;
-            if(object instanceof TwoWayFlight)
-            {
-                String sql = "INSERT INTO TWOWAYFLIGHTS (ID,ORIGIN,DESTINATION,PASSENGER,DEPARTUREDATE,DEPARTURETIME,ARRIVALDATE,ARRIVALTIME,FARES,CLASS) VALUES (?,?,?,?,?,?,?,?,?,?)";
-                statement = con.prepareStatement(sql);
-                statement.setString(1,((TwoWayFlight) object).getId());
-                statement.setString(2,((TwoWayFlight) object).getOrigin());
-                statement.setString(3,((TwoWayFlight) object).getDestination());
-                statement.setInt(4,((TwoWayFlight) object).getCapacity());
-                statement.setString(5,((TwoWayFlight) object).getDeparture_date());
-                statement.setString(6,((TwoWayFlight) object).getDeparture_time());
-                statement.setString(7,((TwoWayFlight) object).getArrivalDate());
-                statement.setString(8,((TwoWayFlight) object).getArrivalTime());
-                statement.setInt(9,((TwoWayFlight) object).getFares());
-                statement.setString(10,((TwoWayFlight) object).getClasse());
-            }
-            else if(object instanceof OneWayFlight)
-            {
-                String sql = "INSERT INTO ONEWAYFLIGHTS (ID,ORIGIN,DESTINATION,PASSENGER,DEPARTUREDATE,DEPARTURETIME,FARES,CLASS) VALUES (?,?,?,?,?,?,?,?)";
-                statement = con.prepareStatement(sql);
-                statement.setString(1,((OneWayFlight) object).getId());
-                statement.setString(2,((OneWayFlight) object).getOrigin());
-                statement.setString(3,((OneWayFlight) object).getDestination());
-                statement.setInt(4,((OneWayFlight) object).getCapacity());
-                statement.setString(5,((OneWayFlight) object).getDeparture_date());
-                statement.setString(6,((OneWayFlight) object).getDeparture_time());
-                statement.setInt(7,((OneWayFlight) object).getFares());
-                statement.setString(8,((OneWayFlight) object).getClasse());
-            }
-            if(statement.executeUpdate()>0)
-            {
-                System.out.println("Record Added to Flights Database Successfully");
-            }
-        }catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
+        createconnection();
+        if(object instanceof OneWayFlight)
+        session.save(((OneWayFlight) object));
+        else if(object instanceof TwoWayFlight)
+            session.save((TwoWayFlight)object);
+        trans.commit();
     }
     @Override
     public ArrayList<Flight> GetFlight()
     {
+        createconnection();
         ArrayList<Flight> flightlist = new ArrayList<Flight>();
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tiger12345");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("Select * FROM onewayflights");
-            while(rs.next())
-            {
-                Flight object = new OneWayFlight(rs.getString("ID"),rs.getString("ORIGIN"),rs.getString("DESTINATION"),rs.getInt("PASSENGER"), rs.getString("DEPARTUREDATE"),rs.getString("DEPARTURETIME"),rs.getInt("FARES"), rs.getString("CLASS"));
-                flightlist.add(object);
-            }
-            Statement stmt2 = con.createStatement();
-            ResultSet rs1 = stmt2.executeQuery("Select * FROM twowayflights");
-            while(rs1.next())
-            {
-                Flight object = new TwoWayFlight(rs1.getString("ID"),rs1.getString("ORIGIN"),rs1.getString("DESTINATION"),rs1.getInt("PASSENGER"), rs1.getString("DEPARTUREDATE"),rs1.getString("DEPARTURETIME"),rs1.getString("ARRIVALDATE"),rs1.getString("ARRIVALTIME"),rs1.getInt("FARES"), rs1.getString("CLASS"));
-                flightlist.add(object);
-            }
-        }catch (Exception e)
+        List<OneWayFlight>  one = session.createQuery("FROM OneWayFlight ").list();
+        List<TwoWayFlight> two = session.createQuery("FROM TwoWayFlight ").list();
+
+        for (int i=0;i<one.size();i++)
         {
-            System.out.println(e.getMessage());
+            OneWayFlight object = new OneWayFlight(one.get(i).getId(),one.get(i).getOrigin(),one.get(i).getDestination(),one.get(i).getCapacity(),one.get(i).getDeparture_date(),one.get(i).getDeparture_time(),one.get(i).getFares(),one.get(i).getClasse());
+            flightlist.add(object);
+        }
+        for (int i=0;i<two.size();i++)
+        {
+            TwoWayFlight object = new TwoWayFlight(two.get(i).getId(),two.get(i).getOrigin(),two.get(i).getDestination(),two.get(i).getCapacity(),two.get(i).getDeparture_date(),two.get(i).getDeparture_time(),two.get(i).getArrivalDate(),two.get(i).getArrivalTime(),two.get(i).getFares(),two.get(i).getClasse());
+            flightlist.add(object);
         }
         return flightlist;
     }
     @Override
     public <T> void RemoveFlight(T flight)
     {
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","tiger12345");
-            PreparedStatement statement = null;
-            if(flight instanceof OneWayFlight) {
-                String sql = "DELETE FROM ONEWAYFLIGHTS WHERE ID = ?";
-                statement = con.prepareStatement(sql);
-                statement.setString(1,((OneWayFlight) flight).getId());
-            }
-            else if(flight instanceof TwoWayFlight)
-            {
-                String sql = "DELETE FROM TWOWAYFLIGHTS WHERE ID = ?";
-                statement = con.prepareStatement(sql);
-                statement.setString(1,((TwoWayFlight) flight).getId());
-            }
-            if(statement.executeUpdate()>0)
-            {
-                System.out.println("Deleted Flight From Database");
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
+        createconnection();
+        if(flight instanceof OneWayFlight)
+            session.delete(((OneWayFlight) flight));
+        else if(flight instanceof TwoWayFlight)
+            session.delete((TwoWayFlight)flight);
+        trans.commit();
     }
     @Override
     public void AddReservations(Reservation object)

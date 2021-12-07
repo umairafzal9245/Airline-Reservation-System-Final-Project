@@ -129,7 +129,7 @@ public class AddNewFlight implements Initializable {
                                         {
                                             arrivaldate.setStyle("fx-border-width: 0px");
                                             LocalDate arrdate = arrivaldate.getValue();
-                                            String arr_date = depdate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+                                            String arr_date = arrdate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
                                             String arrtime = String.format("%02d", arrivalhours.getValue()) + ":" + String.format("%02d", arrivalminutes.getValue()) + " " + arrivalzone.getValue();
                                             boolean flag = false;
                                             try {

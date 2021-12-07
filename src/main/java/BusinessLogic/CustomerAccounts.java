@@ -35,7 +35,7 @@ public class CustomerAccounts
         }
         System.out.println("Successfully Retreived Customers From Database");
     }
-    public boolean RegisteranAccount(String name, String gender, int age, String address, String passport_number, int loginpin,Boolean login) throws CustomerAlreadyPresentException
+    public boolean RegisteranAccount(String name, String gender, int age, String address, Integer passport_number, int loginpin,Boolean login) throws CustomerAlreadyPresentException
     {
         Customer object = new Customer(name,gender,age,address,passport_number,loginpin,login);
         if(searchCustomer(name) != -1)
@@ -58,8 +58,8 @@ public class CustomerAccounts
         {
             throw new CustomerNameNotFoundException("\nCustomer not found\n");
         }
+        Database.RemoveCustomer(Customerslist.get(index));
         Customerslist.remove(index);
-        Database.RemoveCustomer(name);
     }
     public int searchCustomer(String name)
     {

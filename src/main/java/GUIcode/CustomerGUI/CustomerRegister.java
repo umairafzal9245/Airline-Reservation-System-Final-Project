@@ -102,7 +102,7 @@ public class CustomerRegister implements Initializable {
                                 String gen = gender.getValue();
                                 boolean flag = false;
                                 try {
-                                    MainController.flightReservationSystem.customers.RegisteranAccount(userna, gen, Integer.parseInt(ag), add, passport, Integer.parseInt(pass),true);
+                                    MainController.flightReservationSystem.customers.RegisteranAccount(userna, gen, Integer.parseInt(ag), add, Integer.valueOf(passport), Integer.parseInt(pass),true);
                                     flag = true;
                                 }
                                 catch (Exception e) {

@@ -74,14 +74,10 @@ public class CancelReservation implements Initializable {
                     {
                         btn.setOnAction((ActionEvent event) -> {
                             Integer ref = getTableView().getItems().get(getIndex()).getBookingreference();
-                            /*String Name = getTableView().getItems().get(getIndex()).getCustomername();
-                            String id = getTableView().getItems().get(getIndex()).getFlightid();*/
                             boolean flag = false;
                             try
                             {
                                 MainController.flightReservationSystem.CancelReservation(ref);
-                                /*MainController.flightReservationSystem.reservations.deletereservation(ref,Name);
-                                MainController.flightReservationSystem.totalflights.cancelseats(id,Name);*/
                                 flag = true;
                             }
                             catch (Exception e)

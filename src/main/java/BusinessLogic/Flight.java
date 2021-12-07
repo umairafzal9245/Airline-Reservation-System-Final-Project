@@ -1,20 +1,18 @@
 package BusinessLogic;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@MappedSuperclass
 public class Flight
 {
     public void setId(String id) {
         this.id = id;
     }
 
-    private String id;
-
     public void setOrigin(String origin) {
         this.origin = origin;
     }
-
-    private String origin;
 
     public void setDestination(String destination) {
         Destination = destination;
@@ -23,9 +21,6 @@ public class Flight
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
-
-    private String Destination;
-    private int capacity;
 
     public void setClasse(String classe) {
         this.classe = classe;
@@ -40,10 +35,28 @@ public class Flight
         }
     }
 
-    private int fares;
-    private String classe;
-    private ArrayList<Seats> seats;
 
+    @Id
+    @Column(name = "FlightID")
+    private String id;
+
+    @Column(name = "Origin")
+    private String origin;
+
+    @Column(name = "Destination")
+    private String Destination;
+
+    @Column(name = "Passengers")
+    private int capacity;
+
+    @Column(name = "Fares")
+    private int fares;
+
+    @Column(name = "Class")
+    private String classe;
+
+    @Transient
+    private ArrayList<Seats> seats;
 
     public void setseatsId(String id)
     {
@@ -118,10 +131,12 @@ public class Flight
 
     }
 
+
     public String getId()
     {
         return id;
     }
+
     public String getOrigin()
     {
         return origin;

@@ -1,13 +1,32 @@
 package BusinessLogic;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Customers")
 public class Customer
 {
+    @Id
+    @Column(name = "Name")
     private String name;
+
+    @Column(name = "Gender")
     private String gender;
+
+    @Column(name = "Age")
     private int age;
+
+    @Column(name = "Address")
     private String address;
-    private String passport_number;
+
+
+    @Column(name = "Passport_Number")
+    private Integer passport_number;
+
+    @Column(name = "Login_Pin")
     private int loginpin;
+
+    @Transient
     public boolean logincheck;
 
     public Customer()
@@ -16,11 +35,11 @@ public class Customer
         gender = "";
         age = 0;
         address = "";
-        passport_number = "";
+        passport_number = 0;
         loginpin = 0;
         logincheck = false;
     }
-    public Customer(String name,String gender,int age,String address,String passport_number,int loginpin,boolean login)
+    public Customer(String name, String gender, int age, String address, Integer passport_number, int loginpin, boolean login)
     {
         this.name = name;
         this.gender = gender;
@@ -70,7 +89,7 @@ public class Customer
         return address;
     }
 
-    public String getPassport_number() {
+    public Integer getPassport_number() {
         return passport_number;
     }
 

@@ -1,5 +1,12 @@
 package BusinessLogic;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "OneWayFlights")
 public class OneWayFlight extends Flight
 {
     public String getDeparture_date() {
@@ -26,9 +33,15 @@ public class OneWayFlight extends Flight
         FlightType = flightType;
     }
 
+    @Column(name = "Departure_Date")
     private String Departure_date;
+
+    @Column(name = "Departure_Time")
     private String Departure_time;
+
+    @Transient
     String FlightType = "oneway";
+
     public OneWayFlight()
     {
         super();

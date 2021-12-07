@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class DataBaseHandler
 {
-    public void AddCustomer(String name,String gender,int age,String address,String passport_number,int loginpin)
+    public void AddCustomer(String name, String gender, int age, String address, Integer passport_number, int loginpin)
     {
 
     }
@@ -17,11 +17,11 @@ public class DataBaseHandler
     {
         return new ArrayList<Customer>();
     }
-    public void RemoveCustomer(String name)
+    public void RemoveCustomer(Customer object)
     {
 
     }
-    public <T> void AddFlight(T object)
+    public void AddFlight(Flight object)
     {
 
     }

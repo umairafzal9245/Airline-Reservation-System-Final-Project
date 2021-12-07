@@ -1,5 +1,9 @@
 package BusinessLogic;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Seats")
 public class Seats
 {
     public int getNumber() {
@@ -42,10 +46,24 @@ public class Seats
         this.flightid = flightid;
     }
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer SeatId;
+
+    @Column(name = "Flight_Id")
     private String flightid;
+
+    @Column(name = "Seat_Number")
     private int number;
+
+    @Column(name = "Status")
     private String status;
+
+    @Column(name = "Customer_Name")
     private String customername;
+
+    @Transient
     private boolean reserve;
 
     public Seats()

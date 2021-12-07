@@ -45,7 +45,7 @@ public class Displayaccount implements Initializable {
         username.setText(custom.getName());
         pin.setText(Integer.toString(custom.getLoginpin()));
         address.setText(custom.getAddress());
-        passportnumber.setText(custom.getPassport_number());
+        passportnumber.setText(String.valueOf(custom.getPassport_number()));
         gender.setText(custom.getGender());
         age.setText(Integer.toString(custom.getAge()));
     }

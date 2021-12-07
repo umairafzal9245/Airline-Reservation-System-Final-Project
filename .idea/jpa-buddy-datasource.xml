@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="255157f4-df0a-4a8f-a1f2-885d718e828b" name="Oracle connection" url="jdbc:oracle:thin:@//localhost/1521" driverClass="oracle.jdbc.OracleDriver" />
+    </data-sources>
+  </component>
+</project>

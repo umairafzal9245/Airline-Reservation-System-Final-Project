@@ -76,4 +76,8 @@ public class FlightReservationSystem
 
             return boo;
     }
+    /*public static void main(String args[]) throws CustomerAlreadyPresentException {
+        Flight object = new OneWayFlight("1","pakistan","china",6,"deptdate","depttime",2000,"Business");
+        Database.AddFlight(object);
+    }*/
 }
