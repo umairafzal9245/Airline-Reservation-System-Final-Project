@@ -51,8 +51,8 @@ public class BookSeats implements Initializable {
     @FXML
     private TableView<Seats> seatstable;
 
-    public static ArrayList<Integer> selectedseats = new ArrayList<>();
-    ObservableList<Seats> seatslist = FXCollections.observableArrayList();
+    public static final ArrayList<Integer> selectedseats = new ArrayList<>();
+    final ObservableList<Seats> seatslist = FXCollections.observableArrayList();
 
     @FXML
     void Exit(ActionEvent event) {
@@ -204,14 +204,11 @@ public class BookSeats implements Initializable {
 
         ArrayList<Seats> getseats = null;
         try {
-            getseats = MainController.flightReservationSystem.totalflights.GetFlightSeats(BookFlight.data);
+            getseats = MainController.flightReservationSystem.getTotalflights().GetFlightSeats(BookFlight.data);
         } catch (FlightIDIncorrectException e) {
             e.printStackTrace();
         }
-        for (int i=0;i<getseats.size();i++)
-        {
-            seatslist.add(getseats.get(i));
-        }
+        seatslist.addAll(getseats);
 
         flightid.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Seats, String>, ObservableValue<String>>() {
             @Override

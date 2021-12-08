@@ -42,7 +42,7 @@ public class ViewAllCustomersTable implements Initializable {
     @FXML
     private TableColumn<Customer, String> passport;
 
-    ObservableList<Customer> customerslist = FXCollections.observableArrayList();
+    final ObservableList<Customer> customerslist = FXCollections.observableArrayList();
     @FXML
     void BackToMenu(ActionEvent event) {
         HelloApplication.window.setScene(LoginPage.Adminsfunctionscene);
@@ -52,11 +52,8 @@ public class ViewAllCustomersTable implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        ArrayList<Customer> customerarray = MainController.flightReservationSystem.customers.getCustomerslist();
-        for (int i=0;i<customerarray.size();i++)
-        {
-            customerslist.add(customerarray.get(i));
-        }
+        ArrayList<Customer> customerarray = MainController.flightReservationSystem.getCustomers().getCustomerslist();
+        customerslist.addAll(customerarray);
 
         name.setCellValueFactory(new PropertyValueFactory<Customer,String>("name"));
         age.setCellValueFactory(new PropertyValueFactory<Customer,Integer>("age"));

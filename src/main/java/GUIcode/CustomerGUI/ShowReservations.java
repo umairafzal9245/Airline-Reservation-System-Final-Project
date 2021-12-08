@@ -1,7 +1,6 @@
 package GUIcode.CustomerGUI;
 
 import BusinessLogic.Reservation;
-import BusinessLogic.Reservation;
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -63,7 +62,7 @@ public class ShowReservations implements Initializable {
 
     public static Integer ref;
 
-    ObservableList<Reservation> reservationlist = FXCollections.observableArrayList();
+    final ObservableList<Reservation> reservationlist = FXCollections.observableArrayList();
 
     private void addbutton()
     {
@@ -115,10 +114,7 @@ public class ShowReservations implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         ArrayList<Reservation> reservationarray = MainController.flightReservationSystem.GetReservations();
-        for (int i=0;i<reservationarray.size();i++)
-        {
-            reservationlist.add(reservationarray.get(i));
-        }
+        reservationlist.addAll(reservationarray);
         bookingreference.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("bookingreference"));
         flightid.setCellValueFactory(new PropertyValueFactory<Reservation,String>("flightid"));
         customername.setCellValueFactory(new PropertyValueFactory<Reservation,String>("customername"));

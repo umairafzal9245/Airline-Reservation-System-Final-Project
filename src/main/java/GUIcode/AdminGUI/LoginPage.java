@@ -18,11 +18,6 @@ import java.util.ResourceBundle;
 public class LoginPage implements Initializable {
 
     static Scene Adminsfunctionscene;
-    @FXML
-    private Button Back;
-
-    @FXML
-    private Button loginbutton;
 
     @FXML
     private PasswordField passwordfield;
@@ -38,14 +33,14 @@ public class LoginPage implements Initializable {
             passwordfield.setStyle("fx-border-width: 0px");
             String password = passwordfield.getText();
             try {
-                MainController.flightReservationSystem.admin.loginanaccount(Integer.parseInt(password));
+                MainController.flightReservationSystem.getAdmin().loginanaccount(Integer.parseInt(password));
             } catch (PinUnverifiedException | NumberFormatException e) {
                 Alert message = new Alert(Alert.AlertType.ERROR);
                 message.setTitle("Invalid Pin");
                 message.setContentText("Enter the correct pin");
                 message.showAndWait();
             }
-            if (MainController.flightReservationSystem.admin.isLogin()) {
+            if (MainController.flightReservationSystem.getAdmin().isLogin()) {
                 Alert message = new Alert(Alert.AlertType.INFORMATION);
                 message.setTitle("Login Successfull");
                 message.setContentText("You have successfully logged in!!!");
@@ -82,6 +77,6 @@ public class LoginPage implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        usernamefield.setText(MainController.flightReservationSystem.admin.getName());
+        usernamefield.setText(MainController.flightReservationSystem.getAdmin().getName());
     }
 }

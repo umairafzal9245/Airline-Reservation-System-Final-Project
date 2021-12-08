@@ -67,7 +67,7 @@ public class CustomerFunctions {
         if(input.get() == ButtonType.OK) {
             boolean flag = false;
             try {
-                MainController.flightReservationSystem.customers.DeleteCustomer();
+                MainController.flightReservationSystem.getCustomers().DeleteCustomer();
                 flag = true;
             }
             catch (Exception e)
@@ -104,7 +104,7 @@ public class CustomerFunctions {
         newalert.setContentText("Your account will be logout");
         Optional<ButtonType> input = newalert.showAndWait();
         if(input.get() == ButtonType.OK) {
-            MainController.flightReservationSystem.customers.logoutallcustomer();
+            MainController.flightReservationSystem.getCustomers().logoutallcustomer();
             HelloApplication.window.setScene(HelloApplication.MainMenu);
             HelloApplication.window.show();
         }
@@ -112,7 +112,7 @@ public class CustomerFunctions {
 
     @FXML
     void LogoutAccounts(ActionEvent event) {
-        MainController.flightReservationSystem.customers.logoutallcustomer();
+        MainController.flightReservationSystem.getCustomers().logoutallcustomer();
         Alert message = new Alert(Alert.AlertType.INFORMATION);
         message.setTitle("Login");
         message.setContentText("Account Successfully logged out");

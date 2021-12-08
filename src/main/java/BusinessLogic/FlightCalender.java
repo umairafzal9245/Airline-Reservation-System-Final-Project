@@ -1,29 +1,16 @@
 package BusinessLogic;
 
-import DatabaseCode.DataBaseHandler;
-import DatabaseCode.OracleDataBase;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
 public class FlightCalender
 {
-    public void setFlightsschedule(ArrayList<Flight> flightsschedule) {
-        this.flightsschedule = flightsschedule;
-    }
-
     private ArrayList<Flight> flightsschedule;
-
-    public ArrayList<Flight> getFlightsschedule()
-    {
-        return flightsschedule;
-    }
 
     FlightCalender()
     {
         flightsschedule = new ArrayList<Flight>();
-        FlightReservationSystem.database = new OracleDataBase();
     }
     public Flight getFlight(String flightid)
     {
@@ -54,10 +41,7 @@ public class FlightCalender
         {
             throw new NoFlightsFoundException("No Flights Record Present in Database");
         }
-        for (int i=0;i<data.size();i++)
-        {
-            flightsschedule.add(data.get(i));
-        }
+        flightsschedule.addAll(data);
         System.out.println("Successfully Retreived Flights From Database");
     }
     public void ReadSeatsfromdatabase()
@@ -116,7 +100,7 @@ public class FlightCalender
 
         return flightsschedule.get(index).getSeats();
     }
-    public boolean bookaflight(String id,int Numberofpassengers,String customername,ArrayList<Integer> seatnumbers) throws NoFlightsFoundException, LessSeatsAvailableException, SeatNumberIncorrectException, AlreadyBookedSeatException
+    public void bookaflight(String id, int Numberofpassengers, String customername, ArrayList<Integer> seatnumbers) throws NoFlightsFoundException, LessSeatsAvailableException, SeatNumberIncorrectException, AlreadyBookedSeatException
     {
         boolean flag = false;
         if(flightsschedule.isEmpty())
@@ -148,7 +132,6 @@ public class FlightCalender
             Seats object = new Seats(id,seatnumbers.get(i),customername,"Booked",true);
             FlightReservationSystem.database.AddSeats(object);
         }
-        return flag;
     }
     public void cancelseats(String id,String name)
     {
@@ -212,5 +195,9 @@ public class FlightCalender
             throw new NoFlightsFoundException("No flights Present");
         }
         return duplicatelist;
+    }
+    public ArrayList<Flight> getFlightsschedule()
+    {
+        return flightsschedule;
     }
 }

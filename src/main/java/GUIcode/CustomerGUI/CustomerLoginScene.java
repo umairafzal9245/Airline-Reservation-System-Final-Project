@@ -50,14 +50,14 @@ public class CustomerLoginScene {
                 password.setStyle("fx-border-width: 0px");
                 String passwordd = password.getText();
                 try {
-                    MainController.flightReservationSystem.customers.loginanaccount(user, Integer.parseInt(passwordd));
+                    MainController.flightReservationSystem.getCustomers().loginanaccount(user, Integer.parseInt(passwordd));
                 } catch (PinUnverifiedException | NumberFormatException | CustomerNameNotFoundException e) {
                     Alert message = new Alert(Alert.AlertType.ERROR);
                     message.setTitle("Error");
                     message.setContentText(e.getMessage());
                     message.showAndWait();
                 }
-                if (MainController.flightReservationSystem.customers.checkloginofcustomer()) {
+                if (MainController.flightReservationSystem.getCustomers().checkloginofcustomer()) {
                     Alert message = new Alert(Alert.AlertType.INFORMATION);
                     message.setTitle("Login Successfull");
                     message.setContentText("You have successfully logged in!!!");

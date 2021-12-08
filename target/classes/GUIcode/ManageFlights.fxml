@@ -4,11 +4,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.ManageFlights">
-   <children>
-      <Button layoutX="147.0" layoutY="162.0" mnemonicParsing="false" onAction="#AddNewFlight" text="Add flight" />
-      <Button layoutX="302.0" layoutY="162.0" mnemonicParsing="false" onAction="#DeleteFlight" text="Delete Flight" />
-      <Button layoutX="147.0" layoutY="244.0" mnemonicParsing="false" onAction="#ShowAllFlights" text="Show All Flights" />
-      <Button layoutX="302.0" layoutY="244.0" mnemonicParsing="false" onAction="#BackToMenu" text="Exit" />
-   </children>
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="GUIcode.AdminGUI.ManageFlights">
+    <Button layoutX="147.0" layoutY="162.0" mnemonicParsing="false" onAction="#AddNewFlight" text="Add flight"/>
+    <Button layoutX="302.0" layoutY="162.0" mnemonicParsing="false" onAction="#DeleteFlight" text="Delete Flight"/>
+    <Button layoutX="147.0" layoutY="244.0" mnemonicParsing="false" onAction="#ShowAllFlights" text="Show All Flights"/>
+    <Button layoutX="302.0" layoutY="244.0" mnemonicParsing="false" onAction="#BackToMenu" text="Exit"/>
 </AnchorPane>

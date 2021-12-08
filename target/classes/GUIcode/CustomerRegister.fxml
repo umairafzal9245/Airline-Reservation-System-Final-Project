@@ -10,34 +10,36 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.CustomerGUI.CustomerRegister">
-    <children>
-        <Button fx:id="loginbutton" layoutX="389.0" layoutY="233.0" mnemonicParsing="false" onAction="#RegisterUser" prefHeight="35.0" prefWidth="100.0" text="Register" />
-        <PasswordField fx:id="password" layoutX="183.0" layoutY="233.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter password" />
-        <TextField fx:id="username" layoutX="184.0" layoutY="179.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter username" />
-        <Label layoutX="69.0" layoutY="187.0" prefHeight="20.0" prefWidth="74.0" text="Username">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="69.0" layoutY="240.0" prefHeight="20.0" prefWidth="63.0" text="Pin">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Label>
-        <ImageView fitHeight="185.0" fitWidth="224.0" layoutX="159.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@avatar.png" />
-            </image>
-        </ImageView>
-        <Button layoutX="418.0" layoutY="449.0" mnemonicParsing="false" onAction="#BacktoMainMenu" text="Back" />
-      <TextField fx:id="age" layoutX="183.0" layoutY="342.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter age" />
-      <TextField fx:id="address" layoutX="182.0" layoutY="392.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter address" />
-      <Label layoutX="68.0" layoutY="351.0" text="Age" />
-      <Label layoutX="65.0" layoutY="401.0" text="Address" />
-      <Label layoutX="65.0" layoutY="448.0" text="Gender" />
-      <TextField fx:id="passportnumber" layoutX="183.0" layoutY="291.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter Passport Number" />
-      <ChoiceBox fx:id="gender" layoutX="182.0" layoutY="439.0" prefHeight="35.0" prefWidth="170.0" />
-      <Label layoutX="69.0" layoutY="300.0" text="Passport Number" />
-    </children>
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="GUIcode.CustomerGUI.CustomerRegister">
+    <Button fx:id="loginbutton" layoutX="389.0" layoutY="233.0" mnemonicParsing="false" onAction="#RegisterUser"
+            prefHeight="35.0" prefWidth="100.0" text="Register"/>
+    <PasswordField fx:id="password" layoutX="183.0" layoutY="233.0" prefHeight="35.0" prefWidth="170.0"
+                   promptText="Enter password"/>
+    <TextField fx:id="username" layoutX="184.0" layoutY="179.0" prefHeight="35.0" prefWidth="170.0"
+               promptText="Enter username"/>
+    <Label layoutX="69.0" layoutY="187.0" prefHeight="20.0" prefWidth="74.0" text="Username">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Label>
+    <Label layoutX="69.0" layoutY="240.0" prefHeight="20.0" prefWidth="63.0" text="Pin">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Label>
+    <ImageView fitHeight="185.0" fitWidth="224.0" layoutX="159.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@avatar.png"/>
+    </ImageView>
+    <Button layoutX="418.0" layoutY="449.0" mnemonicParsing="false" onAction="#BacktoMainMenu" text="Back"/>
+    <TextField fx:id="age" layoutX="183.0" layoutY="342.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter age"/>
+    <TextField fx:id="address" layoutX="182.0" layoutY="392.0" prefHeight="35.0" prefWidth="170.0"
+               promptText="Enter address"/>
+    <Label layoutX="68.0" layoutY="351.0" text="Age"/>
+    <Label layoutX="65.0" layoutY="401.0" text="Address"/>
+    <Label layoutX="65.0" layoutY="448.0" text="Gender"/>
+    <TextField fx:id="passportnumber" layoutX="183.0" layoutY="291.0" prefHeight="35.0" prefWidth="170.0"
+               promptText="Enter Passport Number"/>
+    <ChoiceBox fx:id="gender" layoutX="182.0" layoutY="439.0" prefHeight="35.0" prefWidth="170.0"/>
+    <Label layoutX="69.0" layoutY="300.0" text="Passport Number"/>
 </AnchorPane>

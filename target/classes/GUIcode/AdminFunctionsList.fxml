@@ -5,19 +5,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.AdminFunctionsController">
-   <children>
-      <Button fx:id="ModifyDetails" layoutX="347.0" layoutY="132.0" mnemonicParsing="false" onAction="#ModifyDetails" prefHeight="57.0" prefWidth="120.0" text="Modify Details" />
-      <Button fx:id="ViewAdminDetails" layoutX="31.0" layoutY="230.0" mnemonicParsing="false" onAction="#ViewAdminDetails" prefHeight="57.0" prefWidth="120.0" text="View Admin Details" />
-      <Button fx:id="LogoutAccount" layoutX="190.0" layoutY="132.0" mnemonicParsing="false" onAction="#LogoutAdminAccount" prefHeight="57.0" prefWidth="120.0" text="Logout Account" />
-      <Button fx:id="ExitMainMenu" layoutX="287.0" layoutY="331.0" mnemonicParsing="false" onAction="#ExitMainMenu" prefHeight="57.0" prefWidth="120.0" text="Exit to Main Menu" />
-      <Label alignment="CENTER" layoutX="3.0" layoutY="5.0" prefHeight="107.0" prefWidth="493.0" text="SELECT AN OPTION">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="ManageFlights" layoutX="76.0" layoutY="331.0" mnemonicParsing="false" onAction="#ManageFlightSchedules" prefHeight="57.0" prefWidth="150.0" text="Manage Flight Schedules" />
-      <Button fx:id="viewreservations" layoutX="190.0" layoutY="230.0" mnemonicParsing="false" onAction="#ViewAllReservations" prefHeight="57.0" prefWidth="120.0" text="View Reservations" />
-      <Button fx:id="viewcustomers" layoutX="347.0" layoutY="230.0" mnemonicParsing="false" onAction="#ViewAllCustomers" prefHeight="57.0" prefWidth="120.0" text="View Customers" />
-   </children>
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="GUIcode.AdminGUI.AdminFunctionsController">
+    <Button fx:id="ModifyDetails" layoutX="347.0" layoutY="132.0" mnemonicParsing="false" onAction="#ModifyDetails"
+            prefHeight="57.0" prefWidth="120.0" text="Modify Details"/>
+    <Button fx:id="ViewAdminDetails" layoutX="31.0" layoutY="230.0" mnemonicParsing="false" onAction="#ViewAdminDetails"
+            prefHeight="57.0" prefWidth="120.0" text="View Admin Details"/>
+    <Button fx:id="LogoutAccount" layoutX="190.0" layoutY="132.0" mnemonicParsing="false" onAction="#LogoutAdminAccount"
+            prefHeight="57.0" prefWidth="120.0" text="Logout Account"/>
+    <Button fx:id="ExitMainMenu" layoutX="287.0" layoutY="331.0" mnemonicParsing="false" onAction="#ExitMainMenu"
+            prefHeight="57.0" prefWidth="120.0" text="Exit to Main Menu"/>
+    <Label alignment="CENTER" layoutX="3.0" layoutY="5.0" prefHeight="107.0" prefWidth="493.0" text="SELECT AN OPTION">
+        <font>
+          <Font name="System Bold" size="18.0"/>
+        </font>
+    </Label>
+    <Button fx:id="ManageFlights" layoutX="76.0" layoutY="331.0" mnemonicParsing="false"
+            onAction="#ManageFlightSchedules" prefHeight="57.0" prefWidth="150.0" text="Manage Flight Schedules"/>
+    <Button fx:id="viewreservations" layoutX="190.0" layoutY="230.0" mnemonicParsing="false"
+            onAction="#ViewAllReservations" prefHeight="57.0" prefWidth="120.0" text="View Reservations"/>
+    <Button fx:id="viewcustomers" layoutX="347.0" layoutY="230.0" mnemonicParsing="false" onAction="#ViewAllCustomers"
+            prefHeight="57.0" prefWidth="120.0" text="View Customers"/>
 </AnchorPane>

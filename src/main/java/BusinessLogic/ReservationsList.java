@@ -1,25 +1,14 @@
 package BusinessLogic;
 
-import DatabaseCode.DataBaseHandler;
-import DatabaseCode.OracleDataBase;
 
 import java.util.ArrayList;
 
 public class ReservationsList
 {
-    public ArrayList<Reservation> getTotalreservations() {
-        return totalreservations;
-    }
-
-    public void setTotalreservations(ArrayList<Reservation> totalreservations) {
-        this.totalreservations = totalreservations;
-    }
-
     private ArrayList<Reservation> totalreservations;
 
     ReservationsList()
     {
-        FlightReservationSystem.database = new OracleDataBase();
         totalreservations = new ArrayList<Reservation>();
     }
     public void ReadReservationsFromDatabase() throws NoReservationsFoundException {
@@ -28,10 +17,7 @@ public class ReservationsList
         {
             throw new NoReservationsFoundException("No Reservations Present in Database");
         }
-        for (int i=0;i<data.size();i++)
-        {
-            totalreservations.add(data.get(i));
-        }
+        totalreservations.addAll(data);
         System.out.println("Successfully Retreived reservations From Database");
     }
     public int searchreservation(int bookingreference)
@@ -102,7 +88,7 @@ public class ReservationsList
         totalreservations.remove(index);
         return flightid;
     }
-    public void display(FlightCalender totalflights) throws NoReservationsFoundException, NoTicketFoundException {
+    public void display(FlightCalender totalflights) throws NoReservationsFoundException {
         if(totalreservations.isEmpty())
         {
             throw new NoReservationsFoundException("Reservations list is empty\n");
@@ -112,5 +98,8 @@ public class ReservationsList
             ArrayList<Integer> seatnumbers = totalflights.getSeats(totalreservations.get(i).getFlightid(),totalreservations.get(i).getCustomername());
             totalreservations.get(i).display(i+1,seatnumbers);
         }
+    }
+    public ArrayList<Reservation> getTotalreservations() {
+        return totalreservations;
     }
 }

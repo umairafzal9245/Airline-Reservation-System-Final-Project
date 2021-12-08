@@ -59,7 +59,7 @@ public class ViewAllReservations implements Initializable {
     @FXML
     private TableColumn<Reservation, String> type;
 
-    ObservableList<Reservation> reservationlist = FXCollections.observableArrayList();
+    final ObservableList<Reservation> reservationlist = FXCollections.observableArrayList();
 
     @FXML
     void BackToMenu(ActionEvent event) {
@@ -70,11 +70,8 @@ public class ViewAllReservations implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        ArrayList<Reservation> reservationarray = MainController.flightReservationSystem.reservations.getTotalreservations();
-        for (int i=0;i<reservationarray.size();i++)
-        {
-            reservationlist.add(reservationarray.get(i));
-        }
+        ArrayList<Reservation> reservationarray = MainController.flightReservationSystem.getReservations().getTotalreservations();
+        reservationlist.addAll(reservationarray);
 
         bookingreference.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("bookingreference"));
         flightid.setCellValueFactory(new PropertyValueFactory<Reservation,String>("flightid"));

@@ -3,15 +3,6 @@ package BusinessLogic;
 public class Admin
 {
     private String name;
-
-    public int getLoginpin() {
-        return loginpin;
-    }
-
-    public void setLoginpin(int loginpin) {
-        this.loginpin = loginpin;
-    }
-
     private int loginpin;
     private boolean logincheck;
 
@@ -38,13 +29,12 @@ public class Admin
         return logincheck;
     }
 
-    public boolean loginanaccount(int loginpin) throws PinUnverifiedException {
+    public void loginanaccount(int loginpin) throws PinUnverifiedException {
         checkpin(loginpin);
         if(isLogin())
         {
             System.out.println("\n\tThe admin succefully logged in ");
         }
-        return true;
     }
     public void logout()
     {
@@ -61,7 +51,13 @@ public class Admin
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
+    public int getLoginpin() {
+        return loginpin;
+    }
+
 }

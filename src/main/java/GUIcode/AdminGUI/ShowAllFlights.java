@@ -92,8 +92,8 @@ public class ShowAllFlights implements Initializable {
     public static String data;
     public static Stage seatsdialogue;
 
-    ObservableList<Flight> oneWayFlights = FXCollections.observableArrayList();
-    ObservableList<Flight> twoWayFlights = FXCollections.observableArrayList();
+    final ObservableList<Flight> oneWayFlights = FXCollections.observableArrayList();
+    final ObservableList<Flight> twoWayFlights = FXCollections.observableArrayList();
 
     @FXML
     void Backtomainmenu(ActionEvent event) {
@@ -297,16 +297,16 @@ public class ShowAllFlights implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ArrayList<Flight> flights = MainController.flightReservationSystem.totalflights.getFlightsschedule();
+        ArrayList<Flight> flights = MainController.flightReservationSystem.getTotalflights().getFlightsschedule();
         for (int i=0;i<flights.size();i++)
         {
             if(flights.get(i) instanceof OneWayFlight)
             {
-                oneWayFlights.add((OneWayFlight) flights.get(i));
+                oneWayFlights.add(flights.get(i));
             }
             else if(flights.get(i) instanceof TwoWayFlight)
             {
-                twoWayFlights.add((TwoWayFlight) flights.get(i));
+                twoWayFlights.add(flights.get(i));
             }
         }
         setonewaytableroutine();

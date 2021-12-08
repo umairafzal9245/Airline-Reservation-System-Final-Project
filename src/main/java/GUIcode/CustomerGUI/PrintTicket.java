@@ -1,11 +1,9 @@
 package GUIcode.CustomerGUI;
 
 import BusinessLogic.Flight;
-import BusinessLogic.FlightReservationSystem;
 import BusinessLogic.Reservation;
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -56,7 +54,7 @@ public class PrintTicket implements Initializable {
     private Label arrivtime;
 
     @FXML
-    void Back(ActionEvent event) {
+    void Back() {
         HelloApplication.window.setScene(CustomerFunctions.showreservations);
         HelloApplication.window.show();
     }
@@ -64,14 +62,14 @@ public class PrintTicket implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Integer ref = ShowReservations.ref;
-        Reservation object = MainController.flightReservationSystem.reservations.getReservation(ref);
+        Reservation object = MainController.flightReservationSystem.getReservations().getReservation(ref);
         bookingref.setText(ref.toString());
         flightid.setText(object.getFlightid());
         customername.setText(object.getCustomername());
         numberofpassenger.setText(Integer.toString(object.getTicket().getNumberofpassengers()));
         fare.setText(Integer.toString(object.getTicket().getTotalfares()));
         classe.setText(object.getTicket().getType());
-        Flight object2 = MainController.flightReservationSystem.totalflights.getFlight(object.getFlightid());
+        Flight object2 = MainController.flightReservationSystem.getTotalflights().getFlight(object.getFlightid());
         flightid.setText(object2.getId());
         typee.setText(object2.getType());
         if(object2.getType().equalsIgnoreCase("oneway"));

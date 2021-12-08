@@ -61,7 +61,7 @@ public class RegisterAdmin {
         else {
             boolean change = false;
             try {
-                MainController.flightReservationSystem.admin.registeraccount(username.getText(), Integer.parseInt(password.getText()));
+                MainController.flightReservationSystem.getAdmin().registeraccount(username.getText(), Integer.parseInt(password.getText()));
                     change = true;
             } catch (NumberFormatException e) {
                 Alert message = new Alert(Alert.AlertType.ERROR);

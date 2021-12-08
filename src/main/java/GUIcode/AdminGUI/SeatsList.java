@@ -12,10 +12,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 
 import java.net.URL;
@@ -39,7 +37,7 @@ public class SeatsList implements Initializable {
     @FXML
     private TableView<Seats> seatstable;
 
-    ObservableList<Seats> seatslist = FXCollections.observableArrayList();
+    final ObservableList<Seats> seatslist = FXCollections.observableArrayList();
 
     @FXML
     void Exit(ActionEvent event) {
@@ -52,14 +50,11 @@ public class SeatsList implements Initializable {
 
         ArrayList<Seats> getseats = null;
         try {
-            getseats = MainController.flightReservationSystem.totalflights.GetFlightSeats(ShowAllFlights.data);
+            getseats = MainController.flightReservationSystem.getTotalflights().GetFlightSeats(ShowAllFlights.data);
         } catch (FlightIDIncorrectException e) {
             e.printStackTrace();
         }
-        for (int i=0;i<getseats.size();i++)
-        {
-            seatslist.add(getseats.get(i));
-        }
+        seatslist.addAll(getseats);
 
         flightid.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Seats, String>, ObservableValue<String>>() {
             @Override

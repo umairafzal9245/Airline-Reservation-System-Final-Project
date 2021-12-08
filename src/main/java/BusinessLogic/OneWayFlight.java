@@ -9,30 +9,6 @@ import javax.persistence.Transient;
 @Table(name = "OneWayFlights")
 public class OneWayFlight extends Flight
 {
-    public String getDeparture_date() {
-        return Departure_date;
-    }
-
-    public void setDeparture_date(String departure_date) {
-        Departure_date = departure_date;
-    }
-
-    public String getDeparture_time() {
-        return Departure_time;
-    }
-
-    public void setDeparture_time(String departure_time) {
-        Departure_time = departure_time;
-    }
-
-    public String getFlightType() {
-        return FlightType;
-    }
-
-    public void setFlightType(String flightType) {
-        FlightType = flightType;
-    }
-
     @Column(name = "Departure_Date")
     private String Departure_date;
 
@@ -54,30 +30,6 @@ public class OneWayFlight extends Flight
         this.Departure_time = Dept_time;
         this.Departure_date = Dept_date;
     }
-    OneWayFlight(OneWayFlight object)
-    {
-        super.setId(object.getId());
-        super.setOrigin(object.getOrigin());
-        super.setDestination(object.getDestination());
-        super.setCapacity(object.getCapacity());
-        super.setFares(object.getFares());
-        super.setClasse(object.getClasse());
-        super.setSeats(object.getSeats(),object.getCapacity());
-        this.Departure_time = object.Departure_time;
-        this.Departure_date = object.Departure_date;
-    }
-    public <T> void Replace(T object)
-    {
-        super.setId(((OneWayFlight) object).getId());
-        super.setOrigin(((OneWayFlight) object).getOrigin());
-        super.setDestination(((OneWayFlight) object).getDestination());
-        super.setCapacity(((OneWayFlight) object).getCapacity());
-        super.setFares(((OneWayFlight) object).getFares());
-        super.setClasse(((OneWayFlight) object).getClasse());
-        super.setSeats(((OneWayFlight) object).getSeats(), ((OneWayFlight) object).getCapacity());
-        this.Departure_time = ((OneWayFlight) object).Departure_time;
-        this.Departure_date = ((OneWayFlight) object).Departure_date;
-    }
 
     @Override
     public void display(int number) {
@@ -92,6 +44,14 @@ public class OneWayFlight extends Flight
         }
         System.out.println("\n");
     }
+    public String getDeparture_date() {
+        return Departure_date;
+    }
+
+    public String getDeparture_time() {
+        return Departure_time;
+    }
+
     public String getType()
     {
         return FlightType;

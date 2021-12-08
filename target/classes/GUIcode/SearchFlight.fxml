@@ -8,29 +8,29 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.CustomerGUI.SearchFlight">
-   <children>
-      <Label layoutX="40.0" layoutY="27.0" text="Origin" />
-      <Label layoutX="220.0" layoutY="27.0" text="Destination" />
-      <Label layoutX="385.0" layoutY="27.0" text="Flight Type" />
-      <ComboBox fx:id="Originn" layoutX="14.0" layoutY="59.0" prefHeight="25.0" prefWidth="84.0" />
-      <ComboBox fx:id="Destination" layoutX="201.0" layoutY="59.0" prefHeight="25.0" prefWidth="99.0" />
-      <ChoiceBox fx:id="flighttype" layoutX="373.0" layoutY="59.0" onAction="#SelectFlightTable" prefHeight="25.0" prefWidth="84.0" />
-      <TableView fx:id="Table" layoutX="14.0" layoutY="164.0" prefHeight="321.0" prefWidth="699.0">
-        <columns>
-          <TableColumn fx:id="Id" prefWidth="49.0" text="Id" />
-          <TableColumn fx:id="Orig" prefWidth="56.0" text="Origin" />
-            <TableColumn fx:id="destination" prefWidth="82.0" text="Destination" />
-            <TableColumn fx:id="capacity" prefWidth="62.0" text="Capacity" />
-            <TableColumn fx:id="departuredate" prefWidth="95.0" text="Departure Date" />
-            <TableColumn fx:id="departuretime" prefWidth="94.0" text="Departure Time" />
-            <TableColumn fx:id="arrivaldate" prefWidth="78.0" text="Arrival Date" />
-            <TableColumn fx:id="arrivaltime" prefWidth="79.0" text="Arrival Time" />
-            <TableColumn fx:id="fare" prefWidth="44.0" text="Fares" />
-            <TableColumn fx:id="classe" prefWidth="75.0" text="Class" />
-        </columns>
-      </TableView>
-      <Button layoutX="389.0" layoutY="104.0" mnemonicParsing="false" onAction="#SearchFlight" text="Search" />
-      <Button layoutX="225.0" layoutY="104.0" mnemonicParsing="false" onAction="#Back" text="Back" />
-   </children>
+<AnchorPane prefHeight="500.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="GUIcode.CustomerGUI.SearchFlight">
+    <Label layoutX="40.0" layoutY="27.0" text="Origin"/>
+    <Label layoutX="220.0" layoutY="27.0" text="Destination"/>
+    <Label layoutX="385.0" layoutY="27.0" text="Flight Type"/>
+    <ComboBox fx:id="Originn" layoutX="14.0" layoutY="59.0" prefHeight="25.0" prefWidth="84.0"/>
+    <ComboBox fx:id="Destination" layoutX="201.0" layoutY="59.0" prefHeight="25.0" prefWidth="99.0"/>
+    <ChoiceBox fx:id="flighttype" layoutX="373.0" layoutY="59.0" onAction="#SelectFlightTable" prefHeight="25.0"
+               prefWidth="84.0"/>
+    <TableView fx:id="Table" layoutX="14.0" layoutY="164.0" prefHeight="321.0" prefWidth="699.0">
+      <columns>
+          <TableColumn fx:id="Id" prefWidth="49.0" text="Id"/>
+          <TableColumn fx:id="Orig" prefWidth="56.0" text="Origin"/>
+          <TableColumn fx:id="destination" prefWidth="82.0" text="Destination"/>
+          <TableColumn fx:id="capacity" prefWidth="62.0" text="Capacity"/>
+          <TableColumn fx:id="departuredate" prefWidth="95.0" text="Departure Date"/>
+          <TableColumn fx:id="departuretime" prefWidth="94.0" text="Departure Time"/>
+          <TableColumn fx:id="arrivaldate" prefWidth="78.0" text="Arrival Date"/>
+          <TableColumn fx:id="arrivaltime" prefWidth="79.0" text="Arrival Time"/>
+          <TableColumn fx:id="fare" prefWidth="44.0" text="Fares"/>
+          <TableColumn fx:id="classe" prefWidth="75.0" text="Class"/>
+      </columns>
+    </TableView>
+    <Button layoutX="389.0" layoutY="104.0" mnemonicParsing="false" onAction="#SearchFlight" text="Search"/>
+    <Button layoutX="225.0" layoutY="104.0" mnemonicParsing="false" onAction="#Back" text="Back"/>
 </AnchorPane>

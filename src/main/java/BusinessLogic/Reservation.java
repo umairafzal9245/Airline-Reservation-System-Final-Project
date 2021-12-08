@@ -7,47 +7,6 @@ import java.util.ArrayList;
 @Table(name = "Reservations")
 public class Reservation
 {
-    public int getBookingreference() {
-        return bookingreference;
-    }
-
-    public void setBookingreference(int bookingreference) {
-        this.bookingreference = bookingreference;
-    }
-
-    public String getFlightid() {
-        return flightid;
-    }
-
-    public void setFlightid(String flightid) {
-        this.flightid = flightid;
-    }
-
-    public String getCustomername() {
-        return customername;
-    }
-
-    public void setCustomername(String customername) {
-        this.customername = customername;
-    }
-
-    public Payments getPayment() {
-        return payment;
-    }
-
-    public void setPayment(Payments payment) {
-        this.payment = payment;
-    }
-
-    public Tickets getTicket() {
-        return ticket;
-    }
-
-    public void setTicket(Tickets ticket) {
-        this.ticket = ticket;
-    }
-
-
     @Id
     @Column(name = "Booking_Reference")
     private int bookingreference;
@@ -78,5 +37,35 @@ public class Reservation
         payment.display();
 
     }
+    public int getBookingreference() {
+        return bookingreference;
+    }
 
+    public void setBookingreference(int bookingreference) {
+        this.bookingreference = bookingreference;
+    }
+
+    public String getFlightid() {
+        return flightid;
+    }
+
+    public void setFlightid(String flightid) {
+        this.flightid = flightid;
+    }
+
+    public String getCustomername() {
+        return customername;
+    }
+
+    public void setCustomername(String customername) {
+        this.customername = customername;
+    }
+
+    public Payments getPayment() {
+        return payment;
+    }
+
+    public Tickets getTicket() {
+        return ticket;
+    }
 }

@@ -1,20 +1,9 @@
 package BusinessLogic;
 
-import DatabaseCode.DataBaseHandler;
-import DatabaseCode.OracleDataBase;
-
 import java.util.ArrayList;
 
 public class CustomerAccounts
 {
-    public ArrayList<Customer> getCustomerslist() {
-        return Customerslist;
-    }
-
-    public void setCustomerslist(ArrayList<Customer> customerslist) {
-        Customerslist = customerslist;
-    }
-
     private ArrayList<Customer> Customerslist;
 
     CustomerAccounts()
@@ -28,13 +17,10 @@ public class CustomerAccounts
         {
             throw new NoCustomerPresentException("No Customer Record Present in Database");
         }
-        for (int i=0;i<data.size();i++)
-        {
-            Customerslist.add(data.get(i));
-        }
+        Customerslist.addAll(data);
         System.out.println("Successfully Retreived Customers From Database");
     }
-    public boolean RegisteranAccount(String name, String gender, int age, String address, Integer passport_number, int loginpin,Boolean login) throws CustomerAlreadyPresentException
+    public void RegisteranAccount(String name, String gender, int age, String address, Integer passport_number, int loginpin, Boolean login) throws CustomerAlreadyPresentException
     {
         Customer object = new Customer(name,gender,age,address,passport_number,loginpin,login);
         if(searchCustomer(name) != -1)
@@ -44,7 +30,6 @@ public class CustomerAccounts
         Customerslist.add(object);
         FlightReservationSystem.database.AddCustomer(name, gender, age, address, passport_number, loginpin);
         System.out.println("\n\tCustomer Registered Succefully!!!");
-        return true;
     }
     public void DeleteCustomer() throws CustomerNameNotFoundException {
         String name = getCustomerslist().get(searchcustomerloggedin()).getName();
@@ -73,7 +58,7 @@ public class CustomerAccounts
         }
         return index;
     }
-    public boolean loginanaccount(String name,int loginpin) throws PinUnverifiedException, CustomerNameNotFoundException
+    public void loginanaccount(String name, int loginpin) throws PinUnverifiedException, CustomerNameNotFoundException
     {
         int index = searchCustomer(name);
         if(index == -1)
@@ -85,7 +70,6 @@ public class CustomerAccounts
         {
             System.out.println("\n\tThe customers succefully logged in ");
         }
-        return true;
     }
     public int searchcustomerloggedin()
     {
@@ -139,11 +123,7 @@ public class CustomerAccounts
             Customerslist.get(i).display();
         }
     }
-    public void diplaylogincustomer()
-    {
-        for (int i = 0; i < Customerslist.size(); i++) {
-            if (Customerslist.get(i).logincheck)
-                Customerslist.get(i).display();
-        }
+    public ArrayList<Customer> getCustomerslist() {
+        return Customerslist;
     }
 }

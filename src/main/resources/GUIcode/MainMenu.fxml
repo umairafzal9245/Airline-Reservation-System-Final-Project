@@ -5,28 +5,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.MainController">
-   <children>
-   
-          <Label fx:id="welcomeText" alignment="CENTER" contentDisplay="CENTER" prefHeight="103.0" prefWidth="500.0" text="Welcome to Airline Reservation System" textAlignment="CENTER" textFill="#171700">
-         <font>
-            <Font name="System Bold Italic" size="24.0" />
-         </font>
-      </Label>
-       <Button fx:id="MainAdminButton" alignment="CENTER" layoutX="158.0" layoutY="256.0" onAction="#InvokeAdminFunctions" prefHeight="80.0" prefWidth="157.0" text="Admin">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Button>
-      <Button fx:id="MainCustomerbutton" layoutX="158.0" layoutY="151.0" mnemonicParsing="false" onAction="#InvokeCustomerFunctions" prefHeight="80.0" prefWidth="157.0" text="Customer">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Button>
-      <Button fx:id="ExitButton" alignment="CENTER" layoutX="158.0" layoutY="363.0" onAction="#Exittheprogram" prefHeight="80.0" prefWidth="157.0" text="Exit">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Button>
-   </children>
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="GUIcode.MainController">
+    <Label fx:id="welcomeText" alignment="CENTER" contentDisplay="CENTER" prefHeight="103.0" prefWidth="500.0"
+           text="Welcome to Airline Reservation System" textAlignment="CENTER" textFill="#171700">
+        <font>
+      <Font name="System Bold Italic" size="24.0"/>
+        </font>
+    </Label>
+    <Button fx:id="MainAdminButton" alignment="CENTER" layoutX="158.0" layoutY="256.0" onAction="#InvokeAdminFunctions"
+            prefHeight="80.0" prefWidth="157.0" text="Admin">
+        <font>
+         <Font name="System Bold" size="22.0"/>
+        </font>
+    </Button>
+    <Button fx:id="MainCustomerbutton" layoutX="158.0" layoutY="151.0" mnemonicParsing="false"
+            onAction="#InvokeCustomerFunctions" prefHeight="80.0" prefWidth="157.0" text="Customer">
+        <font>
+          <Font name="System Bold" size="22.0"/>
+        </font>
+    </Button>
+    <Button fx:id="ExitButton" alignment="CENTER" layoutX="158.0" layoutY="363.0" onAction="#Exittheprogram"
+            prefHeight="80.0" prefWidth="157.0" text="Exit">
+        <font>
+          <Font name="System Bold" size="22.0"/>
+        </font>
+    </Button>
 </AnchorPane>

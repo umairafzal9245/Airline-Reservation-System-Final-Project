@@ -19,7 +19,6 @@ public class Customer
     @Column(name = "Address")
     private String address;
 
-
     @Column(name = "Passport_Number")
     private Integer passport_number;
 
@@ -69,6 +68,7 @@ public class Customer
         System.out.println("\tLogin Pin: "+loginpin);
         System.out.println("\tLogin Status: "+logincheck+"\n");
     }
+
     public String getName() {
         return name;
     }

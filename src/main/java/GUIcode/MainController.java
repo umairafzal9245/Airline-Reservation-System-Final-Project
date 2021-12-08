@@ -17,22 +17,11 @@ public class MainController {
 
     public static Scene loginscene;
     public static Scene customerloginscene;
-    public static FlightReservationSystem flightReservationSystem = new FlightReservationSystem();
-    @FXML
-    private Button MainAdminButton;
-
-    @FXML
-    private Button MainCustomerbutton;
-
-    @FXML
-    private Label welcomeText;
-
-    @FXML
-    private Button ExitButton;
+    public static final FlightReservationSystem flightReservationSystem = new FlightReservationSystem();
 
     @FXML
     void InvokeAdminFunctions(ActionEvent event) throws IOException {
-        if(MainController.flightReservationSystem.admin.isLogin() == false)
+        if(MainController.flightReservationSystem.getAdmin().isLogin() == false)
         {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
             loginscene = new Scene(fxmlLoader.load(), 500, 500);

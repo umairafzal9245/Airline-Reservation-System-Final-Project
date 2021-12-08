@@ -6,36 +6,6 @@ import java.util.ArrayList;
 @MappedSuperclass
 public class Flight
 {
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setOrigin(String origin) {
-        this.origin = origin;
-    }
-
-    public void setDestination(String destination) {
-        Destination = destination;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-
-    public void setClasse(String classe) {
-        this.classe = classe;
-    }
-
-    public void setSeats(ArrayList<Seats> seats,int capacity) {
-        this.seats = new ArrayList<Seats>(capacity);
-        for (int i=0;i<capacity;i++)
-        {
-            Seats object = new Seats(seats.get(i));
-            this.seats.add(object);
-        }
-    }
-
-
     @Id
     @Column(name = "FlightID")
     private String id;
@@ -58,13 +28,6 @@ public class Flight
     @Transient
     private ArrayList<Seats> seats;
 
-    public void setseatsId(String id)
-    {
-        for (int i=0;i<seats.size();i++)
-        {
-            seats.get(i).setFlightid(id);
-        }
-    }
     public Flight()
     {
         origin = "";
@@ -95,10 +58,6 @@ public class Flight
             seats.add(object);
         }
     }
-    public <T> void Replace(T object)
-    {
-
-    }
     public int searchseat(int seatnumber)
     {
         int index = -1;
@@ -113,9 +72,6 @@ public class Flight
         return index;
     }
 
-    public ArrayList<Seats> getSeats() {
-        return seats;
-    }
     public int Availableseats()
     {
         int counter = 0;
@@ -167,6 +123,37 @@ public class Flight
         return "";
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public void setDestination(String destination) {
+        Destination = destination;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public void setClasse(String classe) {
+        this.classe = classe;
+    }
+
+    public void setSeats(ArrayList<Seats> seats,int capacity) {
+        this.seats = new ArrayList<Seats>(capacity);
+        for (int i=0;i<capacity;i++)
+        {
+            Seats object = new Seats(seats.get(i));
+            this.seats.add(object);
+        }
+    }
+    public ArrayList<Seats> getSeats() {
+        return seats;
+    }
     public String getDeparture_date() {
         return null;
     }

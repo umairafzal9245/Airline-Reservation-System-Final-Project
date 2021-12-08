@@ -1,7 +1,6 @@
 package GUIcode.CustomerGUI;
 
 import BusinessLogic.Reservation;
-import BusinessLogic.Reservation;
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -11,14 +10,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -120,10 +116,7 @@ public class CancelReservation implements Initializable {
     {
         reservationlist = FXCollections.observableArrayList();
         ArrayList<Reservation> reservationarray = MainController.flightReservationSystem.GetReservations();
-        for (int i=0;i<reservationarray.size();i++)
-        {
-            reservationlist.add(reservationarray.get(i));
-        }
+        reservationlist.addAll(reservationarray);
     }
 
     public void setroutine()

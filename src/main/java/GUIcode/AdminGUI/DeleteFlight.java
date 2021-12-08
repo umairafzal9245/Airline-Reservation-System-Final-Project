@@ -12,14 +12,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -107,7 +103,7 @@ public class DeleteFlight implements Initializable {
             String flightid = flightidfield.getText();
             boolean change = false;
             try {
-                MainController.flightReservationSystem.totalflights.deleteflight(flightid);
+                MainController.flightReservationSystem.getTotalflights().deleteflight(flightid);
                 change = true;
             }
             catch (Exception e)
@@ -249,16 +245,16 @@ public class DeleteFlight implements Initializable {
     {
         oneWayFlights = FXCollections.observableArrayList();
         twoWayFlights = FXCollections.observableArrayList();
-        ArrayList<Flight> flights = MainController.flightReservationSystem.totalflights.getFlightsschedule();
+        ArrayList<Flight> flights = MainController.flightReservationSystem.getTotalflights().getFlightsschedule();
         for (int i=0;i<flights.size();i++)
         {
             if(flights.get(i) instanceof OneWayFlight)
             {
-                oneWayFlights.add((OneWayFlight) flights.get(i));
+                oneWayFlights.add(flights.get(i));
             }
             else if(flights.get(i) instanceof TwoWayFlight)
             {
-                twoWayFlights.add((TwoWayFlight) flights.get(i));
+                twoWayFlights.add(flights.get(i));
             }
         }
     }

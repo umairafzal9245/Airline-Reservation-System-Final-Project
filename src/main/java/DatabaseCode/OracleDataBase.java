@@ -2,7 +2,6 @@ package DatabaseCode;
 
 import BusinessLogic.*;
 
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,9 +54,9 @@ public class OracleDataBase extends DataBaseHandler
     {
         createconnection();
         if(object instanceof OneWayFlight)
-        session.save(((OneWayFlight) object));
+        session.save(object);
         else if(object instanceof TwoWayFlight)
-            session.save((TwoWayFlight)object);
+            session.save(object);
         trans.commit();
     }
     @Override
@@ -85,9 +84,9 @@ public class OracleDataBase extends DataBaseHandler
     {
         createconnection();
         if(flight instanceof OneWayFlight)
-            session.delete(((OneWayFlight) flight));
+            session.delete(flight);
         else if(flight instanceof TwoWayFlight)
-            session.delete((TwoWayFlight)flight);
+            session.delete(flight);
         trans.commit();
     }
     @Override
@@ -100,12 +99,10 @@ public class OracleDataBase extends DataBaseHandler
     @Override
     public ArrayList<Reservation> GetReservation()
     {
+        createconnection();
         ArrayList<Reservation> reservations = new ArrayList<Reservation>();
         List<Reservation>  one = session.createQuery("FROM Reservation ").list();
-        for (int i=0;i<one.size();i++)
-        {
-            reservations.add(one.get(i));
-        }
+        reservations.addAll(one);
         return reservations;
     }
     @Override
@@ -118,10 +115,10 @@ public class OracleDataBase extends DataBaseHandler
     @Override
     public ArrayList<Seats> GetSeat()
     {
+        createconnection();
         ArrayList<Seats> seatsslist = new ArrayList<Seats>();
         List<Seats>  one = session.createQuery("FROM Reservation ").list();
-        for (int i=0;i<one.size();i++)
-            seatsslist.add(one.get(i));
+        seatsslist.addAll(one);
 
         return seatsslist;
     }

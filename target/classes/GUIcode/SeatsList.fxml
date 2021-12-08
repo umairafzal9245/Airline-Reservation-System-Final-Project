@@ -5,16 +5,15 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.SeatsList">
-   <children>
-      <TableView fx:id="seatstable" layoutX="50.0" layoutY="116.0" prefHeight="333.0" prefWidth="391.0">
-        <columns>
-          <TableColumn fx:id="flightid" prefWidth="59.0" text="Flightid" />
-          <TableColumn fx:id="seatnumber" prefWidth="98.0" text="Seat Number" />
-            <TableColumn fx:id="customername" prefWidth="127.0" text="Customer Name" />
-            <TableColumn fx:id="bookingstatus" prefWidth="106.0" text="Booking Status" />
-        </columns>
-      </TableView>
-      <Button layoutX="389.0" layoutY="50.0" mnemonicParsing="false" onAction="#Exit" text="Exit" />
-   </children>
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="GUIcode.AdminGUI.SeatsList">
+    <TableView fx:id="seatstable" layoutX="50.0" layoutY="116.0" prefHeight="333.0" prefWidth="391.0">
+      <columns>
+          <TableColumn fx:id="flightid" prefWidth="59.0" text="Flightid"/>
+          <TableColumn fx:id="seatnumber" prefWidth="98.0" text="Seat Number"/>
+          <TableColumn fx:id="customername" prefWidth="127.0" text="Customer Name"/>
+          <TableColumn fx:id="bookingstatus" prefWidth="106.0" text="Booking Status"/>
+      </columns>
+    </TableView>
+    <Button layoutX="389.0" layoutY="50.0" mnemonicParsing="false" onAction="#Exit" text="Exit"/>
 </AnchorPane>

@@ -8,12 +8,28 @@ import java.util.Random;
 
 public class FlightReservationSystem
 {
-    public Admin admin;
-    public CustomerAccounts customers;
-    public FlightCalender totalflights;
-    public ReservationsList reservations;
+    public Admin getAdmin() {
+        return admin;
+    }
 
-    public static DataBaseHandler database = new OracleDataBase();
+    public CustomerAccounts getCustomers() {
+        return customers;
+    }
+
+    public FlightCalender getTotalflights() {
+        return totalflights;
+    }
+
+    public ReservationsList getReservations() {
+        return reservations;
+    }
+
+    private final Admin admin;
+    private final CustomerAccounts customers;
+    private final FlightCalender totalflights;
+    private final ReservationsList reservations;
+
+    public static final DataBaseHandler database = new OracleDataBase();
 
     public FlightReservationSystem()
     {
@@ -73,7 +89,7 @@ public class FlightReservationSystem
             object.setCustomername(name);
             object.setFlightid(id);
             Random rnd = new Random();
-            Integer boo = rnd.nextInt(999999);
+            int boo = rnd.nextInt(999999);
             object.setBookingreference(boo);
             object.getPayment().addpayment(holdername, cardnum, expiry, cvv);
             object.getPayment().setBookingreference(boo);

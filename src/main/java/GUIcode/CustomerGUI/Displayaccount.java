@@ -1,7 +1,6 @@
 package GUIcode.CustomerGUI;
 
 import BusinessLogic.Customer;
-import BusinessLogic.CustomerAccounts;
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
 import javafx.event.ActionEvent;
@@ -10,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Displayaccount implements Initializable {
@@ -41,7 +39,7 @@ public class Displayaccount implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Customer custom = MainController.flightReservationSystem.customers.getLoggedInCustomer();
+        Customer custom = MainController.flightReservationSystem.getCustomers().getLoggedInCustomer();
         username.setText(custom.getName());
         pin.setText(Integer.toString(custom.getLoginpin()));
         address.setText(custom.getAddress());

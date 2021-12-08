@@ -8,26 +8,6 @@ import java.util.ArrayList;
 @Table(name = "Tickets")
 public class Tickets
 {
-    public int getNumberofpassengers() {
-        return numberofpassengers;
-    }
-
-    public int getTotalfares() {
-        return totalfares;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public int getBookingreference() {
-        return bookingreference;
-    }
-
-    public void setBookingreference(int bookingreference) {
-        this.bookingreference = bookingreference;
-    }
-
     @Id
     @Column(name = "Booking_Reference")
     public int bookingreference;
@@ -47,12 +27,6 @@ public class Tickets
         totalfares = 0;
         type = "";
     }
-    Tickets(int numberofpassengers,int totalfares,String type)
-    {
-        this.numberofpassengers = numberofpassengers;
-        this.totalfares = totalfares;
-        this.type = type;
-    }
     public void addticket(int numberofpassengers,int totalfares,String type)
     {
         this.numberofpassengers = numberofpassengers;
@@ -69,5 +43,24 @@ public class Tickets
         {
             System.out.print(seatnumbers.get(i)+" ");
         }
+    }
+    public int getNumberofpassengers() {
+        return numberofpassengers;
+    }
+
+    public int getTotalfares() {
+        return totalfares;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getBookingreference() {
+        return bookingreference;
+    }
+
+    public void setBookingreference(int bookingreference) {
+        this.bookingreference = bookingreference;
     }
 }
