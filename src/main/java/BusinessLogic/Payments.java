@@ -11,7 +11,7 @@ public class Payments
 {
     @Id
     @Column(name = "Booking_Reference")
-    public int bookingreference;
+    private int bookingreference;
 
     @Column(name = "CardHolder_Name")
     private String cardholdername;

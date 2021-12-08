@@ -16,7 +16,7 @@ public class OneWayFlight extends Flight
     private String Departure_time;
 
     @Transient
-    String FlightType = "oneway";
+    private String FlightType = "oneway";
 
     public OneWayFlight()
     {

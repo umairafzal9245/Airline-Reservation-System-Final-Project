@@ -102,7 +102,6 @@ public class FlightCalender
     }
     public void bookaflight(String id, int Numberofpassengers, Integer customerpassport, ArrayList<Integer> seatnumbers) throws NoFlightsFoundException, LessSeatsAvailableException, SeatNumberIncorrectException, AlreadyBookedSeatException
     {
-        boolean flag = false;
         if(flightsschedule.isEmpty())
             throw new NoFlightsFoundException("Flight list is empty\n");
 
@@ -122,7 +121,6 @@ public class FlightCalender
             if(flightsschedule.get(index).getSeats().get(seatindex).isReserve() == true)
                 throw new AlreadyBookedSeatException("Seat number "+ seatnumbers.get(i)+" is already booked\n");
         }
-        flag = true;
         for (int i=0;i<seatnumbers.size();i++)
         {
             int seatindex = flightsschedule.get(index).searchseat(seatnumbers.get(i));
@@ -179,7 +177,6 @@ public class FlightCalender
             throw new NoFlightsFoundException("\nNo flights available\n");
         }
         boolean found = false;
-        int m =0;
         for (int i=0;i<flightsschedule.size();i++)
         {
             if (flightsschedule.get(i).getOrigin().equalsIgnoreCase(origin) && flightsschedule.get(i).getDestination().equalsIgnoreCase(destination)
@@ -187,7 +184,6 @@ public class FlightCalender
             {
                 found = true;
                 duplicatelist.add(flightsschedule.get(i));
-                m++;
             }
         }
         if(found == false)

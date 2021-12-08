@@ -8,22 +8,6 @@ import java.util.Random;
 
 public class FlightReservationSystem
 {
-    public Admin getAdmin() {
-        return admin;
-    }
-
-    public CustomerAccounts getCustomers() {
-        return customers;
-    }
-
-    public FlightCalender getTotalflights() {
-        return totalflights;
-    }
-
-    public ReservationsList getReservations() {
-        return reservations;
-    }
-
     private final Admin admin;
     private final CustomerAccounts customers;
     private final FlightCalender totalflights;
@@ -78,8 +62,7 @@ public class FlightReservationSystem
     }
     public Integer BookFlight(String id, Integer numberofpassengers, ArrayList<Integer> seatnumbers,String holdername,String cardnum,String expiry,Integer cvv) throws SeatNumberIncorrectException, NoFlightsFoundException, LessSeatsAvailableException, AlreadyBookedSeatException
     {
-            boolean flag = false;
-        Integer passport = customers.getCustomerslist().get(customers.searchcustomerloggedin()).getPassport_number();
+            Integer passport = customers.getCustomerslist().get(customers.searchcustomerloggedin()).getPassport_number();
             int totalfares = numberofpassengers * totalflights.getFlightsschedule().get(totalflights.searchflight(id)).getFares();
             String type = totalflights.getFlightsschedule().get(totalflights.searchflight(id)).getClasse();
 
@@ -98,6 +81,21 @@ public class FlightReservationSystem
             reservations.addreservation(object);
 
             return boo;
+    }
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public CustomerAccounts getCustomers() {
+        return customers;
+    }
+
+    public FlightCalender getTotalflights() {
+        return totalflights;
+    }
+
+    public ReservationsList getReservations() {
+        return reservations;
     }
     /*public static void main(String args[]) throws CustomerAlreadyPresentException {
 

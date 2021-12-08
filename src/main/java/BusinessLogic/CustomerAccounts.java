@@ -84,7 +84,7 @@ public class CustomerAccounts
     public Customer getLoggedInCustomer()
     {
         for (int i = 0; i < Customerslist.size(); i++) {
-            if (Customerslist.get(i).logincheck)
+            if (Customerslist.get(i).isLogincheck())
                 return Customerslist.get(i);
         }
         return null;
@@ -105,7 +105,7 @@ public class CustomerAccounts
         {
             if(Customerslist.get(i).isLogin())
             {
-                Customerslist.get(i).logincheck = false;
+                Customerslist.get(i).setLogincheck(false);
                 logged = true;
             }
         }

@@ -87,69 +87,47 @@ public class Flight
 
     }
 
-
     public String getId()
     {
         return id;
     }
-
     public String getOrigin()
     {
         return origin;
     }
-
     public int getCapacity() {
         return capacity;
     }
-
     public String getDestination() {
         return Destination;
     }
-
     public String getClasse() {
         return classe;
     }
-
     public int getFares() {
         return fares;
     }
-
     public void setFares(int fares) {
         this.fares = fares;
     }
-
     public String getType()
     {
         return "";
     }
-
     public void setId(String id) {
         this.id = id;
     }
-
     public void setOrigin(String origin) {
         this.origin = origin;
     }
-
     public void setDestination(String destination) {
         Destination = destination;
     }
-
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
-
     public void setClasse(String classe) {
         this.classe = classe;
-    }
-
-    public void setSeats(ArrayList<Seats> seats,int capacity) {
-        this.seats = new ArrayList<Seats>(capacity);
-        for (int i=0;i<capacity;i++)
-        {
-            Seats object = new Seats(seats.get(i));
-            this.seats.add(object);
-        }
     }
     public ArrayList<Seats> getSeats() {
         return seats;

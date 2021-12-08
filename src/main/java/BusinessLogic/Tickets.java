@@ -10,7 +10,7 @@ public class Tickets
 {
     @Id
     @Column(name = "Booking_Reference")
-    public int bookingreference;
+    private int bookingreference;
 
     @Column(name = "Numberofpassengers")
     private int numberofpassengers;

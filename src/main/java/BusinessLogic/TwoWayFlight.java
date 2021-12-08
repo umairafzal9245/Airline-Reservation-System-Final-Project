@@ -10,19 +10,19 @@ import javax.persistence.Transient;
 public class TwoWayFlight extends Flight
 {
     @Column(name = "Departure_Date")
-    String Departure_Date;
+    private String Departure_Date;
 
     @Column(name = "Departure_Time")
-    String Departure_Time;
+    private String Departure_Time;
 
     @Column(name = "Arrival_Date")
-    String ArrivalDate;
+    private String ArrivalDate;
 
     @Column(name = "Arrival_Time")
-    String ArrivalTime;
+    private String ArrivalTime;
 
     @Transient
-    String FlightType = "Roundtrip";
+    private String FlightType = "Roundtrip";
 
     public TwoWayFlight()
     {

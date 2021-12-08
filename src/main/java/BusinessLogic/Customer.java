@@ -26,7 +26,7 @@ public class Customer
     private int loginpin;
 
     @Transient
-    public boolean logincheck;
+    private boolean logincheck;
 
     public Customer()
     {
@@ -93,4 +93,11 @@ public class Customer
         return passport_number;
     }
 
+    public boolean isLogincheck() {
+        return logincheck;
+    }
+
+    public void setLogincheck(boolean logincheck) {
+        this.logincheck = logincheck;
+    }
 }

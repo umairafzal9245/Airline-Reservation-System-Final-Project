@@ -12,10 +12,11 @@ import javax.persistence.Query;
 
 public class OracleDataBase extends DataBaseHandler
 {
-    Configuration con;
-    SessionFactory sf;
-    Session session;
-    Transaction trans;
+    private Configuration con;
+    private SessionFactory sf;
+    private Session session;
+    private Transaction trans;
+
     private void createconnection()
     {
         con = new Configuration();
