@@ -16,15 +16,14 @@ public class ReservationsList
     }
 
     private ArrayList<Reservation> totalreservations;
-    private DataBaseHandler Database;
 
     ReservationsList()
     {
-        Database = new OracleDataBase();
+        FlightReservationSystem.database = new OracleDataBase();
         totalreservations = new ArrayList<Reservation>();
     }
     public void ReadReservationsFromDatabase() throws NoReservationsFoundException {
-        ArrayList<Reservation> data = Database.GetReservation();
+        ArrayList<Reservation> data = FlightReservationSystem.database.GetReservation();
         if(data.isEmpty())
         {
             throw new NoReservationsFoundException("No Reservations Present in Database");
@@ -65,7 +64,7 @@ public class ReservationsList
     public void addreservation(Reservation object)
     {
         totalreservations.add(object);
-        Database.AddReservations(object);
+        FlightReservationSystem.database.AddReservations(object);
     }
     public void displayticket(String name,FlightCalender totalflights) throws NoTicketFoundException
     {
@@ -99,8 +98,8 @@ public class ReservationsList
             throw new BookingReferenceNotown("This booking reference not belongs to you\n");
         }
         String flightid = totalreservations.get(index).getFlightid();
+        FlightReservationSystem.database.DeleteReservation(totalreservations.get(index));
         totalreservations.remove(index);
-        Database.DeleteReservation(reference);
         return flightid;
     }
     public void display(FlightCalender totalflights) throws NoReservationsFoundException, NoTicketFoundException {

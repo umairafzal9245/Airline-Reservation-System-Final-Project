@@ -2,16 +2,41 @@ package BusinessLogic;
 
 import javafx.beans.value.ObservableValue;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Payments")
 public class Payments
 {
 
+    public int getBookingreference() {
+        return bookingreference;
+    }
 
+    public void setBookingreference(int bookingreference) {
+        this.bookingreference = bookingreference;
+    }
+
+    @Id
+    @Column(name = "Booking_Reference")
+    public int bookingreference;
+
+    @Column(name = "CardHolder_Name")
     private String cardholdername;
+
+    @Column(name = "Card_Number")
     private String cardnumber;
+
+    @Column(name = "Expiry_Date")
     private String expirydate;
+
+    @Column(name = "CVV")
     private int cvv;
 
-    Payments()
+    public Payments()
     {
         cardholdername = "";
         cardnumber = "";
@@ -25,6 +50,7 @@ public class Payments
         this.expirydate = expiry;
         this.cvv = cvv;
     }
+
     public void addpayment(String cardholder,String cardnumber,String expiry,int cvv)
     {
         this.cardholdername = cardholder;

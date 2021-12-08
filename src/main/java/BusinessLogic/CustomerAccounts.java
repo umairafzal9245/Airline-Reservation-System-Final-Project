@@ -16,15 +16,14 @@ public class CustomerAccounts
     }
 
     private ArrayList<Customer> Customerslist;
-    private DataBaseHandler Database;
+
     CustomerAccounts()
     {
         Customerslist = new ArrayList<Customer>();
-        Database = new OracleDataBase();
     }
     public void ReadCustomersFromDatabase() throws NoCustomerPresentException
     {
-        ArrayList<Customer> data = Database.GetCustomer();
+        ArrayList<Customer> data = FlightReservationSystem.database.GetCustomer();
         if(data.isEmpty())
         {
             throw new NoCustomerPresentException("No Customer Record Present in Database");
@@ -43,7 +42,7 @@ public class CustomerAccounts
             throw new CustomerAlreadyPresentException("\nCustomer already registered\n");
         }
         Customerslist.add(object);
-        Database.AddCustomer(name, gender, age, address, passport_number, loginpin);
+        FlightReservationSystem.database.AddCustomer(name, gender, age, address, passport_number, loginpin);
         System.out.println("\n\tCustomer Registered Succefully!!!");
         return true;
     }
@@ -58,7 +57,7 @@ public class CustomerAccounts
         {
             throw new CustomerNameNotFoundException("\nCustomer not found\n");
         }
-        Database.RemoveCustomer(Customerslist.get(index));
+        FlightReservationSystem.database.RemoveCustomer(Customerslist.get(index));
         Customerslist.remove(index);
     }
     public int searchCustomer(String name)

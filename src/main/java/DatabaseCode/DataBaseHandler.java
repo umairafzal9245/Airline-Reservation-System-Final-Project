@@ -41,7 +41,7 @@ public class DataBaseHandler
     {
         return new ArrayList<Reservation>();
     }
-    public void DeleteReservation(int bookingreference)
+    public void DeleteReservation(Reservation object)
     {
 
     }

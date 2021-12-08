@@ -14,7 +14,6 @@ public class FlightCalender
     }
 
     private ArrayList<Flight> flightsschedule;
-    private DataBaseHandler Database;
 
     public ArrayList<Flight> getFlightsschedule()
     {
@@ -24,7 +23,7 @@ public class FlightCalender
     FlightCalender()
     {
         flightsschedule = new ArrayList<Flight>();
-        Database = new OracleDataBase();
+        FlightReservationSystem.database = new OracleDataBase();
     }
     public Flight getFlight(String flightid)
     {
@@ -50,7 +49,7 @@ public class FlightCalender
         return seatnumbers;
     }
     public void ReadFlightsFromDatabase() throws NoFlightsFoundException {
-        ArrayList<Flight> data = Database.GetFlight();
+        ArrayList<Flight> data = FlightReservationSystem.database.GetFlight();
         if(data.isEmpty())
         {
             throw new NoFlightsFoundException("No Flights Record Present in Database");
@@ -63,7 +62,7 @@ public class FlightCalender
     }
     public void ReadSeatsfromdatabase()
     {
-        ArrayList<Seats> data = Database.GetSeat();
+        ArrayList<Seats> data = FlightReservationSystem.database.GetSeat();
         if(data.isEmpty())
         {
             throw new RuntimeException("No seats booked yet");
@@ -94,7 +93,7 @@ public class FlightCalender
             throw new FlightsDuplicateFoundException("\nFlight with this id already present\n");
 
         flightsschedule.add(object);
-        Database.AddFlight(object);
+        FlightReservationSystem.database.AddFlight(object);
         System.out.println("\n\tFlight Added Succefully\n");
     }
     public int searchflight(String id)
@@ -147,7 +146,7 @@ public class FlightCalender
             flightsschedule.get(index).getSeats().get(seatindex).setCustomername(customername);
             flightsschedule.get(index).getSeats().get(seatindex).setStatus("Booked");
             Seats object = new Seats(id,seatnumbers.get(i),customername,"Booked",true);
-            Database.AddSeats(object);
+            FlightReservationSystem.database.AddSeats(object);
         }
         return flag;
     }
@@ -162,7 +161,7 @@ public class FlightCalender
                 flightsschedule.get(index).getSeats().get(i).setStatus("Free");
                 flightsschedule.get(index).getSeats().get(i).setCustomername("Not booked Yet");
             }
-            Database.CancelSeats(id,name);
+            FlightReservationSystem.database.CancelSeats(id,name);
         }
         System.out.println("Seats have been cancelled!!!");
     }
@@ -175,8 +174,8 @@ public class FlightCalender
         if(index == -1)
             throw new FlightIDIncorrectException("Flight with this id not found\n");
 
-        Database.RemoveFlight(flightsschedule.get(index));
-        Database.CancelSeats(id);
+        FlightReservationSystem.database.RemoveFlight(flightsschedule.get(index));
+        FlightReservationSystem.database.CancelSeats(id);
         flightsschedule.remove(index);
         System.out.println("\n\tFlight removed succefully");
     }

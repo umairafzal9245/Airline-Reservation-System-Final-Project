@@ -17,6 +17,10 @@
     <mapping class="BusinessLogic.Flight" />
     <mapping class="BusinessLogic.OneWayFlight" />
     <mapping class="BusinessLogic.TwoWayFlight" />
+    <mapping class="BusinessLogic.Reservation" />
+    <mapping class="BusinessLogic.Payments" />
+    <mapping class="BusinessLogic.Tickets" />
+    <mapping class="BusinessLogic.Seats" />
 
   </session-factory>
 </hibernate-configuration>

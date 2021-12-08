@@ -1,5 +1,8 @@
 package BusinessLogic;
 
+import DatabaseCode.DataBaseHandler;
+import DatabaseCode.OracleDataBase;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -9,6 +12,8 @@ public class FlightReservationSystem
     public CustomerAccounts customers;
     public FlightCalender totalflights;
     public ReservationsList reservations;
+
+    public static DataBaseHandler database = new OracleDataBase();
 
     public FlightReservationSystem()
     {
@@ -71,13 +76,14 @@ public class FlightReservationSystem
             Integer boo = rnd.nextInt(999999);
             object.setBookingreference(boo);
             object.getPayment().addpayment(holdername, cardnum, expiry, cvv);
+            object.getPayment().setBookingreference(boo);
             object.getTicket().addticket(numberofpassengers, totalfares, type);
+            object.getTicket().setBookingreference(boo);
             reservations.addreservation(object);
 
             return boo;
     }
     /*public static void main(String args[]) throws CustomerAlreadyPresentException {
-        Flight object = new OneWayFlight("1","pakistan","china",6,"deptdate","depttime",2000,"Business");
-        Database.AddFlight(object);
+
     }*/
 }

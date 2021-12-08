@@ -1,7 +1,11 @@
 package BusinessLogic;
 
+
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
+@Table(name = "Tickets")
 public class Tickets
 {
     public int getNumberofpassengers() {
@@ -16,11 +20,28 @@ public class Tickets
         return type;
     }
 
+    public int getBookingreference() {
+        return bookingreference;
+    }
+
+    public void setBookingreference(int bookingreference) {
+        this.bookingreference = bookingreference;
+    }
+
+    @Id
+    @Column(name = "Booking_Reference")
+    public int bookingreference;
+
+    @Column(name = "Numberofpassengers")
     private int numberofpassengers;
+
+    @Column(name = "TotalFares")
     private int totalfares;
+
+    @Column(name = "Type")
     private String type;
 
-    Tickets()
+    public Tickets()
     {
         numberofpassengers = 0;
         totalfares = 0;

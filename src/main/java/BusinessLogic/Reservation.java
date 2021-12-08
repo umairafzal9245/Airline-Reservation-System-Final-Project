@@ -1,7 +1,10 @@
 package BusinessLogic;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
+@Table(name = "Reservations")
 public class Reservation
 {
     public int getBookingreference() {
@@ -44,10 +47,21 @@ public class Reservation
         this.ticket = ticket;
     }
 
+
+    @Id
+    @Column(name = "Booking_Reference")
     private int bookingreference;
+
+    @Column(name = "Flight_Id")
     private String flightid;
+
+    @Column(name = "Customer_Name")
     private String customername;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Payments payment;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Tickets ticket;
 
     public Reservation()

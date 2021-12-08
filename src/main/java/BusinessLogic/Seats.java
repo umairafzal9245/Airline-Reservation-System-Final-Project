@@ -3,6 +3,7 @@ package BusinessLogic;
 import javax.persistence.*;
 
 @Entity
+@IdClass(SeatsPk.class)
 @Table(name = "Seats")
 public class Seats
 {
@@ -23,11 +24,11 @@ public class Seats
     }
 
     public String getCustomername() {
-        return customername;
+        return CustomerName;
     }
 
     public void setCustomername(String customername) {
-        this.customername = customername;
+        this.CustomerName = customername;
     }
 
     public boolean isReserve() {
@@ -39,20 +40,16 @@ public class Seats
     }
 
     public String getFlightid() {
-        return flightid;
+        return FlightId;
     }
 
     public void setFlightid(String flightid) {
-        this.flightid = flightid;
+        this.FlightId = flightid;
     }
 
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer SeatId;
-
-    @Column(name = "Flight_Id")
-    private String flightid;
+    @Column(name = "FlightId",unique = false)
+    private String FlightId;
 
     @Column(name = "Seat_Number")
     private int number;
@@ -60,8 +57,9 @@ public class Seats
     @Column(name = "Status")
     private String status;
 
-    @Column(name = "Customer_Name")
-    private String customername;
+    @Id
+    @Column(name = "CustomerName",unique = false)
+    private String CustomerName;
 
     @Transient
     private boolean reserve;
@@ -70,14 +68,14 @@ public class Seats
     {
         number = 0;
         status = "Free";
-        customername = "Not booked Yet";
+        CustomerName = "Not booked Yet";
         reserve = false;
     }
     public Seats(String flightid,int seatnumber,String customername,String status,Boolean reserve)
     {
-        this.flightid = flightid;
+        this.FlightId = flightid;
         number = seatnumber;
-        this.customername = customername;
+        this.CustomerName = customername;
         this.status = status;
         this.reserve = reserve;
     }
@@ -85,18 +83,18 @@ public class Seats
     {
         this.number = obj.number;
         this.status = obj.status;
-        this.customername = obj.customername;
+        this.CustomerName = obj.CustomerName;
         this.reserve = obj.reserve;
     }
     Seats(int seatnumber)
     {
         this.number = seatnumber;
         status = "Free";
-        customername = "Not booked Yet";
+        CustomerName = "Not booked Yet";
         reserve = false;
     }
     public void display()
     {
-        System.out.println("\tSeat Number: "+number+"\tSeat Status: "+status+"\tCustomer Name: "+customername+"\tReserve Status: "+reserve);
+        System.out.println("\tSeat Number: "+number+"\tSeat Status: "+status+"\tCustomer Name: "+CustomerName+"\tReserve Status: "+reserve);
     }
 }
