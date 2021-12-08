@@ -1,6 +1,5 @@
 package GUIcode.AdminGUI;
 
-import BusinessLogic.PinUnverifiedException;
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
 import javafx.event.ActionEvent;
@@ -34,7 +33,7 @@ public class LoginPage implements Initializable {
             String password = passwordfield.getText();
             try {
                 MainController.flightReservationSystem.getAdmin().loginanaccount(Integer.parseInt(password));
-            } catch (PinUnverifiedException | NumberFormatException e) {
+            } catch (Exception e) {
                 Alert message = new Alert(Alert.AlertType.ERROR);
                 message.setTitle("Invalid Pin");
                 message.setContentText("Enter the correct pin");

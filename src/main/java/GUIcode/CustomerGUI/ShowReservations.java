@@ -34,7 +34,7 @@ public class ShowReservations implements Initializable {
     private TableColumn<Reservation, Integer> bookingreference;
 
     @FXML
-    private TableColumn<Reservation, String> customername;
+    private TableColumn<Reservation, String> customerpassport;
 
     @FXML
     private TableColumn<Reservation, String> flightid;
@@ -117,7 +117,7 @@ public class ShowReservations implements Initializable {
         reservationlist.addAll(reservationarray);
         bookingreference.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("bookingreference"));
         flightid.setCellValueFactory(new PropertyValueFactory<Reservation,String>("flightid"));
-        customername.setCellValueFactory(new PropertyValueFactory<Reservation,String>("customername"));
+        customerpassport.setCellValueFactory(new PropertyValueFactory<Reservation,String>("customerpassport"));
         cardholdername.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation, String> reservationStringCellDataFeatures) {

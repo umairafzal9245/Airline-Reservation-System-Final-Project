@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class FlightCalender
 {
-    private ArrayList<Flight> flightsschedule;
+    private final ArrayList<Flight> flightsschedule;
 
     FlightCalender()
     {
@@ -17,7 +17,7 @@ public class FlightCalender
         int index = searchflight(flightid);
         return flightsschedule.get(index);
     }
-    public ArrayList<Integer> getSeats(String flightId,String name)
+    public ArrayList<Integer> getSeats(String flightId,Integer passport)
     {
         ArrayList<Integer> seatnumbers = new ArrayList<Integer>();
         for (int i=0;i<flightsschedule.size();i++)
@@ -26,7 +26,7 @@ public class FlightCalender
             {
                 for (int j=0;j<flightsschedule.get(i).getSeats().size();j++)
                 {
-                    if(flightsschedule.get(i).getSeats().get(j).getCustomername().equalsIgnoreCase(name))
+                    if(flightsschedule.get(i).getSeats().get(j).getCustomerpassport().equals(passport))
                     {
                         seatnumbers.add(flightsschedule.get(i).getSeats().get(j).getNumber());
                     }
@@ -56,7 +56,7 @@ public class FlightCalender
             int index = searchflight(data.get(i).getFlightid());
             flightsschedule.get(index).getSeats().get(data.get(i).getNumber()-1).setReserve(true);
             flightsschedule.get(index).getSeats().get(data.get(i).getNumber()-1).setStatus("Booked");
-            flightsschedule.get(index).getSeats().get(data.get(i).getNumber()-1).setCustomername(data.get(i).getCustomername());
+            flightsschedule.get(index).getSeats().get(data.get(i).getNumber()-1).setCustomerpassport(data.get(i).getCustomerpassport());
         }
         System.out.println("Successfully Retreived Seats From Database");
     }
@@ -100,7 +100,7 @@ public class FlightCalender
 
         return flightsschedule.get(index).getSeats();
     }
-    public void bookaflight(String id, int Numberofpassengers, String customername, ArrayList<Integer> seatnumbers) throws NoFlightsFoundException, LessSeatsAvailableException, SeatNumberIncorrectException, AlreadyBookedSeatException
+    public void bookaflight(String id, int Numberofpassengers, Integer customerpassport, ArrayList<Integer> seatnumbers) throws NoFlightsFoundException, LessSeatsAvailableException, SeatNumberIncorrectException, AlreadyBookedSeatException
     {
         boolean flag = false;
         if(flightsschedule.isEmpty())
@@ -127,24 +127,24 @@ public class FlightCalender
         {
             int seatindex = flightsschedule.get(index).searchseat(seatnumbers.get(i));
             flightsschedule.get(index).getSeats().get(seatindex).setReserve(true);
-            flightsschedule.get(index).getSeats().get(seatindex).setCustomername(customername);
+            flightsschedule.get(index).getSeats().get(seatindex).setCustomerpassport(customerpassport);
             flightsschedule.get(index).getSeats().get(seatindex).setStatus("Booked");
-            Seats object = new Seats(id,seatnumbers.get(i),customername,"Booked",true);
+            Seats object = new Seats(id,seatnumbers.get(i),customerpassport,"Booked",true);
             FlightReservationSystem.database.AddSeats(object);
         }
     }
-    public void cancelseats(String id,String name)
+    public void cancelseats(String id,Integer Passport)
     {
         int index = searchflight(id);
         for (int i=0;i<flightsschedule.get(index).getSeats().size();i++)
         {
-            if(flightsschedule.get(index).getSeats().get(i).getCustomername().equalsIgnoreCase(name))
+            if(flightsschedule.get(index).getSeats().get(i).getCustomerpassport().equals(Passport))
             {
                 flightsschedule.get(index).getSeats().get(i).setReserve(false);
                 flightsschedule.get(index).getSeats().get(i).setStatus("Free");
-                flightsschedule.get(index).getSeats().get(i).setCustomername("Not booked Yet");
+                flightsschedule.get(index).getSeats().get(i).setCustomerpassport(0);
             }
-            FlightReservationSystem.database.CancelSeats(id,name);
+            FlightReservationSystem.database.CancelSeats(id,Passport);
         }
         System.out.println("Seats have been cancelled!!!");
     }

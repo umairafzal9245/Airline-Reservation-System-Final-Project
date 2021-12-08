@@ -9,29 +9,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="GUIcode.CustomerGUI.CustomerLoginScene">
-    <Button fx:id="loginbutton" layoutX="235.0" layoutY="332.0" mnemonicParsing="false" onAction="#LoginUser"
-            prefHeight="35.0" prefWidth="100.0" text="Login In"/>
-    <PasswordField fx:id="password" layoutX="201.0" layoutY="268.0" prefHeight="35.0" prefWidth="170.0"
-                   promptText="Enter password"/>
-    <TextField fx:id="username" layoutX="201.0" layoutY="196.0" prefHeight="35.0" prefWidth="170.0"
-               promptText="Enter username"/>
-    <Label layoutX="117.0" layoutY="204.0" prefHeight="20.0" prefWidth="74.0" text="Username">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.CustomerGUI.CustomerLoginScene">
+    <Button fx:id="loginbutton" layoutX="235.0" layoutY="332.0" mnemonicParsing="false" onAction="#LoginUser" prefHeight="35.0" prefWidth="100.0" text="Login In" />
+    <PasswordField fx:id="password" layoutX="201.0" layoutY="268.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter password" />
+    <TextField fx:id="passportnumber" layoutX="201.0" layoutY="196.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter passport number" />
+    <Label layoutX="79.0" layoutY="204.0" prefHeight="20.0" prefWidth="115.0" text="Passport Number">
         <font>
-            <Font size="14.0"/>
+            <Font size="14.0" />
         </font>
     </Label>
     <Label layoutX="117.0" layoutY="276.0" prefHeight="20.0" prefWidth="74.0" text="Pin">
         <font>
-            <Font size="14.0"/>
+            <Font size="14.0" />
         </font>
     </Label>
-    <ImageView fitHeight="185.0" fitWidth="224.0" layoutX="194.0" layoutY="14.0" pickOnBounds="true"
-               preserveRatio="true">
-        <Image url="@avatar.png"/>
+    <ImageView fitHeight="185.0" fitWidth="224.0" layoutX="194.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@avatar.png" />
     </ImageView>
-    <Button layoutX="418.0" layoutY="413.0" mnemonicParsing="false" onAction="#BacktoMainMenu" text="Back"/>
-    <Button layoutX="59.0" layoutY="413.0" mnemonicParsing="false" onAction="#RegisterUser"
-            text="New Customer. Click to Register"/>
+    <Button layoutX="418.0" layoutY="413.0" mnemonicParsing="false" onAction="#BacktoMainMenu" text="Back" />
+    <Button layoutX="59.0" layoutY="413.0" mnemonicParsing="false" onAction="#RegisterUser" text="New Customer. Click to Register" />
 </AnchorPane>

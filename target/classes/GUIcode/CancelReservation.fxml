@@ -14,7 +14,7 @@
         <columns>
             <TableColumn fx:id="bookingreference" prefWidth="113.0" text="Booking Reference"/>
             <TableColumn fx:id="flightid" minWidth="0.0" prefWidth="52.0" text="Flight Id"/>
-            <TableColumn fx:id="customername" prefWidth="99.0" text="Customer Name"/>
+            <TableColumn fx:id="customerpassport" prefWidth="99.0" text="Customer Passport"/>
             <TableColumn maxWidth="344.0" minWidth="-1.0" prefWidth="300.0" text="Payment Information">
                 <columns>
                     <TableColumn fx:id="cardholdername" prefWidth="106.0" text="CardHolder Name"/>

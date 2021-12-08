@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class CustomerAccounts
 {
-    private ArrayList<Customer> Customerslist;
+    private final ArrayList<Customer> Customerslist;
 
     CustomerAccounts()
     {
@@ -23,7 +23,7 @@ public class CustomerAccounts
     public void RegisteranAccount(String name, String gender, int age, String address, Integer passport_number, int loginpin, Boolean login) throws CustomerAlreadyPresentException
     {
         Customer object = new Customer(name,gender,age,address,passport_number,loginpin,login);
-        if(searchCustomer(name) != -1)
+        if(searchCustomer(passport_number) != -1)
         {
             throw new CustomerAlreadyPresentException("\nCustomer already registered\n");
         }
@@ -31,26 +31,26 @@ public class CustomerAccounts
         FlightReservationSystem.database.AddCustomer(name, gender, age, address, passport_number, loginpin);
         System.out.println("\n\tCustomer Registered Succefully!!!");
     }
-    public void DeleteCustomer() throws CustomerNameNotFoundException {
-        String name = getCustomerslist().get(searchcustomerloggedin()).getName();
-        DeleteAccount(name);
+    public void DeleteCustomer() throws CustomerPassportNumberNotFoundException {
+        Integer passport = getCustomerslist().get(searchcustomerloggedin()).getPassport_number();
+        DeleteAccount(passport);
     }
-    public void DeleteAccount(String name) throws CustomerNameNotFoundException
+    public void DeleteAccount(Integer passport) throws CustomerPassportNumberNotFoundException
     {
-        int index = searchCustomer(name);
+        int index = searchCustomer(passport);
         if(index == -1)
         {
-            throw new CustomerNameNotFoundException("\nCustomer not found\n");
+            throw new CustomerPassportNumberNotFoundException("\nCustomer not found\n");
         }
         FlightReservationSystem.database.RemoveCustomer(Customerslist.get(index));
         Customerslist.remove(index);
     }
-    public int searchCustomer(String name)
+    public int searchCustomer(Integer passportNumber)
     {
         int index = -1;
         for (int i=0;i<Customerslist.size();i++)
         {
-            if(Customerslist.get(i).getName().equalsIgnoreCase(name))
+            if(Customerslist.get(i).getPassport_number().equals(passportNumber))
             {
                 index = i;
                 break;
@@ -58,12 +58,12 @@ public class CustomerAccounts
         }
         return index;
     }
-    public void loginanaccount(String name, int loginpin) throws PinUnverifiedException, CustomerNameNotFoundException
+    public void loginanaccount(Integer passport, int loginpin) throws PinUnverifiedException, CustomerPassportNumberNotFoundException
     {
-        int index = searchCustomer(name);
+        int index = searchCustomer(passport);
         if(index == -1)
         {
-            throw new CustomerNameNotFoundException("\n\tThe customer with this name is not present");
+            throw new CustomerPassportNumberNotFoundException("\n\tThe customer with this passport Number is not present");
         }
         Customerslist.get(index).checkpin(loginpin);
         if(Customerslist.get(index).isLogin())

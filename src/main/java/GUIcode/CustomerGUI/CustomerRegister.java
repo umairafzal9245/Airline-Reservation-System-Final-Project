@@ -6,7 +6,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 
 import java.io.IOException;
@@ -48,7 +50,7 @@ public class CustomerRegister implements Initializable {
     }
 
     @FXML
-    void RegisterUser(ActionEvent event) {
+    void RegisterUser(ActionEvent event) throws IOException {
         if(username.getText().length() == 0)
         {
             username.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
@@ -99,7 +101,7 @@ public class CustomerRegister implements Initializable {
                                 String gen = gender.getValue();
                                 boolean flag = false;
                                 try {
-                                    MainController.flightReservationSystem.getCustomers().RegisteranAccount(userna, gen, Integer.parseInt(ag), add, Integer.valueOf(passport), Integer.parseInt(pass),true);
+                                    MainController.flightReservationSystem.getCustomers().RegisteranAccount(userna, gen, Integer.parseInt(ag), add, Integer.parseInt(passport), Integer.parseInt(pass),true);
                                     flag = true;
                                 }
                                 catch (Exception e) {
@@ -114,6 +116,10 @@ public class CustomerRegister implements Initializable {
                                     message.setTitle("Registration Added");
                                     message.setContentText("Customer Successfully added");
                                     message.showAndWait();
+                                    FXMLLoader fxmlLoader2 = new FXMLLoader(HelloApplication.class.getResource("CustomerFunctionsList.fxml"));
+                                    CustomerLoginScene.Customerfunctionsscene = new Scene(fxmlLoader2.load(), 500, 500);
+                                    HelloApplication.window.setScene(CustomerLoginScene.Customerfunctionsscene);
+                                    HelloApplication.window.show();
                                 }
                             }
                         }

@@ -28,7 +28,7 @@ public class CancelReservation implements Initializable {
     private TableColumn<Reservation, Integer> bookingreference;
 
     @FXML
-    private TableColumn<Reservation, String> customername;
+    private TableColumn<Reservation, Integer> customerpassport;
 
     @FXML
     private TableColumn<Reservation, String> flightid;
@@ -53,8 +53,6 @@ public class CancelReservation implements Initializable {
 
     @FXML
     private TableColumn<Reservation, String> type;
-
-    public static Integer ref;
 
     ObservableList<Reservation> reservationlist = FXCollections.observableArrayList();
 
@@ -123,7 +121,7 @@ public class CancelReservation implements Initializable {
     {
         bookingreference.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("bookingreference"));
         flightid.setCellValueFactory(new PropertyValueFactory<Reservation,String>("flightid"));
-        customername.setCellValueFactory(new PropertyValueFactory<Reservation,String>("customername"));
+        customerpassport.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("customerpassport"));
         cardholdername.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation, String> reservationStringCellDataFeatures) {

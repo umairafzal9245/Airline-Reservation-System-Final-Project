@@ -4,6 +4,6 @@ import java.io.Serializable;
 
 public class SeatsPk implements Serializable {
     protected String FlightId;
-    protected String CustomerName;
+    protected Integer CustomerPassport;
     public SeatsPk() {}
 }

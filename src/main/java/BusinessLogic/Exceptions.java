@@ -1,17 +1,15 @@
 package BusinessLogic;
 
-class NoCustomerPresentException extends Exception
+class CustomerAlreadyPresentException extends Exception
 {
-    public NoCustomerPresentException(String message)
+    public CustomerAlreadyPresentException(String message)
     {
         super(message);
     }
 }
 
-class CustomerAlreadyPresentException extends Exception
-{
-    public CustomerAlreadyPresentException(String message)
-    {
+class CustomerPassportNumberNotFoundException extends Exception {
+    public CustomerPassportNumberNotFoundException(String message) {
         super(message);
     }
 }
@@ -44,6 +42,24 @@ class SeatNumberIncorrectException extends Exception
 {
     public SeatNumberIncorrectException(String message)
     {
+        super(message);
+    }
+}
+
+class NoCustomerPresentException extends Exception {
+    public NoCustomerPresentException(String message) {
+        super(message);
+    }
+}
+
+class PinUnverifiedException extends Exception {
+    public PinUnverifiedException(String message) {
+        super(message);
+    }
+}
+
+class FlightIDIncorrectException extends Exception {
+    public FlightIDIncorrectException(String message) {
         super(message);
     }
 }

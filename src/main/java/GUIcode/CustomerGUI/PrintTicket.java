@@ -27,7 +27,7 @@ public class PrintTicket implements Initializable {
     private TextField classe;
 
     @FXML
-    private TextField customername;
+    private TextField customerpassport;
 
     @FXML
     private TextField deptdate;
@@ -65,7 +65,7 @@ public class PrintTicket implements Initializable {
         Reservation object = MainController.flightReservationSystem.getReservations().getReservation(ref);
         bookingref.setText(ref.toString());
         flightid.setText(object.getFlightid());
-        customername.setText(object.getCustomername());
+        customerpassport.setText(object.getCustomerPassport().toString());
         numberofpassenger.setText(Integer.toString(object.getTicket().getNumberofpassengers()));
         fare.setText(Integer.toString(object.getTicket().getTotalfares()));
         classe.setText(object.getTicket().getType());

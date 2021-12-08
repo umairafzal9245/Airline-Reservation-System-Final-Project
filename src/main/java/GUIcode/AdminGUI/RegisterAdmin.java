@@ -11,13 +11,7 @@ import java.util.Optional;
 public class RegisterAdmin {
 
     @FXML
-    private Button backbutton;
-
-    @FXML
     private PasswordField password;
-
-    @FXML
-    private Button submitbutton;
 
     @FXML
     private TextField username;
@@ -63,7 +57,7 @@ public class RegisterAdmin {
             try {
                 MainController.flightReservationSystem.getAdmin().registeraccount(username.getText(), Integer.parseInt(password.getText()));
                     change = true;
-            } catch (NumberFormatException e) {
+            } catch (Exception e) {
                 Alert message = new Alert(Alert.AlertType.ERROR);
                 message.setTitle("Invalid Pin");
                 message.setContentText("Enter the correct pin in digits");

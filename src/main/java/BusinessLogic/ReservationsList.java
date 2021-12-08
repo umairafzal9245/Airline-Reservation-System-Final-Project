@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class ReservationsList
 {
-    private ArrayList<Reservation> totalreservations;
+    private final ArrayList<Reservation> totalreservations;
 
     ReservationsList()
     {
@@ -35,12 +35,12 @@ public class ReservationsList
         int index = searchreservation(bookingref);
         return totalreservations.get(index);
     }
-    public ArrayList<Reservation> GetTickets(String Name)
+    public ArrayList<Reservation> GetTickets(Integer passport)
     {
         ArrayList<Reservation> reservations = new ArrayList<Reservation>();
         for (int i=0;i<totalreservations.size();i++)
         {
-            if(totalreservations.get(i).getCustomername().equalsIgnoreCase(Name))
+            if(totalreservations.get(i).getCustomerPassport().equals(passport))
             {
                 reservations.add(totalreservations.get(i));
             }
@@ -52,7 +52,7 @@ public class ReservationsList
         totalreservations.add(object);
         FlightReservationSystem.database.AddReservations(object);
     }
-    public void displayticket(String name,FlightCalender totalflights) throws NoTicketFoundException
+    public void displayticket(Integer passport,FlightCalender totalflights) throws NoTicketFoundException
     {
         if(totalreservations.isEmpty())
         {
@@ -62,10 +62,10 @@ public class ReservationsList
         int m = 1;
         for (int i=0;i<totalreservations.size();i++)
         {
-            if(totalreservations.get(i).getCustomername().equalsIgnoreCase(name))
+            if(totalreservations.get(i).getCustomerPassport().equals(passport))
             {
                 found = true;
-                ArrayList<Integer> seatnumbers = totalflights.getSeats(totalreservations.get(i).getFlightid(),name);
+                ArrayList<Integer> seatnumbers = totalflights.getSeats(totalreservations.get(i).getFlightid(),passport);
                 totalreservations.get(i).display(m,seatnumbers);
                 m++;
             }
@@ -73,13 +73,13 @@ public class ReservationsList
         if (found == false){
             System.out.println("No tickets Present");}
     }
-    public String deletereservation(int reference,String name) throws InvalidBookingReferenceException, BookingReferenceNotown {
+    public String deletereservation(int reference,Integer passport) throws InvalidBookingReferenceException, BookingReferenceNotown {
         int index = searchreservation(reference);
         if(index == -1)
         {
             throw new InvalidBookingReferenceException("Booking reference is not correct\n");
         }
-        if(!totalreservations.get(index).getCustomername().equalsIgnoreCase(name))
+        if(!totalreservations.get(index).getCustomerPassport().equals(passport))
         {
             throw new BookingReferenceNotown("This booking reference not belongs to you\n");
         }
@@ -95,7 +95,7 @@ public class ReservationsList
         }
         for (int i=0;i<totalreservations.size();i++)
         {
-            ArrayList<Integer> seatnumbers = totalflights.getSeats(totalreservations.get(i).getFlightid(),totalreservations.get(i).getCustomername());
+            ArrayList<Integer> seatnumbers = totalflights.getSeats(totalreservations.get(i).getFlightid(),totalreservations.get(i).getCustomerPassport());
             totalreservations.get(i).display(i+1,seatnumbers);
         }
     }

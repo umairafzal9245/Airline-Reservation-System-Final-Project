@@ -14,8 +14,8 @@ public class Reservation
     @Column(name = "Flight_Id")
     private String flightid;
 
-    @Column(name = "Customer_Name")
-    private String customername;
+    @Column(name = "Customer_Passport")
+    private Integer customerpassport;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Payments payment;
@@ -32,7 +32,7 @@ public class Reservation
     public void display(int serial, ArrayList<Integer> seatnumbers)
     {
         System.out.println("\nReservations "+serial+" Information:");
-        System.out.println("\tBooking Reference: "+bookingreference+"\t\tCustomer Name: "+customername);
+        System.out.println("\tBooking Reference: "+bookingreference+"\t\tCustomer Passport: "+customerpassport);
         ticket.Display(flightid,seatnumbers);
         payment.display();
 
@@ -53,12 +53,12 @@ public class Reservation
         this.flightid = flightid;
     }
 
-    public String getCustomername() {
-        return customername;
+    public Integer getCustomerPassport() {
+        return customerpassport;
     }
 
-    public void setCustomername(String customername) {
-        this.customername = customername;
+    public void setCustomerPassport(Integer customerpass) {
+        this.customerpassport = customerpass;
     }
 
     public Payments getPayment() {

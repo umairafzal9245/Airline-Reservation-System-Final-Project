@@ -18,8 +18,8 @@ public class Seats
     private String status;
 
     @Id
-    @Column(name = "CustomerName")
-    private String CustomerName;
+    @Column(name = "CustomerPassport")
+    private Integer CustomerPassport;
 
     @Transient
     private boolean reserve;
@@ -28,14 +28,14 @@ public class Seats
     {
         number = 0;
         status = "Free";
-        CustomerName = "Not booked Yet";
+        CustomerPassport = 0;
         reserve = false;
     }
-    public Seats(String flightid,int seatnumber,String customername,String status,Boolean reserve)
+    public Seats(String flightid,int seatnumber,Integer Passport,String status,Boolean reserve)
     {
         this.FlightId = flightid;
         number = seatnumber;
-        this.CustomerName = customername;
+        this.CustomerPassport = Passport;
         this.status = status;
         this.reserve = reserve;
     }
@@ -43,19 +43,19 @@ public class Seats
     {
         this.number = obj.number;
         this.status = obj.status;
-        this.CustomerName = obj.CustomerName;
+        this.CustomerPassport = obj.CustomerPassport;
         this.reserve = obj.reserve;
     }
     Seats(int seatnumber)
     {
         this.number = seatnumber;
         status = "Free";
-        CustomerName = "Not booked Yet";
+        CustomerPassport = 0;
         reserve = false;
     }
     public void display()
     {
-        System.out.println("\tSeat Number: "+number+"\tSeat Status: "+status+"\tCustomer Name: "+CustomerName+"\tReserve Status: "+reserve);
+        System.out.println("\tSeat Number: "+number+"\tSeat Status: "+status+"\tCustomer Passport: "+CustomerPassport+"\tReserve Status: "+reserve);
     }
     public int getNumber() {
         return number;
@@ -73,12 +73,12 @@ public class Seats
         this.status = status;
     }
 
-    public String getCustomername() {
-        return CustomerName;
+    public Integer getCustomerpassport() {
+        return CustomerPassport;
     }
 
-    public void setCustomername(String customername) {
-        this.CustomerName = customername;
+    public void setCustomerpassport(Integer Passport) {
+        this.CustomerPassport = Passport;
     }
 
     public boolean isReserve() {

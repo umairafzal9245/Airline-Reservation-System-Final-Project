@@ -49,7 +49,7 @@ public class DataBaseHandler
     {
 
     }
-    public void CancelSeats(String flightid,String customername)
+    public void CancelSeats(String flightid,Integer customerpassport)
     {
 
     }

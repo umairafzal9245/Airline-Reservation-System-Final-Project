@@ -6,7 +6,6 @@ import javax.persistence.*;
 @Table(name = "Customers")
 public class Customer
 {
-    @Id
     @Column(name = "Name")
     private String name;
 
@@ -19,6 +18,7 @@ public class Customer
     @Column(name = "Address")
     private String address;
 
+    @Id
     @Column(name = "Passport_Number")
     private Integer passport_number;
 

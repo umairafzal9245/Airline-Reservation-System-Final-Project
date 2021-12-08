@@ -17,7 +17,7 @@
     <Label layoutX="57.0" layoutY="292.0" text="Type"/>
     <TextField fx:id="bookingref" editable="false" layoutX="202.0" layoutY="70.0"/>
     <TextField fx:id="flightid" editable="false" layoutX="202.0" layoutY="109.0"/>
-    <TextField fx:id="customername" editable="false" layoutX="202.0" layoutY="144.0"/>
+    <TextField fx:id="customerpassport" editable="false" layoutX="202.0" layoutY="144.0"/>
     <TextField fx:id="numberofpassenger" editable="false" layoutX="202.0" layoutY="178.0"/>
     <TextField fx:id="fare" editable="false" layoutX="202.0" layoutY="219.0"/>
     <TextField fx:id="classe" editable="false" layoutX="202.0" layoutY="264.0"/>

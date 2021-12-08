@@ -67,26 +67,26 @@ public class FlightReservationSystem
         }
     }
     public void CancelReservation(int reference) throws BookingReferenceNotown, InvalidBookingReferenceException {
-        String name = customers.getCustomerslist().get(customers.searchcustomerloggedin()).getName();
-        String Flightid = reservations.deletereservation(reference,name);
-        totalflights.cancelseats(Flightid, name);
+        Integer passport = customers.getCustomerslist().get(customers.searchcustomerloggedin()).getPassport_number();
+        String Flightid = reservations.deletereservation(reference,passport);
+        totalflights.cancelseats(Flightid, passport);
     }
     public ArrayList<Reservation> GetReservations()
     {
-        String name = customers.getCustomerslist().get(customers.searchcustomerloggedin()).getName();
-        return reservations.GetTickets(name);
+        Integer passport = customers.getCustomerslist().get(customers.searchcustomerloggedin()).getPassport_number();
+        return reservations.GetTickets(passport);
     }
     public Integer BookFlight(String id, Integer numberofpassengers, ArrayList<Integer> seatnumbers,String holdername,String cardnum,String expiry,Integer cvv) throws SeatNumberIncorrectException, NoFlightsFoundException, LessSeatsAvailableException, AlreadyBookedSeatException
     {
             boolean flag = false;
-            String name = customers.getCustomerslist().get(customers.searchcustomerloggedin()).getName();
+        Integer passport = customers.getCustomerslist().get(customers.searchcustomerloggedin()).getPassport_number();
             int totalfares = numberofpassengers * totalflights.getFlightsschedule().get(totalflights.searchflight(id)).getFares();
             String type = totalflights.getFlightsschedule().get(totalflights.searchflight(id)).getClasse();
 
-            totalflights.bookaflight(id, numberofpassengers, name, seatnumbers);
+            totalflights.bookaflight(id, numberofpassengers, passport, seatnumbers);
 
             Reservation object = new Reservation();
-            object.setCustomername(name);
+            object.setCustomerPassport(passport);
             object.setFlightid(id);
             Random rnd = new Random();
             int boo = rnd.nextInt(999999);

@@ -1,6 +1,5 @@
 package GUIcode.AdminGUI;
 
-import BusinessLogic.FlightIDIncorrectException;
 import BusinessLogic.Seats;
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
@@ -51,7 +50,7 @@ public class SeatsList implements Initializable {
         ArrayList<Seats> getseats = null;
         try {
             getseats = MainController.flightReservationSystem.getTotalflights().GetFlightSeats(ShowAllFlights.data);
-        } catch (FlightIDIncorrectException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         seatslist.addAll(getseats);
@@ -71,7 +70,7 @@ public class SeatsList implements Initializable {
        customername.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Seats, String>, ObservableValue<String>>() {
            @Override
            public ObservableValue<String> call(TableColumn.CellDataFeatures<Seats, String> seatsStringCellDataFeatures) {
-               return new SimpleStringProperty(seatsStringCellDataFeatures.getValue().getCustomername());
+               return /*new SimpleStringProperty(seatsStringCellDataFeatures.getValue().getCustomername())*/null;
            }
        });
         bookingstatus.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Seats, String>, ObservableValue<String>>() {

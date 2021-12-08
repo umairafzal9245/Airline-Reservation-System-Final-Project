@@ -1,7 +1,5 @@
 package GUIcode.CustomerGUI;
 
-import BusinessLogic.CustomerNameNotFoundException;
-import BusinessLogic.PinUnverifiedException;
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
 import javafx.event.ActionEvent;
@@ -22,14 +20,12 @@ public class CustomerLoginScene {
     private PasswordField password;
 
     @FXML
-    private TextField username;
+    private TextField passportnumber;
 
     @FXML
     void RegisterUser(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerRegister.fxml"));
         CustomerRegisterscene = new Scene(fxmlLoader.load(), 500, 500);
-        FXMLLoader fxmlLoader2 = new FXMLLoader(HelloApplication.class.getResource("CustomerFunctionsList.fxml"));
-        Customerfunctionsscene = new Scene(fxmlLoader2.load(), 500, 500);
         HelloApplication.window.setScene(CustomerRegisterscene);
         HelloApplication.window.show();
     }
@@ -37,21 +33,21 @@ public class CustomerLoginScene {
     @FXML
     void LoginUser(ActionEvent event) throws IOException
     {
-        if(username.getText() == null || username.getText().length() == 0)
+        if(passportnumber.getText() == null || passportnumber.getText().length() == 0 ||  !isNumeric(passportnumber.getText()))
         {
-            username.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+            passportnumber.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
         }
         else {
-            username.setStyle("fx-border-width: 0px");
-            String user = username.getText();
-            if (password.getText().length() == 0)
+            passportnumber.setStyle("fx-border-width: 0px");
+            String user = passportnumber.getText();
+            if (passportnumber.getText() == null || password.getText().length() == 0 || !isNumeric(password.getText()))
                 password.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
             else {
                 password.setStyle("fx-border-width: 0px");
                 String passwordd = password.getText();
                 try {
-                    MainController.flightReservationSystem.getCustomers().loginanaccount(user, Integer.parseInt(passwordd));
-                } catch (PinUnverifiedException | NumberFormatException | CustomerNameNotFoundException e) {
+                    MainController.flightReservationSystem.getCustomers().loginanaccount(Integer.valueOf(user), Integer.parseInt(passwordd));
+                } catch (Exception e) {
                     Alert message = new Alert(Alert.AlertType.ERROR);
                     message.setTitle("Error");
                     message.setContentText(e.getMessage());
@@ -68,6 +64,15 @@ public class CustomerLoginScene {
                     HelloApplication.window.show();
                 }
             }
+        }
+    }
+
+    public static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
         }
     }
 

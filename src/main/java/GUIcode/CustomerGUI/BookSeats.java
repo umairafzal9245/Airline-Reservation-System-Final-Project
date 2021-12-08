@@ -1,7 +1,6 @@
 package GUIcode.CustomerGUI;
 
 import BusinessLogic.Seats;
-import BusinessLogic.FlightIDIncorrectException;
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -40,7 +39,7 @@ public class BookSeats implements Initializable {
     private TableColumn<Seats, String> bookingstatus;
 
     @FXML
-    private TableColumn<Seats, String> customername;
+    private TableColumn<Seats, Integer> customerpassport;
 
     @FXML
     private TableColumn<Seats, String> flightid;
@@ -205,7 +204,7 @@ public class BookSeats implements Initializable {
         ArrayList<Seats> getseats = null;
         try {
             getseats = MainController.flightReservationSystem.getTotalflights().GetFlightSeats(BookFlight.data);
-        } catch (FlightIDIncorrectException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         seatslist.addAll(getseats);
@@ -222,10 +221,10 @@ public class BookSeats implements Initializable {
                 return new SimpleIntegerProperty(seatsIntegerCellDataFeatures.getValue().getNumber()).asObject();
             }
         });
-        customername.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Seats, String>, ObservableValue<String>>() {
+        customerpassport.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Seats, Integer>, ObservableValue<Integer>>() {
             @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<Seats, String> seatsStringCellDataFeatures) {
-                return new SimpleStringProperty(seatsStringCellDataFeatures.getValue().getCustomername());
+            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Seats, Integer> seatsIntegerCellDataFeatures) {
+                return new SimpleIntegerProperty(seatsIntegerCellDataFeatures.getValue().getCustomerpassport()).asObject();
             }
         });
         bookingstatus.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Seats, String>, ObservableValue<String>>() {

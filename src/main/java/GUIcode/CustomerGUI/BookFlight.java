@@ -1,7 +1,6 @@
 package GUIcode.CustomerGUI;
 
 import BusinessLogic.Flight;
-import BusinessLogic.FlightIDIncorrectException;
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -193,7 +192,7 @@ public class BookFlight implements Initializable {
                                 {
                                     flag = false;
                                 }
-                            } catch (FlightIDIncorrectException e) {
+                            } catch (Exception e) {
                                 Alert message = new Alert(Alert.AlertType.ERROR);
                                 message.setTitle("Seats");
                                 message.setContentText("Seats not availabe");

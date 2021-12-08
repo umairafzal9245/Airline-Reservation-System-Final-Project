@@ -122,12 +122,12 @@ public class OracleDataBase extends DataBaseHandler
 
         return seatsslist;
     }
-    public void CancelSeats(String flightid,String customername)
+    public void CancelSeats(String flightid,Integer customerpassport)
     {
         createconnection();
         Seats object = new Seats();
         object.setFlightid(flightid);
-        object.setCustomername(customername);
+        object.setCustomerpassport(customerpassport);
         session.delete(object);
         trans.commit();
     }
