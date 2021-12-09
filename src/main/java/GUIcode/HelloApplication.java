@@ -11,7 +11,6 @@ public class HelloApplication extends Application
 {
     private static Stage window;
     private static Scene MainMenu;
-
     @Override
     public void start(Stage stage) throws IOException
     {
@@ -26,7 +25,6 @@ public class HelloApplication extends Application
     public static void main(String[] args) {
         launch();
     }
-
     public static Stage getWindow() {
         return window;
     }
