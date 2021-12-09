@@ -33,13 +33,13 @@ public class Displayaccount implements Initializable {
 
     @FXML
     void BacktoMainMenu(ActionEvent event) {
-        HelloApplication.window.setScene(CustomerLoginScene.Customerfunctionsscene);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
+        HelloApplication.getWindow().show();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Customer custom = MainController.flightReservationSystem.getCustomers().getLoggedInCustomer();
+        Customer custom = MainController.getFlightReservationSystem().getCustomers().getLoggedInCustomer();
         username.setText(custom.getName());
         pin.setText(Integer.toString(custom.getLoginpin()));
         address.setText(custom.getAddress());

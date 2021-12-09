@@ -6,36 +6,34 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.util.Optional;
 
 public class MainController {
 
-    public static Scene loginscene;
-    public static Scene customerloginscene;
-    public static final FlightReservationSystem flightReservationSystem = new FlightReservationSystem();
+    private static Scene loginscene;
+    private static Scene customerloginscene;
+    private static final FlightReservationSystem flightReservationSystem = new FlightReservationSystem();
 
     @FXML
     void InvokeAdminFunctions(ActionEvent event) throws IOException {
-        if(MainController.flightReservationSystem.getAdmin().isLogin() == false)
+        if(MainController.getFlightReservationSystem().getAdmin().isLogin() == false)
         {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
-            loginscene = new Scene(fxmlLoader.load(), 500, 500);
-            HelloApplication.window.setScene(loginscene);
-            HelloApplication.window.show();
+            setLoginscene(new Scene(fxmlLoader.load(), 500, 500));
+            HelloApplication.getWindow().setScene(getLoginscene());
+            HelloApplication.getWindow().show();
         }
     }
 
     @FXML
     void InvokeCustomerFunctions(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerLogin.fxml"));
-        customerloginscene = new Scene(fxmlLoader.load(), 500, 500);
-        HelloApplication.window.setScene(customerloginscene);
-        HelloApplication.window.show();
+        setCustomerloginscene(new Scene(fxmlLoader.load(), 500, 500));
+        HelloApplication.getWindow().setScene(getCustomerloginscene());
+        HelloApplication.getWindow().show();
     }
 
     @FXML
@@ -46,7 +44,26 @@ public class MainController {
         Optional<ButtonType> input = newalert.showAndWait();
         if(input.get() == ButtonType.OK)
         {
-            HelloApplication.window.close();
+            HelloApplication.getWindow().close();
         }
+    }
+    public static Scene getLoginscene() {
+        return loginscene;
+    }
+
+    public static void setLoginscene(Scene loginscene) {
+        MainController.loginscene = loginscene;
+    }
+
+    public static Scene getCustomerloginscene() {
+        return customerloginscene;
+    }
+
+    public static void setCustomerloginscene(Scene customerloginscene) {
+        MainController.customerloginscene = customerloginscene;
+    }
+
+    public static FlightReservationSystem getFlightReservationSystem() {
+        return flightReservationSystem;
     }
 }

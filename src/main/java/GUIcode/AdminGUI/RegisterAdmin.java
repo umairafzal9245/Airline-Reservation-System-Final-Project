@@ -26,14 +26,14 @@ public class RegisterAdmin {
             Optional<ButtonType> input = newalert.showAndWait();
             if(input.get() == ButtonType.OK)
             {
-                HelloApplication.window.setScene(LoginPage.Adminsfunctionscene);
-                HelloApplication.window.show();
+                HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
+                HelloApplication.getWindow().show();
             }
         }
         else
         {
-            HelloApplication.window.setScene(LoginPage.Adminsfunctionscene);
-            HelloApplication.window.show();
+            HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
+            HelloApplication.getWindow().show();
         }
     }
 
@@ -55,7 +55,7 @@ public class RegisterAdmin {
         else {
             boolean change = false;
             try {
-                MainController.flightReservationSystem.getAdmin().registeraccount(username.getText(), Integer.parseInt(password.getText()));
+                MainController.getFlightReservationSystem().getAdmin().registeraccount(username.getText(), Integer.parseInt(password.getText()));
                     change = true;
             } catch (Exception e) {
                 Alert message = new Alert(Alert.AlertType.ERROR);
@@ -69,8 +69,8 @@ public class RegisterAdmin {
                 message.setTitle("Details Changed");
                 message.setContentText("Details Successfully changed");
                 message.showAndWait();
-                HelloApplication.window.setScene(LoginPage.Adminsfunctionscene);
-                HelloApplication.window.show();
+                HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
+                HelloApplication.getWindow().show();
             }
         }
     }

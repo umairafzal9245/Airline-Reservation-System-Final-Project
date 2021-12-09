@@ -15,11 +15,11 @@ import java.util.Optional;
 
 public class AdminFunctionsController {
 
-    static Scene admindetailscene;
-    static Scene adminregisterscene;
-    static Scene viewallcustomersscene;
-    static Scene viewallresevationsscene;
-    static Scene manageflightsscene;
+    private static Scene admindetailscene;
+    private static Scene adminregisterscene;
+    private static Scene viewallcustomersscene;
+    private static Scene viewallresevationsscene;
+    private static Scene manageflightsscene;
 
     @FXML
     void ExitMainMenu(ActionEvent event)
@@ -30,67 +30,105 @@ public class AdminFunctionsController {
         Optional<ButtonType> input = newalert.showAndWait();
         if(input.get() == ButtonType.OK)
         {
-            MainController.flightReservationSystem.getAdmin().logout();
-            HelloApplication.window.setScene(HelloApplication.MainMenu);
-            HelloApplication.window.show();
+            MainController.getFlightReservationSystem().getAdmin().logout();
+            HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+            HelloApplication.getWindow().show();
         }
     }
 
     @FXML
     void LogoutAdminAccount(ActionEvent event)
     {
-            MainController.flightReservationSystem.getAdmin().logout();
+            MainController.getFlightReservationSystem().getAdmin().logout();
             Alert message = new Alert(Alert.AlertType.INFORMATION);
             message.setTitle("Login");
             message.setContentText("Account Successfully logged out");
             message.showAndWait();
-            HelloApplication.window.setScene(HelloApplication.MainMenu);
-            HelloApplication.window.show();
+            HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+            HelloApplication.getWindow().show();
     }
 
     @FXML
     void ManageFlightSchedules(ActionEvent event) throws IOException {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ManageFlights.fxml"));
-            manageflightsscene = new Scene(fxmlLoader.load(), 500, 500);
-            HelloApplication.window.setScene(manageflightsscene);
-            HelloApplication.window.show();
+            setManageflightsscene(new Scene(fxmlLoader.load(), 500, 500));
+            HelloApplication.getWindow().setScene(getManageflightsscene());
+            HelloApplication.getWindow().show();
     }
 
     @FXML
     void ModifyDetails(ActionEvent event) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RegisterAdmin.fxml"));
-        adminregisterscene = new Scene(fxmlLoader.load(), 500, 500);
-        HelloApplication.window.setScene(adminregisterscene);
-        HelloApplication.window.show();
+        setAdminregisterscene(new Scene(fxmlLoader.load(), 500, 500));
+        HelloApplication.getWindow().setScene(getAdminregisterscene());
+        HelloApplication.getWindow().show();
     }
 
     @FXML
     void ViewAdminDetails(ActionEvent event) throws IOException
     {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAdminDetails.fxml"));
-            admindetailscene = new Scene(fxmlLoader.load(), 500, 500);
-            HelloApplication.window.setScene(admindetailscene);
-            HelloApplication.window.show();
+            setAdmindetailscene(new Scene(fxmlLoader.load(), 500, 500));
+            HelloApplication.getWindow().setScene(getAdmindetailscene());
+            HelloApplication.getWindow().show();
     }
 
     @FXML
     void ViewAllCustomers(ActionEvent event) throws IOException
     {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAllCustomersTable.fxml"));
-            viewallcustomersscene = new Scene(fxmlLoader.load(), 500, 500);
-            HelloApplication.window.setScene(viewallcustomersscene);
-            HelloApplication.window.show();
+            setViewallcustomersscene(new Scene(fxmlLoader.load(), 500, 500));
+            HelloApplication.getWindow().setScene(getViewallcustomersscene());
+            HelloApplication.getWindow().show();
     }
 
     @FXML
     void ViewAllReservations(ActionEvent event) throws IOException {
 
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAllReservations.fxml"));
-            viewallresevationsscene = new Scene(fxmlLoader.load(), 500, 500);
-            HelloApplication.window.setScene(viewallresevationsscene);
-            HelloApplication.window.show();
+            setViewallresevationsscene(new Scene(fxmlLoader.load(), 500, 500));
+            HelloApplication.getWindow().setScene(getViewallresevationsscene());
+            HelloApplication.getWindow().show();
     }
 
+    public static Scene getAdmindetailscene() {
+        return admindetailscene;
+    }
 
+    public static void setAdmindetailscene(Scene admindetailscene) {
+        AdminFunctionsController.admindetailscene = admindetailscene;
+    }
+
+    public static Scene getAdminregisterscene() {
+        return adminregisterscene;
+    }
+
+    public static void setAdminregisterscene(Scene adminregisterscene) {
+        AdminFunctionsController.adminregisterscene = adminregisterscene;
+    }
+
+    public static Scene getViewallcustomersscene() {
+        return viewallcustomersscene;
+    }
+
+    public static void setViewallcustomersscene(Scene viewallcustomersscene) {
+        AdminFunctionsController.viewallcustomersscene = viewallcustomersscene;
+    }
+
+    public static Scene getViewallresevationsscene() {
+        return viewallresevationsscene;
+    }
+
+    public static void setViewallresevationsscene(Scene viewallresevationsscene) {
+        AdminFunctionsController.viewallresevationsscene = viewallresevationsscene;
+    }
+
+    public static Scene getManageflightsscene() {
+        return manageflightsscene;
+    }
+
+    public static void setManageflightsscene(Scene manageflightsscene) {
+        AdminFunctionsController.manageflightsscene = manageflightsscene;
+    }
 }

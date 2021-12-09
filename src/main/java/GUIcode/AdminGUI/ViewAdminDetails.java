@@ -20,12 +20,12 @@ public class ViewAdminDetails implements Initializable {
 
     @FXML
     void BackToMenu(ActionEvent event) {
-        HelloApplication.window.setScene(LoginPage.Adminsfunctionscene);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
+        HelloApplication.getWindow().show();
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        username.setText(MainController.flightReservationSystem.getAdmin().getName());
-        password.setText(Integer.toString(MainController.flightReservationSystem.getAdmin().getLoginpin()));
+        username.setText(MainController.getFlightReservationSystem().getAdmin().getName());
+        password.setText(Integer.toString(MainController.getFlightReservationSystem().getAdmin().getLoginpin()));
     }
 }

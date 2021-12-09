@@ -13,8 +13,8 @@ import java.util.Optional;
 
 public class CustomerLoginScene {
 
-    static Scene Customerfunctionsscene;
-    static Scene CustomerRegisterscene;
+    private static Scene Customerfunctionsscene;
+    private static Scene CustomerRegisterscene;
 
     @FXML
     private PasswordField password;
@@ -25,9 +25,9 @@ public class CustomerLoginScene {
     @FXML
     void RegisterUser(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerRegister.fxml"));
-        CustomerRegisterscene = new Scene(fxmlLoader.load(), 500, 500);
-        HelloApplication.window.setScene(CustomerRegisterscene);
-        HelloApplication.window.show();
+        setCustomerRegisterscene(new Scene(fxmlLoader.load(), 500, 500));
+        HelloApplication.getWindow().setScene(getCustomerRegisterscene());
+        HelloApplication.getWindow().show();
     }
 
     @FXML
@@ -46,22 +46,22 @@ public class CustomerLoginScene {
                 password.setStyle("fx-border-width: 0px");
                 String passwordd = password.getText();
                 try {
-                    MainController.flightReservationSystem.getCustomers().loginanaccount(Integer.valueOf(user), Integer.parseInt(passwordd));
+                    MainController.getFlightReservationSystem().getCustomers().loginanaccount(Integer.valueOf(user), Integer.parseInt(passwordd));
                 } catch (Exception e) {
                     Alert message = new Alert(Alert.AlertType.ERROR);
                     message.setTitle("Error");
                     message.setContentText(e.getMessage());
                     message.showAndWait();
                 }
-                if (MainController.flightReservationSystem.getCustomers().checkloginofcustomer()) {
+                if (MainController.getFlightReservationSystem().getCustomers().checkloginofcustomer()) {
                     Alert message = new Alert(Alert.AlertType.INFORMATION);
                     message.setTitle("Login Successfull");
                     message.setContentText("You have successfully logged in!!!");
                     message.showAndWait();
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerFunctionsList.fxml"));
-                    Customerfunctionsscene = new Scene(fxmlLoader.load(), 500, 500);
-                    HelloApplication.window.setScene(Customerfunctionsscene);
-                    HelloApplication.window.show();
+                    setCustomerfunctionsscene(new Scene(fxmlLoader.load(), 500, 500));
+                    HelloApplication.getWindow().setScene(getCustomerfunctionsscene());
+                    HelloApplication.getWindow().show();
                 }
             }
         }
@@ -87,15 +87,29 @@ public class CustomerLoginScene {
             Optional<ButtonType> input = newalert.showAndWait();
             if(input.get() == ButtonType.OK)
             {
-                HelloApplication.window.setScene(HelloApplication.MainMenu);
-                HelloApplication.window.show();
+                HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+                HelloApplication.getWindow().show();
             }
         }
         else
         {
-            HelloApplication.window.setScene(HelloApplication.MainMenu);
-            HelloApplication.window.show();
+            HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+            HelloApplication.getWindow().show();
         }
     }
+    public static Scene getCustomerfunctionsscene() {
+        return Customerfunctionsscene;
+    }
 
+    public static void setCustomerfunctionsscene(Scene customerfunctionsscene) {
+        Customerfunctionsscene = customerfunctionsscene;
+    }
+
+    public static Scene getCustomerRegisterscene() {
+        return CustomerRegisterscene;
+    }
+
+    public static void setCustomerRegisterscene(Scene customerRegisterscene) {
+        CustomerRegisterscene = customerRegisterscene;
+    }
 }

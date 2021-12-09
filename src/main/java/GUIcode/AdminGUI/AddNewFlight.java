@@ -132,7 +132,7 @@ public class AddNewFlight implements Initializable {
                                                 String arrtime = String.format("%02d", arrivalhours.getValue()) + ":" + String.format("%02d", arrivalminutes.getValue()) + " " + arrivalzone.getValue();
                                                 boolean flag = false;
                                                 try {
-                                                    MainController.flightReservationSystem.getTotalflights().ChooseandAddFlight(id, org, dest, capac, fare, cl, typ, dept_date, deptime, arr_date, arrtime);
+                                                    MainController.getFlightReservationSystem().getTotalflights().ChooseandAddFlight(id, org, dest, capac, fare, cl, typ, dept_date, deptime, arr_date, arrtime);
                                                     flag = true;
                                                 } catch (Exception e) {
                                                     Alert message = new Alert(Alert.AlertType.ERROR);
@@ -151,7 +151,7 @@ public class AddNewFlight implements Initializable {
                                         } else {
                                             boolean flag = false;
                                             try {
-                                                MainController.flightReservationSystem.getTotalflights().ChooseandAddFlight(id, org, dest, capac, fare, cl, typ, dept_date, deptime, "", "");
+                                                MainController.getFlightReservationSystem().getTotalflights().ChooseandAddFlight(id, org, dest, capac, fare, cl, typ, dept_date, deptime, "", "");
                                                 flag = true;
                                             } catch (Exception e) {
                                                 Alert message = new Alert(Alert.AlertType.ERROR);
@@ -187,8 +187,8 @@ public class AddNewFlight implements Initializable {
 
     @FXML
     void Back() {
-        HelloApplication.window.setScene(AdminFunctionsController.manageflightsscene);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(AdminFunctionsController.getManageflightsscene());
+        HelloApplication.getWindow().show();
     }
 
     @FXML

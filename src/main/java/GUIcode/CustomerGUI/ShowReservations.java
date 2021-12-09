@@ -60,7 +60,7 @@ public class ShowReservations implements Initializable {
     @FXML
     private TableColumn<Reservation, String> type;
 
-    public static Integer ref;
+    private static Integer ref;
 
     final ObservableList<Reservation> reservationlist = FXCollections.observableArrayList();
 
@@ -75,12 +75,12 @@ public class ShowReservations implements Initializable {
                     private final Button btn = new Button("Show");
                     {
                         btn.setOnAction((ActionEvent event) -> {
-                            ref = getTableView().getItems().get(getIndex()).getBookingreference();
+                            setRef(getTableView().getItems().get(getIndex()).getBookingreference());
                             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PrintTicket.fxml"));
                             try {
                                 Scene myDialogScene = new Scene(fxmlLoader.load(), 500, 500);
-                                HelloApplication.window.setScene(myDialogScene);
-                                HelloApplication.window.show();
+                                HelloApplication.getWindow().setScene(myDialogScene);
+                                HelloApplication.getWindow().show();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -106,14 +106,14 @@ public class ShowReservations implements Initializable {
 
     @FXML
     void BackToMenu(ActionEvent event) {
-        HelloApplication.window.setScene(CustomerLoginScene.Customerfunctionsscene);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
+        HelloApplication.getWindow().show();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        ArrayList<Reservation> reservationarray = MainController.flightReservationSystem.GetReservations();
+        ArrayList<Reservation> reservationarray = MainController.getFlightReservationSystem().GetReservations();
         reservationlist.addAll(reservationarray);
         bookingreference.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("bookingreference"));
         flightid.setCellValueFactory(new PropertyValueFactory<Reservation,String>("flightid"));
@@ -167,5 +167,12 @@ public class ShowReservations implements Initializable {
         });
         addbutton();
         Table.setItems(reservationlist);
+    }
+    public static Integer getRef() {
+        return ref;
+    }
+
+    public static void setRef(Integer ref) {
+        ShowReservations.ref = ref;
     }
 }

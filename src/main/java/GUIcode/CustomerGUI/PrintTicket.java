@@ -55,21 +55,21 @@ public class PrintTicket implements Initializable {
 
     @FXML
     void Back() {
-        HelloApplication.window.setScene(CustomerFunctions.showreservations);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(CustomerFunctions.getShowreservations());
+        HelloApplication.getWindow().show();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Integer ref = ShowReservations.ref;
-        Reservation object = MainController.flightReservationSystem.getReservations().getReservation(ref);
+        Integer ref = ShowReservations.getRef();
+        Reservation object = MainController.getFlightReservationSystem().getReservations().getReservation(ref);
         bookingref.setText(ref.toString());
         flightid.setText(object.getFlightid());
         customerpassport.setText(object.getCustomerPassport().toString());
         numberofpassenger.setText(Integer.toString(object.getTicket().getNumberofpassengers()));
         fare.setText(Integer.toString(object.getTicket().getTotalfares()));
         classe.setText(object.getTicket().getType());
-        Flight object2 = MainController.flightReservationSystem.getTotalflights().getFlight(object.getFlightid());
+        Flight object2 = MainController.getFlightReservationSystem().getTotalflights().getFlight(object.getFlightid());
         flightid.setText(object2.getId());
         typee.setText(object2.getType());
         if(object2.getType().equalsIgnoreCase("oneway"));

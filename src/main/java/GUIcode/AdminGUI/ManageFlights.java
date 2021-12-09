@@ -10,38 +10,60 @@ import java.io.IOException;
 
 public class ManageFlights {
 
-    public static Scene ShowAllFlightscene;
-    public static Scene DeleteAllFlightscene;
-    public static Scene AddNewFlightscene;
+    private static Scene ShowAllFlightscene;
+    private static Scene DeleteAllFlightscene;
+    private static Scene AddNewFlightscene;
 
     @FXML
     void AddNewFlight(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AddNewFlight.fxml"));
-        AddNewFlightscene = new Scene(fxmlLoader.load(), 500, 500);
-        HelloApplication.window.setScene(AddNewFlightscene);
-        HelloApplication.window.show();
+        setAddNewFlightscene(new Scene(fxmlLoader.load(), 500, 500));
+        HelloApplication.getWindow().setScene(getAddNewFlightscene());
+        HelloApplication.getWindow().show();
     }
 
     @FXML
     void BackToMenu(ActionEvent event) {
-        HelloApplication.window.setScene(LoginPage.Adminsfunctionscene);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
+        HelloApplication.getWindow().show();
     }
 
     @FXML
     void DeleteFlight(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("DeleteFlight.fxml"));
-        DeleteAllFlightscene = new Scene(fxmlLoader.load(), 500, 500);
-        HelloApplication.window.setScene(DeleteAllFlightscene);
-        HelloApplication.window.show();
+        setDeleteAllFlightscene(new Scene(fxmlLoader.load(), 500, 500));
+        HelloApplication.getWindow().setScene(getDeleteAllFlightscene());
+        HelloApplication.getWindow().show();
     }
 
     @FXML
     void ShowAllFlights(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ShowAllFlights.fxml"));
-        ShowAllFlightscene = new Scene(fxmlLoader.load(), 500, 500);
-        HelloApplication.window.setScene(ShowAllFlightscene);
-        HelloApplication.window.show();
+        setShowAllFlightscene(new Scene(fxmlLoader.load(), 500, 500));
+        HelloApplication.getWindow().setScene(getShowAllFlightscene());
+        HelloApplication.getWindow().show();
+    }
+    public static Scene getShowAllFlightscene() {
+        return ShowAllFlightscene;
     }
 
+    public static void setShowAllFlightscene(Scene showAllFlightscene) {
+        ShowAllFlightscene = showAllFlightscene;
+    }
+
+    public static Scene getDeleteAllFlightscene() {
+        return DeleteAllFlightscene;
+    }
+
+    public static void setDeleteAllFlightscene(Scene deleteAllFlightscene) {
+        DeleteAllFlightscene = deleteAllFlightscene;
+    }
+
+    public static Scene getAddNewFlightscene() {
+        return AddNewFlightscene;
+    }
+
+    public static void setAddNewFlightscene(Scene addNewFlightscene) {
+        AddNewFlightscene = addNewFlightscene;
+    }
 }

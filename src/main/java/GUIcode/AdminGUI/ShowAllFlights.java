@@ -19,7 +19,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -89,16 +88,15 @@ public class ShowAllFlights implements Initializable {
     @FXML
     private TableColumn<Flight, Integer> twowaypassenger;
 
-    public static String data;
-    public static Stage seatsdialogue;
+    private static String data;
 
     final ObservableList<Flight> oneWayFlights = FXCollections.observableArrayList();
     final ObservableList<Flight> twoWayFlights = FXCollections.observableArrayList();
 
     @FXML
     void Backtomainmenu(ActionEvent event) {
-        HelloApplication.window.setScene(AdminFunctionsController.manageflightsscene);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(AdminFunctionsController.getManageflightsscene());
+        HelloApplication.getWindow().show();
     }
     public void setonewaytableroutine()
     {
@@ -227,12 +225,12 @@ public class ShowAllFlights implements Initializable {
                     private final Button btn = new Button("View Seats");
                     {
                         btn.setOnAction((ActionEvent event) -> {
-                            data = getTableView().getItems().get(getIndex()).getId();
+                            setData(getTableView().getItems().get(getIndex()).getId());
                             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SeatsList.fxml"));
                             try {
                                 Scene myDialogScene = new Scene(fxmlLoader.load(), 500, 500);
-                                HelloApplication.window.setScene(myDialogScene);
-                                HelloApplication.window.show();
+                                HelloApplication.getWindow().setScene(myDialogScene);
+                                HelloApplication.getWindow().show();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -267,12 +265,12 @@ public class ShowAllFlights implements Initializable {
                     {
                         btn.setOnAction((ActionEvent event) -> {
 
-                            data = getTableView().getItems().get(getIndex()).getId();
+                            setData(getTableView().getItems().get(getIndex()).getId());
                             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SeatsList.fxml"));
                             try {
                                 Scene myDialogScene = new Scene(fxmlLoader.load(), 500, 500);
-                                HelloApplication.window.setScene(myDialogScene);
-                                HelloApplication.window.show();
+                                HelloApplication.getWindow().setScene(myDialogScene);
+                                HelloApplication.getWindow().show();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -297,7 +295,7 @@ public class ShowAllFlights implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ArrayList<Flight> flights = MainController.flightReservationSystem.getTotalflights().getFlightsschedule();
+        ArrayList<Flight> flights = MainController.getFlightReservationSystem().getTotalflights().getFlightsschedule();
         for (int i=0;i<flights.size();i++)
         {
             if(flights.get(i) instanceof OneWayFlight)
@@ -313,5 +311,12 @@ public class ShowAllFlights implements Initializable {
         settwowaytableroutine();
         addbutton();
         addbutton1();
+    }
+    public static String getData() {
+        return data;
+    }
+
+    public static void setData(String data) {
+        ShowAllFlights.data = data;
     }
 }

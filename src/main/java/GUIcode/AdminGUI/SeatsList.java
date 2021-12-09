@@ -25,7 +25,7 @@ public class SeatsList implements Initializable {
     private TableColumn<Seats, String> bookingstatus;
 
     @FXML
-    private TableColumn<Seats, String> customername;
+    private TableColumn<Seats, Integer> customerpassport;
 
     @FXML
     private TableColumn<Seats, String> flightid;
@@ -40,8 +40,8 @@ public class SeatsList implements Initializable {
 
     @FXML
     void Exit(ActionEvent event) {
-        HelloApplication.window.setScene(ManageFlights.ShowAllFlightscene);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(ManageFlights.getShowAllFlightscene());
+        HelloApplication.getWindow().show();
     }
 
     @Override
@@ -49,7 +49,7 @@ public class SeatsList implements Initializable {
 
         ArrayList<Seats> getseats = null;
         try {
-            getseats = MainController.flightReservationSystem.getTotalflights().GetFlightSeats(ShowAllFlights.data);
+            getseats = MainController.getFlightReservationSystem().getTotalflights().GetFlightSeats(ShowAllFlights.getData());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -67,10 +67,10 @@ public class SeatsList implements Initializable {
                return new SimpleIntegerProperty(seatsIntegerCellDataFeatures.getValue().getNumber()).asObject();
            }
        });
-       customername.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Seats, String>, ObservableValue<String>>() {
+       customerpassport.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Seats, Integer>, ObservableValue<Integer>>() {
            @Override
-           public ObservableValue<String> call(TableColumn.CellDataFeatures<Seats, String> seatsStringCellDataFeatures) {
-               return /*new SimpleStringProperty(seatsStringCellDataFeatures.getValue().getCustomername())*/null;
+           public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Seats, Integer> seatsIntegerCellDataFeatures) {
+               return new SimpleIntegerProperty(seatsIntegerCellDataFeatures.getValue().getCustomerpassport()).asObject();
            }
        });
         bookingstatus.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Seats, String>, ObservableValue<String>>() {

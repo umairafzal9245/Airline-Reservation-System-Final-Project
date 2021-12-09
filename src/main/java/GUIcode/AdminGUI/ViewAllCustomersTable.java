@@ -19,9 +19,6 @@ import java.util.*;
 public class ViewAllCustomersTable implements Initializable {
 
     @FXML
-    private Button Back;
-
-    @FXML
     private TableView<Customer> Table;
 
     @FXML
@@ -45,14 +42,14 @@ public class ViewAllCustomersTable implements Initializable {
     final ObservableList<Customer> customerslist = FXCollections.observableArrayList();
     @FXML
     void BackToMenu(ActionEvent event) {
-        HelloApplication.window.setScene(LoginPage.Adminsfunctionscene);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
+        HelloApplication.getWindow().show();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        ArrayList<Customer> customerarray = MainController.flightReservationSystem.getCustomers().getCustomerslist();
+        ArrayList<Customer> customerarray = MainController.getFlightReservationSystem().getCustomers().getCustomerslist();
         customerslist.addAll(customerarray);
 
         name.setCellValueFactory(new PropertyValueFactory<Customer,String>("name"));

@@ -63,7 +63,7 @@ public class SearchFlight implements Initializable {
     private TableColumn<Flight, Integer> fare;
 
 
-    ObservableList<Flight> flight = FXCollections.observableArrayList();
+    private ObservableList<Flight> flight = FXCollections.observableArrayList();
 
     @FXML
     void SelectFlightTable(ActionEvent event)
@@ -81,15 +81,15 @@ public class SearchFlight implements Initializable {
     @FXML
     void Back()
     {
-        HelloApplication.window.setScene(CustomerLoginScene.Customerfunctionsscene);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
+        HelloApplication.getWindow().show();
     }
     @FXML
     void SearchFlight(ActionEvent event) {
         boolean found = false;
         ArrayList<Flight> flightlist = null;
         try {
-            flightlist = MainController.flightReservationSystem.getTotalflights().searchFlights(Originn.getValue(),Destination.getValue(),flighttype.getValue());
+            flightlist = MainController.getFlightReservationSystem().getTotalflights().searchFlights(Originn.getValue(),Destination.getValue(),flighttype.getValue());
             found = true;
         }
         catch (Exception e)

@@ -90,8 +90,8 @@ public class DeleteFlight implements Initializable {
 
     @FXML
     void Backtomainmenu(ActionEvent event) {
-        HelloApplication.window.setScene(AdminFunctionsController.manageflightsscene);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(AdminFunctionsController.getManageflightsscene());
+        HelloApplication.getWindow().show();
     }
     @FXML
     void DeleteFlight(ActionEvent event)
@@ -103,7 +103,7 @@ public class DeleteFlight implements Initializable {
             String flightid = flightidfield.getText();
             boolean change = false;
             try {
-                MainController.flightReservationSystem.getTotalflights().deleteflight(flightid);
+                MainController.getFlightReservationSystem().getTotalflights().deleteflight(flightid);
                 change = true;
             }
             catch (Exception e)
@@ -245,7 +245,7 @@ public class DeleteFlight implements Initializable {
     {
         oneWayFlights = FXCollections.observableArrayList();
         twoWayFlights = FXCollections.observableArrayList();
-        ArrayList<Flight> flights = MainController.flightReservationSystem.getTotalflights().getFlightsschedule();
+        ArrayList<Flight> flights = MainController.getFlightReservationSystem().getTotalflights().getFlightsschedule();
         for (int i=0;i<flights.size();i++)
         {
             if(flights.get(i) instanceof OneWayFlight)

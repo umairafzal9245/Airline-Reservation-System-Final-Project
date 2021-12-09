@@ -44,8 +44,8 @@ public class CustomerRegister implements Initializable {
         Optional<ButtonType> input = newalert.showAndWait();
         if(input.get() == ButtonType.OK)
         {
-            HelloApplication.window.setScene(HelloApplication.MainMenu);
-            HelloApplication.window.show();
+            HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+            HelloApplication.getWindow().show();
         }
     }
 
@@ -101,7 +101,7 @@ public class CustomerRegister implements Initializable {
                                 String gen = gender.getValue();
                                 boolean flag = false;
                                 try {
-                                    MainController.flightReservationSystem.getCustomers().RegisteranAccount(userna, gen, Integer.parseInt(ag), add, Integer.parseInt(passport), Integer.parseInt(pass),true);
+                                    MainController.getFlightReservationSystem().getCustomers().RegisteranAccount(userna, gen, Integer.parseInt(ag), add, Integer.parseInt(passport), Integer.parseInt(pass),true);
                                     flag = true;
                                 }
                                 catch (Exception e) {
@@ -117,9 +117,9 @@ public class CustomerRegister implements Initializable {
                                     message.setContentText("Customer Successfully added");
                                     message.showAndWait();
                                     FXMLLoader fxmlLoader2 = new FXMLLoader(HelloApplication.class.getResource("CustomerFunctionsList.fxml"));
-                                    CustomerLoginScene.Customerfunctionsscene = new Scene(fxmlLoader2.load(), 500, 500);
-                                    HelloApplication.window.setScene(CustomerLoginScene.Customerfunctionsscene);
-                                    HelloApplication.window.show();
+                                    CustomerLoginScene.setCustomerfunctionsscene(new Scene(fxmlLoader2.load(), 500, 500));
+                                    HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
+                                    HelloApplication.getWindow().show();
                                 }
                             }
                         }

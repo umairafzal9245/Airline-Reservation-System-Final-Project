@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class LoginPage implements Initializable {
 
-    static Scene Adminsfunctionscene;
+    private static Scene Adminsfunctionscene;
 
     @FXML
     private PasswordField passwordfield;
@@ -32,22 +32,22 @@ public class LoginPage implements Initializable {
             passwordfield.setStyle("fx-border-width: 0px");
             String password = passwordfield.getText();
             try {
-                MainController.flightReservationSystem.getAdmin().loginanaccount(Integer.parseInt(password));
+                MainController.getFlightReservationSystem().getAdmin().loginanaccount(Integer.parseInt(password));
             } catch (Exception e) {
                 Alert message = new Alert(Alert.AlertType.ERROR);
                 message.setTitle("Invalid Pin");
                 message.setContentText("Enter the correct pin");
                 message.showAndWait();
             }
-            if (MainController.flightReservationSystem.getAdmin().isLogin()) {
+            if (MainController.getFlightReservationSystem().getAdmin().isLogin()) {
                 Alert message = new Alert(Alert.AlertType.INFORMATION);
                 message.setTitle("Login Successfull");
                 message.setContentText("You have successfully logged in!!!");
                 message.showAndWait();
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminFunctionsList.fxml"));
-                Adminsfunctionscene = new Scene(fxmlLoader.load(), 500, 500);
-                HelloApplication.window.setScene(Adminsfunctionscene);
-                HelloApplication.window.show();
+                setAdminsfunctionscene(new Scene(fxmlLoader.load(), 500, 500));
+                HelloApplication.getWindow().setScene(getAdminsfunctionscene());
+                HelloApplication.getWindow().show();
             }
         }
     }
@@ -63,19 +63,25 @@ public class LoginPage implements Initializable {
             Optional<ButtonType> input = newalert.showAndWait();
             if(input.get() == ButtonType.OK)
             {
-                HelloApplication.window.setScene(HelloApplication.MainMenu);
-                HelloApplication.window.show();
+                HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+                HelloApplication.getWindow().show();
             }
         }
         else
         {
-            HelloApplication.window.setScene(HelloApplication.MainMenu);
-            HelloApplication.window.show();
+            HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+            HelloApplication.getWindow().show();
         }
     }
+    public static Scene getAdminsfunctionscene() {
+        return Adminsfunctionscene;
+    }
 
+    public static void setAdminsfunctionscene(Scene adminsfunctionscene) {
+        Adminsfunctionscene = adminsfunctionscene;
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        usernamefield.setText(MainController.flightReservationSystem.getAdmin().getName());
+        usernamefield.setText(MainController.getFlightReservationSystem().getAdmin().getName());
     }
 }

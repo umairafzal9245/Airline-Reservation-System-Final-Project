@@ -14,26 +14,26 @@ import java.util.Optional;
 
 public class CustomerFunctions {
 
-    public static Scene displayaccountscene;
-    public static Scene searchflightscene;
-    public static Scene cancelreservationscene;
-    public static Scene bookflight;
-    public static Scene showreservations;
+    private static Scene displayaccountscene;
+    private static Scene searchflightscene;
+    private static Scene cancelreservationscene;
+    private static Scene bookflight;
+    private static Scene showreservations;
 
     @FXML
     void PrintTicket(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ShowReservations.fxml"));
-        showreservations = new Scene(fxmlLoader.load(), 500, 500);
-        HelloApplication.window.setScene(showreservations);
-        HelloApplication.window.show();
+        setShowreservations(new Scene(fxmlLoader.load(), 500, 500));
+        HelloApplication.getWindow().setScene(getShowreservations());
+        HelloApplication.getWindow().show();
     }
 
     @FXML
     void BookaFlight(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("BookFlight.fxml"));
-        bookflight = new Scene(fxmlLoader.load(), 500, 500);
-        HelloApplication.window.setScene(bookflight);
-        HelloApplication.window.show();
+        setBookflight(new Scene(fxmlLoader.load(), 500, 500));
+        HelloApplication.getWindow().setScene(getBookflight());
+        HelloApplication.getWindow().show();
     }
 
     @FXML
@@ -44,17 +44,17 @@ public class CustomerFunctions {
     @FXML
     void CancelReservation(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CancelReservation.fxml"));
-        cancelreservationscene = new Scene(fxmlLoader.load(), 500, 500);
-        HelloApplication.window.setScene(cancelreservationscene);
-        HelloApplication.window.show();
+        setCancelreservationscene(new Scene(fxmlLoader.load(), 500, 500));
+        HelloApplication.getWindow().setScene(getCancelreservationscene());
+        HelloApplication.getWindow().show();
     }
 
     @FXML
     void SearchFlight(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SearchFlight.fxml"));
-        searchflightscene = new Scene(fxmlLoader.load(), 500, 500);
-        HelloApplication.window.setScene(searchflightscene);
-        HelloApplication.window.show();
+        setSearchflightscene(new Scene(fxmlLoader.load(), 500, 500));
+        HelloApplication.getWindow().setScene(getSearchflightscene());
+        HelloApplication.getWindow().show();
     }
 
     @FXML
@@ -67,7 +67,7 @@ public class CustomerFunctions {
         if(input.get() == ButtonType.OK) {
             boolean flag = false;
             try {
-                MainController.flightReservationSystem.getCustomers().DeleteCustomer();
+                MainController.getFlightReservationSystem().getCustomers().DeleteCustomer();
                 flag = true;
             }
             catch (Exception e)
@@ -82,8 +82,8 @@ public class CustomerFunctions {
                 message.setTitle("Deleted ");
                 message.setContentText("You has been deleted");
                 message.showAndWait();
-                HelloApplication.window.setScene(HelloApplication.MainMenu);
-                HelloApplication.window.show();
+                HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+                HelloApplication.getWindow().show();
             }
         }
     }
@@ -92,9 +92,9 @@ public class CustomerFunctions {
     void DisplayAccountDetails(ActionEvent event) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Displayaccount.fxml"));
-        displayaccountscene = new Scene(fxmlLoader.load(), 500, 500);
-        HelloApplication.window.setScene(displayaccountscene);
-        HelloApplication.window.show();
+        setDisplayaccountscene(new Scene(fxmlLoader.load(), 500, 500));
+        HelloApplication.getWindow().setScene(getDisplayaccountscene());
+        HelloApplication.getWindow().show();
     }
 
     @FXML
@@ -104,20 +104,60 @@ public class CustomerFunctions {
         newalert.setContentText("Your account will be logout");
         Optional<ButtonType> input = newalert.showAndWait();
         if(input.get() == ButtonType.OK) {
-            MainController.flightReservationSystem.getCustomers().logoutallcustomer();
-            HelloApplication.window.setScene(HelloApplication.MainMenu);
-            HelloApplication.window.show();
+            MainController.getFlightReservationSystem().getCustomers().logoutallcustomer();
+            HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+            HelloApplication.getWindow().show();
         }
     }
 
     @FXML
     void LogoutAccounts(ActionEvent event) {
-        MainController.flightReservationSystem.getCustomers().logoutallcustomer();
+        MainController.getFlightReservationSystem().getCustomers().logoutallcustomer();
         Alert message = new Alert(Alert.AlertType.INFORMATION);
         message.setTitle("Login");
         message.setContentText("Account Successfully logged out");
         message.showAndWait();
-        HelloApplication.window.setScene(HelloApplication.MainMenu);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+        HelloApplication.getWindow().show();
+    }
+
+    public static Scene getDisplayaccountscene() {
+        return displayaccountscene;
+    }
+
+    public static void setDisplayaccountscene(Scene displayaccountscene) {
+        CustomerFunctions.displayaccountscene = displayaccountscene;
+    }
+
+    public static Scene getSearchflightscene() {
+        return searchflightscene;
+    }
+
+    public static void setSearchflightscene(Scene searchflightscene) {
+        CustomerFunctions.searchflightscene = searchflightscene;
+    }
+
+    public static Scene getCancelreservationscene() {
+        return cancelreservationscene;
+    }
+
+    public static void setCancelreservationscene(Scene cancelreservationscene) {
+        CustomerFunctions.cancelreservationscene = cancelreservationscene;
+    }
+
+    public static Scene getBookflight() {
+        return bookflight;
+    }
+
+    public static void setBookflight(Scene bookflight) {
+        CustomerFunctions.bookflight = bookflight;
+    }
+
+    public static Scene getShowreservations() {
+        return showreservations;
+    }
+
+    public static void setShowreservations(Scene showreservations) {
+        CustomerFunctions.showreservations = showreservations;
     }
 }

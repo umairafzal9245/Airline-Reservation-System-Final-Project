@@ -50,13 +50,13 @@ public class BookSeats implements Initializable {
     @FXML
     private TableView<Seats> seatstable;
 
-    public static final ArrayList<Integer> selectedseats = new ArrayList<>();
-    final ObservableList<Seats> seatslist = FXCollections.observableArrayList();
+    private static final ArrayList<Integer> selectedseats = new ArrayList<>();
+    private final ObservableList<Seats> seatslist = FXCollections.observableArrayList();
 
     @FXML
     void Exit(ActionEvent event) {
-        HelloApplication.window.setScene(CustomerFunctions.bookflight);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(CustomerFunctions.getBookflight());
+        HelloApplication.getWindow().show();
     }
 
     @FXML
@@ -90,7 +90,7 @@ public class BookSeats implements Initializable {
                         {
                             expiryyear.setStyle("fx-border-width: 0px");
                             String expyear = expiryyear.getValue();
-                            if(selectedseats.size() == 0)
+                            if(getSelectedseats().size() == 0)
                             {
                                 Alert message = new Alert(Alert.AlertType.ERROR);
                                 message.setTitle("Select Seats");
@@ -103,7 +103,7 @@ public class BookSeats implements Initializable {
                                 boolean flag = false;
                                 int rf = 0;
                                 try {
-                                    rf = MainController.flightReservationSystem.BookFlight(BookFlight.data, selectedseats.size(), selectedseats, cardn, carnum, expirydate, cv);
+                                    rf = MainController.getFlightReservationSystem().BookFlight(BookFlight.data, getSelectedseats().size(), getSelectedseats(), cardn, carnum, expirydate, cv);
                                     flag = true;
                                 }
                                 catch (Exception e)
@@ -119,8 +119,8 @@ public class BookSeats implements Initializable {
                                     message.setTitle("Successfully");
                                     message.setContentText("Seats Successfully booked, Booking Reference = "+rf);
                                     message.showAndWait();
-                                    HelloApplication.window.setScene(CustomerFunctions.bookflight);
-                                    HelloApplication.window.show();
+                                    HelloApplication.getWindow().setScene(CustomerFunctions.getBookflight());
+                                    HelloApplication.getWindow().show();
                                 }
                             }
                         }
@@ -156,14 +156,14 @@ public class BookSeats implements Initializable {
                                 if(!getTableView().getItems().get(getIndex()).getStatus().equalsIgnoreCase("booked"))
                                 {
                                     btn.setText("Selected");
-                                    selectedseats.add(data);
+                                    getSelectedseats().add(data);
                                 }
                             }
                             else if(btn.getText().equalsIgnoreCase("selected"))
                             {
-                                for (int i=0;i<selectedseats.size();i++)
-                                    if(selectedseats.get(i) == data)
-                                        selectedseats.remove(i);
+                                for (int i = 0; i< getSelectedseats().size(); i++)
+                                    if(getSelectedseats().get(i) == data)
+                                        getSelectedseats().remove(i);
 
                                 btn.setText("Select");
                             }
@@ -203,11 +203,11 @@ public class BookSeats implements Initializable {
 
         ArrayList<Seats> getseats = null;
         try {
-            getseats = MainController.flightReservationSystem.getTotalflights().GetFlightSeats(BookFlight.data);
+            getseats = MainController.getFlightReservationSystem().getTotalflights().GetFlightSeats(BookFlight.data);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        seatslist.addAll(getseats);
+        getSeatslist().addAll(getseats);
 
         flightid.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Seats, String>, ObservableValue<String>>() {
             @Override
@@ -233,7 +233,14 @@ public class BookSeats implements Initializable {
                 return new SimpleStringProperty(seatsStringCellDataFeatures.getValue().getStatus());
             }
         });
-        seatstable.setItems(seatslist);
+        seatstable.setItems(getSeatslist());
         addbutton();
+    }
+
+    public ObservableList<Seats> getSeatslist() {
+        return seatslist;
+    }
+    public static ArrayList<Integer> getSelectedseats() {
+        return selectedseats;
     }
 }

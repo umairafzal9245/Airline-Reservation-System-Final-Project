@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 
 public class BookFlight implements Initializable {
 
-    public static Scene bookseatsscene;
+    private static Scene bookseatsscene;
     @FXML
     private ComboBox<String> Destination;
 
@@ -67,7 +67,7 @@ public class BookFlight implements Initializable {
     private TableColumn<Flight, Integer> fare;
 
 
-    ObservableList<Flight> flight = FXCollections.observableArrayList();
+    private ObservableList<Flight> flight = FXCollections.observableArrayList();
 
     @FXML
     void SelectFlightTable(ActionEvent event)
@@ -85,15 +85,15 @@ public class BookFlight implements Initializable {
     @FXML
     void Back()
     {
-        HelloApplication.window.setScene(CustomerLoginScene.Customerfunctionsscene);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
+        HelloApplication.getWindow().show();
     }
     @FXML
     void SearchFlight(ActionEvent event) {
         boolean found = false;
         ArrayList<Flight> flightlist = null;
         try {
-            flightlist = MainController.flightReservationSystem.getTotalflights().searchFlights(Originn.getValue(),Destination.getValue(),flighttype.getValue());
+            flightlist = MainController.getFlightReservationSystem().getTotalflights().searchFlights(Originn.getValue(),Destination.getValue(),flighttype.getValue());
             found = true;
         }
         catch (Exception e)
@@ -188,7 +188,7 @@ public class BookFlight implements Initializable {
                             data = getTableView().getItems().get(getIndex()).getId();
                             boolean flag = true;
                             try {
-                                if(MainController.flightReservationSystem.getTotalflights().GetFlightSeats(data).size() == 0)
+                                if(MainController.getFlightReservationSystem().getTotalflights().GetFlightSeats(data).size() == 0)
                                 {
                                     flag = false;
                                 }
@@ -201,9 +201,9 @@ public class BookFlight implements Initializable {
                             if(flag) {
                                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("BookSeats.fxml"));
                                 try {
-                                    bookseatsscene = new Scene(fxmlLoader.load(), 500, 500);
-                                    HelloApplication.window.setScene(bookseatsscene);
-                                    HelloApplication.window.show();
+                                    setBookseatsscene(new Scene(fxmlLoader.load(), 500, 500));
+                                    HelloApplication.getWindow().setScene(getBookseatsscene());
+                                    HelloApplication.getWindow().show();
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
@@ -245,5 +245,12 @@ public class BookFlight implements Initializable {
         Destination.setItems(destination2);
         flighttype.setItems(flt);
         flighttype.setValue("oneway");
+    }
+    public static Scene getBookseatsscene() {
+        return bookseatsscene;
+    }
+
+    public static void setBookseatsscene(Scene bookseatsscene) {
+        BookFlight.bookseatsscene = bookseatsscene;
     }
 }

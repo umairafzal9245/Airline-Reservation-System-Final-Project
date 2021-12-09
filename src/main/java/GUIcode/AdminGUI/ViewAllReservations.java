@@ -23,8 +23,6 @@ import java.util.ResourceBundle;
 
 public class ViewAllReservations implements Initializable {
 
-    @FXML
-    private Button Back;
 
     @FXML
     private TableView<Reservation> Table;
@@ -33,7 +31,7 @@ public class ViewAllReservations implements Initializable {
     private TableColumn<Reservation, Integer> bookingreference;
 
     @FXML
-    private TableColumn<Reservation, String> customername;
+    private TableColumn<Reservation, Integer> customerpassport;
 
     @FXML
     private TableColumn<Reservation, String> flightid;
@@ -63,19 +61,19 @@ public class ViewAllReservations implements Initializable {
 
     @FXML
     void BackToMenu(ActionEvent event) {
-        HelloApplication.window.setScene(LoginPage.Adminsfunctionscene);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
+        HelloApplication.getWindow().show();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        ArrayList<Reservation> reservationarray = MainController.flightReservationSystem.getReservations().getTotalreservations();
+        ArrayList<Reservation> reservationarray = MainController.getFlightReservationSystem().getReservations().getTotalreservations();
         reservationlist.addAll(reservationarray);
 
         bookingreference.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("bookingreference"));
         flightid.setCellValueFactory(new PropertyValueFactory<Reservation,String>("flightid"));
-        customername.setCellValueFactory(new PropertyValueFactory<Reservation,String>("customername"));
+        customerpassport.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("customerpassport"));
         cardholdername.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation, String> reservationStringCellDataFeatures) {

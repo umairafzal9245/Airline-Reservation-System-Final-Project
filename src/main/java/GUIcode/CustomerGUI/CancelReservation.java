@@ -54,7 +54,7 @@ public class CancelReservation implements Initializable {
     @FXML
     private TableColumn<Reservation, String> type;
 
-    ObservableList<Reservation> reservationlist = FXCollections.observableArrayList();
+    private ObservableList<Reservation> reservationlist = FXCollections.observableArrayList();
 
     private void addbutton()
     {
@@ -71,7 +71,7 @@ public class CancelReservation implements Initializable {
                             boolean flag = false;
                             try
                             {
-                                MainController.flightReservationSystem.CancelReservation(ref);
+                                MainController.getFlightReservationSystem().CancelReservation(ref);
                                 flag = true;
                             }
                             catch (Exception e)
@@ -113,7 +113,7 @@ public class CancelReservation implements Initializable {
     public void setReservation()
     {
         reservationlist = FXCollections.observableArrayList();
-        ArrayList<Reservation> reservationarray = MainController.flightReservationSystem.GetReservations();
+        ArrayList<Reservation> reservationarray = MainController.getFlightReservationSystem().GetReservations();
         reservationlist.addAll(reservationarray);
     }
 
@@ -173,8 +173,8 @@ public class CancelReservation implements Initializable {
     }
     @FXML
     void BackToMenu(ActionEvent event) {
-        HelloApplication.window.setScene(CustomerLoginScene.Customerfunctionsscene);
-        HelloApplication.window.show();
+        HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
+        HelloApplication.getWindow().show();
     }
 
     @Override
