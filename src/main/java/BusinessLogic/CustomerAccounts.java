@@ -34,6 +34,7 @@ public class CustomerAccounts
     public void DeleteCustomer() throws CustomerPassportNumberNotFoundException {
         Integer passport = getCustomerslist().get(searchcustomerloggedin()).getPassport_number();
         DeleteAccount(passport);
+        System.out.println("Succesfully deleted customer");
     }
     public void DeleteAccount(Integer passport) throws CustomerPassportNumberNotFoundException
     {

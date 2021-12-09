@@ -1,6 +1,7 @@
 package BusinessLogic;
 
 import DatabaseCode.DataBaseHandler;
+import DatabaseCode.FileSystem;
 import DatabaseCode.OracleDataBase;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class FlightReservationSystem
     private final FlightCalender totalflights;
     private final ReservationsList reservations;
 
-    public static final DataBaseHandler database = OracleDataBase.getDb();
+    public static final DataBaseHandler database = FileSystem.getDb();
 
     public FlightReservationSystem()
     {
