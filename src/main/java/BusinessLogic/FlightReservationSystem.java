@@ -13,7 +13,7 @@ public class FlightReservationSystem
     private final FlightCalender totalflights;
     private final ReservationsList reservations;
 
-    public static final DataBaseHandler database = new OracleDataBase();
+    public static final DataBaseHandler database = OracleDataBase.getDb();
 
     public FlightReservationSystem()
     {

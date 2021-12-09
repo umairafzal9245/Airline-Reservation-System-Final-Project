@@ -16,6 +16,20 @@ public class OracleDataBase extends DataBaseHandler
     private SessionFactory sf;
     private Session session;
     private Transaction trans;
+    public static OracleDataBase db;
+
+    private OracleDataBase()
+    {
+
+    }
+
+    public static OracleDataBase getDb()
+    {
+        if(db == null)
+            db = new OracleDataBase();
+
+        return db;
+    }
 
     private void createconnection()
     {

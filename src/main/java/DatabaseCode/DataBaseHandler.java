@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class DataBaseHandler
 {
+
     public void AddCustomer(String name, String gender, int age, String address, Integer passport_number, int loginpin)
     {
 

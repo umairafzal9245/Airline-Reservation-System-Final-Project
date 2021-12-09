@@ -80,96 +80,91 @@ public class AddNewFlight implements Initializable {
 
                 if(destination.getSelectionModel().getSelectedItem() == null)
                     destination.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
-                else
-                {
+                else {
                     destination.setStyle("fx-border-width: 0px");
                     String dest = destination.getSelectionModel().getSelectedItem();
 
-                    String capa = capacity.getText();
-                    if(capa == null || capa.length() == 0 || !isNumeric(capa))
-                        capacity.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
-                        else
-                        {
-                        capacity.setStyle("fx-border-width: 0px");
-                        int capac = Integer.parseInt(capa);
-                        if (capac < 5)
-                        {
-                            capacity.setText("Greater than 5");
+                    if (dest.equalsIgnoreCase(org)) {
+                        destination.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                        origin.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                    }
+                    else
+                    {
+                        origin.setStyle("fx-border-width: 0px");
+                        destination.setStyle("fx-border-width: 0px");
+                        dest = destination.getSelectionModel().getSelectedItem();
+                        org = origin.getSelectionModel().getSelectedItem();
+
+                        String capa = capacity.getText();
+                        if (capa == null || capa.length() == 0 || !isNumeric(capa))
                             capacity.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
-                        }
-                        else
-                        {
-                            String far = fares.getText();
-                            if (far == null || far.length() == 0 || !isNumeric(far))
-                                fares.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
-                            else
-                            {
-                                fares.setStyle("fx-border-width: 0px");
-                                int fare = Integer.parseInt(far);
+                        else {
+                            capacity.setStyle("fx-border-width: 0px");
+                            int capac = Integer.parseInt(capa);
+                            if (capac < 5) {
+                                capacity.setText("Greater than 5");
+                                capacity.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                            } else {
+                                String far = fares.getText();
+                                if (far == null || far.length() == 0 || !isNumeric(far))
+                                    fares.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                                else {
+                                    fares.setStyle("fx-border-width: 0px");
+                                    int fare = Integer.parseInt(far);
 
-                                String cl = classe.getSelectionModel().getSelectedItem();
-                                String typ = flighttype.getSelectionModel().getSelectedItem();
+                                    String cl = classe.getSelectionModel().getSelectedItem();
+                                    String typ = flighttype.getSelectionModel().getSelectedItem();
 
-                                if (departuredate.getValue() == null)
-                                    departuredate.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
-                                else
-                                {
-                                    departuredate.setStyle("fx-border-width: 0px");
-                                    LocalDate depdate = departuredate.getValue();
-                                    String dept_date = depdate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-                                    String deptime = String.format("%02d", departurehours.getValue()) + ":" + String.format("%02d", departureminutes.getValue()) + " " + departurezone.getValue();
-                                    if (typ.equalsIgnoreCase("Roundtrip"))
-                                    {
-                                        if (arrivaldate.getValue() == null)
-                                            arrivaldate.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
-                                        else
-                                        {
-                                            arrivaldate.setStyle("fx-border-width: 0px");
-                                            LocalDate arrdate = arrivaldate.getValue();
-                                            String arr_date = arrdate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-                                            String arrtime = String.format("%02d", arrivalhours.getValue()) + ":" + String.format("%02d", arrivalminutes.getValue()) + " " + arrivalzone.getValue();
+                                    if (departuredate.getValue() == null)
+                                        departuredate.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                                    else {
+                                        departuredate.setStyle("fx-border-width: 0px");
+                                        LocalDate depdate = departuredate.getValue();
+                                        String dept_date = depdate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+                                        String deptime = String.format("%02d", departurehours.getValue()) + ":" + String.format("%02d", departureminutes.getValue()) + " " + departurezone.getValue();
+                                        if (typ.equalsIgnoreCase("Roundtrip")) {
+                                            if (arrivaldate.getValue() == null)
+                                                arrivaldate.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                                            else {
+                                                arrivaldate.setStyle("fx-border-width: 0px");
+                                                LocalDate arrdate = arrivaldate.getValue();
+                                                String arr_date = arrdate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+                                                String arrtime = String.format("%02d", arrivalhours.getValue()) + ":" + String.format("%02d", arrivalminutes.getValue()) + " " + arrivalzone.getValue();
+                                                boolean flag = false;
+                                                try {
+                                                    MainController.flightReservationSystem.getTotalflights().ChooseandAddFlight(id, org, dest, capac, fare, cl, typ, dept_date, deptime, arr_date, arrtime);
+                                                    flag = true;
+                                                } catch (Exception e) {
+                                                    Alert message = new Alert(Alert.AlertType.ERROR);
+                                                    message.setTitle("Duplicate Flight");
+                                                    message.setContentText("Flight with this ID already present");
+                                                    message.showAndWait();
+                                                }
+                                                if (flag) {
+                                                    Alert message = new Alert(Alert.AlertType.INFORMATION);
+                                                    message.setTitle("Flight Added");
+                                                    message.setContentText("Flight Successfully added");
+                                                    message.showAndWait();
+                                                }
+
+                                            }
+                                        } else {
                                             boolean flag = false;
                                             try {
-                                                MainController.flightReservationSystem.getTotalflights().ChooseandAddFlight(id,org,dest,capac,fare,cl,typ,dept_date,deptime,arr_date,arrtime);
+                                                MainController.flightReservationSystem.getTotalflights().ChooseandAddFlight(id, org, dest, capac, fare, cl, typ, dept_date, deptime, "", "");
                                                 flag = true;
-                                            }
-                                            catch (Exception e)
-                                            {
+                                            } catch (Exception e) {
                                                 Alert message = new Alert(Alert.AlertType.ERROR);
                                                 message.setTitle("Duplicate Flight");
                                                 message.setContentText("Flight with this ID already present");
                                                 message.showAndWait();
                                             }
-                                            if (flag)
-                                            {
+                                            if (flag) {
                                                 Alert message = new Alert(Alert.AlertType.INFORMATION);
                                                 message.setTitle("Flight Added");
                                                 message.setContentText("Flight Successfully added");
                                                 message.showAndWait();
                                             }
-
-                                        }
-                                    }
-                                    else
-                                    {
-                                        boolean flag = false;
-                                        try {
-                                            MainController.flightReservationSystem.getTotalflights().ChooseandAddFlight(id,org,dest,capac,fare,cl,typ,dept_date,deptime,"","");
-                                            flag = true;
-                                        }
-                                        catch (Exception e)
-                                        {
-                                            Alert message = new Alert(Alert.AlertType.ERROR);
-                                            message.setTitle("Duplicate Flight");
-                                            message.setContentText("Flight with this ID already present");
-                                            message.showAndWait();
-                                        }
-                                        if (flag)
-                                        {
-                                            Alert message = new Alert(Alert.AlertType.INFORMATION);
-                                            message.setTitle("Flight Added");
-                                            message.setContentText("Flight Successfully added");
-                                            message.showAndWait();
                                         }
                                     }
                                 }
