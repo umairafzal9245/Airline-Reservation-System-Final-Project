@@ -88,7 +88,7 @@ public class PrintTicket implements Initializable {
             arrivaldate.setText(object2.getArrivalDate());
             arrivaltime.setText(object2.getArrivalTime());
             arrivdate.setVisible(true);
-            arrivdate.setVisible(true);
+            arrivtime.setVisible(true);
         }
     }
 }

@@ -121,7 +121,12 @@ public class CancelReservation implements Initializable {
     {
         bookingreference.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("bookingreference"));
         flightid.setCellValueFactory(new PropertyValueFactory<Reservation,String>("flightid"));
-        customerpassport.setCellValueFactory(new PropertyValueFactory<Reservation,Integer>("customerpassport"));
+        customerpassport.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation, Integer>, ObservableValue<Integer>>() {
+            @Override
+            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Reservation, Integer> reservationIntegerCellDataFeatures) {
+                return new SimpleIntegerProperty(reservationIntegerCellDataFeatures.getValue().getCustomerPassport()).asObject();
+            }
+        });
         cardholdername.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Reservation, String>, ObservableValue<String>>() {
             @Override
             public ObservableValue<String> call(TableColumn.CellDataFeatures<Reservation, String> reservationStringCellDataFeatures) {

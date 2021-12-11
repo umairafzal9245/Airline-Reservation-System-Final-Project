@@ -1,6 +1,7 @@
 package GUIcode.AdminGUI;
 
 import BusinessLogic.Customer;
+import BusinessLogic.Customer;
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
 import javafx.collections.FXCollections;
@@ -8,10 +9,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
 import java.net.URL;
 import java.util.*;
@@ -39,19 +39,69 @@ public class ViewAllCustomersTable implements Initializable {
     @FXML
     private TableColumn<Customer, String> passport;
 
-    final ObservableList<Customer> customerslist = FXCollections.observableArrayList();
+    ObservableList<Customer> customerslist = FXCollections.observableArrayList();
     @FXML
     void BackToMenu(ActionEvent event) {
         HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
         HelloApplication.getWindow().show();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
+    private void addbutton()
     {
-        ArrayList<Customer> customerarray = MainController.getFlightReservationSystem().getCustomers().getCustomerslist();
-        customerslist.addAll(customerarray);
+        TableColumn<Customer,Void> colbtn = new TableColumn("Action");
+        Callback<TableColumn<Customer,Void>, TableCell<Customer,Void>> cellfactory = new Callback<TableColumn<Customer, Void>, TableCell<Customer, Void>>() {
+            @Override
+            public TableCell<Customer, Void> call(TableColumn<Customer, Void> flightVoidTableColumn) {
+                final TableCell<Customer,Void> cell = new TableCell<Customer,Void>()
+                {
+                    private final Button btn = new Button("Delete");
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
+                            Integer pass = getTableView().getItems().get(getIndex()).getPassport_number();
+                            boolean flag = false;
+                            try
+                            {
+                                MainController.getFlightReservationSystem().getCustomers().DeleteAccount(pass);
+                                flag = true;
+                            }
+                            catch (Exception e)
+                            {
+                                Alert message = new Alert(Alert.AlertType.ERROR);
+                                message.setTitle("Invalid");
+                                message.setContentText(e.getMessage());
+                                message.showAndWait();
+                            }
+                            if(flag)
+                            {
+                                setcustomer();
+                                setroutine();
+                                Alert message = new Alert(Alert.AlertType.INFORMATION);
+                                message.setTitle("Customer Deleted");
+                                message.setContentText("Customer Deleted Succesfully");
+                                message.showAndWait();
+                            }
+                        });
+                    }
+                    @Override
+                    public void updateItem(Void item,boolean empty)
+                    {
+                        super.updateItem(item,empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+        colbtn.setCellFactory(cellfactory);
+        Table.getColumns().add(colbtn);
+    }
 
+    public void setroutine()
+    {
         name.setCellValueFactory(new PropertyValueFactory<Customer,String>("name"));
         age.setCellValueFactory(new PropertyValueFactory<Customer,Integer>("age"));
         gender.setCellValueFactory(new PropertyValueFactory<Customer,String>("gender"));
@@ -60,5 +110,20 @@ public class ViewAllCustomersTable implements Initializable {
         loginpin.setCellValueFactory(new PropertyValueFactory<Customer,Integer>("loginpin"));
 
         Table.setItems(customerslist);
+    }
+    public void setcustomer()
+    {
+        customerslist = FXCollections.observableArrayList();
+        ArrayList<Customer> customerarray = new ArrayList<>();
+        customerarray = MainController.getFlightReservationSystem().getCustomers().getCustomerslist();
+        customerslist.addAll(customerarray);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        setcustomer();
+        setroutine();
+        addbutton();
     }
 }

@@ -93,11 +93,8 @@ public class Customer
         return passport_number;
     }
 
-    public boolean isLogincheck() {
-        return logincheck;
-    }
-
-    public void setLogincheck(boolean logincheck) {
-        this.logincheck = logincheck;
+    public void setlogin(boolean login)
+    {
+        this.logincheck = login;
     }
 }

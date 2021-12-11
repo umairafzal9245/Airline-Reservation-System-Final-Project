@@ -117,7 +117,7 @@ public class BookSeats implements Initializable {
                                 {
                                     Alert message = new Alert(Alert.AlertType.INFORMATION);
                                     message.setTitle("Successfully");
-                                    message.setContentText("Seats Successfully booked, Booking Reference = "+rf);
+                                    message.setContentText("Seats Successfully booked, Booking Reference = "+rf+" Ticket Generated");
                                     message.showAndWait();
                                     HelloApplication.getWindow().setScene(CustomerFunctions.getBookflight());
                                     HelloApplication.getWindow().show();

@@ -19,6 +19,7 @@ public class CustomerFunctions {
     private static Scene cancelreservationscene;
     private static Scene bookflight;
     private static Scene showreservations;
+    private static Scene calculatefares;
 
     @FXML
     void PrintTicket(ActionEvent event) throws IOException {
@@ -37,8 +38,11 @@ public class CustomerFunctions {
     }
 
     @FXML
-    void CalculateFares(ActionEvent event) {
-
+    void CalculateFares(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CalculateFares.fxml"));
+        setCalculatefares(new Scene(fxmlLoader.load(), 500, 500));
+        HelloApplication.getWindow().setScene(getCalculatefares());
+        HelloApplication.getWindow().show();
     }
 
     @FXML
@@ -159,5 +163,12 @@ public class CustomerFunctions {
 
     public static void setShowreservations(Scene showreservations) {
         CustomerFunctions.showreservations = showreservations;
+    }
+    public static Scene getCalculatefares() {
+        return calculatefares;
+    }
+
+    public static void setCalculatefares(Scene calculatefares) {
+        CustomerFunctions.calculatefares = calculatefares;
     }
 }

@@ -56,6 +56,10 @@ public class FlightReservationSystem
         String Flightid = reservations.deletereservation(reference,passport);
         totalflights.cancelseats(Flightid, passport);
     }
+    public void CancelReservation(int refe,Integer passport) throws BookingReferenceNotown, InvalidBookingReferenceException {
+        String Flightid = reservations.deletereservation(refe,passport);
+        totalflights.cancelseats(Flightid, passport);
+    }
     public ArrayList<Reservation> GetReservations()
     {
         Integer passport = customers.getCustomerslist().get(customers.searchcustomerloggedin()).getPassport_number();

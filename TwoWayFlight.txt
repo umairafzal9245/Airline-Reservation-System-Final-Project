@@ -1,0 +1,2 @@
+A1,Albania,7,Economy,2131,Afghanistan,13-12-2021,01:00 PM,11-12-2021,01:00 AM
+A4,Australia,12,First,1232,Anguilla,30-12-2021,05:00 AM,28-12-2021,03:00 PM

@@ -9,6 +9,14 @@ import javax.persistence.Transient;
 @Table(name = "OneWayFlights")
 public class OneWayFlight extends Flight
 {
+    public void setDeparture_date(String departure_date) {
+        Departure_date = departure_date;
+    }
+
+    public void setDeparture_time(String departure_time) {
+        Departure_time = departure_time;
+    }
+
     @Column(name = "Departure_Date")
     private String Departure_date;
 

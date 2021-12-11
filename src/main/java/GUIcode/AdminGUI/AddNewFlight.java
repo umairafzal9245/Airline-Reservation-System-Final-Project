@@ -129,24 +129,32 @@ public class AddNewFlight implements Initializable {
                                                 arrivaldate.setStyle("fx-border-width: 0px");
                                                 LocalDate arrdate = arrivaldate.getValue();
                                                 String arr_date = arrdate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-                                                String arrtime = String.format("%02d", arrivalhours.getValue()) + ":" + String.format("%02d", arrivalminutes.getValue()) + " " + arrivalzone.getValue();
-                                                boolean flag = false;
-                                                try {
-                                                    MainController.getFlightReservationSystem().getTotalflights().ChooseandAddFlight(id, org, dest, capac, fare, cl, typ, dept_date, deptime, arr_date, arrtime);
-                                                    flag = true;
-                                                } catch (Exception e) {
-                                                    Alert message = new Alert(Alert.AlertType.ERROR);
-                                                    message.setTitle("Duplicate Flight");
-                                                    message.setContentText("Flight with this ID already present");
-                                                    message.showAndWait();
+                                                if(arr_date.equalsIgnoreCase(dept_date))
+                                                {
+                                                    arrivaldate.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                                                    departuredate.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
                                                 }
-                                                if (flag) {
-                                                    Alert message = new Alert(Alert.AlertType.INFORMATION);
-                                                    message.setTitle("Flight Added");
-                                                    message.setContentText("Flight Successfully added");
-                                                    message.showAndWait();
+                                                else {
+                                                    arrivaldate.setStyle("fx-border-width: 0px");
+                                                    departuredate.setStyle("fx-border-width: 0px");
+                                                    String arrtime = String.format("%02d", arrivalhours.getValue()) + ":" + String.format("%02d", arrivalminutes.getValue()) + " " + arrivalzone.getValue();
+                                                    boolean flag = false;
+                                                    try {
+                                                        MainController.getFlightReservationSystem().getTotalflights().ChooseandAddFlight(id, org, dest, capac, fare, cl, typ, dept_date, deptime, arr_date, arrtime);
+                                                        flag = true;
+                                                    } catch (Exception e) {
+                                                        Alert message = new Alert(Alert.AlertType.ERROR);
+                                                        message.setTitle("Duplicate Flight");
+                                                        message.setContentText("Flight with this ID already present");
+                                                        message.showAndWait();
+                                                    }
+                                                    if (flag) {
+                                                        Alert message = new Alert(Alert.AlertType.INFORMATION);
+                                                        message.setTitle("Flight Added");
+                                                        message.setContentText("Flight Successfully added");
+                                                        message.showAndWait();
+                                                    }
                                                 }
-
                                             }
                                         } else {
                                             boolean flag = false;

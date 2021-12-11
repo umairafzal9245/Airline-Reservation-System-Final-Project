@@ -58,6 +58,16 @@ public class Flight
             seats.add(object);
         }
     }
+    public void setSeatsId(String id)
+    {
+        seats = new ArrayList<Seats>(capacity);
+        for (int i=0;i<capacity;i++)
+        {
+            Seats object = new Seats(i+1);
+            object.setFlightid(id);
+            seats.add(object);
+        }
+    }
     public int searchseat(int seatnumber)
     {
         int index = -1;
@@ -147,4 +157,16 @@ public class Flight
     {
         return null;
     }
+    public void setDeparture_date(String departure_date) {
+    }
+
+    public void setDeparture_time(String departure_time) {
+    }
+
+    public void setArrivalTime(String arrivalTime) {
+    }
+    public void setArrivalDate(String arrivalDate) {
+
+    }
+
 }

@@ -90,85 +90,101 @@ public class BookFlight implements Initializable {
     }
     @FXML
     void SearchFlight(ActionEvent event) {
-        boolean found = false;
-        ArrayList<Flight> flightlist = null;
-        try {
-            flightlist = MainController.getFlightReservationSystem().getTotalflights().searchFlights(Originn.getValue(),Destination.getValue(),flighttype.getValue());
-            found = true;
-        }
-        catch (Exception e)
+        if(Originn.getValue() == null || Originn.getValue().length() == 0)
         {
-            Alert message = new Alert(Alert.AlertType.ERROR);
-            message.setTitle("No flight found");
-            message.setContentText("No flight found");
-            message.showAndWait();
+            Originn.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
         }
-        if(found)
-        {
-            flight = FXCollections.observableArrayList();
-            flight.addAll(flightlist);
-            Id.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
-                @Override
-                public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
-                    return new SimpleStringProperty(flightStringCellDataFeatures.getValue().getId());
+        else {
+            Originn.setStyle("fx-border-width: 0px");
+            if (Destination.getValue() == null || Destination.getValue().length() == 0) {
+                Destination.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+            } else {
+                Destination.setStyle("fx-border-width: 0px");
+                if (Originn.getValue() == Destination.getValue()) {
+                    Destination.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                    Originn.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                } else {
+                    Originn.setStyle("fx-border-width: 0px");
+                    Destination.setStyle("fx-border-width: 0px");
+                    boolean found = false;
+                    ArrayList<Flight> flightlist = null;
+                    try {
+                        flightlist = MainController.getFlightReservationSystem().getTotalflights().searchFlights(Originn.getValue(), Destination.getValue(), flighttype.getValue());
+                        found = true;
+                    } catch (Exception e) {
+                        Alert message = new Alert(Alert.AlertType.ERROR);
+                        message.setTitle("No flight found");
+                        message.setContentText("No flight found");
+                        message.showAndWait();
+                    }
+                    if (found) {
+                        flight = FXCollections.observableArrayList();
+                        flight.addAll(flightlist);
+                        Id.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
+                            @Override
+                            public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
+                                return new SimpleStringProperty(flightStringCellDataFeatures.getValue().getId());
+                            }
+                        });
+                        destination.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
+                            @Override
+                            public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
+                                return new SimpleStringProperty(Destination.getValue());
+                            }
+                        });
+                        Orig.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
+                            @Override
+                            public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
+                                return new SimpleStringProperty(Originn.getValue());
+                            }
+                        });
+                        fare.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, Integer>, ObservableValue<Integer>>() {
+                            @Override
+                            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Flight, Integer> flightIntegerCellDataFeatures) {
+                                return new SimpleIntegerProperty(flightIntegerCellDataFeatures.getValue().getFares()).asObject();
+                            }
+                        });
+                        capacity.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, Integer>, ObservableValue<Integer>>() {
+                            @Override
+                            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Flight, Integer> flightIntegerCellDataFeatures) {
+                                return new SimpleIntegerProperty(flightIntegerCellDataFeatures.getValue().getCapacity()).asObject();
+                            }
+                        });
+                        departuredate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
+                            @Override
+                            public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
+                                return new SimpleStringProperty(flightStringCellDataFeatures.getValue().getDeparture_date());
+                            }
+                        });
+                        departuretime.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
+                            @Override
+                            public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
+                                return new SimpleStringProperty(flightStringCellDataFeatures.getValue().getDeparture_time());
+                            }
+                        });
+                        arrivaldate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
+                            @Override
+                            public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
+                                return new SimpleStringProperty(flightStringCellDataFeatures.getValue().getArrivalDate());
+                            }
+                        });
+                        arrivaltime.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
+                            @Override
+                            public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
+                                return new SimpleStringProperty(flightStringCellDataFeatures.getValue().getArrivalTime());
+                            }
+                        });
+                        classe.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
+                            @Override
+                            public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
+                                return new SimpleStringProperty(flightStringCellDataFeatures.getValue().getClasse());
+                            }
+                        });
+                        Table.setItems(flight);
+                        addbutton();
+                    }
                 }
-            });
-            destination.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
-                @Override
-                public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
-                    return new SimpleStringProperty(Destination.getValue());
-                }
-            });
-            Orig.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
-                @Override
-                public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
-                    return new SimpleStringProperty(Originn.getValue());
-                }
-            });
-            fare.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, Integer>, ObservableValue<Integer>>() {
-                @Override
-                public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Flight, Integer> flightIntegerCellDataFeatures) {
-                    return new SimpleIntegerProperty(flightIntegerCellDataFeatures.getValue().getFares()).asObject();
-                }
-            });
-            capacity.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, Integer>, ObservableValue<Integer>>() {
-                @Override
-                public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Flight, Integer> flightIntegerCellDataFeatures) {
-                    return new SimpleIntegerProperty(flightIntegerCellDataFeatures.getValue().getCapacity()).asObject();
-                }
-            });
-            departuredate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
-                @Override
-                public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
-                    return new SimpleStringProperty(flightStringCellDataFeatures.getValue().getDeparture_date());
-                }
-            });
-            departuretime.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
-                @Override
-                public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
-                    return new SimpleStringProperty(flightStringCellDataFeatures.getValue().getDeparture_time());
-                }
-            });
-            arrivaldate.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
-                @Override
-                public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
-                    return new SimpleStringProperty(flightStringCellDataFeatures.getValue().getArrivalDate());
-                }
-            });
-            arrivaltime.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
-                @Override
-                public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
-                    return new SimpleStringProperty(flightStringCellDataFeatures.getValue().getArrivalTime());
-                }
-            });
-            classe.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Flight, String>, ObservableValue<String>>() {
-                @Override
-                public ObservableValue<String> call(TableColumn.CellDataFeatures<Flight, String> flightStringCellDataFeatures) {
-                    return new SimpleStringProperty(flightStringCellDataFeatures.getValue().getClasse());
-                }
-            });
-            Table.setItems(flight);
-            addbutton();
+            }
         }
     }
     boolean addcolumn = true;
