@@ -103,7 +103,7 @@ public class CustomerRegister implements Initializable {
                                 boolean flag = false;
                                 try {
                                     Random r = new Random();
-                                    Double bal = 1000 * r.nextDouble();;
+                                    Double bal = 1000 * r.nextDouble();
                                     MainController.getFlightReservationSystem().getCustomers().RegisteranAccount(userna, gen, Integer.parseInt(ag), add, Integer.parseInt(passport), Integer.parseInt(pass),true,bal);
                                     flag = true;
                                 }

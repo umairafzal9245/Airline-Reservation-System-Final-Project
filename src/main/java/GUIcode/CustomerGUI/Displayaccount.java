@@ -49,6 +49,8 @@ public class Displayaccount implements Initializable {
         passportnumber.setText(String.valueOf(custom.getPassport_number()));
         gender.setText(custom.getGender());
         age.setText(Integer.toString(custom.getAge()));
-        balance.setText(custom.getBalance().toString()+"$");
+        double bal = custom.getBalance();
+        String format = String.format("%.2f$",bal);
+        balance.setText(format);
     }
 }

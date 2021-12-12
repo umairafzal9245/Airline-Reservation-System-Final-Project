@@ -4,6 +4,9 @@ import BusinessLogic.Customer;
 import BusinessLogic.Customer;
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -40,7 +43,7 @@ public class ViewAllCustomersTable implements Initializable {
     private TableColumn<Customer, String> passport;
 
     @FXML
-    private TableColumn<Customer, Double> balance;
+    private TableColumn<Customer, String> balance;
 
     ObservableList<Customer> customerslist = FXCollections.observableArrayList();
     @FXML
@@ -111,7 +114,14 @@ public class ViewAllCustomersTable implements Initializable {
         address.setCellValueFactory(new PropertyValueFactory<Customer,String>("address"));
         passport.setCellValueFactory(new PropertyValueFactory<Customer,String>("passport_number"));
         loginpin.setCellValueFactory(new PropertyValueFactory<Customer,Integer>("loginpin"));
-        balance.setCellValueFactory(new PropertyValueFactory<Customer,Double>("balance"));
+        balance.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Customer, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Customer, String> customerStringCellDataFeatures) {
+                double bal = customerStringCellDataFeatures.getValue().getBalance();
+                String format = String.format("%.2f$",bal);
+                return new SimpleStringProperty(format);
+            }
+        });
 
         Table.setItems(customerslist);
     }

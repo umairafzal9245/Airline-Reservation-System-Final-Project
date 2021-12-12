@@ -9,8 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -18,6 +22,8 @@ public class MainController implements Initializable {
 
     private static Scene loginscene;
     private static Scene customerloginscene;
+
+    private static ArrayList<String> countries;
     private static final FlightReservationSystem flightReservationSystem = new FlightReservationSystem();
 
     @FXML
@@ -50,6 +56,27 @@ public class MainController implements Initializable {
             HelloApplication.getWindow().close();
         }
     }
+    void Loadcountries()
+    {
+        countries = new ArrayList<>();
+        try {
+            File f = new File("Airports.txt");
+            BufferedReader b = new BufferedReader(new FileReader(f));
+            String readLine = "";
+            while ((readLine = b.readLine()) != null) {
+                countries.add(readLine);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error loading countries");
+        }
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Loadcountries();
+        getFlightReservationSystem().LoadDataFromDatabases();
+    }
     public static Scene getLoginscene() {
         return loginscene;
     }
@@ -69,9 +96,11 @@ public class MainController implements Initializable {
     public static FlightReservationSystem getFlightReservationSystem() {
         return flightReservationSystem;
     }
+    public static ArrayList<String> getCountries() {
+        return countries;
+    }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        getFlightReservationSystem().LoadDataFromDatabases();
+    public static void setCountries(ArrayList<String> countries) {
+        MainController.countries = countries;
     }
 }
