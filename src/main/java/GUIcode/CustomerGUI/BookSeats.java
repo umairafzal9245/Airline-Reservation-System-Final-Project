@@ -66,7 +66,7 @@ public class BookSeats implements Initializable {
         else {
             cardname.setStyle("fx-border-width: 0px");
             String cardn = cardname.getText();
-            if(cardnumber == null || cardnumber.getText().length() == 0)
+            if(cardnumber == null || cardnumber.getText().length() == 0 || !isNumeric(cardnumber.getText()) || cardnumber.getText().length() != 16)
                 cardnumber.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
             else
             {
