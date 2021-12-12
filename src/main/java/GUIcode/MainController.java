@@ -31,7 +31,7 @@ public class MainController implements Initializable {
         if(MainController.getFlightReservationSystem().getAdmin().isLogin() == false)
         {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/LoginPage.fxml"));
-            setLoginscene(new Scene(fxmlLoader.load(), 500, 500));
+            setLoginscene(new Scene(fxmlLoader.load(), 700, 500));
             HelloApplication.getWindow().setScene(getLoginscene());
             HelloApplication.getWindow().show();
         }

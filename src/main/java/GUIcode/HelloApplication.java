@@ -15,8 +15,9 @@ public class HelloApplication extends Application
     public void start(Stage stage) throws IOException
     {
         setWindow(stage);
+        getWindow().setResizable(false);
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainMenu.fxml"));
-        setMainMenu(new Scene(fxmlLoader.load(), 500, 500));
+        setMainMenu(new Scene(fxmlLoader.load(),700,500));
         getWindow().setTitle("Welcome to Airline Reservation System");
         getWindow().setScene(getMainMenu());
         getWindow().show();
