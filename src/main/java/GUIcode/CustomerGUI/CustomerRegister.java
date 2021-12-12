@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class CustomerRegister implements Initializable {
@@ -101,7 +102,9 @@ public class CustomerRegister implements Initializable {
                                 String gen = gender.getValue();
                                 boolean flag = false;
                                 try {
-                                    MainController.getFlightReservationSystem().getCustomers().RegisteranAccount(userna, gen, Integer.parseInt(ag), add, Integer.parseInt(passport), Integer.parseInt(pass),true);
+                                    Random r = new Random();
+                                    Double bal = 1000 * r.nextDouble();;
+                                    MainController.getFlightReservationSystem().getCustomers().RegisteranAccount(userna, gen, Integer.parseInt(ag), add, Integer.parseInt(passport), Integer.parseInt(pass),true,bal);
                                     flag = true;
                                 }
                                 catch (Exception e) {

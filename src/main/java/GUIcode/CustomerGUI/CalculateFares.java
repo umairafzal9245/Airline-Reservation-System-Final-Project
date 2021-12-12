@@ -223,7 +223,7 @@ public class CalculateFares implements Initializable {
                                 numberofpassengers.setStyle("fx-border-width: 0px");
                                 int pass = Integer.parseInt(numberofpassengers.getText());
                                 int getfare = MainController.getFlightReservationSystem().getTotalflights().getFlight(data).getFares();
-                                fares.setText(Integer.toString(pass*getfare));
+                                fares.setText(Integer.toString(pass*getfare)+"$");
                             }
                         });
                     }

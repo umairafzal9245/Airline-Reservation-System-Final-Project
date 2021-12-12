@@ -33,17 +33,19 @@ public class OracleDataBase extends DataBaseHandler
 
     private void createconnection()
     {
-        con = new Configuration();
-        con.configure();
-        sf = con.buildSessionFactory();
-        session = sf.openSession();
-        trans = session.beginTransaction();
+        synchronized (this) {
+            con = new Configuration();
+            con.configure();
+            sf = con.buildSessionFactory();
+            session = sf.openSession();
+            trans = session.beginTransaction();
+        }
     }
     @Override
-    public void AddCustomer(String name, String gender, int age, String address, Integer passport_number, int loginpin)
+    public void AddCustomer(String name, String gender, int age, String address, Integer passport_number, int loginpin,Double bal)
     {
         createconnection();
-        Customer object = new Customer(name,gender,age,address,passport_number,loginpin,true);
+        Customer object = new Customer(name,gender,age,address,passport_number,loginpin,true,bal);
         session.save(object);
         trans.commit();
     }

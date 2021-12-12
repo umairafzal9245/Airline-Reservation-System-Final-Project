@@ -39,6 +39,9 @@ public class ViewAllCustomersTable implements Initializable {
     @FXML
     private TableColumn<Customer, String> passport;
 
+    @FXML
+    private TableColumn<Customer, Double> balance;
+
     ObservableList<Customer> customerslist = FXCollections.observableArrayList();
     @FXML
     void BackToMenu(ActionEvent event) {
@@ -108,6 +111,7 @@ public class ViewAllCustomersTable implements Initializable {
         address.setCellValueFactory(new PropertyValueFactory<Customer,String>("address"));
         passport.setCellValueFactory(new PropertyValueFactory<Customer,String>("passport_number"));
         loginpin.setCellValueFactory(new PropertyValueFactory<Customer,Integer>("loginpin"));
+        balance.setCellValueFactory(new PropertyValueFactory<Customer,Double>("balance"));
 
         Table.setItems(customerslist);
     }

@@ -20,15 +20,15 @@ public class CustomerAccounts
         Customerslist.addAll(data);
         System.out.println("Successfully Retreived Customers From Database");
     }
-    public void RegisteranAccount(String name, String gender, int age, String address, Integer passport_number, int loginpin, Boolean login) throws CustomerAlreadyPresentException
+    public void RegisteranAccount(String name, String gender, int age, String address, Integer passport_number, int loginpin, Boolean login,Double bal) throws CustomerAlreadyPresentException
     {
-        Customer object = new Customer(name,gender,age,address,passport_number,loginpin,login);
+        Customer object = new Customer(name,gender,age,address,passport_number,loginpin,login,bal);
         if(searchCustomer(passport_number) != -1)
         {
             throw new CustomerAlreadyPresentException("\nCustomer already registered\n");
         }
         Customerslist.add(object);
-        FlightReservationSystem.database.AddCustomer(name, gender, age, address, passport_number, loginpin);
+        FlightReservationSystem.database.AddCustomer(name, gender, age, address, passport_number, loginpin,bal);
         System.out.println("\n\tCustomer Registered Succefully!!!");
     }
     public void DeleteCustomer() throws CustomerPassportNumberNotFoundException {

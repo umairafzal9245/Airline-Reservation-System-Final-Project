@@ -15,7 +15,7 @@ public class FlightReservationSystem
     private final FlightCalender totalflights;
     private final ReservationsList reservations;
 
-    public static final DataBaseHandler database = FileSystem.getDb();
+    public static final DataBaseHandler database = OracleDataBase.getDb();
 
     public FlightReservationSystem()
     {
@@ -149,11 +149,17 @@ public class FlightReservationSystem
         Integer passport = customers.getCustomerslist().get(customers.searchcustomerloggedin()).getPassport_number();
         return reservations.GetTickets(passport);
     }
-    public Integer BookFlight(String id, Integer numberofpassengers, ArrayList<Integer> seatnumbers,String holdername,String cardnum,String expiry,Integer cvv) throws SeatNumberIncorrectException, NoFlightsFoundException, LessSeatsAvailableException, AlreadyBookedSeatException
-    {
+    public Integer BookFlight(String id, Integer numberofpassengers, ArrayList<Integer> seatnumbers,String holdername,String cardnum,String expiry,Integer cvv) throws SeatNumberIncorrectException, NoFlightsFoundException, LessSeatsAvailableException, AlreadyBookedSeatException, LessBalanceException {
             Integer passport = customers.getCustomerslist().get(customers.searchcustomerloggedin()).getPassport_number();
             int totalfares = numberofpassengers * totalflights.getFlightsschedule().get(totalflights.searchflight(id)).getFares();
             String type = totalflights.getFlightsschedule().get(totalflights.searchflight(id)).getClasse();
+            Double bal = customers.getLoggedInCustomer().getBalance();
+            if(bal < totalfares)
+            {
+                throw new LessBalanceException("low balance");
+            }
+            bal = bal - totalfares;
+            customers.getLoggedInCustomer().setBalance(bal);
 
             Thread t = new Thread(new Runnable() {
                 @Override

@@ -29,11 +29,11 @@ public class FileSystem extends DataBaseHandler
         return db;
     }
 
-    public void AddCustomer(String name, String gender, int age, String address, Integer passport_number, int loginpin)
+    public void AddCustomer(String name, String gender, int age, String address, Integer passport_number, int loginpin,Double bal)
     {
         try {
             FileOutputStream fout = new FileOutputStream("Customers.txt",flag);
-            String line = passport_number + "," + address + "," + age + "," + gender + "," + loginpin + "," + name + "\n";
+            String line = passport_number + "," + address + "," + age + "," + gender + "," + loginpin + "," + name + "," + bal + "\n";
             fout.write(line.getBytes());
             fout.close();
         }
@@ -51,7 +51,8 @@ public class FileSystem extends DataBaseHandler
         String gender = tokens.nextElement().toString();
         int loginpin = Integer.parseInt(tokens.nextElement().toString());
         String name = tokens.nextElement().toString();
-        Customer object = new Customer(name,gender,age,address,passport_number,loginpin,false);
+        Double bal = Double.parseDouble(tokens.nextElement().toString());
+        Customer object = new Customer(name,gender,age,address,passport_number,loginpin,false,bal);
         return object;
     }
     public ArrayList<Customer> GetCustomer()
@@ -112,7 +113,7 @@ public class FileSystem extends DataBaseHandler
             try {
                 for (int i = 0; i < readset.size(); i++) {
                     Customer written = readset.get(i);
-                    AddCustomer(written.getName(), written.getGender(), written.getAge(), written.getAddress(), written.getPassport_number(), written.getLoginpin());
+                    AddCustomer(written.getName(), written.getGender(), written.getAge(), written.getAddress(), written.getPassport_number(), written.getLoginpin(), written.getBalance());
                     flag = true;
                 }
             } catch (Exception e) {

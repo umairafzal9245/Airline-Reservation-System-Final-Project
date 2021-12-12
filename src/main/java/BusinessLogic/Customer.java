@@ -25,6 +25,8 @@ public class Customer
     @Column(name = "Login_Pin")
     private int loginpin;
 
+    private Double balance;
+
     @Transient
     private boolean logincheck;
 
@@ -38,7 +40,7 @@ public class Customer
         loginpin = 0;
         logincheck = false;
     }
-    public Customer(String name, String gender, int age, String address, Integer passport_number, int loginpin, boolean login)
+    public Customer(String name, String gender, int age, String address, Integer passport_number, int loginpin, boolean login,Double bal)
     {
         this.name = name;
         this.gender = gender;
@@ -46,6 +48,7 @@ public class Customer
         this.address = address;
         this.passport_number = passport_number;
         this.loginpin = loginpin;
+        this.balance = bal;
         logincheck = login;
     }
     public void checkpin(int loginpin) throws PinUnverifiedException {
@@ -96,5 +99,12 @@ public class Customer
     public void setlogin(boolean login)
     {
         this.logincheck = login;
+    }
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
     }
 }

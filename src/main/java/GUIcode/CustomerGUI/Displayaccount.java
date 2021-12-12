@@ -32,6 +32,9 @@ public class Displayaccount implements Initializable {
     private TextField username;
 
     @FXML
+    private TextField balance;
+
+    @FXML
     void BacktoMainMenu(ActionEvent event) {
         HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
         HelloApplication.getWindow().show();
@@ -46,5 +49,6 @@ public class Displayaccount implements Initializable {
         passportnumber.setText(String.valueOf(custom.getPassport_number()));
         gender.setText(custom.getGender());
         age.setText(Integer.toString(custom.getAge()));
+        balance.setText(custom.getBalance().toString()+"$");
     }
 }

@@ -72,6 +72,14 @@ class  AlreadyBookedSeatException extends Exception
     }
 }
 
+class  LessBalanceException extends Exception
+{
+    public LessBalanceException(String message)
+    {
+        super(message);
+    }
+}
+
 class  NoTicketFoundException extends Exception
 {
     public NoTicketFoundException(String message)
