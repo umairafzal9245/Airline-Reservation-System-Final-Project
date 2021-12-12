@@ -215,7 +215,7 @@ public class BookFlight implements Initializable {
                                 message.showAndWait();
                             }
                             if(flag) {
-                                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("BookSeats.fxml"));
+                                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/BookSeats.fxml"));
                                 try {
                                     setBookseatsscene(new Scene(fxmlLoader.load(), 500, 500));
                                     HelloApplication.getWindow().setScene(getBookseatsscene());

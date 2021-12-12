@@ -44,7 +44,7 @@ public class LoginPage implements Initializable {
                 message.setTitle("Login Successfull");
                 message.setContentText("You have successfully logged in!!!");
                 message.showAndWait();
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminFunctionsList.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/AdminFunctionsList.fxml"));
                 setAdminsfunctionscene(new Scene(fxmlLoader.load(), 500, 500));
                 HelloApplication.getWindow().setScene(getAdminsfunctionscene());
                 HelloApplication.getWindow().show();

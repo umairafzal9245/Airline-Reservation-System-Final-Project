@@ -24,7 +24,7 @@ public class CustomerLoginScene {
 
     @FXML
     void RegisterUser(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerRegister.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/CustomerRegister.fxml"));
         setCustomerRegisterscene(new Scene(fxmlLoader.load(), 500, 500));
         HelloApplication.getWindow().setScene(getCustomerRegisterscene());
         HelloApplication.getWindow().show();
@@ -58,7 +58,7 @@ public class CustomerLoginScene {
                     message.setTitle("Login Successfull");
                     message.setContentText("You have successfully logged in!!!");
                     message.showAndWait();
-                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerFunctionsList.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/CustomerFunctionsList.fxml"));
                     setCustomerfunctionsscene(new Scene(fxmlLoader.load(), 500, 500));
                     HelloApplication.getWindow().setScene(getCustomerfunctionsscene());
                     HelloApplication.getWindow().show();

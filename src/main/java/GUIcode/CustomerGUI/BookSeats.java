@@ -50,7 +50,7 @@ public class BookSeats implements Initializable {
     @FXML
     private TableView<Seats> seatstable;
 
-    private static final ArrayList<Integer> selectedseats = new ArrayList<>();
+    private final ArrayList<Integer> selectedseats = new ArrayList<>();
     private final ObservableList<Seats> seatslist = FXCollections.observableArrayList();
 
     @FXML
@@ -240,7 +240,7 @@ public class BookSeats implements Initializable {
     public ObservableList<Seats> getSeatslist() {
         return seatslist;
     }
-    public static ArrayList<Integer> getSelectedseats() {
+    public ArrayList<Integer> getSelectedseats() {
         return selectedseats;
     }
 }

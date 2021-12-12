@@ -4,14 +4,17 @@ import BusinessLogic.FlightReservationSystem;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
 
     private static Scene loginscene;
     private static Scene customerloginscene;
@@ -21,7 +24,7 @@ public class MainController {
     void InvokeAdminFunctions(ActionEvent event) throws IOException {
         if(MainController.getFlightReservationSystem().getAdmin().isLogin() == false)
         {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/LoginPage.fxml"));
             setLoginscene(new Scene(fxmlLoader.load(), 500, 500));
             HelloApplication.getWindow().setScene(getLoginscene());
             HelloApplication.getWindow().show();
@@ -30,7 +33,7 @@ public class MainController {
 
     @FXML
     void InvokeCustomerFunctions(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerLogin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/CustomerLogin.fxml"));
         setCustomerloginscene(new Scene(fxmlLoader.load(), 500, 500));
         HelloApplication.getWindow().setScene(getCustomerloginscene());
         HelloApplication.getWindow().show();
@@ -65,5 +68,10 @@ public class MainController {
 
     public static FlightReservationSystem getFlightReservationSystem() {
         return flightReservationSystem;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        getFlightReservationSystem().LoadDataFromDatabases();
     }
 }

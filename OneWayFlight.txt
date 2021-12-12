@@ -1,2 +1,0 @@
-A2,Andorra,8,Business,1324,Algeria,11-12-2021,01:00 AM
-A3,Argentina,10,Business,4352,Anguilla,16-12-2021,01:00 AM

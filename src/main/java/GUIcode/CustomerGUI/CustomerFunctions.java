@@ -23,7 +23,7 @@ public class CustomerFunctions {
 
     @FXML
     void PrintTicket(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ShowReservations.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/ShowReservations.fxml"));
         setShowreservations(new Scene(fxmlLoader.load(), 500, 500));
         HelloApplication.getWindow().setScene(getShowreservations());
         HelloApplication.getWindow().show();
@@ -31,7 +31,7 @@ public class CustomerFunctions {
 
     @FXML
     void BookaFlight(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("BookFlight.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/BookFlight.fxml"));
         setBookflight(new Scene(fxmlLoader.load(), 500, 500));
         HelloApplication.getWindow().setScene(getBookflight());
         HelloApplication.getWindow().show();
@@ -39,7 +39,7 @@ public class CustomerFunctions {
 
     @FXML
     void CalculateFares(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CalculateFares.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/CalculateFares.fxml"));
         setCalculatefares(new Scene(fxmlLoader.load(), 500, 500));
         HelloApplication.getWindow().setScene(getCalculatefares());
         HelloApplication.getWindow().show();
@@ -47,7 +47,7 @@ public class CustomerFunctions {
 
     @FXML
     void CancelReservation(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CancelReservation.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/CancelReservation.fxml"));
         setCancelreservationscene(new Scene(fxmlLoader.load(), 500, 500));
         HelloApplication.getWindow().setScene(getCancelreservationscene());
         HelloApplication.getWindow().show();
@@ -55,7 +55,7 @@ public class CustomerFunctions {
 
     @FXML
     void SearchFlight(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SearchFlight.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/SearchFlight.fxml"));
         setSearchflightscene(new Scene(fxmlLoader.load(), 500, 500));
         HelloApplication.getWindow().setScene(getSearchflightscene());
         HelloApplication.getWindow().show();
@@ -95,7 +95,7 @@ public class CustomerFunctions {
     @FXML
     void DisplayAccountDetails(ActionEvent event) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Displayaccount.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/Displayaccount.fxml"));
         setDisplayaccountscene(new Scene(fxmlLoader.load(), 500, 500));
         HelloApplication.getWindow().setScene(getDisplayaccountscene());
         HelloApplication.getWindow().show();

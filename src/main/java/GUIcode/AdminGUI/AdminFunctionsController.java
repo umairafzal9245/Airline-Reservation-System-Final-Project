@@ -50,7 +50,7 @@ public class AdminFunctionsController {
 
     @FXML
     void ManageFlightSchedules(ActionEvent event) throws IOException {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ManageFlights.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/ManageFlights.fxml"));
             setManageflightsscene(new Scene(fxmlLoader.load(), 500, 500));
             HelloApplication.getWindow().setScene(getManageflightsscene());
             HelloApplication.getWindow().show();
@@ -59,7 +59,7 @@ public class AdminFunctionsController {
     @FXML
     void ModifyDetails(ActionEvent event) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RegisterAdmin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/RegisterAdmin.fxml"));
         setAdminregisterscene(new Scene(fxmlLoader.load(), 500, 500));
         HelloApplication.getWindow().setScene(getAdminregisterscene());
         HelloApplication.getWindow().show();
@@ -68,7 +68,7 @@ public class AdminFunctionsController {
     @FXML
     void ViewAdminDetails(ActionEvent event) throws IOException
     {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAdminDetails.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/ViewAdminDetails.fxml"));
             setAdmindetailscene(new Scene(fxmlLoader.load(), 500, 500));
             HelloApplication.getWindow().setScene(getAdmindetailscene());
             HelloApplication.getWindow().show();
@@ -77,7 +77,7 @@ public class AdminFunctionsController {
     @FXML
     void ViewAllCustomers(ActionEvent event) throws IOException
     {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAllCustomersTable.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/ViewAllCustomersTable.fxml"));
             setViewallcustomersscene(new Scene(fxmlLoader.load(), 500, 500));
             HelloApplication.getWindow().setScene(getViewallcustomersscene());
             HelloApplication.getWindow().show();
@@ -86,7 +86,7 @@ public class AdminFunctionsController {
     @FXML
     void ViewAllReservations(ActionEvent event) throws IOException {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewAllReservations.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/ViewAllReservations.fxml"));
             setViewallresevationsscene(new Scene(fxmlLoader.load(), 500, 500));
             HelloApplication.getWindow().setScene(getViewallresevationsscene());
             HelloApplication.getWindow().show();

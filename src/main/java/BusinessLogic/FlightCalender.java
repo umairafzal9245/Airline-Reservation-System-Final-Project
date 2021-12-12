@@ -17,24 +17,7 @@ public class FlightCalender
         int index = searchflight(flightid);
         return flightsschedule.get(index);
     }
-    public ArrayList<Integer> getSeats(String flightId,Integer passport)
-    {
-        ArrayList<Integer> seatnumbers = new ArrayList<Integer>();
-        for (int i=0;i<flightsschedule.size();i++)
-        {
-            if(flightsschedule.get(i).getId().equalsIgnoreCase(flightId))
-            {
-                for (int j=0;j<flightsschedule.get(i).getSeats().size();j++)
-                {
-                    if(flightsschedule.get(i).getSeats().get(j).getCustomerpassport().equals(passport))
-                    {
-                        seatnumbers.add(flightsschedule.get(i).getSeats().get(j).getNumber());
-                    }
-                }
-            }
-        }
-        return seatnumbers;
-    }
+
     public void ReadFlightsFromDatabase() throws NoFlightsFoundException {
         ArrayList<Flight> data = FlightReservationSystem.database.GetFlight();
         if(data.isEmpty())
@@ -155,8 +138,21 @@ public class FlightCalender
         if(index == -1)
             throw new FlightIDIncorrectException("Flight with this id not found\n");
 
-        FlightReservationSystem.database.RemoveFlight(flightsschedule.get(index));
-        FlightReservationSystem.database.CancelSeats(id);
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                    FlightReservationSystem.database.RemoveFlight(flightsschedule.get(index));
+            }
+        });
+         t.start();
+
+       Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                    FlightReservationSystem.database.CancelSeats(id);
+            }
+        });
+        t2.start();
         flightsschedule.remove(index);
         System.out.println("\n\tFlight removed succefully");
     }

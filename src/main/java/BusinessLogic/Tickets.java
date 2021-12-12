@@ -2,6 +2,8 @@ package BusinessLogic;
 
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 @Entity
@@ -21,6 +23,9 @@ public class Tickets
     @Column(name = "Type")
     private String type;
 
+    @Column(name = "BookingDateandTime")
+    private String bookingdateandtime;
+
     public Tickets()
     {
         numberofpassengers = 0;
@@ -32,6 +37,14 @@ public class Tickets
         this.numberofpassengers = numberofpassengers;
         this.totalfares = totalfares;
         this.type = type;
+    }
+    public void generatebookingdateandtime()
+    {
+        bookingdateandtime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
+    }
+    public void setBookingdateandtime(String d)
+    {
+        bookingdateandtime = d;
     }
     public void Display(String flightid,ArrayList<Integer> seatnumbers)
     {
@@ -62,5 +75,9 @@ public class Tickets
 
     public void setBookingreference(int bookingreference) {
         this.bookingreference = bookingreference;
+    }
+
+    public String getBookingdateandtime() {
+        return bookingdateandtime;
     }
 }

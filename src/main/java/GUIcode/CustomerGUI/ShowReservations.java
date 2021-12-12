@@ -76,7 +76,7 @@ public class ShowReservations implements Initializable {
                     {
                         btn.setOnAction((ActionEvent event) -> {
                             setRef(getTableView().getItems().get(getIndex()).getBookingreference());
-                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PrintTicket.fxml"));
+                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/PrintTicket.fxml"));
                             try {
                                 Scene myDialogScene = new Scene(fxmlLoader.load(), 500, 500);
                                 HelloApplication.getWindow().setScene(myDialogScene);

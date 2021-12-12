@@ -116,7 +116,7 @@ public class CustomerRegister implements Initializable {
                                     message.setTitle("Registration Added");
                                     message.setContentText("Customer Successfully added");
                                     message.showAndWait();
-                                    FXMLLoader fxmlLoader2 = new FXMLLoader(HelloApplication.class.getResource("CustomerFunctionsList.fxml"));
+                                    FXMLLoader fxmlLoader2 = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/CustomerFunctionsList.fxml"));
                                     CustomerLoginScene.setCustomerfunctionsscene(new Scene(fxmlLoader2.load(), 500, 500));
                                     HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
                                     HelloApplication.getWindow().show();

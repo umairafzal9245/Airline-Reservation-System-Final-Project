@@ -3,11 +3,9 @@ package DatabaseCode;
 import BusinessLogic.*;
 
 import javax.persistence.Query;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.StringTokenizer;
 
 public class FileSystem extends DataBaseHandler
@@ -17,6 +15,7 @@ public class FileSystem extends DataBaseHandler
     boolean flightflag2 = true;
     boolean Reservationflag = true;
     boolean Seatsflag = true;
+
     public static FileSystem db;
 
     private FileSystem()
@@ -244,13 +243,14 @@ public class FileSystem extends DataBaseHandler
     }
     public <T> void RemoveFlight(T object)
     {
-        ArrayList<Flight> readset = new ArrayList<>();
+        ArrayList<Flight> oneway = new ArrayList<>();
+        ArrayList<Flight> twoway = new ArrayList<>();
         try {
             File f = new File("OneWayFlight.txt");
             BufferedReader b = new BufferedReader(new FileReader(f));
             String readLine = "";
             while ((readLine = b.readLine()) != null) {
-                readset.add(tokenizeoneway(readLine));
+                oneway.add(tokenizeoneway(readLine));
             }
             b.close();
         }
@@ -263,7 +263,7 @@ public class FileSystem extends DataBaseHandler
             BufferedReader b = new BufferedReader(new FileReader(f));
             String readLine = "";
             while ((readLine = b.readLine()) != null) {
-                readset.add(tokenizetwoway(readLine));
+                twoway.add(tokenizetwoway(readLine));
             }
             b.close();
         }
@@ -271,41 +271,54 @@ public class FileSystem extends DataBaseHandler
         {
             e.printStackTrace();
         }
-
-        for (int i=0;i< readset.size();i++)
+        if(object instanceof OneWayFlight)
         {
-            if(object instanceof OneWayFlight)
-                if(((OneWayFlight) object).getId().equalsIgnoreCase(readset.get(i).getId()))
-                    readset.remove(i);
-        }
-        for (int i=0;i< readset.size();i++)
-        {
-            if(object instanceof TwoWayFlight)
-                if(((TwoWayFlight) object).getId().equalsIgnoreCase(readset.get(i).getId()))
-                    readset.remove(i);
-        }
-        if(readset.size() == 0)
-        {
-            try {
-                FileOutputStream fout = new FileOutputStream("OneWayFlight.txt", false);
-                FileOutputStream fout2 = new FileOutputStream("TwoWayFlight.txt", false);
-                fout.write("".getBytes());
-                fout2.write("".getBytes());
-            }
-            catch (Exception e)
+            for (int i=0;i< oneway.size();i++)
             {
-                e.printStackTrace();
+                if(oneway.get(i).getId().equalsIgnoreCase(((OneWayFlight) object).getId()))
+                    oneway.remove(i);
+            }
+            if(oneway.size() == 0)
+            {
+                try {
+                    FileOutputStream fout = new FileOutputStream("OneWayFlight.txt", false);
+                    fout.write("".getBytes());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            else {
+                flightflag1 = false;
+                for (int i = 0; i < oneway.size(); i++) {
+                    AddFlight(oneway.get(i));
+                    flightflag1 = true;
+                }
             }
         }
-        else {
-            flightflag1 = false;
-            flightflag2 = false;
-            for (int i = 0; i < readset.size(); i++) {
-                AddFlight(readset.get(i));
-                if (readset.get(i) instanceof OneWayFlight)
-                    flightflag1 = true;
-                else if (readset.get(i) instanceof TwoWayFlight)
+        else if(object instanceof TwoWayFlight)
+        {
+            for (int i=0;i< twoway.size();i++)
+            {
+                if(twoway.get(i).getId().equalsIgnoreCase(((TwoWayFlight) object).getId()))
+                    twoway.remove(i);
+            }
+            if(twoway.size() == 0)
+            {
+                try {
+                    FileOutputStream fout2 = new FileOutputStream("TwoWayFlight.txt", false);
+                    fout2.write("".getBytes());
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+            }
+            else {
+                flightflag2 = false;
+                for (int i = 0; i < twoway.size(); i++) {
+                    AddFlight(twoway.get(i));
                     flightflag2 = true;
+                }
             }
         }
     }
@@ -321,7 +334,7 @@ public class FileSystem extends DataBaseHandler
             fout.write(line.getBytes());
             fout.close();
             fout = new FileOutputStream("Tickets.txt",Reservationflag);
-            line = object.getTicket().getNumberofpassengers() + "," + object.getTicket().getTotalfares() + "," + object.getTicket().getType() + "\n";
+            line = object.getTicket().getNumberofpassengers() + "," + object.getTicket().getTotalfares() + "," + object.getTicket().getType() + "," + object.getTicket().getBookingdateandtime() + "\n";
             fout.write(line.getBytes());
             fout.close();
         }
@@ -378,7 +391,9 @@ public class FileSystem extends DataBaseHandler
             Integer pass = Integer.parseInt(tokens3.nextElement().toString());
             Integer far = Integer.parseInt(tokens3.nextElement().toString());
             String cl = tokens3.nextElement().toString();
+            String dt = tokens3.nextElement().toString();
             object.getTicket().addticket(pass,far,cl);
+            object.getTicket().setBookingdateandtime(dt);
         }
         catch (Exception e)
         {
@@ -469,10 +484,13 @@ public class FileSystem extends DataBaseHandler
         {
             e.printStackTrace();
         }
-        for (int i=0;i<readset.size();i++)
+        for (Iterator<Seats> iter = readset.iterator();iter.hasNext();)
         {
-            if(readset.get(i).getFlightid().equalsIgnoreCase(flightid) && readset.get(i).getCustomerpassport().equals(customerpassport))
-                readset.remove(i);
+            Seats element = iter.next();
+            if(element.getFlightid().equalsIgnoreCase(flightid) && element.getCustomerpassport().equals(customerpassport))
+            {
+                iter.remove();
+            }
         }
         if(readset.size() == 0)
         {
@@ -509,10 +527,13 @@ public class FileSystem extends DataBaseHandler
         {
             e.printStackTrace();
         }
-        for (int i=0;i<readset.size();i++)
+        for (Iterator<Seats> iter = readset.iterator();iter.hasNext();)
         {
-            if(readset.get(i).getFlightid().equalsIgnoreCase(flightid))
-                readset.remove(i);
+            Seats element = iter.next();
+            if(element.getFlightid().equalsIgnoreCase(flightid))
+            {
+                iter.remove();
+            }
         }
         if(readset.size() == 0)
         {
@@ -541,13 +562,14 @@ public class FileSystem extends DataBaseHandler
             BufferedReader b = new BufferedReader(new FileReader(f));
             String readLine = "";
             while ((readLine = b.readLine()) != null) {
+                if(!readLine.equalsIgnoreCase(""))
                 readset.add(tokenizeseats(readLine));
             }
             b.close();
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return readset;
     }
@@ -569,7 +591,7 @@ public class FileSystem extends DataBaseHandler
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return st;
     }

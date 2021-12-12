@@ -6,6 +6,7 @@ import DatabaseCode.OracleDataBase;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.concurrent.ForkJoinWorkerThread;
 
 public class FlightReservationSystem
 {
@@ -20,45 +21,128 @@ public class FlightReservationSystem
     {
         admin = new Admin();
         customers = new CustomerAccounts();
-        try {
-            customers.ReadCustomersFromDatabase();
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
         totalflights = new FlightCalender();
-        try {
-            totalflights.ReadFlightsFromDatabase();
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
-        try {
-            totalflights.ReadSeatsfromdatabase();
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-        }
         reservations = new ReservationsList();
+    }
+    public void LoadDataFromDatabases()
+    {
         try {
-            reservations.ReadReservationsFromDatabase();
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        customers.ReadCustomersFromDatabase();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            });
+            t.start();
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
+        }
+
+        try {
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        totalflights.ReadFlightsFromDatabase();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            });
+            t.start();
+            t.join();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+        try {
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        totalflights.ReadSeatsfromdatabase();
+                    }
+                    catch (Exception e)
+                    {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            });
+            t.start();
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+        try {
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        reservations.ReadReservationsFromDatabase();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            });
+            t.start();
+        }
+        catch (Exception e)
+        {
+           System.out.println(e.getMessage());
         }
     }
     public void CancelReservation(int reference) throws BookingReferenceNotown, InvalidBookingReferenceException {
         Integer passport = customers.getCustomerslist().get(customers.searchcustomerloggedin()).getPassport_number();
-        String Flightid = reservations.deletereservation(reference,passport);
-        totalflights.cancelseats(Flightid, passport);
+
+        final String[] flightid = {new String()};
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    flightid[0] = reservations.deletereservation(reference,passport);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        t1.start();
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                totalflights.cancelseats(flightid[0], passport);
+            }
+        });
+        t2.start();
     }
     public void CancelReservation(int refe,Integer passport) throws BookingReferenceNotown, InvalidBookingReferenceException {
-        String Flightid = reservations.deletereservation(refe,passport);
-        totalflights.cancelseats(Flightid, passport);
+
+        final String[] flightid = {new String()};
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    flightid[0] = reservations.deletereservation(refe,passport);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        t1.start();
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                totalflights.cancelseats(flightid[0], passport);
+            }
+        });
+        t2.start();
     }
     public ArrayList<Reservation> GetReservations()
     {
@@ -71,7 +155,19 @@ public class FlightReservationSystem
             int totalfares = numberofpassengers * totalflights.getFlightsschedule().get(totalflights.searchflight(id)).getFares();
             String type = totalflights.getFlightsschedule().get(totalflights.searchflight(id)).getClasse();
 
-            totalflights.bookaflight(id, numberofpassengers, passport, seatnumbers);
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try{
+                    totalflights.bookaflight(id, numberofpassengers, passport, seatnumbers);
+                    }
+                    catch(Exception e)
+                    {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            });
+            t.start();
 
             Reservation object = new Reservation();
             object.setCustomerPassport(passport);
@@ -83,6 +179,7 @@ public class FlightReservationSystem
             object.getPayment().setBookingreference(boo);
             object.getTicket().addticket(numberofpassengers, totalfares, type);
             object.getTicket().setBookingreference(boo);
+            object.getTicket().generatebookingdateandtime();
             reservations.addreservation(object);
 
             return boo;

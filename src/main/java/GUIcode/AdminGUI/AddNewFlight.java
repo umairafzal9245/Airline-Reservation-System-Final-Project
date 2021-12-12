@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.util.Callback;
+
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -219,6 +221,24 @@ public class AddNewFlight implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        Callback<DatePicker, DateCell> callB = new Callback<DatePicker, DateCell>() {
+            @Override
+            public DateCell call(final DatePicker param) {
+                return new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate item, boolean empty) {
+                        super.updateItem(item, empty); //To change body of generated methods, choose Tools | Templates.
+                        LocalDate today = LocalDate.now();
+                        setDisable(empty || item.compareTo(today) < 0);
+                    }
+
+                };
+            }
+
+        };
+        departuredate.setDayCellFactory(callB);
+        arrivaldate.setDayCellFactory(callB);
 
         departurehours.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1,12,1));
         departureminutes.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,59,0));

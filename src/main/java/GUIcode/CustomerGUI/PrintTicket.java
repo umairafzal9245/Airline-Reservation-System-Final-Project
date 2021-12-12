@@ -54,6 +54,9 @@ public class PrintTicket implements Initializable {
     private Label arrivtime;
 
     @FXML
+    private TextField bookdateandtime;
+
+    @FXML
     void Back() {
         HelloApplication.getWindow().setScene(CustomerFunctions.getShowreservations());
         HelloApplication.getWindow().show();
@@ -72,6 +75,7 @@ public class PrintTicket implements Initializable {
         Flight object2 = MainController.getFlightReservationSystem().getTotalflights().getFlight(object.getFlightid());
         flightid.setText(object2.getId());
         typee.setText(object2.getType());
+        bookdateandtime.setText(object.getTicket().getBookingdateandtime());
         if(object2.getType().equalsIgnoreCase("oneway"));
         {
             deptdate.setText(object2.getDeparture_date());

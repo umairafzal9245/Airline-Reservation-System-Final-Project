@@ -52,28 +52,7 @@ public class ReservationsList
         totalreservations.add(object);
         FlightReservationSystem.database.AddReservations(object);
     }
-    public void displayticket(Integer passport,FlightCalender totalflights) throws NoTicketFoundException
-    {
-        if(totalreservations.isEmpty())
-        {
-            throw new NoTicketFoundException("Tickets List is Empty\n");
-        }
-        boolean found = false;
-        int m = 1;
-        for (int i=0;i<totalreservations.size();i++)
-        {
-            if(totalreservations.get(i).getCustomerPassport().equals(passport))
-            {
-                found = true;
-                ArrayList<Integer> seatnumbers = totalflights.getSeats(totalreservations.get(i).getFlightid(),passport);
-                totalreservations.get(i).display(m,seatnumbers);
-                m++;
-            }
-        }
-        if (found == false){
-            System.out.println("No tickets Present");}
-    }
-    public String deletereservation(int reference,Integer passport) throws InvalidBookingReferenceException, BookingReferenceNotown {
+    public String deletereservation(int reference, Integer passport) throws InvalidBookingReferenceException, BookingReferenceNotown {
         int index = searchreservation(reference);
         if(index == -1)
         {
@@ -88,17 +67,7 @@ public class ReservationsList
         totalreservations.remove(index);
         return flightid;
     }
-    public void display(FlightCalender totalflights) throws NoReservationsFoundException {
-        if(totalreservations.isEmpty())
-        {
-            throw new NoReservationsFoundException("Reservations list is empty\n");
-        }
-        for (int i=0;i<totalreservations.size();i++)
-        {
-            ArrayList<Integer> seatnumbers = totalflights.getSeats(totalreservations.get(i).getFlightid(),totalreservations.get(i).getCustomerPassport());
-            totalreservations.get(i).display(i+1,seatnumbers);
-        }
-    }
+
     public ArrayList<Reservation> getTotalreservations() {
         return totalreservations;
     }

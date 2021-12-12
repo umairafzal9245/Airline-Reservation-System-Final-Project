@@ -226,7 +226,7 @@ public class ShowAllFlights implements Initializable {
                     {
                         btn.setOnAction((ActionEvent event) -> {
                             setData(getTableView().getItems().get(getIndex()).getId());
-                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SeatsList.fxml"));
+                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/SeatsList.fxml"));
                             try {
                                 Scene myDialogScene = new Scene(fxmlLoader.load(), 500, 500);
                                 HelloApplication.getWindow().setScene(myDialogScene);
