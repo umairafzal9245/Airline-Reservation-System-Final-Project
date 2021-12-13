@@ -30,6 +30,8 @@ public class MainController implements Initializable {
     void InvokeAdminFunctions(ActionEvent event) throws IOException {
         if(MainController.getFlightReservationSystem().getAdmin().isLogin() == false)
         {
+            HelloApplication.getWindow().setWidth(700);
+            HelloApplication.getWindow().setHeight(540);
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/LoginPage.fxml"));
             setLoginscene(new Scene(fxmlLoader.load(), 700, 500));
             HelloApplication.getWindow().setScene(getLoginscene());
@@ -39,6 +41,8 @@ public class MainController implements Initializable {
 
     @FXML
     void InvokeCustomerFunctions(ActionEvent event) throws IOException {
+        HelloApplication.getWindow().setWidth(700);
+        HelloApplication.getWindow().setHeight(540);
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/CustomerLogin.fxml"));
         setCustomerloginscene(new Scene(fxmlLoader.load(), 500, 500));
         HelloApplication.getWindow().setScene(getCustomerloginscene());

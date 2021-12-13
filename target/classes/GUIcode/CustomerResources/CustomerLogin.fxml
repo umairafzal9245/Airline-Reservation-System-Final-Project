@@ -8,24 +8,41 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.CustomerGUI.CustomerLoginScene">
-    <Button fx:id="loginbutton" layoutX="235.0" layoutY="332.0" mnemonicParsing="false" onAction="#LoginUser" prefHeight="35.0" prefWidth="100.0" text="Login In" />
-    <PasswordField fx:id="password" layoutX="201.0" layoutY="268.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter password" />
-    <TextField fx:id="passportnumber" layoutX="201.0" layoutY="196.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter passport number" />
-    <Label layoutX="79.0" layoutY="204.0" prefHeight="20.0" prefWidth="115.0" text="Passport Number">
+<AnchorPane maxHeight="500.0" maxWidth="700.0" minHeight="500.0" minWidth="700.0" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.CustomerGUI.CustomerLoginScene">
+    <Button fx:id="loginbutton" layoutX="167.0" layoutY="363.0" mnemonicParsing="false" onAction="#LoginUser" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #0598ff;" text="Login In" textFill="#f5f5f5" />
+    <PasswordField fx:id="password" layoutX="134.0" layoutY="294.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+    <TextField fx:id="passportnumber" layoutX="134.0" layoutY="222.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter passport number" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+    <Label layoutX="54.0" layoutY="230.0" prefHeight="20.0" prefWidth="106.0" text="Passport No">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+    </Label>
+    <Label layoutX="97.0" layoutY="302.0" prefHeight="20.0" prefWidth="74.0" text="Pin">
         <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="12.0" />
         </font>
     </Label>
-    <Label layoutX="117.0" layoutY="276.0" prefHeight="20.0" prefWidth="74.0" text="Pin">
-        <font>
-            <Font size="14.0" />
-        </font>
-    </Label>
-    <ImageView fitHeight="185.0" fitWidth="224.0" layoutX="194.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@avatar.png" />
-    </ImageView>
-    <Button layoutX="418.0" layoutY="413.0" mnemonicParsing="false" onAction="#BacktoMainMenu" text="Back" />
-    <Button layoutX="59.0" layoutY="413.0" mnemonicParsing="false" onAction="#RegisterUser" text="New Customer. Click to Register" />
+    <Button layoutX="54.0" layoutY="444.0" mnemonicParsing="false" onAction="#BacktoMainMenu" style="-fx-background-color: #f44336;" text="Back" textFill="#fcf9f9" />
+    <Button layoutX="217.0" layoutY="432.0" mnemonicParsing="false" onAction="#RegisterUser" style="-fx-background-color: transparent;" text="New Customer? Click to Register" textFill="#0598ff" />
+   <AnchorPane layoutX="430.0" layoutY="6.0" prefHeight="500.0" prefWidth="270.0" style="-fx-background-color: #0598ff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="430.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+         <ImageView fitHeight="500.0" fitWidth="270.0" layoutY="14.0" nodeOrientation="INHERIT" opacity="0.82" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+               <Image url="@../AdminResources/alex-azabache-Wpq8c_gqPT0-unsplash.jpg" />
+            </image>
+         </ImageView>
+      </children>
+   </AnchorPane>
+   <ImageView fitHeight="145.0" fitWidth="119.0" layoutX="148.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../team.png" />
+      </image>
+   </ImageView>
+   <Text fill="#0598ff" layoutX="147.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Login">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Text>
 </AnchorPane>

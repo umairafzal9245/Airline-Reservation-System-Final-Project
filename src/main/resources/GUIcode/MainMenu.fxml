@@ -1,34 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="GUIcode.MainController">
-    <Label fx:id="welcomeText" alignment="CENTER" contentDisplay="CENTER" prefHeight="103.0" prefWidth="500.0"
-           text="Welcome to Airline Reservation System" textAlignment="CENTER" textFill="#171700">
+<AnchorPane maxHeight="400.0" maxWidth="500.0" minHeight="400.0" minWidth="500.0" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.MainController">
+   <ImageView fitHeight="400.0" fitWidth="500.0" opacity="0.76" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <image>
+         <Image url="@ross-parmly-rf6ywHVkrlY-unsplash.jpg" />
+      </image>
+   </ImageView>
+   <Text fill="#0d0d0d" layoutX="-32.0" layoutY="-26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AIRLINE RESERVATION SYSTEM" textAlignment="CENTER" wrappingWidth="358.32421875" x="100.0" y="100.0">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </Text>
+    <Button fx:id="MainAdminButton" alignment="CENTER" layoutX="286.0" layoutY="116.0" onAction="#InvokeAdminFunctions" prefHeight="174.0" prefWidth="184.0" style="-fx-background-color: transparent;" textFill="WHITE" AnchorPane.rightAnchor="30.0">
         <font>
-      <Font name="System Bold Italic" size="24.0"/>
+         <Font name="System Bold" size="22.0" />
         </font>
-    </Label>
-    <Button fx:id="MainAdminButton" alignment="CENTER" layoutX="158.0" layoutY="256.0" onAction="#InvokeAdminFunctions"
-            prefHeight="80.0" prefWidth="157.0" text="Admin">
+      <graphic>
+         <ImageView fitHeight="150.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@businessman.png" />
+            </image>
+         </ImageView>
+      </graphic>
+    </Button>
+    <Button fx:id="MainCustomerbutton" layoutX="31.0" layoutY="116.0" mnemonicParsing="false" onAction="#InvokeCustomerFunctions" prefHeight="174.0" prefWidth="184.0" style="-fx-background-color: transparent;" textFill="WHITE" AnchorPane.leftAnchor="31.0">
         <font>
-         <Font name="System Bold" size="22.0"/>
+          <Font name="System Bold" size="22.0" />
+        </font>
+      <graphic>
+         <ImageView fitHeight="174.0" fitWidth="183.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@team.png" />
+            </image>
+         </ImageView>
+      </graphic>
+    </Button>
+    <Button fx:id="ExitButton" alignment="CENTER" layoutX="210.0" layoutY="346.0" onAction="#Exittheprogram" prefHeight="32.0" prefWidth="75.0" style="-fx-background-color: #f44336;" text="Exit" textFill="#0d0d0d">
+        <font>
+          <Font name="System Bold" size="22.0" />
         </font>
     </Button>
-    <Button fx:id="MainCustomerbutton" layoutX="158.0" layoutY="151.0" mnemonicParsing="false"
-            onAction="#InvokeCustomerFunctions" prefHeight="80.0" prefWidth="157.0" text="Customer">
-        <font>
-          <Font name="System Bold" size="22.0"/>
-        </font>
-    </Button>
-    <Button fx:id="ExitButton" alignment="CENTER" layoutX="158.0" layoutY="363.0" onAction="#Exittheprogram"
-            prefHeight="80.0" prefWidth="157.0" text="Exit">
-        <font>
-          <Font name="System Bold" size="22.0"/>
-        </font>
-    </Button>
+   <Text fill="#111010" layoutX="80.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passengers" textAlignment="CENTER">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Text>
+   <Text layoutX="350.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" textAlignment="CENTER">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Text>
 </AnchorPane>

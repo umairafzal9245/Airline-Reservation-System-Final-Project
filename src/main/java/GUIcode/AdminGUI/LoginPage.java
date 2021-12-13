@@ -63,12 +63,16 @@ public class LoginPage implements Initializable {
             Optional<ButtonType> input = newalert.showAndWait();
             if(input.get() == ButtonType.OK)
             {
+                HelloApplication.getWindow().setHeight(440);
+                HelloApplication.getWindow().setWidth(500);
                 HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
                 HelloApplication.getWindow().show();
             }
         }
         else
         {
+            HelloApplication.getWindow().setHeight(440);
+            HelloApplication.getWindow().setWidth(500);
             HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
             HelloApplication.getWindow().show();
         }
