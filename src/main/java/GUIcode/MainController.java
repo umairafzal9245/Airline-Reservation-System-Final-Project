@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+
 public class MainController implements Initializable {
 
     private static Scene loginscene;
@@ -76,11 +77,12 @@ public class MainController implements Initializable {
             System.out.println("Error loading countries");
         }
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Loadcountries();
-        getFlightReservationSystem().LoadDataFromDatabases();
     }
+
     public static Scene getLoginscene() {
         return loginscene;
     }

@@ -2,6 +2,7 @@ package GUIcode.CustomerGUI;
 
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
+import GUIcode.SplashController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +26,9 @@ public class CustomerLoginScene {
     @FXML
     void RegisterUser(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/CustomerRegister.fxml"));
-        setCustomerRegisterscene(new Scene(fxmlLoader.load(), 500, 500));
+        setCustomerRegisterscene(new Scene(fxmlLoader.load(), 460, 550));
+        HelloApplication.getWindow().setWidth(480);
+        HelloApplication.getWindow().setHeight(590);
         HelloApplication.getWindow().setScene(getCustomerRegisterscene());
         HelloApplication.getWindow().show();
     }
@@ -89,7 +92,7 @@ public class CustomerLoginScene {
             {
                 HelloApplication.getWindow().setHeight(440);
                 HelloApplication.getWindow().setWidth(500);
-                HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+                HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
                 HelloApplication.getWindow().show();
             }
         }
@@ -97,7 +100,7 @@ public class CustomerLoginScene {
         {
             HelloApplication.getWindow().setHeight(440);
             HelloApplication.getWindow().setWidth(500);
-            HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+            HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();
         }
     }

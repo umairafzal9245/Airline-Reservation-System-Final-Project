@@ -2,6 +2,7 @@ package GUIcode.CustomerGUI;
 
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
+import GUIcode.SplashController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -45,7 +46,9 @@ public class CustomerRegister implements Initializable {
         Optional<ButtonType> input = newalert.showAndWait();
         if(input.get() == ButtonType.OK)
         {
-            HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+            HelloApplication.getWindow().setHeight(440);
+            HelloApplication.getWindow().setWidth(500);
+            HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();
         }
     }

@@ -2,6 +2,7 @@ package GUIcode.AdminGUI;
 
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
+import GUIcode.SplashController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,7 +32,7 @@ public class AdminFunctionsController {
         if(input.get() == ButtonType.OK)
         {
             MainController.getFlightReservationSystem().getAdmin().logout();
-            HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+            HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();
         }
     }
@@ -44,7 +45,7 @@ public class AdminFunctionsController {
             message.setTitle("Login");
             message.setContentText("Account Successfully logged out");
             message.showAndWait();
-            HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+            HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();
     }
 

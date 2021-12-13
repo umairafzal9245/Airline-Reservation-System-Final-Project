@@ -9,31 +9,49 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.CustomerGUI.CustomerRegister">
-    <Button fx:id="loginbutton" layoutX="389.0" layoutY="233.0" mnemonicParsing="false" onAction="#RegisterUser" prefHeight="35.0" prefWidth="100.0" text="Register" />
-    <PasswordField fx:id="password" layoutX="183.0" layoutY="233.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter password" />
-    <TextField fx:id="username" layoutX="184.0" layoutY="179.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter username" />
-    <Label layoutX="69.0" layoutY="187.0" prefHeight="20.0" prefWidth="74.0" text="Username">
-        <font>
-            <Font size="14.0" />
-        </font>
+<AnchorPane maxHeight="550.0" maxWidth="460.0" minHeight="550.0" minWidth="460.0" prefHeight="550.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.CustomerGUI.CustomerRegister">
+    <Button fx:id="loginbutton" layoutX="346.0" layoutY="501.0" mnemonicParsing="false" onAction="#RegisterUser" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #0598ff;" text="Register" textFill="WHITE" />
+    <PasswordField fx:id="password" layoutX="199.0" layoutY="220.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+    <TextField fx:id="username" layoutX="200.0" layoutY="166.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter username" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+    <Label layoutX="92.0" layoutY="174.0" prefHeight="20.0" prefWidth="74.0" text="Username">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
     </Label>
-    <Label layoutX="69.0" layoutY="240.0" prefHeight="20.0" prefWidth="63.0" text="Pin">
-        <font>
-            <Font size="14.0" />
-        </font>
+    <Label layoutX="92.0" layoutY="228.0" prefHeight="20.0" prefWidth="63.0" text="Pin">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
     </Label>
-    <ImageView fitHeight="185.0" fitWidth="224.0" layoutX="159.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@avatar.png" />
+    <ImageView fitHeight="118.0" fitWidth="110.0" layoutX="179.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="432.0" AnchorPane.leftAnchor="171.0" AnchorPane.rightAnchor="171.0" AnchorPane.topAnchor="0.0">
+        <Image url="@../team.png" />
     </ImageView>
-    <Button layoutX="418.0" layoutY="449.0" mnemonicParsing="false" onAction="#BacktoMainMenu" text="Back" />
-    <TextField fx:id="age" layoutX="183.0" layoutY="342.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter age" />
-    <TextField fx:id="address" layoutX="182.0" layoutY="392.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter address" />
-    <Label layoutX="68.0" layoutY="351.0" text="Age" />
-    <Label layoutX="65.0" layoutY="401.0" text="Address" />
-    <Label layoutX="65.0" layoutY="448.0" text="Gender" />
-    <TextField fx:id="passportnumber" layoutX="183.0" layoutY="291.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter Passport Number" />
-    <ChoiceBox fx:id="gender" layoutX="182.0" layoutY="439.0" prefHeight="35.0" prefWidth="170.0" />
-    <Label layoutX="69.0" layoutY="300.0" text="Passport Number" />
+    <Button layoutX="14.0" layoutY="506.0" mnemonicParsing="false" onAction="#BacktoMainMenu" style="-fx-background-color: #f44336;" text="Back" textFill="#fff9f9" />
+    <TextField fx:id="age" layoutX="199.0" layoutY="329.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter age" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+    <TextField fx:id="address" layoutX="198.0" layoutY="379.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter address" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+    <Label layoutX="92.0" layoutY="338.0" text="Age">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>
+    <Label layoutX="91.0" layoutY="388.0" text="Address">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>
+    <Label layoutX="90.0" layoutY="435.0" text="Gender">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>
+    <TextField fx:id="passportnumber" layoutX="199.0" layoutY="278.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter Passport Number" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+    <ChoiceBox fx:id="gender" layoutX="198.0" layoutY="426.0" prefHeight="35.0" prefWidth="170.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+    <Label layoutX="90.0" layoutY="287.0" text="Passport Number">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>
+   <Text fill="#0598ff" layoutX="128.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Registration">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Text>
 </AnchorPane>

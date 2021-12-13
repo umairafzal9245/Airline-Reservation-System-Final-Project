@@ -8,27 +8,31 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
+
 public class HelloApplication extends Application
 {
     private static Stage window;
-    private static Scene MainMenu;
+    private Scene SplashScene;
+
     @Override
     public void start(Stage stage) throws IOException
     {
         setWindow(stage);
+        getWindow().initStyle(StageStyle.UNDECORATED);
         getWindow().setResizable(false);
-        getWindow().setWidth(500);
-        getWindow().setHeight(440);
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainMenu.fxml"));
-        setMainMenu(new Scene(fxmlLoader.load(),500,400));
+        getWindow().setWidth(510);
+        getWindow().setHeight(330);
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SplashScreen.fxml"));
+        setSplashScene(new Scene(fxmlLoader.load(),510,330));
         getWindow().setTitle("Welcome to Airline Reservation System");
-        getWindow().setScene(getMainMenu());
+        getWindow().setScene(getSplashScene());
         getWindow().show();
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(HelloApplication.class);
     }
+
     public static Stage getWindow() {
         return window;
     }
@@ -37,11 +41,11 @@ public class HelloApplication extends Application
         HelloApplication.window = window;
     }
 
-    public static Scene getMainMenu() {
-        return MainMenu;
+    public Scene getSplashScene() {
+        return SplashScene;
     }
 
-    public static void setMainMenu(Scene mainMenu) {
-        MainMenu = mainMenu;
+    public void setSplashScene(Scene splashScene) {
+        SplashScene = splashScene;
     }
 }

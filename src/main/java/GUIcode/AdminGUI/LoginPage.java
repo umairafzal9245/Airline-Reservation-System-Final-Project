@@ -2,6 +2,7 @@ package GUIcode.AdminGUI;
 
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
+import GUIcode.SplashController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -65,7 +66,7 @@ public class LoginPage implements Initializable {
             {
                 HelloApplication.getWindow().setHeight(440);
                 HelloApplication.getWindow().setWidth(500);
-                HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+                HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
                 HelloApplication.getWindow().show();
             }
         }
@@ -73,7 +74,7 @@ public class LoginPage implements Initializable {
         {
             HelloApplication.getWindow().setHeight(440);
             HelloApplication.getWindow().setWidth(500);
-            HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+            HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();
         }
     }

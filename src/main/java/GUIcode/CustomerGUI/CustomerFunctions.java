@@ -2,6 +2,7 @@ package GUIcode.CustomerGUI;
 
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
+import GUIcode.SplashController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -86,7 +87,7 @@ public class CustomerFunctions {
                 message.setTitle("Deleted ");
                 message.setContentText("You has been deleted");
                 message.showAndWait();
-                HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+                HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
                 HelloApplication.getWindow().show();
             }
         }
@@ -109,7 +110,7 @@ public class CustomerFunctions {
         Optional<ButtonType> input = newalert.showAndWait();
         if(input.get() == ButtonType.OK) {
             MainController.getFlightReservationSystem().getCustomers().logoutallcustomer();
-            HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+            HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();
         }
     }
@@ -121,7 +122,7 @@ public class CustomerFunctions {
         message.setTitle("Login");
         message.setContentText("Account Successfully logged out");
         message.showAndWait();
-        HelloApplication.getWindow().setScene(HelloApplication.getMainMenu());
+        HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
         HelloApplication.getWindow().show();
     }
 
