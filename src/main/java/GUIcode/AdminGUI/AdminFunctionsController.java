@@ -32,6 +32,8 @@ public class AdminFunctionsController {
         if(input.get() == ButtonType.OK)
         {
             MainController.getFlightReservationSystem().getAdmin().logout();
+            HelloApplication.getWindow().setHeight(440);
+            HelloApplication.getWindow().setWidth(500);
             HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();
         }
@@ -45,6 +47,8 @@ public class AdminFunctionsController {
             message.setTitle("Login");
             message.setContentText("Account Successfully logged out");
             message.showAndWait();
+            HelloApplication.getWindow().setHeight(440);
+            HelloApplication.getWindow().setWidth(500);
             HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();
     }

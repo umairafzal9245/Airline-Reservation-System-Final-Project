@@ -27,10 +27,10 @@ public class LoginPage implements Initializable {
 
     @FXML
     void LoginAdmin(ActionEvent event) throws IOException {
-        if (passwordfield.getText().length() == 0)
-            passwordfield.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+        if (passwordfield.getText().length() != 4)
+            passwordfield.setStyle("-fx-background-color: transparent; -fx-border-color: red ; -fx-border-width: 0px 0px 2px 0px;");
         else {
-            passwordfield.setStyle("fx-border-width: 0px");
+            passwordfield.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
             String password = passwordfield.getText();
             try {
                 MainController.getFlightReservationSystem().getAdmin().loginanaccount(Integer.parseInt(password));

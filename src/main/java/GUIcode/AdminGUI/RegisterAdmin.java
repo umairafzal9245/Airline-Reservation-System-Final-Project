@@ -40,14 +40,14 @@ public class RegisterAdmin {
     @FXML
     void Changedetails(ActionEvent event) {
 
-        if(username.getText().length() == 0 || password.getText().length() == 0)
+        if(username.getText().length() == 0 || password.getText().length() != 4)
         {
             if (username.getText().length() == 0)
             username.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
             else
                 username.setStyle("fx-border-width: 0px");
 
-            if (password.getText().length() == 0)
+            if (password.getText().length() != 4)
                 password.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
             else
                 password.setStyle("fx-border-width: 0px");

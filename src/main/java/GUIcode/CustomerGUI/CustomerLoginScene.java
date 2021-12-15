@@ -36,17 +36,17 @@ public class CustomerLoginScene {
     @FXML
     void LoginUser(ActionEvent event) throws IOException
     {
-        if(passportnumber.getText() == null || passportnumber.getText().length() == 0 ||  !isNumeric(passportnumber.getText()))
+        if(passportnumber.getText() == null || passportnumber.getText().length() != 8 ||  !isNumeric(passportnumber.getText()))
         {
-            passportnumber.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+            passportnumber.setStyle("-fx-background-color: transparent; -fx-border-color: red ; -fx-border-width: 0px 0px 2px 0px;");
         }
         else {
-            passportnumber.setStyle("fx-border-width: 0px");
+            passportnumber.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
             String user = passportnumber.getText();
-            if (passportnumber.getText() == null || password.getText().length() == 0 || !isNumeric(password.getText()))
-                password.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+            if (password.getText() == null || password.getText().length() != 4 || !isNumeric(password.getText()))
+                password.setStyle("-fx-background-color: transparent; -fx-border-color: red ; -fx-border-width: 0px 0px 2px 0px;");
             else {
-                password.setStyle("fx-border-width: 0px");
+                password.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                 String passwordd = password.getText();
                 try {
                     MainController.getFlightReservationSystem().getCustomers().loginanaccount(Integer.valueOf(user), Integer.parseInt(passwordd));

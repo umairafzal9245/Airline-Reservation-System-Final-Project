@@ -110,6 +110,8 @@ public class CustomerFunctions {
         Optional<ButtonType> input = newalert.showAndWait();
         if(input.get() == ButtonType.OK) {
             MainController.getFlightReservationSystem().getCustomers().logoutallcustomer();
+            HelloApplication.getWindow().setHeight(440);
+            HelloApplication.getWindow().setWidth(500);
             HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();
         }
@@ -122,6 +124,8 @@ public class CustomerFunctions {
         message.setTitle("Login");
         message.setContentText("Account Successfully logged out");
         message.showAndWait();
+        HelloApplication.getWindow().setHeight(440);
+        HelloApplication.getWindow().setWidth(500);
         HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
         HelloApplication.getWindow().show();
     }

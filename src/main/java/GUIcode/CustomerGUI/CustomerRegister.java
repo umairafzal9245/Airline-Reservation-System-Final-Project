@@ -57,50 +57,55 @@ public class CustomerRegister implements Initializable {
     void RegisterUser(ActionEvent event) throws IOException {
         if(username.getText().length() == 0)
         {
-            username.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+            username.setStyle("-fx-background-color: transparent; -fx-border-color: red ; -fx-border-width: 0px 0px 2px 0px;");
         }
         else
         {
-            username.setStyle("fx-border-width: 0px");
+            username.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
             String userna = username.getText();
-            if(password.getText().length() == 0 || !isNumeric(password.getText()))
+            if(password.getText().length() == 0 || !isNumeric(password.getText()) || password.getText().length() != 4)
             {
-                password.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                password.setStyle("-fx-background-color: transparent; -fx-border-color: red ; -fx-border-width: 0px 0px 2px 0px;");
             }
             else
             {
-                password.setStyle("fx-border-width: 0px");
+                password.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                 String pass = password.getText();
-                if(passportnumber.getText().length() == 0 || !isNumeric(passportnumber.getText()))
+                if(passportnumber.getText().length() == 0 || !isNumeric(passportnumber.getText()) || passportnumber.getText().length() != 8)
                 {
-                    passportnumber.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                    passportnumber.setStyle("-fx-background-color: transparent; -fx-border-color: red ; -fx-border-width: 0px 0px 2px 0px;");
                 }
                 else
                 {
-                    passportnumber.setStyle("fx-border-width: 0px");
+                    passportnumber.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                     String passport = passportnumber.getText();
                     if(age.getText().length() == 0 || !isNumeric(age.getText()))
                     {
-                        age.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                        age.setStyle("-fx-background-color: transparent; -fx-border-color: red ; -fx-border-width: 0px 0px 2px 0px;");
                     }
                     else
                     {
-                        if(Integer.parseInt(age.getText()) < 18 || Integer.parseInt(age.getText()) > 100)
+                        if(Integer.parseInt(age.getText()) < 18)
                         {
-                            age.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                            age.setStyle("-fx-background-color: transparent; -fx-border-color: red ; -fx-border-width: 0px 0px 2px 0px;");
                             age.setText("must be over 18");
+                        }
+                        else if(Integer.parseInt(age.getText()) > 120)
+                        {
+                            age.setStyle("-fx-background-color: transparent; -fx-border-color: red ; -fx-border-width: 0px 0px 2px 0px;");
+                            age.setText("enter valid age");
                         }
                         else
                         {
-                            age.setStyle("fx-border-width: 0px");
+                            age.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                             String ag = age.getText();
                             if(address.getText().length() == 0)
                             {
-                                address.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                                address.setStyle("-fx-background-color: transparent; -fx-border-color: red ; -fx-border-width: 0px 0px 2px 0px;");
                             }
                             else
                             {
-                                address.setStyle("fx-border-width: 0px");
+                                address.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                                 String add = address.getText();
                                 String gen = gender.getValue();
                                 boolean flag = false;
