@@ -37,7 +37,7 @@ public class ManageFlights {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/DeleteFlight.fxml"));
         setDeleteAllFlightscene(new Scene(fxmlLoader.load(), 730, 620));
         HelloApplication.getWindow().setWidth(740);
-        HelloApplication.getWindow().setHeight(630);
+        HelloApplication.getWindow().setHeight(660);
         HelloApplication.getWindow().setScene(getDeleteAllFlightscene());
         HelloApplication.getWindow().show();
     }
@@ -48,7 +48,7 @@ public class ManageFlights {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/ShowAllFlights.fxml"));
         setShowAllFlightscene(new Scene(fxmlLoader.load(), 500, 500));
         HelloApplication.getWindow().setWidth(740);
-        HelloApplication.getWindow().setHeight(630);
+        HelloApplication.getWindow().setHeight(660);
         HelloApplication.getWindow().setScene(getShowAllFlightscene());
         HelloApplication.getWindow().show();
     }

@@ -90,6 +90,8 @@ public class AdminFunctionsController {
     {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/ViewAllCustomersTable.fxml"));
             setViewallcustomersscene(new Scene(fxmlLoader.load(), 500, 500));
+            HelloApplication.getWindow().setHeight(540);
+            HelloApplication.getWindow().setWidth(640);
             HelloApplication.getWindow().setScene(getViewallcustomersscene());
             HelloApplication.getWindow().show();
     }
@@ -99,7 +101,7 @@ public class AdminFunctionsController {
 
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/ViewAllReservations.fxml"));
             setViewallresevationsscene(new Scene(fxmlLoader.load(), 500, 500));
-            HelloApplication.getWindow().setHeight(500);
+            HelloApplication.getWindow().setHeight(540);
             HelloApplication.getWindow().setWidth(840);
             HelloApplication.getWindow().setScene(getViewallresevationsscene());
             HelloApplication.getWindow().show();

@@ -49,6 +49,8 @@ public class ViewAllCustomersTable implements Initializable {
     ObservableList<Customer> customerslist = FXCollections.observableArrayList();
     @FXML
     void BackToMenu(ActionEvent event) {
+        HelloApplication.getWindow().setWidth(700);
+        HelloApplication.getWindow().setHeight(540);
         HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
         HelloApplication.getWindow().show();
     }
