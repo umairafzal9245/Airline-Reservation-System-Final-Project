@@ -89,7 +89,7 @@ public class AdminFunctionsController {
     void ViewAllCustomers(ActionEvent event) throws IOException
     {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/ViewAllCustomersTable.fxml"));
-            setViewallcustomersscene(new Scene(fxmlLoader.load(), 500, 500));
+            setViewallcustomersscene(new Scene(fxmlLoader.load(), 630, 500));
             HelloApplication.getWindow().setHeight(540);
             HelloApplication.getWindow().setWidth(640);
             HelloApplication.getWindow().setScene(getViewallcustomersscene());
@@ -100,9 +100,9 @@ public class AdminFunctionsController {
     void ViewAllReservations(ActionEvent event) throws IOException {
 
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/ViewAllReservations.fxml"));
-            setViewallresevationsscene(new Scene(fxmlLoader.load(), 500, 500));
+            setViewallresevationsscene(new Scene(fxmlLoader.load(), 840, 540));
             HelloApplication.getWindow().setHeight(540);
-            HelloApplication.getWindow().setWidth(840);
+            HelloApplication.getWindow().setWidth(850);
             HelloApplication.getWindow().setScene(getViewallresevationsscene());
             HelloApplication.getWindow().show();
     }

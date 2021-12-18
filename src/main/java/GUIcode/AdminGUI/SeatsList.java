@@ -40,6 +40,8 @@ public class SeatsList implements Initializable {
 
     @FXML
     void Exit(ActionEvent event) {
+        HelloApplication.getWindow().setWidth(790);
+        HelloApplication.getWindow().setHeight(660);
         HelloApplication.getWindow().setScene(ManageFlights.getShowAllFlightscene());
         HelloApplication.getWindow().show();
     }

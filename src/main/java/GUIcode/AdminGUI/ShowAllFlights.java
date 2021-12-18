@@ -218,19 +218,22 @@ public class ShowAllFlights implements Initializable {
     }
     private void addbutton()
     {
-        TableColumn<Flight,Void> colbtn = new TableColumn("View Seats");
+        TableColumn<Flight,Void> colbtn = new TableColumn("Seats");
         Callback<TableColumn<Flight,Void>, TableCell<Flight,Void>> cellfactory = new Callback<TableColumn<Flight, Void>, TableCell<Flight, Void>>() {
             @Override
             public TableCell<Flight, Void> call(TableColumn<Flight, Void> flightVoidTableColumn) {
                 final TableCell<Flight,Void> cell = new TableCell<Flight,Void>()
                 {
-                    private final Button btn = new Button("View Seats");
+                    private final Button btn = new Button("Show");
                     {
+                        btn.setStyle("-fx-background-color: #f44336; -fx-text-fill: rgba(255,255,255,0.98)");
                         btn.setOnAction((ActionEvent event) -> {
                             setData(getTableView().getItems().get(getIndex()).getId());
                             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/SeatsList.fxml"));
                             try {
-                                Scene myDialogScene = new Scene(fxmlLoader.load(), 500, 500);
+                                Scene myDialogScene = new Scene(fxmlLoader.load(), 400, 400);
+                                HelloApplication.getWindow().setWidth(430);
+                                HelloApplication.getWindow().setHeight(460);
                                 HelloApplication.getWindow().setScene(myDialogScene);
                                 HelloApplication.getWindow().show();
                             } catch (IOException e) {
@@ -257,20 +260,23 @@ public class ShowAllFlights implements Initializable {
     }
     private void addbutton1()
     {
-        TableColumn<Flight,Void> colbtn = new TableColumn("View Seats");
+        TableColumn<Flight,Void> colbtn = new TableColumn("Seats");
         Callback<TableColumn<Flight,Void>, TableCell<Flight,Void>> cellfactory = new Callback<TableColumn<Flight, Void>, TableCell<Flight, Void>>() {
             @Override
             public TableCell<Flight, Void> call(TableColumn<Flight, Void> flightVoidTableColumn) {
                 final TableCell<Flight,Void> cell = new TableCell<Flight,Void>()
                 {
-                    private final Button btn = new Button("View Seats");
+                    private final Button btn = new Button("Show");
                     {
+                        btn.setStyle("-fx-background-color: #f44336; -fx-text-fill: rgba(255,255,255,0.98)");
                         btn.setOnAction((ActionEvent event) -> {
 
                             setData(getTableView().getItems().get(getIndex()).getId());
-                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SeatsList.fxml"));
+                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/SeatsList.fxml"));
                             try {
-                                Scene myDialogScene = new Scene(fxmlLoader.load(), 500, 500);
+                                Scene myDialogScene = new Scene(fxmlLoader.load(), 400, 400);
+                                HelloApplication.getWindow().setWidth(430);
+                                HelloApplication.getWindow().setHeight(460);
                                 HelloApplication.getWindow().setScene(myDialogScene);
                                 HelloApplication.getWindow().show();
                             } catch (IOException e) {
