@@ -66,8 +66,8 @@
       <font>
          <Font name="System Bold" size="12.0" />
       </font></Button>
-   <DatePicker fx:id="departuredate" layoutX="169.0" layoutY="368.0" prefHeight="27.0" prefWidth="149.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-   <DatePicker fx:id="arrivaldate" layoutX="169.0" layoutY="448.0" prefHeight="27.0" prefWidth="150.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+   <DatePicker fx:id="departuredate" layoutX="169.0" layoutY="368.0" prefHeight="27.0" prefWidth="149.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" stylesheets="@date.css" />
+   <DatePicker fx:id="arrivaldate" layoutX="169.0" layoutY="448.0" prefHeight="27.0" prefWidth="150.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" stylesheets="@date.css" />
    <Button layoutX="21.0" layoutY="560.0" mnemonicParsing="false" onAction="#Back" style="-fx-background-color: #f44366;" text="Back" textFill="WHITE">
       <font>
          <Font name="System Bold" size="12.0" />
