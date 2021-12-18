@@ -68,76 +68,76 @@ public class AddNewFlight implements Initializable {
 
         String id = flightid.getText();
         if (id.length() == 0)
-            flightid.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+            flightid.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
         else
         {
-            flightid.setStyle("fx-border-width: 0px");
+            flightid.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
             if (origin.getSelectionModel().getSelectedItem() == null)
-                origin.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                origin.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
             else
             {
-                origin.setStyle("fx-border-width: 0px");
+                origin.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                 String org = origin.getSelectionModel().getSelectedItem();
 
                 if(destination.getSelectionModel().getSelectedItem() == null)
-                    destination.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                    destination.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
                 else {
-                    destination.setStyle("fx-border-width: 0px");
+                    destination.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                     String dest = destination.getSelectionModel().getSelectedItem();
 
                     if (dest.equalsIgnoreCase(org)) {
-                        destination.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
-                        origin.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                        destination.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
+                        origin.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
                     }
                     else
                     {
-                        origin.setStyle("fx-border-width: 0px");
-                        destination.setStyle("fx-border-width: 0px");
+                        origin.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
+                        destination.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                         dest = destination.getSelectionModel().getSelectedItem();
                         org = origin.getSelectionModel().getSelectedItem();
 
                         String capa = capacity.getText();
                         if (capa == null || capa.length() == 0 || !isNumeric(capa))
-                            capacity.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                            capacity.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
                         else {
-                            capacity.setStyle("fx-border-width: 0px");
+                            capacity.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                             int capac = Integer.parseInt(capa);
                             if (capac < 5) {
                                 capacity.setText("Greater than 5");
-                                capacity.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                                capacity.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
                             } else {
                                 String far = fares.getText();
                                 if (far == null || far.length() == 0 || !isNumeric(far))
-                                    fares.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                                    fares.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
                                 else {
-                                    fares.setStyle("fx-border-width: 0px");
+                                    fares.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                                     int fare = Integer.parseInt(far);
 
                                     String cl = classe.getSelectionModel().getSelectedItem();
                                     String typ = flighttype.getSelectionModel().getSelectedItem();
 
                                     if (departuredate.getValue() == null)
-                                        departuredate.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                                        departuredate.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
                                     else {
-                                        departuredate.setStyle("fx-border-width: 0px");
+                                        departuredate.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                                         LocalDate depdate = departuredate.getValue();
                                         String dept_date = depdate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
                                         String deptime = String.format("%02d", departurehours.getValue()) + ":" + String.format("%02d", departureminutes.getValue()) + " " + departurezone.getValue();
                                         if (typ.equalsIgnoreCase("Roundtrip")) {
                                             if (arrivaldate.getValue() == null)
-                                                arrivaldate.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                                                arrivaldate.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
                                             else {
-                                                arrivaldate.setStyle("fx-border-width: 0px");
+                                                arrivaldate.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                                                 LocalDate arrdate = arrivaldate.getValue();
                                                 String arr_date = arrdate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
                                                 if(arr_date.equalsIgnoreCase(dept_date))
                                                 {
-                                                    arrivaldate.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
-                                                    departuredate.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                                                    arrivaldate.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
+                                                    departuredate.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
                                                 }
                                                 else {
-                                                    arrivaldate.setStyle("fx-border-width: 0px");
-                                                    departuredate.setStyle("fx-border-width: 0px");
+                                                    arrivaldate.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
+                                                    departuredate.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                                                     String arrtime = String.format("%02d", arrivalhours.getValue()) + ":" + String.format("%02d", arrivalminutes.getValue()) + " " + arrivalzone.getValue();
                                                     boolean flag = false;
                                                     try {
@@ -196,6 +196,8 @@ public class AddNewFlight implements Initializable {
 
     @FXML
     void Back() {
+        HelloApplication.getWindow().setHeight(420);
+        HelloApplication.getWindow().setWidth(510);
         HelloApplication.getWindow().setScene(AdminFunctionsController.getManageflightsscene());
         HelloApplication.getWindow().show();
     }

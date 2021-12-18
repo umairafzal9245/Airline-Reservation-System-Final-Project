@@ -19,6 +19,7 @@ import javafx.util.Callback;
 import java.net.URL;
 import java.util.*;
 
+
 public class ViewAllCustomersTable implements Initializable {
 
     @FXML
@@ -62,6 +63,7 @@ public class ViewAllCustomersTable implements Initializable {
                 {
                     private final Button btn = new Button("Delete");
                     {
+                        btn.setStyle("-fx-background-color: #f44336; -fx-text-fill: rgba(255,255,255,0.98)");
                         btn.setOnAction((ActionEvent event) -> {
                             Integer pass = getTableView().getItems().get(getIndex()).getPassport_number();
                             boolean flag = false;

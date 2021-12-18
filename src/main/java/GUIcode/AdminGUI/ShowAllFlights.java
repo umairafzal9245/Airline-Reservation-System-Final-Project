@@ -95,6 +95,8 @@ public class ShowAllFlights implements Initializable {
 
     @FXML
     void Backtomainmenu(ActionEvent event) {
+        HelloApplication.getWindow().setHeight(420);
+        HelloApplication.getWindow().setWidth(510);
         HelloApplication.getWindow().setScene(AdminFunctionsController.getManageflightsscene());
         HelloApplication.getWindow().show();
     }

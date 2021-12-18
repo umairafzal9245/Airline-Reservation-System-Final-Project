@@ -59,6 +59,8 @@ public class ViewAllReservations implements Initializable {
 
     @FXML
     void BackToMenu(ActionEvent event) {
+        HelloApplication.getWindow().setWidth(700);
+        HelloApplication.getWindow().setHeight(540);
         HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
         HelloApplication.getWindow().show();
     }
@@ -73,6 +75,7 @@ public class ViewAllReservations implements Initializable {
                 {
                     private final Button btn = new Button("Cancel");
                     {
+                        btn.setStyle("-fx-background-color: #f44336; -fx-text-fill: rgba(255,255,255,0.98)");
                         btn.setOnAction((ActionEvent event) -> {
                             Integer ref = getTableView().getItems().get(getIndex()).getBookingreference();
                             Integer pass = getTableView().getItems().get(getIndex()).getCustomerPassport();

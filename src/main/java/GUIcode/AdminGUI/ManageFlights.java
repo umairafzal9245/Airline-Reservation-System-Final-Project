@@ -17,13 +17,17 @@ public class ManageFlights {
     @FXML
     void AddNewFlight(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/AddNewFlight.fxml"));
-        setAddNewFlightscene(new Scene(fxmlLoader.load(), 500, 500));
+        setAddNewFlightscene(new Scene(fxmlLoader.load(), 700, 600));
+        HelloApplication.getWindow().setWidth(700);
+        HelloApplication.getWindow().setHeight(640);
         HelloApplication.getWindow().setScene(getAddNewFlightscene());
         HelloApplication.getWindow().show();
     }
 
     @FXML
     void BackToMenu(ActionEvent event) {
+        HelloApplication.getWindow().setWidth(700);
+        HelloApplication.getWindow().setHeight(540);
         HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
         HelloApplication.getWindow().show();
     }
@@ -31,7 +35,9 @@ public class ManageFlights {
     @FXML
     void DeleteFlight(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/DeleteFlight.fxml"));
-        setDeleteAllFlightscene(new Scene(fxmlLoader.load(), 500, 500));
+        setDeleteAllFlightscene(new Scene(fxmlLoader.load(), 730, 620));
+        HelloApplication.getWindow().setWidth(740);
+        HelloApplication.getWindow().setHeight(630);
         HelloApplication.getWindow().setScene(getDeleteAllFlightscene());
         HelloApplication.getWindow().show();
     }
@@ -41,6 +47,8 @@ public class ManageFlights {
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/ShowAllFlights.fxml"));
         setShowAllFlightscene(new Scene(fxmlLoader.load(), 500, 500));
+        HelloApplication.getWindow().setWidth(740);
+        HelloApplication.getWindow().setHeight(630);
         HelloApplication.getWindow().setScene(getShowAllFlightscene());
         HelloApplication.getWindow().show();
     }

@@ -1,13 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="GUIcode.AdminGUI.ManageFlights">
-    <Button layoutX="147.0" layoutY="162.0" mnemonicParsing="false" onAction="#AddNewFlight" text="Add flight"/>
-    <Button layoutX="302.0" layoutY="162.0" mnemonicParsing="false" onAction="#DeleteFlight" text="Delete Flight"/>
-    <Button layoutX="147.0" layoutY="244.0" mnemonicParsing="false" onAction="#ShowAllFlights" text="Show All Flights"/>
-    <Button layoutX="302.0" layoutY="244.0" mnemonicParsing="false" onAction="#BackToMenu" text="Exit"/>
+<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.ManageFlights">
+   <ImageView fitHeight="400.0" fitWidth="501.0" opacity="0.67" pickOnBounds="true">
+      <image>
+         <Image url="@../luke-chesser-IGtutkXikuc-unsplash.jpg" />
+      </image>
+   </ImageView>
+    <Button layoutX="135.0" layoutY="137.0" mnemonicParsing="false" onAction="#AddNewFlight" prefHeight="79.0" prefWidth="100.0" style="-fx-background-color: #0598ff;" text="Add flight" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Button>
+    <Button layoutX="316.0" layoutY="137.0" mnemonicParsing="false" onAction="#DeleteFlight" prefHeight="79.0" prefWidth="100.0" style="-fx-background-color: #0598ff;" text="Delete Flight" textFill="#ebebeb">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Button>
+    <Button layoutX="229.0" layoutY="255.0" mnemonicParsing="false" onAction="#ShowAllFlights" prefHeight="79.0" prefWidth="100.0" style="-fx-background-color: #0598ff;" text="Show Flights" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Button>
+   <AnchorPane layoutX="40.0" layoutY="32.0" prefHeight="368.0" prefWidth="47.0" style="-fx-background-color: #0598ff;" />
+   <AnchorPane layoutX="30.0" layoutY="40.0" prefHeight="46.0" prefWidth="471.0" style="-fx-background-color: #0598ff;">
+      <children>
+          <Button layoutX="422.0" layoutY="11.0" mnemonicParsing="false" onAction="#BackToMenu" style="-fx-background-color: #f44336;" text="Exit" textFill="WHITE">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+      </children>
+   </AnchorPane>
+   <ImageView fitHeight="126.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@airplane.png" />
+      </image>
+   </ImageView>
 </AnchorPane>

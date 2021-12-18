@@ -1,40 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="551.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="GUIcode.AdminGUI.ShowAllFlights">
-    <TableView fx:id="Onewaytable" layoutX="3.0" layoutY="38.0" prefHeight="203.0" prefWidth="768.0">
+<AnchorPane prefHeight="620.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.ShowAllFlights">
+   <ImageView fitHeight="537.0" fitWidth="665.0" layoutX="41.0" layoutY="49.0" opacity="0.13" pickOnBounds="true">
+      <image>
+         <Image url="@../airplane.png" />
+      </image>
+   </ImageView>
+   <ImageView fitHeight="620.0" fitWidth="738.0" layoutX="2.0" layoutY="9.0" opacity="0.32" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <image>
+         <Image url="@../luke-chesser-IGtutkXikuc-unsplash.jpg" />
+      </image>
+   </ImageView>
+    <TableView fx:id="Onewaytable" layoutX="2.0" layoutY="107.0" prefHeight="213.0" prefWidth="735.0" stylesheets="@table.css">
       <columns>
-          <TableColumn fx:id="onewayid" prefWidth="47.0" text="ID"/>
-          <TableColumn fx:id="onewayorigin" prefWidth="84.0" text="Origin"/>
-          <TableColumn fx:id="onewaydestination" prefWidth="88.0" text="Destination"/>
-          <TableColumn fx:id="onewayfares" prefWidth="50.0" text="Fares"/>
-          <TableColumn fx:id="onewayclass" prefWidth="75.0" text="Class"/>
-          <TableColumn fx:id="onewaydeparturedate" prefWidth="106.0" text="Departure Date"/>
-          <TableColumn fx:id="onewaydeparturetime" prefWidth="112.0" text="Departure Time"/>
-          <TableColumn fx:id="onewaypassenger" prefWidth="122.0" text="Passengers"/>
+          <TableColumn fx:id="onewayid" editable="false" prefWidth="55.0" text="ID" />
+          <TableColumn fx:id="onewayorigin" editable="false" prefWidth="91.0" text="Origin" />
+          <TableColumn fx:id="onewaydestination" editable="false" prefWidth="89.0" text="Destination" />
+          <TableColumn fx:id="onewayfares" editable="false" prefWidth="59.0" text="Fares" />
+          <TableColumn fx:id="onewayclass" editable="false" prefWidth="82.0" text="Class" />
+          <TableColumn fx:id="onewaydeparturedate" editable="false" prefWidth="126.0" text="Departure Date" />
+          <TableColumn fx:id="onewaydeparturetime" editable="false" prefWidth="137.0" text="Departure Time" />
+          <TableColumn fx:id="onewaypassenger" editable="false" prefWidth="85.0" text="Passengers" />
       </columns>
     </TableView>
-    <TableView fx:id="twowaytable" layoutX="3.0" layoutY="276.0" prefHeight="212.0" prefWidth="775.0">
+    <TableView fx:id="twowaytable" layoutX="3.0" layoutY="369.0" prefHeight="250.0" prefWidth="735.0" stylesheets="@table.css">
       <columns>
-          <TableColumn fx:id="twowayid" prefWidth="42.0" text="ID"/>
-          <TableColumn fx:id="twowayorigin" prefWidth="64.0" text="Origin"/>
-          <TableColumn fx:id="twowaydestination" text="Destination"/>
-          <TableColumn fx:id="twowayfares" prefWidth="49.0" text="Fares"/>
-          <TableColumn fx:id="twowayclass" prefWidth="45.0" text="Class"/>
-          <TableColumn fx:id="twowaydeparturedate" prefWidth="96.0" text="Departure Date"/>
-          <TableColumn fx:id="twowaydeparturetime" prefWidth="99.0" text="Departure Time"/>
-          <TableColumn fx:id="twowayarrivaldate" prefWidth="75.0" text="Arrival Date"/>
-          <TableColumn fx:id="twowayarrivaltime" prefWidth="78.0" text="Arrival Time"/>
-          <TableColumn fx:id="twowaypassenger" minWidth="0.0" prefWidth="111.0" text="Passengers"/>
+          <TableColumn fx:id="twowayid" editable="false" prefWidth="42.0" text="ID" />
+          <TableColumn fx:id="twowayorigin" editable="false" prefWidth="64.0" text="Origin" />
+          <TableColumn fx:id="twowaydestination" editable="false" text="Destination" />
+          <TableColumn fx:id="twowayfares" editable="false" prefWidth="49.0" text="Fares" />
+          <TableColumn fx:id="twowayclass" editable="false" prefWidth="45.0" text="Class" />
+          <TableColumn fx:id="twowaydeparturedate" editable="false" prefWidth="96.0" text="Departure Date" />
+          <TableColumn fx:id="twowaydeparturetime" editable="false" prefWidth="99.0" text="Departure Time" />
+          <TableColumn fx:id="twowayarrivaldate" editable="false" prefWidth="75.0" text="Arrival Date" />
+          <TableColumn fx:id="twowayarrivaltime" editable="false" prefWidth="78.0" text="Arrival Time" />
+          <TableColumn fx:id="twowaypassenger" editable="false" minWidth="0.0" prefWidth="111.0" text="Passengers" />
       </columns>
     </TableView>
-    <Label layoutX="14.0" layoutY="14.0" text="Oneway Flights"/>
-    <Label layoutX="14.0" layoutY="249.0" text="Twoway Flights"/>
-    <Button layoutX="692.0" layoutY="500.0" mnemonicParsing="false" onAction="#Backtomainmenu" text="Back"/>
+   <Text fill="#0b5586" layoutX="14.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RoundTrip Flights">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Text>
+   <Text fill="#0b5586" layoutX="14.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OneWay Flights">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Text>
+   <Button mnemonicParsing="false" onAction="#Backtomainmenu" prefHeight="17.0" prefWidth="37.0" style="-fx-background-color: #f44366;" text="&lt;" textFill="#ffecec">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Button>
+   <Text fill="#0b5586" layoutX="288.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TOTAL FLIGHTS">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Text>
 </AnchorPane>

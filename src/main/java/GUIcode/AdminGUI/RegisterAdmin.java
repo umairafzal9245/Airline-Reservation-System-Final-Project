@@ -26,12 +26,16 @@ public class RegisterAdmin {
             Optional<ButtonType> input = newalert.showAndWait();
             if(input.get() == ButtonType.OK)
             {
+                HelloApplication.getWindow().setWidth(650);
+                HelloApplication.getWindow().setHeight(520);
                 HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
                 HelloApplication.getWindow().show();
             }
         }
         else
         {
+            HelloApplication.getWindow().setWidth(650);
+            HelloApplication.getWindow().setHeight(520);
             HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
             HelloApplication.getWindow().show();
         }
@@ -43,14 +47,14 @@ public class RegisterAdmin {
         if(username.getText().length() == 0 || password.getText().length() != 4)
         {
             if (username.getText().length() == 0)
-            username.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+            username.setStyle("-fx-background-color: transparent; -fx-border-color: red ; -fx-border-width: 0px 0px 2px 0px;");
             else
-                username.setStyle("fx-border-width: 0px");
+                username.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
 
             if (password.getText().length() != 4)
-                password.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                password.setStyle("-fx-background-color: transparent; -fx-border-color: red ; -fx-border-width: 0px 0px 2px 0px;");
             else
-                password.setStyle("fx-border-width: 0px");
+                password.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
         }
         else {
             boolean change = false;
@@ -69,6 +73,8 @@ public class RegisterAdmin {
                 message.setTitle("Details Changed");
                 message.setContentText("Details Successfully changed");
                 message.showAndWait();
+                HelloApplication.getWindow().setWidth(650);
+                HelloApplication.getWindow().setHeight(520);
                 HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
                 HelloApplication.getWindow().show();
             }

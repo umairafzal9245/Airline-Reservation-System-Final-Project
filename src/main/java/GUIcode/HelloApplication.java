@@ -20,10 +20,10 @@ public class HelloApplication extends Application
         setWindow(stage);
         getWindow().initStyle(StageStyle.UNDECORATED);
         getWindow().setResizable(false);
-        getWindow().setWidth(510);
-        getWindow().setHeight(330);
+        getWindow().setWidth(500);
+        getWindow().setHeight(300);
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SplashScreen.fxml"));
-        setSplashScene(new Scene(fxmlLoader.load(),510,330));
+        setSplashScene(new Scene(fxmlLoader.load(),500,300));
         getWindow().setTitle("Welcome to Airline Reservation System");
         getWindow().setScene(getSplashScene());
         getWindow().show();

@@ -90,6 +90,8 @@ public class DeleteFlight implements Initializable {
 
     @FXML
     void Backtomainmenu(ActionEvent event) {
+        HelloApplication.getWindow().setHeight(420);
+        HelloApplication.getWindow().setWidth(510);
         HelloApplication.getWindow().setScene(AdminFunctionsController.getManageflightsscene());
         HelloApplication.getWindow().show();
     }
@@ -97,9 +99,9 @@ public class DeleteFlight implements Initializable {
     void DeleteFlight(ActionEvent event)
     {
         if(flightidfield.getText().length() == 0)
-            flightidfield.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+            flightidfield.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
             else {
-            flightidfield.setStyle("fx-border-width: 0px");
+            flightidfield.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
             String flightid = flightidfield.getText();
             boolean change = false;
             try {

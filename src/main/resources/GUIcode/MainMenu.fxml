@@ -20,7 +20,7 @@
    </ImageView>
    <Text fill="WHITE" layoutX="-32.0" layoutY="-26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AIRLINE RESERVATION SYSTEM" textAlignment="CENTER" wrappingWidth="358.32421875" x="100.0" y="100.0">
       <font>
-         <Font name="System Bold" size="24.0" />
+         <Font size="24.0" />
       </font>
    </Text>
     <Button fx:id="MainAdminButton" alignment="CENTER" layoutX="286.0" layoutY="116.0" onAction="#InvokeAdminFunctions" prefHeight="174.0" prefWidth="184.0" style="-fx-background-color: transparent;" textFill="WHITE" AnchorPane.rightAnchor="30.0">
@@ -54,12 +54,12 @@
     </Button>
    <Text fill="WHITE" layoutX="80.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passengers" textAlignment="CENTER">
       <font>
-         <Font name="System Bold" size="18.0" />
+         <Font size="18.0" />
       </font>
    </Text>
-   <Text fill="WHITE" layoutX="350.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" textAlignment="CENTER">
+   <Text fill="WHITE" layoutX="335.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" textAlignment="CENTER" AnchorPane.bottomAnchor="84.482421875" AnchorPane.leftAnchor="335.0" AnchorPane.rightAnchor="108.7060546875" AnchorPane.topAnchor="291.576171875">
       <font>
-         <Font name="System Bold" size="18.0" />
+         <Font size="18.0" />
       </font>
    </Text>
 </AnchorPane>

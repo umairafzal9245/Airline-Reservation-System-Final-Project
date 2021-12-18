@@ -32,7 +32,7 @@ public class AdminFunctionsController {
         if(input.get() == ButtonType.OK)
         {
             MainController.getFlightReservationSystem().getAdmin().logout();
-            HelloApplication.getWindow().setHeight(440);
+            HelloApplication.getWindow().setHeight(430);
             HelloApplication.getWindow().setWidth(500);
             HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();
@@ -47,7 +47,7 @@ public class AdminFunctionsController {
             message.setTitle("Login");
             message.setContentText("Account Successfully logged out");
             message.showAndWait();
-            HelloApplication.getWindow().setHeight(440);
+            HelloApplication.getWindow().setHeight(430);
             HelloApplication.getWindow().setWidth(500);
             HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();
@@ -56,7 +56,9 @@ public class AdminFunctionsController {
     @FXML
     void ManageFlightSchedules(ActionEvent event) throws IOException {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/ManageFlights.fxml"));
-            setManageflightsscene(new Scene(fxmlLoader.load(), 500, 500));
+            setManageflightsscene(new Scene(fxmlLoader.load(), 500, 400));
+            HelloApplication.getWindow().setHeight(420);
+            HelloApplication.getWindow().setWidth(510);
             HelloApplication.getWindow().setScene(getManageflightsscene());
             HelloApplication.getWindow().show();
     }
@@ -65,7 +67,9 @@ public class AdminFunctionsController {
     void ModifyDetails(ActionEvent event) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/RegisterAdmin.fxml"));
-        setAdminregisterscene(new Scene(fxmlLoader.load(), 500, 500));
+        setAdminregisterscene(new Scene(fxmlLoader.load(), 400, 500));
+        HelloApplication.getWindow().setHeight(540);
+        HelloApplication.getWindow().setWidth(400);
         HelloApplication.getWindow().setScene(getAdminregisterscene());
         HelloApplication.getWindow().show();
     }
@@ -74,7 +78,9 @@ public class AdminFunctionsController {
     void ViewAdminDetails(ActionEvent event) throws IOException
     {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/ViewAdminDetails.fxml"));
-            setAdmindetailscene(new Scene(fxmlLoader.load(), 500, 500));
+            setAdmindetailscene(new Scene(fxmlLoader.load(), 400, 500));
+            HelloApplication.getWindow().setHeight(540);
+            HelloApplication.getWindow().setWidth(400);
             HelloApplication.getWindow().setScene(getAdmindetailscene());
             HelloApplication.getWindow().show();
     }
@@ -93,6 +99,8 @@ public class AdminFunctionsController {
 
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/ViewAllReservations.fxml"));
             setViewallresevationsscene(new Scene(fxmlLoader.load(), 500, 500));
+            HelloApplication.getWindow().setHeight(500);
+            HelloApplication.getWindow().setWidth(840);
             HelloApplication.getWindow().setScene(getViewallresevationsscene());
             HelloApplication.getWindow().show();
     }

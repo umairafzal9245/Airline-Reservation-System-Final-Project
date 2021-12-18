@@ -39,11 +39,13 @@ public class SplashController implements Initializable {
                     @Override
                     public void run() {
                         try {
-                            mainmenuscene = new Scene(FXMLLoader.load(getClass().getResource("MainMenu.fxml")));
+                            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MainMenu.fxml"));
+                            mainmenuscene = new Scene(fxmlLoader.load(),500,400);
                             Stage stage = new Stage();
                             stage.setScene(mainmenuscene);
-                            stage.setHeight(440);
+                            stage.setHeight(430);
                             stage.setWidth(500);
+                            stage.setResizable(false);
                             HelloApplication.getWindow().close();
                             HelloApplication.setWindow(stage);
                             HelloApplication.getWindow().show();

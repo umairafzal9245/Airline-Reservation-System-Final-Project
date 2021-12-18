@@ -46,7 +46,9 @@ public class LoginPage implements Initializable {
                 message.setContentText("You have successfully logged in!!!");
                 message.showAndWait();
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminResources/AdminFunctionsList.fxml"));
-                setAdminsfunctionscene(new Scene(fxmlLoader.load(), 500, 500));
+                setAdminsfunctionscene(new Scene(fxmlLoader.load(), 650, 500));
+                HelloApplication.getWindow().setWidth(650);
+                HelloApplication.getWindow().setHeight(520);
                 HelloApplication.getWindow().setScene(getAdminsfunctionscene());
                 HelloApplication.getWindow().show();
             }
@@ -64,7 +66,7 @@ public class LoginPage implements Initializable {
             Optional<ButtonType> input = newalert.showAndWait();
             if(input.get() == ButtonType.OK)
             {
-                HelloApplication.getWindow().setHeight(440);
+                HelloApplication.getWindow().setHeight(430);
                 HelloApplication.getWindow().setWidth(500);
                 HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
                 HelloApplication.getWindow().show();
@@ -72,7 +74,7 @@ public class LoginPage implements Initializable {
         }
         else
         {
-            HelloApplication.getWindow().setHeight(440);
+            HelloApplication.getWindow().setHeight(430);
             HelloApplication.getWindow().setWidth(500);
             HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();
