@@ -56,6 +56,7 @@ public class CustomerFunctions {
 
     @FXML
     void SearchFlight(ActionEvent event) throws IOException {
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/SearchFlight.fxml"));
         setSearchflightscene(new Scene(fxmlLoader.load(), 500, 500));
         HelloApplication.getWindow().setScene(getSearchflightscene());
@@ -85,8 +86,10 @@ public class CustomerFunctions {
             if(flag) {
                 Alert message = new Alert(Alert.AlertType.INFORMATION);
                 message.setTitle("Deleted ");
-                message.setContentText("You has been deleted");
-                message.showAndWait();
+                message.setContentText("Your account has been deleted");
+                message.show();
+                HelloApplication.getWindow().setHeight(430);
+                HelloApplication.getWindow().setWidth(500);
                 HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
                 HelloApplication.getWindow().show();
             }
@@ -97,7 +100,9 @@ public class CustomerFunctions {
     void DisplayAccountDetails(ActionEvent event) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/Displayaccount.fxml"));
-        setDisplayaccountscene(new Scene(fxmlLoader.load(), 500, 500));
+        setDisplayaccountscene(new Scene(fxmlLoader.load(), 500, 600));
+        HelloApplication.getWindow().setHeight(640);
+        HelloApplication.getWindow().setWidth(500);
         HelloApplication.getWindow().setScene(getDisplayaccountscene());
         HelloApplication.getWindow().show();
     }
@@ -110,7 +115,7 @@ public class CustomerFunctions {
         Optional<ButtonType> input = newalert.showAndWait();
         if(input.get() == ButtonType.OK) {
             MainController.getFlightReservationSystem().getCustomers().logoutallcustomer();
-            HelloApplication.getWindow().setHeight(440);
+            HelloApplication.getWindow().setHeight(430);
             HelloApplication.getWindow().setWidth(500);
             HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();
@@ -124,7 +129,7 @@ public class CustomerFunctions {
         message.setTitle("Login");
         message.setContentText("Account Successfully logged out");
         message.showAndWait();
-        HelloApplication.getWindow().setHeight(440);
+        HelloApplication.getWindow().setHeight(430);
         HelloApplication.getWindow().setWidth(500);
         HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
         HelloApplication.getWindow().show();

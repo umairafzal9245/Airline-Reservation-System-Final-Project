@@ -46,7 +46,7 @@ public class CustomerRegister implements Initializable {
         Optional<ButtonType> input = newalert.showAndWait();
         if(input.get() == ButtonType.OK)
         {
-            HelloApplication.getWindow().setHeight(440);
+            HelloApplication.getWindow().setHeight(430);
             HelloApplication.getWindow().setWidth(500);
             HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();
@@ -128,7 +128,9 @@ public class CustomerRegister implements Initializable {
                                     message.setContentText("Customer Successfully added");
                                     message.showAndWait();
                                     FXMLLoader fxmlLoader2 = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/CustomerFunctionsList.fxml"));
-                                    CustomerLoginScene.setCustomerfunctionsscene(new Scene(fxmlLoader2.load(), 500, 500));
+                                    CustomerLoginScene.setCustomerfunctionsscene(new Scene(fxmlLoader2.load(), 650, 500));
+                                    HelloApplication.getWindow().setWidth(650);
+                                    HelloApplication.getWindow().setHeight(540);
                                     HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
                                     HelloApplication.getWindow().show();
                                 }

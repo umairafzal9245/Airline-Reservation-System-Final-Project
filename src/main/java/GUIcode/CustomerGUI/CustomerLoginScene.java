@@ -62,7 +62,9 @@ public class CustomerLoginScene {
                     message.setContentText("You have successfully logged in!!!");
                     message.showAndWait();
                     FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/CustomerFunctionsList.fxml"));
-                    setCustomerfunctionsscene(new Scene(fxmlLoader.load(), 500, 500));
+                    setCustomerfunctionsscene(new Scene(fxmlLoader.load(), 650, 500));
+                    HelloApplication.getWindow().setWidth(650);
+                    HelloApplication.getWindow().setHeight(540);
                     HelloApplication.getWindow().setScene(getCustomerfunctionsscene());
                     HelloApplication.getWindow().show();
                 }
@@ -90,7 +92,7 @@ public class CustomerLoginScene {
             Optional<ButtonType> input = newalert.showAndWait();
             if(input.get() == ButtonType.OK)
             {
-                HelloApplication.getWindow().setHeight(440);
+                HelloApplication.getWindow().setHeight(430);
                 HelloApplication.getWindow().setWidth(500);
                 HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
                 HelloApplication.getWindow().show();
@@ -98,7 +100,7 @@ public class CustomerLoginScene {
         }
         else
         {
-            HelloApplication.getWindow().setHeight(440);
+            HelloApplication.getWindow().setHeight(430);
             HelloApplication.getWindow().setWidth(500);
             HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();

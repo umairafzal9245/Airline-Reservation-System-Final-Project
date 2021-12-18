@@ -36,6 +36,8 @@ public class Displayaccount implements Initializable {
 
     @FXML
     void BacktoMainMenu(ActionEvent event) {
+        HelloApplication.getWindow().setWidth(700);
+        HelloApplication.getWindow().setHeight(540);
         HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
         HelloApplication.getWindow().show();
     }
