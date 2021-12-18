@@ -56,9 +56,10 @@ public class CustomerFunctions {
 
     @FXML
     void SearchFlight(ActionEvent event) throws IOException {
-
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/SearchFlight.fxml"));
-        setSearchflightscene(new Scene(fxmlLoader.load(), 500, 500));
+        setSearchflightscene(new Scene(fxmlLoader.load(), 730, 500));
+        HelloApplication.getWindow().setHeight(540);
+        HelloApplication.getWindow().setWidth(730);
         HelloApplication.getWindow().setScene(getSearchflightscene());
         HelloApplication.getWindow().show();
     }
