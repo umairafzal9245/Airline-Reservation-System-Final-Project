@@ -58,6 +58,8 @@ public class PrintTicket implements Initializable {
 
     @FXML
     void Back() {
+        HelloApplication.getWindow().setHeight(540);
+        HelloApplication.getWindow().setWidth(860);
         HelloApplication.getWindow().setScene(CustomerFunctions.getShowreservations());
         HelloApplication.getWindow().show();
     }
@@ -70,7 +72,7 @@ public class PrintTicket implements Initializable {
         flightid.setText(object.getFlightid());
         customerpassport.setText(object.getCustomerPassport().toString());
         numberofpassenger.setText(Integer.toString(object.getTicket().getNumberofpassengers()));
-        fare.setText(Integer.toString(object.getTicket().getTotalfares()));
+        fare.setText(Integer.toString(object.getTicket().getTotalfares())+"$");
         classe.setText(object.getTicket().getType());
         Flight object2 = MainController.getFlightReservationSystem().getTotalflights().getFlight(object.getFlightid());
         flightid.setText(object2.getId());

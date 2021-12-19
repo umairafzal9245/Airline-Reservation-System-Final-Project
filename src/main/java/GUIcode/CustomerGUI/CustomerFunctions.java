@@ -25,7 +25,9 @@ public class CustomerFunctions {
     @FXML
     void PrintTicket(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/ShowReservations.fxml"));
-        setShowreservations(new Scene(fxmlLoader.load(), 500, 500));
+        setShowreservations(new Scene(fxmlLoader.load(), 850, 500));
+        HelloApplication.getWindow().setHeight(540);
+        HelloApplication.getWindow().setWidth(860);
         HelloApplication.getWindow().setScene(getShowreservations());
         HelloApplication.getWindow().show();
     }

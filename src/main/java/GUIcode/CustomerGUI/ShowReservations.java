@@ -74,11 +74,14 @@ public class ShowReservations implements Initializable {
                 {
                     private final Button btn = new Button("Show");
                     {
+                        btn.setStyle("-fx-background-color: #f44336; -fx-text-fill: rgba(255,255,255,0.98)");
                         btn.setOnAction((ActionEvent event) -> {
                             setRef(getTableView().getItems().get(getIndex()).getBookingreference());
                             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/PrintTicket.fxml"));
                             try {
-                                Scene myDialogScene = new Scene(fxmlLoader.load(), 500, 500);
+                                Scene myDialogScene = new Scene(fxmlLoader.load(), 750, 550);
+                                HelloApplication.getWindow().setHeight(590);
+                                HelloApplication.getWindow().setWidth(760);
                                 HelloApplication.getWindow().setScene(myDialogScene);
                                 HelloApplication.getWindow().show();
                             } catch (IOException e) {
@@ -106,6 +109,8 @@ public class ShowReservations implements Initializable {
 
     @FXML
     void BackToMenu(ActionEvent event) {
+        HelloApplication.getWindow().setWidth(700);
+        HelloApplication.getWindow().setHeight(540);
         HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
         HelloApplication.getWindow().show();
     }

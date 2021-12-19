@@ -21,8 +21,8 @@
         <columns>
             <TableColumn fx:id="flightid" prefWidth="59.0" resizable="false" text="Flightid" />
             <TableColumn fx:id="seatnumber" prefWidth="98.0" resizable="false" text="Seat Number" />
-            <TableColumn fx:id="customerpassport" prefWidth="127.0" resizable="false" text="Customer Passport" />
-            <TableColumn fx:id="bookingstatus" prefWidth="120.0" resizable="false" text="Booking Status" />
+            <TableColumn fx:id="customerpassport" prefWidth="111.0" resizable="false" text="Customer Passport" />
+            <TableColumn fx:id="bookingstatus" prefWidth="107.0" resizable="false" text="Booking Status" />
         </columns>
     </TableView>
     <Button layoutX="442.0" layoutY="511.0" mnemonicParsing="false" onAction="#Bookflight" style="-fx-background-color: #0598ff;" text="Book" textFill="WHITE" />
