@@ -41,7 +41,9 @@ public class CustomerFunctions {
     @FXML
     void CalculateFares(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/CalculateFares.fxml"));
-        setCalculatefares(new Scene(fxmlLoader.load(), 500, 500));
+        setCalculatefares(new Scene(fxmlLoader.load(), 730, 550));
+        HelloApplication.getWindow().setHeight(590);
+        HelloApplication.getWindow().setWidth(800);
         HelloApplication.getWindow().setScene(getCalculatefares());
         HelloApplication.getWindow().show();
     }

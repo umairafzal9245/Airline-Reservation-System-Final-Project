@@ -10,6 +10,11 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.ViewAdminDetails">
+   <ImageView fitHeight="500.0" fitWidth="400.0" layoutY="8.0" opacity="0.32" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <image>
+         <Image url="@../luke-chesser-IGtutkXikuc-unsplash.jpg" />
+      </image>
+   </ImageView>
     <Label layoutX="63.0" layoutY="250.0" prefHeight="34.0" prefWidth="93.0" text="Username">
         <font>
           <Font name="System Bold" size="12.0" />
@@ -21,16 +26,16 @@
           <Font name="System Bold" size="12.0" />
         </font>
     </Label>
-    <TextField fx:id="password" editable="false" layoutX="145.0" layoutY="320.0" prefHeight="34.0" prefWidth="167.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;"/>
+    <TextField fx:id="password" editable="false" layoutX="145.0" layoutY="320.0" prefHeight="34.0" prefWidth="167.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
     <Button fx:id="Back" layoutX="27.0" layoutY="453.0" mnemonicParsing="false" onAction="#BackToMenu" style="-fx-background-color: #f44336;" text="Back" textFill="WHITE" />
    <ImageView fitHeight="139.0" fitWidth="135.0" layoutX="132.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="133.0">
       <image>
          <Image url="@Admin.png" />
       </image>
    </ImageView>
-   <Text fill="#0598ff" layoutX="138.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Details">
+   <Text fill="#0b5586" layoutX="126.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Details">
       <font>
-         <Font size="20.0" />
+         <Font size="24.0" />
       </font>
    </Text>
 </AnchorPane>

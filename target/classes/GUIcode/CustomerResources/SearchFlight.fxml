@@ -30,21 +30,21 @@
       <font>
          <Font name="System Bold" size="12.0" />
       </font></Label>
-    <ComboBox fx:id="Originn" layoutX="122.0" layoutY="72.0" prefHeight="25.0" prefWidth="99.0" />
-    <ComboBox fx:id="Destination" layoutX="340.0" layoutY="72.0" prefHeight="25.0" prefWidth="99.0" />
-    <ChoiceBox fx:id="flighttype" layoutX="562.0" layoutY="72.0" onAction="#SelectFlightTable" prefHeight="25.0" prefWidth="99.0" />
+    <ComboBox fx:id="Originn" layoutX="122.0" layoutY="72.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+    <ComboBox fx:id="Destination" layoutX="340.0" layoutY="72.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+    <ChoiceBox fx:id="flighttype" layoutX="562.0" layoutY="72.0" onAction="#SelectFlightTable" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
     <TableView fx:id="Table" layoutX="14.0" layoutY="164.0" prefHeight="349.0" prefWidth="728.0" stylesheets="@../AdminResources/table.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
       <columns>
           <TableColumn fx:id="Id" prefWidth="49.0" text="Id" />
-          <TableColumn fx:id="Orig" prefWidth="56.0" text="Origin" />
-          <TableColumn fx:id="destination" prefWidth="82.0" text="Destination" />
-          <TableColumn fx:id="capacity" prefWidth="62.0" text="Capacity" />
-          <TableColumn fx:id="departuredate" prefWidth="95.0" text="Departure Date" />
-          <TableColumn fx:id="departuretime" prefWidth="94.0" text="Departure Time" />
-          <TableColumn fx:id="arrivaldate" prefWidth="78.0" text="Arrival Date" />
-          <TableColumn fx:id="arrivaltime" prefWidth="79.0" text="Arrival Time" />
-          <TableColumn fx:id="fare" prefWidth="41.0" text="Fares" />
-          <TableColumn fx:id="classe" prefWidth="78.0" text="Class" />
+          <TableColumn fx:id="Orig" prefWidth="85.0" text="Origin" />
+          <TableColumn fx:id="destination" prefWidth="84.0" text="Destination" />
+          <TableColumn fx:id="capacity" prefWidth="54.0" text="Capacity" />
+          <TableColumn fx:id="departuredate" prefWidth="91.0" text="Departure Date" />
+          <TableColumn fx:id="departuretime" prefWidth="95.0" text="Departure Time" />
+          <TableColumn fx:id="arrivaldate" prefWidth="74.0" text="Arrival Date" />
+          <TableColumn fx:id="arrivaltime" prefWidth="74.0" text="Arrival Time" />
+          <TableColumn fx:id="fare" prefWidth="43.0" text="Fares" />
+          <TableColumn fx:id="classe" prefWidth="65.0" text="Class" />
       </columns>
     </TableView>
     <Button layoutX="609.0" layoutY="117.0" mnemonicParsing="false" onAction="#SearchFlight" style="-fx-background-color: #0598ff;" text="Search" textFill="WHITE" />

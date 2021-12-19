@@ -89,6 +89,8 @@ public class CalculateFares implements Initializable {
     @FXML
     void Back()
     {
+        HelloApplication.getWindow().setWidth(700);
+        HelloApplication.getWindow().setHeight(540);
         HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
         HelloApplication.getWindow().show();
     }
@@ -96,20 +98,20 @@ public class CalculateFares implements Initializable {
     void SearchFlight(ActionEvent event) {
         if(Originn.getValue() == null || Originn.getValue().length() == 0)
         {
-            Originn.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+            Originn.setStyle("-fx-background-color: transparent; -fx-border-color: red;");
         }
         else {
-            Originn.setStyle("fx-border-width: 0px");
+            Originn.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff;");
             if (Destination.getValue() == null || Destination.getValue().length() == 0) {
-                Destination.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                Destination.setStyle("-fx-background-color: transparent; -fx-border-color: red;");
             } else {
-                Destination.setStyle("fx-border-width: 0px");
+                Destination.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff;");
                 if (Originn.getValue() == Destination.getValue()) {
-                    Destination.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
-                    Originn.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                    Destination.setStyle("-fx-background-color: transparent; -fx-border-color: red;");
+                    Originn.setStyle("-fx-background-color: transparent; -fx-border-color: red;");
                 } else {
-                    Originn.setStyle("fx-border-width: 0px");
-                    Destination.setStyle("fx-border-width: 0px");
+                    Originn.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff;");
+                    Destination.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff;");
                     boolean found = false;
                     ArrayList<Flight> flightlist = null;
                     try {
@@ -204,23 +206,24 @@ public class CalculateFares implements Initializable {
     }
     private void addbutton()
     {
-        TableColumn<Flight,Void> colbtn = new TableColumn("Action");
+        TableColumn<Flight,Void> colbtn = new TableColumn("Fares");
         Callback<TableColumn<Flight,Void>, TableCell<Flight,Void>> cellfactory = new Callback<TableColumn<Flight, Void>, TableCell<Flight, Void>>() {
             @Override
             public TableCell<Flight, Void> call(TableColumn<Flight, Void> flightVoidTableColumn) {
                 final TableCell<Flight,Void> cell = new TableCell<Flight,Void>()
                 {
-                    private final Button btn = new Button("CalculateFares");
+                    private final Button btn = new Button("Check");
                     {
+                        btn.setStyle("-fx-background-color: #f44336; -fx-text-fill: rgba(255,255,255,0.98)");
                         btn.setOnAction((ActionEvent event) -> {
                             data = getTableView().getItems().get(getIndex()).getId();
                             if(numberofpassengers.getText() == null || numberofpassengers.getText().length() == 0 || !isNumeric(numberofpassengers.getText()) || Integer.parseInt(numberofpassengers.getText()) == 0 || Integer.parseInt(numberofpassengers.getText()) > MainController.getFlightReservationSystem().getTotalflights().getFlight(data).getCapacity())
                             {
-                                numberofpassengers.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                                numberofpassengers.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
                             }
                             else
                             {
-                                numberofpassengers.setStyle("fx-border-width: 0px");
+                                numberofpassengers.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                                 int pass = Integer.parseInt(numberofpassengers.getText());
                                 int getfare = MainController.getFlightReservationSystem().getTotalflights().getFlight(data).getFares();
                                 fares.setText(Integer.toString(pass*getfare)+"$");

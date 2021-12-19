@@ -16,7 +16,7 @@
       <font>
          <Font name="System Bold" size="12.0" />
       </font></Button>
-    <Button layoutX="316.0" layoutY="137.0" mnemonicParsing="false" onAction="#DeleteFlight" prefHeight="79.0" prefWidth="100.0" style="-fx-background-color: #0598ff;" text="Delete Flight" textFill="#ebebeb">
+    <Button layoutX="316.0" layoutY="137.0" mnemonicParsing="false" onAction="#DeleteFlight" prefHeight="79.0" prefWidth="100.0" style="-fx-background-color: #0598ff;" text="Delete Flight" textFill="WHITE">
       <font>
          <Font name="System Bold" size="12.0" />
       </font></Button>

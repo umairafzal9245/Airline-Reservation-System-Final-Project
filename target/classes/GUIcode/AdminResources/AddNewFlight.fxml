@@ -14,6 +14,11 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.AddNewFlight">
+   <ImageView fitHeight="600.0" fitWidth="435.0" layoutX="7.0" opacity="0.25" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="0.0">
+      <image>
+         <Image url="@../luke-chesser-IGtutkXikuc-unsplash.jpg" />
+      </image>
+   </ImageView>
    <Label layoutX="63.0" layoutY="93.0" text="Flight ID">
       <font>
          <Font name="System Bold" size="12.0" />
@@ -34,8 +39,8 @@
       <font>
          <Font name="System Bold" size="12.0" />
       </font></Label>
-   <ComboBox fx:id="origin" layoutX="169.0" layoutY="128.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-   <ComboBox fx:id="destination" layoutX="169.0" layoutY="168.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+   <ComboBox fx:id="origin" layoutX="169.0" layoutY="128.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+   <ComboBox fx:id="destination" layoutX="169.0" layoutY="168.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
    <Label layoutX="63.0" layoutY="373.0" text="Departure Date">
       <font>
          <Font name="System Bold" size="12.0" />
@@ -58,24 +63,24 @@
       </font></Label>
    <TextField fx:id="flightid" layoutX="169.0" layoutY="88.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
    <TextField fx:id="fares" layoutX="169.0" layoutY="248.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-   <ChoiceBox fx:id="classe" layoutX="169.0" layoutY="288.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-   <ChoiceBox fx:id="flighttype" layoutX="169.0" layoutY="328.0" onAction="#Disabletwoway" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-   <ChoiceBox fx:id="departurezone" layoutX="322.0" layoutY="408.0" prefHeight="25.0" prefWidth="59.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-   <ChoiceBox fx:id="arrivalzone" layoutX="320.0" layoutY="488.0" prefHeight="25.0" prefWidth="59.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+   <ChoiceBox fx:id="classe" layoutX="169.0" layoutY="288.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+   <ChoiceBox fx:id="flighttype" layoutX="169.0" layoutY="328.0" onAction="#Disabletwoway" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+   <ChoiceBox fx:id="departurezone" layoutX="322.0" layoutY="408.0" prefHeight="25.0" prefWidth="59.0" style="-fx-border-color: #0598ff; -fx-background-color: transparent;" />
+   <ChoiceBox fx:id="arrivalzone" layoutX="320.0" layoutY="488.0" prefHeight="25.0" prefWidth="59.0" style="-fx-border-color: #0598ff; -fx-background-color: transparent;" />
    <Button layoutX="306.0" layoutY="560.0" mnemonicParsing="false" onAction="#AddFlight" style="-fx-background-color: #0598ff;" text="Add Flight" textFill="WHITE">
       <font>
          <Font name="System Bold" size="12.0" />
       </font></Button>
-   <DatePicker fx:id="departuredate" layoutX="169.0" layoutY="368.0" prefHeight="27.0" prefWidth="149.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" stylesheets="@date.css" />
-   <DatePicker fx:id="arrivaldate" layoutX="169.0" layoutY="448.0" prefHeight="27.0" prefWidth="150.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" stylesheets="@date.css" />
+   <DatePicker fx:id="departuredate" layoutX="169.0" layoutY="368.0" prefHeight="27.0" prefWidth="149.0" style="-fx-border-color: #0598ff;" stylesheets="@date.css" />
+   <DatePicker fx:id="arrivaldate" layoutX="169.0" layoutY="448.0" prefHeight="27.0" prefWidth="150.0" style="-fx-border-color: #0598ff;" stylesheets="@date.css" />
    <Button layoutX="21.0" layoutY="560.0" mnemonicParsing="false" onAction="#Back" style="-fx-background-color: #f44366;" text="Back" textFill="WHITE">
       <font>
          <Font name="System Bold" size="12.0" />
       </font></Button>
-   <Spinner fx:id="departurehours" editable="true" layoutX="169.0" layoutY="408.0" prefHeight="25.0" prefWidth="63.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-   <Spinner fx:id="departureminutes" editable="true" layoutX="245.0" layoutY="408.0" prefHeight="25.0" prefWidth="62.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-   <Spinner fx:id="arrivalhours" layoutX="169.0" layoutY="488.0" prefHeight="25.0" prefWidth="63.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-   <Spinner fx:id="arrivalminutes" layoutX="246.0" layoutY="488.0" prefHeight="25.0" prefWidth="59.0" style="-fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+   <Spinner fx:id="departurehours" editable="true" layoutX="169.0" layoutY="408.0" prefHeight="25.0" prefWidth="63.0" stylesheets="@spinner.css" />
+   <Spinner fx:id="departureminutes" editable="true" layoutX="245.0" layoutY="408.0" prefHeight="25.0" prefWidth="62.0" stylesheets="@spinner.css" />
+   <Spinner fx:id="arrivalhours" layoutX="169.0" layoutY="488.0" prefHeight="25.0" prefWidth="63.0" stylesheets="@spinner.css" />
+   <Spinner fx:id="arrivalminutes" layoutX="246.0" layoutY="488.0" prefHeight="25.0" prefWidth="59.0" stylesheets="@spinner.css" />
    <Label layoutX="63.0" layoutY="213.0" text="Capacity">
       <font>
          <Font name="System Bold" size="12.0" />
@@ -86,9 +91,9 @@
          <Image url="@alex-azabache-Wpq8c_gqPT0-unsplash.jpg" />
       </image>
    </ImageView>
-   <Text fill="#0598ff" layoutX="132.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Flight">
+   <Text fill="#0b5586" layoutX="150.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Flight">
       <font>
-         <Font size="20.0" />
+         <Font size="24.0" />
       </font>
    </Text>
 </AnchorPane>

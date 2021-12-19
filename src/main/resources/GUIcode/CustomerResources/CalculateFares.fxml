@@ -7,17 +7,34 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.CustomerGUI.CalculateFares">
-    <Label layoutX="40.0" layoutY="27.0" text="Origin" />
-    <Label layoutX="220.0" layoutY="27.0" text="Destination" />
-    <Label layoutX="385.0" layoutY="27.0" text="Flight Type" />
-    <ComboBox fx:id="Originn" layoutX="14.0" layoutY="59.0" prefHeight="25.0" prefWidth="84.0" />
-    <ComboBox fx:id="Destination" layoutX="201.0" layoutY="59.0" prefHeight="25.0" prefWidth="99.0" />
-    <ChoiceBox fx:id="flighttype" layoutX="373.0" layoutY="59.0" onAction="#SelectFlightTable" prefHeight="25.0" prefWidth="84.0" />
-    <TableView fx:id="Table" layoutX="14.0" layoutY="164.0" prefHeight="321.0" prefWidth="699.0">
+<AnchorPane prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.CustomerGUI.CalculateFares">
+   <ImageView fitHeight="550.0" fitWidth="800.0" layoutX="7.0" layoutY="15.0" opacity="0.32" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <image>
+         <Image url="@../luke-chesser-IGtutkXikuc-unsplash.jpg" />
+      </image>
+   </ImageView>
+    <Label layoutX="71.0" layoutY="95.0" text="Origin">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>
+    <Label layoutX="259.0" layoutY="95.0" text="Destination">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>
+    <Label layoutX="489.0" layoutY="95.0" text="Flight Type">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>
+    <ComboBox fx:id="Originn" layoutX="134.0" layoutY="90.0" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+    <ComboBox fx:id="Destination" layoutX="345.0" layoutY="90.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+    <ChoiceBox fx:id="flighttype" layoutX="571.0" layoutY="90.0" onAction="#SelectFlightTable" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+    <TableView fx:id="Table" layoutX="8.0" layoutY="225.0" prefHeight="325.0" prefWidth="730.0" stylesheets="@../AdminResources/table.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <columns>
             <TableColumn fx:id="Id" prefWidth="49.0" text="Id" />
             <TableColumn fx:id="Orig" prefWidth="56.0" text="Origin" />
@@ -31,10 +48,27 @@
             <TableColumn fx:id="classe" prefWidth="75.0" text="Class" />
         </columns>
     </TableView>
-    <Button layoutX="389.0" layoutY="117.0" mnemonicParsing="false" onAction="#SearchFlight" text="Search" />
-    <Button layoutX="649.0" layoutY="105.0" mnemonicParsing="false" onAction="#Back" text="Back" />
-   <TextField fx:id="numberofpassengers" layoutX="14.0" layoutY="117.0" />
-   <TextField fx:id="fares" layoutX="201.0" layoutY="117.0" />
-   <Text layoutX="45.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passengers" />
-   <Text layoutX="239.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fares" />
+    <Button layoutX="603.0" layoutY="162.0" mnemonicParsing="false" onAction="#SearchFlight" style="-fx-background-color: #0598ff;" text="Search" textFill="WHITE" />
+   <TextField fx:id="numberofpassengers" layoutX="155.0" layoutY="161.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+   <TextField fx:id="fares" layoutX="401.0" layoutY="161.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+   <Button layoutX="-1.0" mnemonicParsing="false" onAction="#Back" prefHeight="17.0" prefWidth="37.0" style="-fx-background-color: #f44366;" text="&lt;" textFill="#ffecec">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Button>
+   <Label layoutX="338.0" layoutY="166.0" text="Fares">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Label>
+   <Label layoutX="71.0" layoutY="166.0" text="Passengers">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Label>
+   <Text fill="#0b5586" layoutX="299.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calculate Fares">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Text>
 </AnchorPane>

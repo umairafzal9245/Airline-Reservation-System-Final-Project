@@ -30,9 +30,9 @@
       <font>
          <Font name="System Bold" size="12.0" />
       </font></Label>
-    <ComboBox fx:id="Originn" layoutX="122.0" layoutY="72.0" prefHeight="25.0" prefWidth="99.0" />
-    <ComboBox fx:id="Destination" layoutX="340.0" layoutY="72.0" prefHeight="25.0" prefWidth="99.0" />
-    <ChoiceBox fx:id="flighttype" layoutX="562.0" layoutY="72.0" onAction="#SelectFlightTable" prefHeight="25.0" prefWidth="99.0" />
+    <ComboBox fx:id="Originn" layoutX="122.0" layoutY="72.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+    <ComboBox fx:id="Destination" layoutX="340.0" layoutY="72.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+    <ChoiceBox fx:id="flighttype" layoutX="562.0" layoutY="72.0" onAction="#SelectFlightTable" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
     <TableView fx:id="Table" layoutX="14.0" layoutY="164.0" prefHeight="349.0" prefWidth="728.0" stylesheets="@../AdminResources/table.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
       <columns>
           <TableColumn fx:id="Id" prefWidth="49.0" text="Id" />

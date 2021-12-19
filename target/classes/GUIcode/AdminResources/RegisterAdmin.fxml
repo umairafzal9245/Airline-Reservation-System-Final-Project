@@ -11,6 +11,11 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.RegisterAdmin">
+   <ImageView fitHeight="500.0" fitWidth="400.0" layoutX="2.0" layoutY="7.0" opacity="0.32" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <image>
+         <Image url="@../luke-chesser-IGtutkXikuc-unsplash.jpg" />
+      </image>
+   </ImageView>
     <TextField fx:id="username" layoutX="135.0" layoutY="232.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter username" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
     <Label layoutX="62.0" layoutY="241.0" text="Username">
       <font>
@@ -23,14 +28,14 @@
     <Button fx:id="backbutton" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#BacktoMainMenu" style="-fx-background-color: #f44336;" text="Back" textFill="WHITE" />
     <Button fx:id="submitbutton" layoutX="171.0" layoutY="378.0" mnemonicParsing="false" onAction="#Changedetails" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #0598ff;" text="Change" textFill="WHITE" />
     <PasswordField fx:id="password" layoutX="136.0" layoutY="308.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-   <Text fill="#0598ff" layoutX="113.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Registration">
-      <font>
-         <Font size="20.0" />
-      </font>
-   </Text>
    <ImageView fitHeight="139.0" fitWidth="135.0" layoutX="131.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="133.0">
       <image>
          <Image url="@Admin.png" />
       </image>
    </ImageView>
+   <Text fill="#0b5586" layoutX="102.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Registration">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Text>
 </AnchorPane>

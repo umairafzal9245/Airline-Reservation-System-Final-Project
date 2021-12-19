@@ -81,6 +81,8 @@ public class SearchFlight implements Initializable {
     @FXML
     void Back()
     {
+        HelloApplication.getWindow().setWidth(700);
+        HelloApplication.getWindow().setHeight(540);
         HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
         HelloApplication.getWindow().show();
     }
@@ -88,20 +90,20 @@ public class SearchFlight implements Initializable {
     void SearchFlight(ActionEvent event) {
         if(Originn.getValue() == null || Originn.getValue().length() == 0)
         {
-            Originn.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+            Originn.setStyle("-fx-background-color: transparent; -fx-border-color: red;");
         }
         else {
-            Originn.setStyle("fx-border-width: 0px");
+            Originn.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff;");
             if (Destination.getValue() == null || Destination.getValue().length() == 0) {
-                Destination.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                Destination.setStyle("-fx-background-color: transparent; -fx-border-color: red;");
             } else {
-                Destination.setStyle("fx-border-width: 0px");
+                Destination.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff;");
                 if (Originn.getValue() == Destination.getValue()) {
-                    Destination.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
-                    Originn.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                    Destination.setStyle("-fx-background-color: transparent; -fx-border-color: red;");
+                    Originn.setStyle("-fx-background-color: transparent; -fx-border-color: red;");
                 } else {
-                    Originn.setStyle("fx-border-width: 0px");
-                    Destination.setStyle("fx-border-width: 0px");
+                    Originn.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff;");
+                    Destination.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff;");
                     boolean found = false;
                     ArrayList<Flight> flightlist = null;
                     try {
