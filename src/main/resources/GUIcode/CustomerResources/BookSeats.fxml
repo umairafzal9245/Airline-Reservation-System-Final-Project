@@ -5,28 +5,56 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="GUIcode.CustomerGUI.BookSeats">
-    <TableView fx:id="seatstable" layoutX="16.0" layoutY="116.0" prefHeight="333.0" prefWidth="470.0">
+<AnchorPane prefHeight="550.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.CustomerGUI.BookSeats">
+   <ImageView fitHeight="550.0" fitWidth="500.0" layoutX="10.0" layoutY="33.0" opacity="0.32" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <image>
+         <Image url="@../luke-chesser-IGtutkXikuc-unsplash.jpg" />
+      </image>
+   </ImageView>
+    <TableView fx:id="seatstable" layoutX="15.0" layoutY="172.0" prefHeight="333.0" prefWidth="470.0" stylesheets="@../AdminResources/table.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <columns>
-            <TableColumn fx:id="flightid" prefWidth="59.0" text="Flightid"/>
-            <TableColumn fx:id="seatnumber" prefWidth="98.0" text="Seat Number"/>
-            <TableColumn fx:id="customerpassport" prefWidth="127.0" text="Customer Passport"/>
-            <TableColumn fx:id="bookingstatus" prefWidth="106.0" text="Booking Status"/>
+            <TableColumn fx:id="flightid" prefWidth="59.0" resizable="false" text="Flightid" />
+            <TableColumn fx:id="seatnumber" prefWidth="98.0" resizable="false" text="Seat Number" />
+            <TableColumn fx:id="customerpassport" prefWidth="127.0" resizable="false" text="Customer Passport" />
+            <TableColumn fx:id="bookingstatus" prefWidth="120.0" resizable="false" text="Booking Status" />
         </columns>
     </TableView>
-    <Button layoutX="39.0" layoutY="461.0" mnemonicParsing="false" onAction="#Exit" text="Back"/>
-    <Button layoutX="415.0" layoutY="461.0" mnemonicParsing="false" onAction="#Bookflight" text="Book"/>
-    <TextField fx:id="cardname" layoutX="114.0" layoutY="32.0" prefHeight="25.0" prefWidth="136.0"/>
-    <TextField fx:id="cardnumber" layoutX="337.0" layoutY="32.0"/>
-    <TextField fx:id="cvv" layoutX="337.0" layoutY="71.0" prefHeight="25.0" prefWidth="108.0"/>
-    <Text layoutX="12.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CardHolder Name"/>
-    <Text layoutX="254.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Number"/>
-    <Text layoutX="303.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVV"/>
-    <Text layoutX="16.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expiry Date"/>
-    <ChoiceBox fx:id="expirymonth" layoutX="114.0" layoutY="71.0" prefHeight="25.0" prefWidth="60.0"/>
-    <ChoiceBox fx:id="expiryyear" layoutX="182.0" layoutY="71.0" prefHeight="25.0" prefWidth="72.0"/>
+    <Button layoutX="442.0" layoutY="511.0" mnemonicParsing="false" onAction="#Bookflight" style="-fx-background-color: #0598ff;" text="Book" textFill="WHITE" />
+    <TextField fx:id="cardname" layoutX="113.0" layoutY="88.0" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+    <TextField fx:id="cardnumber" layoutX="343.0" layoutY="88.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+    <TextField fx:id="cvv" layoutX="343.0" layoutY="127.0" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+    <Text layoutX="14.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CardHolder Name">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Text>
+    <Text layoutX="260.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Number">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Text>
+    <Text layoutX="309.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVV">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Text>
+    <Text layoutX="16.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expiry Date">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Text>
+    <ChoiceBox fx:id="expirymonth" layoutX="113.0" layoutY="127.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+    <ChoiceBox fx:id="expiryyear" layoutX="190.0" layoutY="127.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+   <Button mnemonicParsing="false" onAction="#Exit" prefHeight="17.0" prefWidth="37.0" style="-fx-background-color: #f44366;" text="&lt;" textFill="#ffecec">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Button>
+   <Text fill="#0b5586" layoutX="190.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Seats">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Text>
 </AnchorPane>

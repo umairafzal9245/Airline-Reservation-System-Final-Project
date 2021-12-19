@@ -55,6 +55,8 @@ public class BookSeats implements Initializable {
 
     @FXML
     void Exit(ActionEvent event) {
+        HelloApplication.getWindow().setHeight(540);
+        HelloApplication.getWindow().setWidth(780);
         HelloApplication.getWindow().setScene(CustomerFunctions.getBookflight());
         HelloApplication.getWindow().show();
     }
@@ -62,33 +64,33 @@ public class BookSeats implements Initializable {
     @FXML
     void Bookflight(ActionEvent event) {
         if (cardname == null || cardname.getText().length() == 0)
-            cardname.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+            cardname.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
         else {
-            cardname.setStyle("fx-border-width: 0px");
+            cardname.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
             String cardn = cardname.getText();
             if(cardnumber == null || cardnumber.getText().length() == 0 || !isNumeric(cardnumber.getText()) || cardnumber.getText().length() != 16)
-                cardnumber.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                cardnumber.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
             else
             {
-                cardnumber.setStyle("fx-border-width: 0px");
+                cardnumber.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                 String carnum = cardnumber.getText();
                 if(cvv == null || cvv.getText().length() > 3 || cvv.getText().length() == 0 || !isNumeric(cvv.getText()))
-                    cvv.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                    cvv.setStyle("-fx-background-color: transparent; -fx-border-color: red; -fx-border-width: 0px 0px 2px 0px;");
                 else
                 {
-                    cvv.setStyle("fx-border-width: 0px");
+                    cvv.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;");
                     Integer cv = Integer.parseInt(cvv.getText());
                     if(expirymonth.getValue() == null)
-                        expirymonth.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                        expirymonth.setStyle("-fx-background-color: transparent; -fx-border-color: red;");
                     else
                     {
-                        expirymonth.setStyle("fx-border-width: 0px");
+                        expirymonth.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff;");
                         String expmon = expirymonth.getValue();
                         if(expiryyear.getValue() == null)
-                            expiryyear.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                            expiryyear.setStyle("-fx-background-color: transparent; -fx-border-color: red;");
                         else
                         {
-                            expiryyear.setStyle("fx-border-width: 0px");
+                            expiryyear.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff;");
                             String expyear = expiryyear.getValue();
                             if(getSelectedseats().size() == 0)
                             {
@@ -149,6 +151,7 @@ public class BookSeats implements Initializable {
                 {
                     private final Button btn = new Button("Select");
                     {
+                        btn.setStyle("-fx-background-color: #f44336; -fx-text-fill: rgba(255,255,255,0.98)");
                         btn.setOnAction((ActionEvent event) -> {
                             int data = getTableView().getItems().get(getIndex()).getNumber();
                             if(btn.getText().equalsIgnoreCase("select"))

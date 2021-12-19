@@ -33,7 +33,9 @@ public class CustomerFunctions {
     @FXML
     void BookaFlight(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/BookFlight.fxml"));
-        setBookflight(new Scene(fxmlLoader.load(), 500, 500));
+        setBookflight(new Scene(fxmlLoader.load(), 500, 770));
+        HelloApplication.getWindow().setHeight(540);
+        HelloApplication.getWindow().setWidth(780);
         HelloApplication.getWindow().setScene(getBookflight());
         HelloApplication.getWindow().show();
     }

@@ -88,6 +88,8 @@ public class BookFlight implements Initializable {
     @FXML
     void Back()
     {
+        HelloApplication.getWindow().setWidth(700);
+        HelloApplication.getWindow().setHeight(540);
         HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
         HelloApplication.getWindow().show();
     }
@@ -95,20 +97,20 @@ public class BookFlight implements Initializable {
     void SearchFlight(ActionEvent event) {
         if(Originn.getValue() == null || Originn.getValue().length() == 0)
         {
-            Originn.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+            Originn.setStyle("-fx-background-color: transparent; -fx-border-color: red;");
         }
         else {
-            Originn.setStyle("fx-border-width: 0px");
+            Originn.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff;");
             if (Destination.getValue() == null || Destination.getValue().length() == 0) {
-                Destination.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                Destination.setStyle("-fx-background-color: transparent; -fx-border-color: red;");
             } else {
-                Destination.setStyle("fx-border-width: 0px");
+                Destination.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff;");
                 if (Originn.getValue() == Destination.getValue()) {
-                    Destination.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
-                    Originn.setStyle("-fx-border-color: red ; -fx-border-width: 2px;");
+                    Destination.setStyle("-fx-background-color: transparent; -fx-border-color: red;");
+                    Originn.setStyle("-fx-background-color: transparent; -fx-border-color: red;");
                 } else {
-                    Originn.setStyle("fx-border-width: 0px");
-                    Destination.setStyle("fx-border-width: 0px");
+                    Originn.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff;");
+                    Destination.setStyle("-fx-background-color: transparent; -fx-border-color: #0598ff;");
                     boolean found = false;
                     ArrayList<Flight> flightlist = null;
                     try {
@@ -192,14 +194,16 @@ public class BookFlight implements Initializable {
     }
     private void addbutton()
     {
-        TableColumn<Flight,Void> colbtn = new TableColumn("Book Flight");
+        TableColumn<Flight,Void> colbtn = new TableColumn("Action");
         Callback<TableColumn<Flight,Void>, TableCell<Flight,Void>> cellfactory = new Callback<TableColumn<Flight, Void>, TableCell<Flight, Void>>() {
             @Override
             public TableCell<Flight, Void> call(TableColumn<Flight, Void> flightVoidTableColumn) {
                 final TableCell<Flight,Void> cell = new TableCell<Flight,Void>()
                 {
-                    private final Button btn = new Button("Book Seats");
+
+                    private final Button btn = new Button("Book");
                     {
+                        btn.setStyle("-fx-background-color: #f44336; -fx-text-fill: rgba(255,255,255,0.98)");
                         btn.setOnAction((ActionEvent event) -> {
                             data = getTableView().getItems().get(getIndex()).getId();
                             boolean flag = true;
@@ -217,7 +221,9 @@ public class BookFlight implements Initializable {
                             if(flag) {
                                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/BookSeats.fxml"));
                                 try {
-                                    setBookseatsscene(new Scene(fxmlLoader.load(), 500, 500));
+                                    setBookseatsscene(new Scene(fxmlLoader.load(), 500, 550));
+                                    HelloApplication.getWindow().setWidth(510);
+                                    HelloApplication.getWindow().setHeight(590);
                                     HelloApplication.getWindow().setScene(getBookseatsscene());
                                     HelloApplication.getWindow().show();
                                 } catch (IOException e) {
