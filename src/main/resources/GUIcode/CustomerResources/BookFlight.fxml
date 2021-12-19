@@ -15,7 +15,7 @@
 <AnchorPane prefHeight="500.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.CustomerGUI.BookFlight">
    <ImageView fitHeight="500.0" fitWidth="770.0" layoutX="12.0" layoutY="25.0" opacity="0.32" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <image>
-         <Image url="@../luke-chesser-IGtutkXikuc-unsplash.jpg" />
+         <Image url="@luke-chesser-IGtutkXikuc-unsplash.jpg" />
       </image>
    </ImageView>
     <Label layoutX="112.0" layoutY="79.0" text="Origin">

@@ -26,7 +26,7 @@
       </font>
     </Label>
     <ImageView fitHeight="118.0" fitWidth="110.0" layoutX="179.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="432.0" AnchorPane.leftAnchor="171.0" AnchorPane.rightAnchor="171.0" AnchorPane.topAnchor="0.0">
-        <Image url="@../team.png" />
+        <Image url="@team.png" />
     </ImageView>
     <Button layoutX="14.0" layoutY="506.0" mnemonicParsing="false" onAction="#BacktoMainMenu" style="-fx-background-color: #f44336;" text="Back" textFill="#fff9f9" />
     <TextField fx:id="age" layoutX="199.0" layoutY="329.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter age" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />

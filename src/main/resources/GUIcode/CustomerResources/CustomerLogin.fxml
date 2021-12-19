@@ -37,7 +37,7 @@
    </AnchorPane>
    <ImageView fitHeight="145.0" fitWidth="119.0" layoutX="148.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
       <image>
-         <Image url="@../team.png" />
+         <Image url="@team.png" />
       </image>
    </ImageView>
    <Text fill="#0598ff" layoutX="147.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Login">

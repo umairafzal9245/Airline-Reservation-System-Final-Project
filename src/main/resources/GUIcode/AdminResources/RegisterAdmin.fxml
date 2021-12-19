@@ -13,7 +13,7 @@
 <AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.RegisterAdmin">
    <ImageView fitHeight="500.0" fitWidth="400.0" layoutX="2.0" layoutY="7.0" opacity="0.32" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <image>
-         <Image url="@../luke-chesser-IGtutkXikuc-unsplash.jpg" />
+         <Image url="@../CustomerResources/luke-chesser-IGtutkXikuc-unsplash.jpg" />
       </image>
    </ImageView>
     <TextField fx:id="username" layoutX="135.0" layoutY="232.0" prefHeight="35.0" prefWidth="170.0" promptText="Enter username" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />

@@ -15,7 +15,7 @@
 <AnchorPane prefHeight="500.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.CustomerGUI.SearchFlight">
    <ImageView fitHeight="500.0" fitWidth="730.0" layoutX="14.0" layoutY="54.0" opacity="0.32" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <image>
-         <Image url="@../luke-chesser-IGtutkXikuc-unsplash.jpg" />
+         <Image url="@luke-chesser-IGtutkXikuc-unsplash.jpg" />
       </image>
    </ImageView>
     <Label layoutX="74.0" layoutY="76.0" text="Origin">

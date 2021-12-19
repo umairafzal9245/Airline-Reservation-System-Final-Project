@@ -12,7 +12,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.SeatsList">
    <ImageView fitHeight="421.0" fitWidth="414.0" opacity="0.32" pickOnBounds="true">
       <image>
-         <Image url="@../luke-chesser-IGtutkXikuc-unsplash.jpg" />
+         <Image url="@../CustomerResources/luke-chesser-IGtutkXikuc-unsplash.jpg" />
       </image>
    </ImageView>
     <TableView fx:id="seatstable" layoutY="88.0" prefHeight="333.0" prefWidth="414.0" stylesheets="@table.css">

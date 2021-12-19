@@ -8,7 +8,6 @@ module GUIDependencies {
     requires java.sql;
     requires org.hibernate.orm.core;
     requires java.naming;
-    requires fontawesomefx;
 
     opens GUIcode to javafx.fxml;
     exports GUIcode;

@@ -9,7 +9,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.ManageFlights">
    <ImageView fitHeight="400.0" fitWidth="501.0" opacity="0.67" pickOnBounds="true">
       <image>
-         <Image url="@../luke-chesser-IGtutkXikuc-unsplash.jpg" />
+         <Image url="@../CustomerResources/luke-chesser-IGtutkXikuc-unsplash.jpg" />
       </image>
    </ImageView>
     <Button layoutX="135.0" layoutY="137.0" mnemonicParsing="false" onAction="#AddNewFlight" prefHeight="79.0" prefWidth="100.0" style="-fx-background-color: #0598ff;" text="Add flight" textFill="WHITE">

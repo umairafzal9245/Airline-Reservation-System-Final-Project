@@ -16,7 +16,7 @@
 <AnchorPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.AddNewFlight">
    <ImageView fitHeight="600.0" fitWidth="435.0" layoutX="7.0" opacity="0.25" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="265.0" AnchorPane.topAnchor="0.0">
       <image>
-         <Image url="@../luke-chesser-IGtutkXikuc-unsplash.jpg" />
+         <Image url="@../CustomerResources/luke-chesser-IGtutkXikuc-unsplash.jpg" />
       </image>
    </ImageView>
    <Label layoutX="63.0" layoutY="93.0" text="Flight ID">

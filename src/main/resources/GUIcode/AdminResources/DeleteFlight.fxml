@@ -14,12 +14,12 @@
 <AnchorPane prefHeight="620.0" prefWidth="730.0" stylesheets="@table.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIcode.AdminGUI.DeleteFlight">
    <ImageView fitHeight="551.0" fitWidth="654.0" layoutX="42.0" layoutY="39.0" opacity="0.13" pickOnBounds="true">
       <image>
-         <Image url="@../airplane.png" />
+         <Image url="@../CustomerResources/airplane.png" />
       </image>
    </ImageView>
    <ImageView fitHeight="620.0" fitWidth="735.0" layoutY="2.0" opacity="0.32" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <image>
-         <Image url="@../luke-chesser-IGtutkXikuc-unsplash.jpg" />
+         <Image url="@../CustomerResources/luke-chesser-IGtutkXikuc-unsplash.jpg" />
       </image>
    </ImageView>
     <Button layoutY="10.0" mnemonicParsing="false" onAction="#Backtomainmenu" prefHeight="17.0" prefWidth="37.0" style="-fx-background-color: #f44366;" text="&lt;" textFill="#ffecec" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
