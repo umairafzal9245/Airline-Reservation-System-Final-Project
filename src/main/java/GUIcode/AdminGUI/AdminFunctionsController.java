@@ -47,7 +47,7 @@ public class AdminFunctionsController {
             message.setTitle("Login");
             message.setContentText("Account Successfully logged out");
             message.showAndWait();
-            HelloApplication.getWindow().setHeight(420);
+            HelloApplication.getWindow().setHeight(430);
             HelloApplication.getWindow().setWidth(500);
             HelloApplication.getWindow().setScene(SplashController.getMainmenuscene());
             HelloApplication.getWindow().show();

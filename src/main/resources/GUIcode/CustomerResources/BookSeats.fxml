@@ -19,10 +19,10 @@
    </ImageView>
     <TableView fx:id="seatstable" layoutX="15.0" layoutY="172.0" prefHeight="333.0" prefWidth="470.0" stylesheets="@../AdminResources/table.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <columns>
-            <TableColumn fx:id="flightid" prefWidth="59.0" resizable="false" text="Flightid" />
-            <TableColumn fx:id="seatnumber" prefWidth="98.0" resizable="false" text="Seat Number" />
-            <TableColumn fx:id="customerpassport" prefWidth="111.0" resizable="false" text="Customer Passport" />
-            <TableColumn fx:id="bookingstatus" prefWidth="107.0" resizable="false" text="Booking Status" />
+            <TableColumn fx:id="flightid" editable="false" prefWidth="59.0" resizable="false" text="Flightid" />
+            <TableColumn fx:id="seatnumber" editable="false" prefWidth="79.0" resizable="false" text="Seat Number" />
+            <TableColumn fx:id="customerpassport" editable="false" prefWidth="126.0" resizable="false" text="Customer Passport" />
+            <TableColumn fx:id="bookingstatus" editable="false" prefWidth="92.0" resizable="false" text="Booking Status" />
         </columns>
     </TableView>
     <Button layoutX="442.0" layoutY="511.0" mnemonicParsing="false" onAction="#Bookflight" style="-fx-background-color: #0598ff;" text="Book" textFill="WHITE" />

@@ -55,7 +55,9 @@ public class CustomerFunctions {
     @FXML
     void CancelReservation(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CustomerResources/CancelReservation.fxml"));
-        setCancelreservationscene(new Scene(fxmlLoader.load(), 500, 500));
+        setCancelreservationscene(new Scene(fxmlLoader.load(), 840, 500));
+        HelloApplication.getWindow().setHeight(540);
+        HelloApplication.getWindow().setWidth(850);
         HelloApplication.getWindow().setScene(getCancelreservationscene());
         HelloApplication.getWindow().show();
     }

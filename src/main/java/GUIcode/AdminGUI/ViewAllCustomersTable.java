@@ -2,6 +2,7 @@ package GUIcode.AdminGUI;
 
 import BusinessLogic.Customer;
 import BusinessLogic.Customer;
+import GUIcode.CustomerGUI.CustomerFunctions;
 import GUIcode.HelloApplication;
 import GUIcode.MainController;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -85,6 +86,9 @@ public class ViewAllCustomersTable implements Initializable {
                             {
                                 setcustomer();
                                 setroutine();
+                                HelloApplication.getWindow().setWidth(650);
+                                HelloApplication.getWindow().setHeight(520);
+                                HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
                                 Alert message = new Alert(Alert.AlertType.INFORMATION);
                                 message.setTitle("Customer Deleted");
                                 message.setContentText("Customer Deleted Succesfully");

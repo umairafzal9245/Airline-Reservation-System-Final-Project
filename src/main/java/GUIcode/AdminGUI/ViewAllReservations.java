@@ -96,6 +96,9 @@ public class ViewAllReservations implements Initializable {
                             {
                                 setReservation();
                                 setroutine();
+                                HelloApplication.getWindow().setWidth(650);
+                                HelloApplication.getWindow().setHeight(520);
+                                HelloApplication.getWindow().setScene(LoginPage.getAdminsfunctionscene());
                                 Alert message = new Alert(Alert.AlertType.INFORMATION);
                                 message.setTitle("Reservation Deleted");
                                 message.setContentText("Reservation Deleted Succesfully");

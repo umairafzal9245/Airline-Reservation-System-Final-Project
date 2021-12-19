@@ -66,6 +66,7 @@ public class CancelReservation implements Initializable {
                 {
                     private final Button btn = new Button("Cancel");
                     {
+                        btn.setStyle("-fx-background-color: #f44336; -fx-text-fill: rgba(255,255,255,0.98)");
                         btn.setOnAction((ActionEvent event) -> {
                             Integer ref = getTableView().getItems().get(getIndex()).getBookingreference();
                             boolean flag = false;
@@ -85,6 +86,9 @@ public class CancelReservation implements Initializable {
                             {
                                 setReservation();
                                 setroutine();
+                                HelloApplication.getWindow().setWidth(650);
+                                HelloApplication.getWindow().setHeight(540);
+                                HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
                                 Alert message = new Alert(Alert.AlertType.INFORMATION);
                                 message.setTitle("Reservation Deleted");
                                 message.setContentText("Reservation Deleted Succesfully");
@@ -113,8 +117,10 @@ public class CancelReservation implements Initializable {
     public void setReservation()
     {
         reservationlist = FXCollections.observableArrayList();
-        ArrayList<Reservation> reservationarray = MainController.getFlightReservationSystem().GetReservations();
-        reservationlist.addAll(reservationarray);
+        ArrayList<Reservation> reservationarray;
+        reservationarray = MainController.getFlightReservationSystem().GetReservations();
+        for (int i=0;i<reservationarray.size();i++)
+        reservationlist.add(reservationarray.get(i));
     }
 
     public void setroutine()
@@ -178,6 +184,8 @@ public class CancelReservation implements Initializable {
     }
     @FXML
     void BackToMenu(ActionEvent event) {
+        HelloApplication.getWindow().setWidth(700);
+        HelloApplication.getWindow().setHeight(540);
         HelloApplication.getWindow().setScene(CustomerLoginScene.getCustomerfunctionsscene());
         HelloApplication.getWindow().show();
     }
