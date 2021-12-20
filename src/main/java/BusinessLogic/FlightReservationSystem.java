@@ -101,7 +101,8 @@ public class FlightReservationSystem
     }
 
     // Refunding Money: Paisy Wapis
-    public void CancelReservation(int reference) throws BookingReferenceNotown, InvalidBookingReferenceException {
+    public void CancelReservation(int reference) throws BookingReferenceNotown, InvalidBookingReferenceException
+    {
         Integer passport = customers.getCustomerslist().get(customers.searchcustomerloggedin()).getPassport_number();
 
         final String[] flightid = {new String()};

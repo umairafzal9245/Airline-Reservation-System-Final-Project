@@ -25,7 +25,7 @@ public class CustomerAccounts
         Customer object = new Customer(name,gender,age,address,passport_number,loginpin,login,bal);
         if(searchCustomer(passport_number) != -1)
         {
-            throw new CustomerAlreadyPresentException("\nCustomer already registered\n");
+            throw new CustomerAlreadyPresentException("Customer already registered");
         }
         Customerslist.add(object);
         FlightReservationSystem.database.AddCustomer(name, gender, age, address, passport_number, loginpin,bal);
@@ -71,6 +71,14 @@ public class CustomerAccounts
         {
             System.out.println("\n\tThe customers succefully logged in ");
         }
+    }
+    public Customer Getcustomer(Integer passport)
+    {
+        for (int i = 0; i < Customerslist.size(); i++) {
+            if (Customerslist.get(i).getPassport_number().equals(passport))
+                return Customerslist.get(i);
+        }
+        return null;
     }
     public int searchcustomerloggedin()
     {

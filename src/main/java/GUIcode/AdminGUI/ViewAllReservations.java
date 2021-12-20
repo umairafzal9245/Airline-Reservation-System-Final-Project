@@ -82,6 +82,7 @@ public class ViewAllReservations implements Initializable {
                             boolean flag = false;
                             try
                             {
+                                MainController.getFlightReservationSystem().getCustomers().Getcustomer(pass).setBalance(MainController.getFlightReservationSystem().getCustomers().Getcustomer(pass).getBalance() + MainController.getFlightReservationSystem().getReservations().getReservation(ref).getTicket().getTotalfares());
                                 MainController.getFlightReservationSystem().CancelReservation(ref,pass);
                                 flag = true;
                             }

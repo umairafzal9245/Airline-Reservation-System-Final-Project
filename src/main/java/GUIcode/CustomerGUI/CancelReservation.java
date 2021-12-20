@@ -72,6 +72,7 @@ public class CancelReservation implements Initializable {
                             boolean flag = false;
                             try
                             {
+                                MainController.getFlightReservationSystem().getCustomers().getLoggedInCustomer().setBalance(MainController.getFlightReservationSystem().getCustomers().getLoggedInCustomer().getBalance() + MainController.getFlightReservationSystem().getReservations().getReservation(ref).getTicket().getTotalfares());
                                 MainController.getFlightReservationSystem().CancelReservation(ref);
                                 flag = true;
                             }

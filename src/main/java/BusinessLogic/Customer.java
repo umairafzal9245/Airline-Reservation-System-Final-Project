@@ -55,7 +55,7 @@ public class Customer
         if(this.loginpin == loginpin)
             logincheck = true;
         else
-            throw new PinUnverifiedException("\n\tLogin pin is not correct");
+            throw new PinUnverifiedException("Login pin is not correct");
     }
     public boolean isLogin()
     {
