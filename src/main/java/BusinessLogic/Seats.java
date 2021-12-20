@@ -8,9 +8,10 @@ import javax.persistence.*;
 public class Seats
 {
     @Id
-    @Column(name = "FlightId")
+    @Column(name = "FlightId",unique = false)
     private String FlightId;
 
+    @Id
     @Column(name = "Seat_Number")
     private int number;
 
@@ -18,7 +19,7 @@ public class Seats
     private String status;
 
     @Id
-    @Column(name = "CustomerPassport")
+    @Column(name = "CustomerPassport",unique = false)
     private Integer CustomerPassport;
 
     @Transient

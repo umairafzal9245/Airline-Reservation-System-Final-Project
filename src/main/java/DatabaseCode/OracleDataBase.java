@@ -141,11 +141,17 @@ public class OracleDataBase extends DataBaseHandler
     }
     public void CancelSeats(String flightid,Integer customerpassport)
     {
-        createconnection();
+        /*createconnection();
         Seats object = new Seats();
         object.setFlightid(flightid);
         object.setCustomerpassport(customerpassport);
         session.delete(object);
+        trans.commit();*/
+        createconnection();
+        Query query = session.createQuery("delete from Seats where FlightId = :value AND CustomerPassport = :value2");
+        query.setParameter("value", flightid);
+        query.setParameter("value2",customerpassport);
+        query.executeUpdate();
         trans.commit();
     }
     public void CancelSeats(String flightid)

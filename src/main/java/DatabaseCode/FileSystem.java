@@ -393,7 +393,8 @@ public class FileSystem extends DataBaseHandler
             Integer far = Integer.parseInt(tokens3.nextElement().toString());
             String cl = tokens3.nextElement().toString();
             String dt = tokens3.nextElement().toString();
-            object.getTicket().addticket(pass,far,cl);
+            String seat = tokens3.nextElement().toString();
+            object.getTicket().addticket(pass,far,cl,seat);
             object.getTicket().setBookingdateandtime(dt);
         }
         catch (Exception e)

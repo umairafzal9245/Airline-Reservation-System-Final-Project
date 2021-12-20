@@ -185,7 +185,12 @@ public class FlightReservationSystem
             object.setBookingreference(boo);
             object.getPayment().addpayment(holdername, cardnum, expiry, cvv);
             object.getPayment().setBookingreference(boo);
-            object.getTicket().addticket(numberofpassengers, totalfares, type);
+            String seat = "";
+            for (int i=0;i<seatnumbers.size();i++)
+            {
+                seat += seatnumbers.get(i) + ",";
+            }
+            object.getTicket().addticket(numberofpassengers, totalfares, type,seat);
             object.getTicket().setBookingreference(boo);
             object.getTicket().generatebookingdateandtime();
             reservations.addreservation(object);

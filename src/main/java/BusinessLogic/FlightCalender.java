@@ -116,6 +116,8 @@ public class FlightCalender
     }
     public void cancelseats(String id,Integer Passport)
     {
+        System.out.println(id);
+        System.out.println(Passport);
         int index = searchflight(id);
         for (int i=0;i<flightsschedule.get(index).getSeats().size();i++)
         {
@@ -125,8 +127,8 @@ public class FlightCalender
                 flightsschedule.get(index).getSeats().get(i).setStatus("Free");
                 flightsschedule.get(index).getSeats().get(i).setCustomerpassport(0);
             }
-            FlightReservationSystem.database.CancelSeats(id,Passport);
         }
+        //FlightReservationSystem.database.CancelSeats(id,Passport);
         System.out.println("Seats have been cancelled!!!");
     }
     public void deleteflight(String id) throws NoFlightsFoundException, FlightIDIncorrectException

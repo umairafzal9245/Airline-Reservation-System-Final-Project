@@ -26,17 +26,22 @@ public class Tickets
     @Column(name = "BookingDateandTime")
     private String bookingdateandtime;
 
+    @Column(name = "SeatNumber")
+    private String seatnumbers;
+
     public Tickets()
     {
         numberofpassengers = 0;
         totalfares = 0;
         type = "";
+        seatnumbers = "";
     }
-    public void addticket(int numberofpassengers,int totalfares,String type)
+    public void addticket(int numberofpassengers,int totalfares,String type,String seatnumber)
     {
         this.numberofpassengers = numberofpassengers;
         this.totalfares = totalfares;
         this.type = type;
+        this.seatnumbers = seatnumber;
     }
     public void generatebookingdateandtime()
     {
@@ -79,5 +84,13 @@ public class Tickets
 
     public String getBookingdateandtime() {
         return bookingdateandtime;
+    }
+
+    public String getSeatnumbers() {
+        return seatnumbers;
+    }
+
+    public void setSeatnumbers(String seatnumbers) {
+        this.seatnumbers = seatnumbers;
     }
 }
