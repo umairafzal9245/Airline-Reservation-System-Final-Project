@@ -1,3 +1,5 @@
-12345678,dab no 2,22,Male,2131,umair afzal,2323
-123456,shell pump,22,Male,1234,asim sharif,4563
-132,ewafds,22,Male,1234,asad,3245
+12345678,Chakwal,21,Female,1234,Sameet Ikram,6704.090559381366
+11111111,Mansehra,22,Male,1111,Umair Afzal,9287.442612570607
+22222222,Islamabad,21,Female,2222,Zainab Kayani,4785.412544156774
+33333333,Multan,22,Male,3333,Hanzla Sibghat,2458.4946433486753
+44444444,Rawalpindi,30,Female,4444,Huma Nauman,9103.114741000752

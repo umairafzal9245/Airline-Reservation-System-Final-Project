@@ -1,0 +1,4 @@
+1,Albania,50,First,1000,Afghanistan,24-12-2021,01:00 AM
+4,Korea,50,Business,1000,Malaysia,28-12-2021,08:40 AM
+7,Pakistan,55,First,1500,Oman,31-12-2021,10:30 PM
+8,Romania,50,Economy,1500,Portugal,28-12-2021,08:30 PM
