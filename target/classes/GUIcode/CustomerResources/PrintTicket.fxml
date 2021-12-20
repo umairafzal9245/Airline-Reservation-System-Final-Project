@@ -82,4 +82,10 @@
          <Font name="System Bold" size="12.0" />
       </font>
    </Label>
+   <Label layoutX="232.0" layoutY="482.0" text="Seat Numbers">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
+   </Label>
+   <TextField fx:id="seats" editable="false" layoutX="358.0" layoutY="477.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
 </AnchorPane>
