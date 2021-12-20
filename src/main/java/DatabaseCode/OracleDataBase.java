@@ -134,7 +134,7 @@ public class OracleDataBase extends DataBaseHandler
     {
         createconnection();
         ArrayList<Seats> seatsslist = new ArrayList<Seats>();
-        List<Seats>  one = session.createQuery("FROM Reservation ").list();
+        List<Seats>  one = session.createQuery("FROM Seats ").list();
         seatsslist.addAll(one);
 
         return seatsslist;
