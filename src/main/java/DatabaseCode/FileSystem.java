@@ -335,7 +335,7 @@ public class FileSystem extends DataBaseHandler
             fout.write(line.getBytes());
             fout.close();
             fout = new FileOutputStream("Tickets.txt",Reservationflag);
-            line = object.getTicket().getNumberofpassengers() + "," + object.getTicket().getTotalfares() + "," + object.getTicket().getType() + "," + object.getTicket().getBookingdateandtime() + "\n";
+            line = object.getTicket().getNumberofpassengers() + "," + object.getTicket().getTotalfares() + "," + object.getTicket().getType() + "," + object.getTicket().getBookingdateandtime() + "," + object.getTicket().getSeatnumbers() + "\n";
             fout.write(line.getBytes());
             fout.close();
         }
