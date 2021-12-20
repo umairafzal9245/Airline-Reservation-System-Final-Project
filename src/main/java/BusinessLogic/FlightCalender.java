@@ -128,7 +128,7 @@ public class FlightCalender
                 flightsschedule.get(index).getSeats().get(i).setCustomerpassport(0);
             }
         }
-        //FlightReservationSystem.database.CancelSeats(id,Passport);
+        FlightReservationSystem.database.CancelSeats(id,Passport);
         System.out.println("Seats have been cancelled!!!");
     }
     public void deleteflight(String id) throws NoFlightsFoundException, FlightIDIncorrectException
